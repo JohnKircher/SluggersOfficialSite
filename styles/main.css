@@ -230,8 +230,45 @@ body {
     }
     
     .mvp-card {
-        min-width: 250px;
+        min-width: 220px;
+        height: auto;
     }
+
+    .subtitle {
+        font-size: 1.2rem;
+        padding-right: 1rem;
+    }
+    
+    .twitch-text {
+        font-size: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .carousel-track {
+        gap: 1rem;
+    }
+
+    .mvp-card img {
+        height: 200px;
+    }
+
+    .bracket {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .round {
+        width: 90%;
+        align-items: center;
+    }
+
+    .match {
+        width: 100%;
+        max-width: 300px;
+    }
+    
 }
 
 @keyframes scroll-carousel {
@@ -540,4 +577,10 @@ body {
         text-shadow: 0 0 15px rgba(145, 70, 255, 1);
     }
 }
+
+.table-scroll {
+    overflow-x: auto;
+    width: 100%;
+}
+
 

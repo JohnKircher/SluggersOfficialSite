@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Sluggers League</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-text">
+            <h1 class="title">SUPER SLUGGERS LEAGUE</h1>
+            <h2 class="subtitle">League Created by John Kircher</h2>
+            <div class="twitch-plug">
+                <a href="https://twitch.tv/kircher" target="_blank">
+                  <img src="https://static.twitchcdn.net/assets/favicon-32-e29e246c157142c94346.png" alt="Twitch" class="twitch-icon">
+                </a>
+                <span class="twitch-text">Live every Tuesday/Thursday @ 5pm EST</span>
+              </div>
+              
+        </div>
+        <div class="scroll-down">⌄</div>
+    </header>
+    
+
+    <section class="mvp-carousel">
+        <h2>3+ LEAGUE MVPs</h2>
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <!-- MVP items will be added dynamically with JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <section class="seasons">
+        <div class="season-tabs">
+            <button class="tab active" data-season="Season1">Season 1</button>
+            <button class="tab" data-season="Season2">Season 2</button>
+        </div>
+
+        <div class="season-content active" id="Season1">
+            <div class="standings">
+                <div class="champion-banner">Champion: DK'S Swamp Monkeys</div>
+
+                <div class="playoffs">
+                    <h3>Season 1 Playoff Bracket</h3>
+                    <div class="bracket">
+                        <!-- Bracket will be generated with JS -->
+                    </div>
+                </div>
+                <br><br>
+                <h3>Season 1 Standings</h3>
+                <table class="standings-table">
+                    <thead>
+                        <tr>
+                            <th>Team</th>
+                            <th>W</th>
+                            <th>L</th>
+                            <th>PCT</th>
+                            <th>Diff</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <!-- Will be populated with JS -->
+                    </tbody>
+                </table>
+            </div>
+
+            
+        </div>
+
+        <div class="season-content" id="Season2">
+            <div class="standings">
+                <div class="champion-banner">Champion: BenT</div>
+
+                
+                <div class="playoffs">
+                    <h3>Season 2 Playoff Bracket</h3>
+                    <div class="bracket">
+                        <!-- Bracket will be generated with JS -->
+                    </div>
+                </div>
+                <br><br>
+                <h3>Season 2 Standings</h3>
+
+                <table class="standings-table">
+                    <thead>
+                        <tr>
+                            <th>Team</th>
+                            <th>W</th>
+                            <th>L</th>
+                            <th>PCT</th>
+                            <th>Diff</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Will be populated with JS -->
+                    </tbody>
+                </table>
+            </div>
+        
+            
+        </div>
+    </section>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>

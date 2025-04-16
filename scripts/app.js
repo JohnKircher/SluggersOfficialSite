@@ -73,15 +73,18 @@ const mvps = [
 ];
 
 // Duplicate for seamless scrolling
-const carouselData = [...mvps, ...mvps];
-
+// Replace the current carousel creation code with this:
 const track = document.querySelector('.carousel-track');
+const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+// Only duplicate for desktop
+const carouselData = isMobile ? mvps : [...mvps, ...mvps];
 
 carouselData.forEach((mvp) => {
     const slide = document.createElement('div');
     slide.className = 'mvp-card';
     slide.innerHTML = `
-        <img src="${mvp.image}" alt="${mvp.name}">
+        <img src="${mvp.image}" alt="${mvp.name}" loading="lazy">
         <div class="mvp-info">
             <h3>${mvp.name}</h3>
             <p>${mvp.team}</p>

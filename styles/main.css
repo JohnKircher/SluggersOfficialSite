@@ -233,8 +233,8 @@ body {
     }
     
     .mvp-card {
-        min-width: 85vw;
-        height: auto;
+        flex: 0 0 85vw;
+        scroll-snap-align: start;
     }
 
     .subtitle {
@@ -279,6 +279,16 @@ body {
     .bracket {
         gap: 2rem;
         padding: 0 1rem;
+    }
+
+    .carousel-container {
+        -webkit-overflow-scrolling: touch;
+        overflow-x: auto;
+        padding-bottom: 1rem;
+    }
+
+    .carousel-nav {
+        display: none;
     }
     
 }

@@ -6,6 +6,12 @@
     --card-bg: #2a2a2a;
 }
 
+html {
+    max-width: 100%;
+    overflow-x: hidden;
+    touch-action: pan-y;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -218,7 +224,7 @@ body {
 }
 
 .bracket {
-    display: flex;
+    display: grid;
     justify-content: center;
     margin-top: 2rem;
 }
@@ -253,20 +259,21 @@ body {
     }
 
     .bracket {
-        display: flex;
+        display: grid;
         flex-direction: column;
         align-items: center;
         gap: 2rem;
+        padding: 0 1rem;
     }
 
     .round {
-        width: 90%;
+        width: 100%;
         align-items: center;
     }
 
     .match {
+        max-width: 90vw;
         width: 100%;
-        max-width: 300px;
     }
     
 }
@@ -347,11 +354,6 @@ body {
     max-width: 200px;
 }
 
-.match .team {
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
-}
 
 .match .score {
     color: var(--accent-color);
@@ -365,24 +367,9 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     gap: 0.5rem;
-}
-
-.match .team {
     font-size: 0.75rem;
 }
 
-.match .team:hover::after {
-    content: attr(data-full);
-    position: absolute;
-    top: -1.5rem;
-    background: #444;
-    color: white;
-    font-size: 0.75rem;
-    padding: 0.2rem 0.5rem;
-    border-radius: 5px;
-    white-space: nowrap;
-    z-index: 10;
-}
 
 .round {
     position: relative;

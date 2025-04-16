@@ -74,13 +74,15 @@ const mvps = [
 
 // Duplicate for seamless scrolling
 // Replace the current carousel creation code with this:
+// Replace the current carousel code with this:
+
 const track = document.querySelector('.carousel-track');
+const prevButton = document.querySelector('.carousel-button.prev');
+const nextButton = document.querySelector('.carousel-button.next');
 const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
-// Only duplicate for desktop
-const carouselData = isMobile ? mvps : [...mvps, ...mvps];
-
-carouselData.forEach((mvp) => {
+// Only create one set of cards
+mvps.forEach((mvp) => {
     const slide = document.createElement('div');
     slide.className = 'mvp-card';
     slide.innerHTML = `
@@ -94,6 +96,82 @@ carouselData.forEach((mvp) => {
     `;
     track.appendChild(slide);
 });
+
+let currentIndex = 0;
+
+function updateCarousel() {
+    if (isMobile) {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+}
+
+function nextSlide() {
+    if (currentIndex < mvps.length - 1) {
+        currentIndex++;
+    } else {
+        currentIndex = 0;
+    }
+    updateCarousel();
+}
+
+function prevSlide() {
+    if (currentIndex > 0) {
+        currentIndex--;
+    } else {
+        currentIndex = mvps.length - 1;
+    }
+    updateCarousel();
+}
+
+// Only add event listeners for mobile
+if (isMobile) {
+    nextButton.addEventListener('click', nextSlide);
+    prevButton.addEventListener('click', prevSlide);
+    
+    // Optional: Add swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    track.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, {passive: true});
+    
+    track.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, {passive: true});
+    
+    function handleSwipe() {
+        if (touchEndX < touchStartX - 50) {
+            nextSlide();
+        }
+        if (touchEndX > touchStartX + 50) {
+            prevSlide();
+        }
+    }
+}
+
+// Keep desktop auto-scrolling
+if (!isMobile) {
+    // Duplicate for seamless scrolling
+    const carouselData = [...mvps, ...mvps];
+    track.innerHTML = '';
+    
+    carouselData.forEach((mvp) => {
+        const slide = document.createElement('div');
+        slide.className = 'mvp-card';
+        slide.innerHTML = `
+            <img src="${mvp.image}" alt="${mvp.name}">
+            <div class="mvp-info">
+                <h3>${mvp.name}</h3>
+                <p>${mvp.team}</p>
+                <p>${mvp.stats}</p>
+                <p class="mvp-count">${mvp.mvps} MVP Awards</p>
+            </div>
+        `;
+        track.appendChild(slide);
+    });
+}
 
 // Sample Standings Data
 const standings = {

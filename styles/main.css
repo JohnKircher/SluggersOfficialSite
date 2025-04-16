@@ -93,6 +93,13 @@ body {
     position: relative;
 }
 
+.carousel-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-carousel 45s linear infinite;
+    gap: 2rem;
+}
+
 .mvp-card {
     min-width: 300px;
     margin: 0 1rem;
@@ -226,8 +233,8 @@ body {
     }
     
     .mvp-card {
-        scroll-snap-align: start;
-        flex-shrink: 0;
+        min-width: 85vw;
+        height: auto;
     }
 
     .subtitle {
@@ -248,8 +255,12 @@ body {
         padding-bottom: 1rem;
     }
 
+    .carousel-track::-webkit-scrollbar {
+        display: none;
+    }
+
     .mvp-card img {
-        height: 200px;
+        height: 180px;
     }
 
 
@@ -279,12 +290,7 @@ body {
     }
 }
 
-.carousel-track {
-    display: flex;
-    width: max-content;
-    animation: scroll-carousel 45s linear infinite;
-    gap: 2rem;
-}
+
 
 
 .carousel-container {

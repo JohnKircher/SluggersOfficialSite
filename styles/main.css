@@ -93,12 +93,6 @@ body {
     position: relative;
 }
 
-.carousel-track {
-    display: flex;
-    transition: transform 0.5s ease;
-    padding: 2rem 0;
-}
-
 .mvp-card {
     min-width: 300px;
     margin: 0 1rem;
@@ -223,11 +217,7 @@ body {
     margin-top: 4rem;
 }
 
-.bracket {
-    display: grid;
-    justify-content: center;
-    margin-top: 2rem;
-}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -236,7 +226,7 @@ body {
     }
     
     .mvp-card {
-        min-width: 220px;
+        min-width: 85vw;
         height: auto;
     }
 
@@ -258,13 +248,6 @@ body {
         height: 200px;
     }
 
-    .bracket {
-        display: grid;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-        padding: 0 1rem;
-    }
 
     .round {
         width: 100%;
@@ -274,6 +257,11 @@ body {
     .match {
         max-width: 90vw;
         width: 100%;
+    }
+
+    .bracket {
+        gap: 2rem;
+        padding: 0 1rem;
     }
     
 }
@@ -370,10 +358,6 @@ body {
     font-size: 0.75rem;
 }
 
-
-.round {
-    position: relative;
-}
 
 .round.left::after,
 .round.semis-left::after,
@@ -569,5 +553,16 @@ body {
     overflow-x: auto;
     width: 100%;
 }
+
+.bracket-scroll {
+    overflow-x: auto;
+    width: 100%;
+    padding-bottom: 1rem;
+}
+
+.bracket {
+    min-width: 700px; /* or more if needed to fit all 5 columns */
+}
+
 
 

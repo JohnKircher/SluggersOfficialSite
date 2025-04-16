@@ -165,9 +165,9 @@ body {
 
 .carousel-track {
     display: flex;
+    gap: 2rem;
     transition: transform 0.5s ease;
-    width: 100%;
-}
+  }
 
 .mvp-card {
     min-width: 100%;
@@ -282,9 +282,9 @@ body {
     }
     
     .mvp-card {
-        min-width: 100%;
-        height: auto;
-    }
+        min-width: 85vw;
+        scroll-snap-align: start;
+      }
 
     .subtitle {
         font-size: 1.2rem;
@@ -297,14 +297,15 @@ body {
     }
 
     .carousel-track {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        animation: none;
         width: 100%;
-        gap: 0;
-    }
+      }
 
     .carousel-button {
-        width: 40px;
-        height: 40px;
-        font-size: 1.5rem;
+    display: none;
     }
 
     .carousel-track::-webkit-scrollbar {
@@ -313,7 +314,7 @@ body {
 
     .mvp-card img {
         height: auto;
-        max-height: 200px;
+        max-height: 180px;
         width: 100%;
         object-fit: contain;  /* was: cover */
     }

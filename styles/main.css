@@ -820,6 +820,39 @@ body {
   }
   
   
+  .view-cast-button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    background-color: #2a2a2a;
+    color: gold;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: none;
+    border: 2px solid gold;
+    transition: all 0.3s ease;
+    animation: pulseGlow 2s infinite;
+  }
+  
+  .view-cast-button:hover {
+    background-color: gold;
+    color: #1a1a1a;
+    transform: scale(1.05);
+  }
+  
+  @keyframes pulseGlow {
+    0% {
+      box-shadow: 0 0 8px rgba(255, 215, 0, 0.2);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    }
+    100% {
+      box-shadow: 0 0 8px rgba(255, 215, 0, 0.2);
+    }
+  }
+  
   
   
   

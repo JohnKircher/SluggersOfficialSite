@@ -854,6 +854,25 @@ body {
   }
   
   
+  .toggle-container {
+    margin-top: 1rem;
+  }
+  
+  #toggleStatsBtn {
+    background-color: #333;
+    color: gold;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    border: 2px solid gold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  #toggleStatsBtn:hover {
+    background-color: gold;
+    color: black;
+  }
   
   
   

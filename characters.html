@@ -33,28 +33,52 @@
         <option value="Technique">Technique</option>
         <option value="Balanced">Balanced</option>
       </select>
-    
-      <label for="avgFilter">Batting Avg:</label>
-      <select id="avgOperator">
-        <option value=">">Above</option>
-        <option value="<">Below</option>
-      </select>
-      <input type="number" id="avgFilter" step="0.001" placeholder="e.g. 0.300" />
-    
-      <label for="gamesPlayedFilter">Games Played:</label>
-      <select id="gamesPlayedOperator">
-        <option value=">">More than</option>
-        <option value="<">Less than</option>
-      </select>
-      <input type="number" id="gamesPlayedFilter" placeholder="e.g. 10" />
-    
-      <label for="gamesFilter">Home Runs:</label>
-      <select id="gamesOperator">
-        <option value=">">More than</option>
-        <option value="<">Less than</option>
-      </select>
-      <input type="number" id="gamesFilter" placeholder="e.g. 10" />
-    
+      <div id="battingFilters"> 
+        <label for="avgFilter">Batting Avg:</label>
+        <select id="avgOperator">
+          <option value=">">Above</option>
+          <option value="<">Below</option>
+        </select>
+        <input type="number" id="avgFilter" step="0.001" placeholder="e.g. 0.300" />
+      
+        <label for="gamesPlayedFilter">Games Played:</label>
+        <select id="gamesPlayedOperator">
+          <option value=">">More than</option>
+          <option value="<">Less than</option>
+        </select>
+        <input type="number" id="gamesPlayedFilter" placeholder="e.g. 10" />
+      
+        <label for="gamesFilter">Home Runs:</label>
+        <select id="gamesOperator">
+          <option value=">">More than</option>
+          <option value="<">Less than</option>
+        </select>
+        <input type="number" id="gamesFilter" placeholder="e.g. 10" />
+      </div>
+
+      <div id="pitchingFilters" style="display: none;">
+        <label for="ipFilter">Innings Pitched:</label>
+        <select id="ipOperator">
+          <option value=">">More than</option>
+          <option value="<">Less than</option>
+        </select>
+        <input type="number" id="ipFilter" step="0.1" placeholder="e.g. 10" />
+      
+        <label for="erFilter">Earned Runs:</label>
+        <select id="erOperator">
+          <option value=">">More than</option>
+          <option value="<">Less than</option>
+        </select>
+        <input type="number" id="erFilter" step="1" placeholder="e.g. 5" />
+      
+        <label for="baaFilter">BAA:</label>
+        <select id="baaOperator">
+          <option value=">">Above</option>
+          <option value="<">Below</option>
+        </select>
+        <input type="number" id="baaFilter" step="0.001" placeholder="e.g. 0.300" />
+      </div>
+      
       <button onclick="resetFilters()">Reset Filters</button>
 
       <div class="sort-container" style="margin-top: 1rem;">
@@ -65,6 +89,9 @@
           <option value="gp">Games Played</option>
           <option value="avg">Batting Average</option>
         </select>
+      </div>
+      <div class="toggle-container">
+        <button id="toggleStatsBtn">Switch to Pitching Stats</button>
       </div>
     </div>
 

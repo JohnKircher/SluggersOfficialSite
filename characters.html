@@ -22,31 +22,51 @@
     
 
     <div class="filter-container">
-        <label for="classFilter">Class:</label>
-        <select id="classFilter">
-          <option value="">All</option>
-          <option value="Power">Power</option>
-          <option value="Speed">Speed</option>
-          <option value="Technique">Technique</option>
-          <option value="Balanced">Balanced</option>
+      <label for="classFilter">Class:</label>
+      <select id="classFilter">
+        <option value="">All</option>
+        <option value="Power">Power</option>
+        <option value="Speed">Speed</option>
+        <option value="Technique">Technique</option>
+        <option value="Balanced">Balanced</option>
+      </select>
+    
+      <label for="avgFilter">Batting Avg:</label>
+      <select id="avgOperator">
+        <option value=">">Above</option>
+        <option value="<">Below</option>
+      </select>
+      <input type="number" id="avgFilter" step="0.001" placeholder="e.g. 0.300" />
+    
+      <label for="gamesPlayedFilter">Games Played:</label>
+      <select id="gamesPlayedOperator">
+        <option value=">">More than</option>
+        <option value="<">Less than</option>
+      </select>
+      <input type="number" id="gamesPlayedFilter" placeholder="e.g. 10" />
+    
+      <label for="gamesFilter">Home Runs:</label>
+      <select id="gamesOperator">
+        <option value=">">More than</option>
+        <option value="<">Less than</option>
+      </select>
+      <input type="number" id="gamesFilter" placeholder="e.g. 10" />
+    
+      <button onclick="resetFilters()">Reset Filters</button>
+
+      <div class="sort-container" style="margin-top: 1rem;">
+        <label for="sortOption">Sort By:</label>
+        <select id="sortOption">
+          <option value="">-- Select --</option>
+          <option value="games">Home Runs</option>
+          <option value="gp">Games Played</option>
+          <option value="avg">Batting Average</option>
         </select>
-      
-        <label for="avgFilter">Batting Avg:</label>
-        <select id="avgOperator">
-          <option value=">">Above</option>
-          <option value="<">Below</option>
-        </select>
-        <input type="number" id="avgFilter" step="0.001" placeholder="e.g. 0.300">
-      
-        <label for="gamesFilter">Games Played:</label>
-        <select id="gamesOperator">
-          <option value=">">More than</option>
-          <option value="<">Less than</option>
-        </select>
-        <input type="number" id="gamesFilter" placeholder="e.g. 10">
-      
-        <button onclick="applyFilters()">Apply Filters</button>
       </div>
+    </div>
+
+    
+    
       
 
     <div class="character-grid" id="characterGrid">

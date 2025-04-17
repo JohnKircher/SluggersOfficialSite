@@ -801,6 +801,25 @@ body {
   .filter-container button:hover {
     background-color: #e0b800;
   }
+
+  .mii-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: grey;
+    color: rgb(85, 83, 83);
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-size: 14px;
+    z-index: 2;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+  }
+  .character-card {
+    position: relative; /* Ensure badge stays within card */
+  }
+  
+  
   
   
   

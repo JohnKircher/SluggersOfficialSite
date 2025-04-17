@@ -18,7 +18,7 @@ const mvps = [
         name: "Bowser",
         team: "UNC & BenT",
         mvps: 5,
-        image: "assets/images/bowser.png",
+        image: "assets/images/bowser1.png",
         stats: "BA: .580 | HR: 23 | RBI: 47"
     },
     {
@@ -72,49 +72,53 @@ const mvps = [
     }
 ];
 
+
+
 // Duplicate for seamless scrolling
 // Replace the current carousel creation code with this:
 // Replace the current carousel code with this:
 
 const track = document.querySelector('.carousel-track');
-const prevButton = document.querySelector('.carousel-button.prev');
-const nextButton = document.querySelector('.carousel-button.next');
-const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
-if (isMobile) {
-    // MOBILE: No animation, scrollable cards
+if (track) {
+  const prevButton = document.querySelector('.carousel-button.prev');
+  const nextButton = document.querySelector('.carousel-button.next');
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+  if (isMobile) {
     mvps.forEach((mvp) => {
-        const slide = document.createElement('div');
-        slide.className = 'mvp-card';
-        slide.innerHTML = `
-            <img src="${mvp.image}" alt="${mvp.name}" loading="lazy">
-            <div class="mvp-info">
-                <h3>${mvp.name}</h3>
-                <p>${mvp.team}</p>
-                <p>${mvp.stats}</p>
-                <p class="mvp-count">${mvp.mvps} MVP Awards</p>
-            </div>
-        `;
-        track.appendChild(slide);
+      const slide = document.createElement('div');
+      slide.className = 'mvp-card';
+      slide.innerHTML = `
+        <img src="${mvp.image}" alt="${mvp.name}" loading="lazy">
+        <div class="mvp-info">
+          <h3>${mvp.name}</h3>
+          <p>${mvp.team}</p>
+          <p>${mvp.stats}</p>
+          <p class="mvp-count">${mvp.mvps} MVP Awards</p>
+        </div>
+      `;
+      track.appendChild(slide);
     });
-} else {
-    // DESKTOP: Animated auto-scroll with duplicates
-    const carouselData = [...mvps, ...mvps]; // Seamless scroll
+  } else {
+    const carouselData = [...mvps, ...mvps];
     carouselData.forEach((mvp) => {
-        const slide = document.createElement('div');
-        slide.className = 'mvp-card';
-        slide.innerHTML = `
-            <img src="${mvp.image}" alt="${mvp.name}">
-            <div class="mvp-info">
-                <h3>${mvp.name}</h3>
-                <p>${mvp.team}</p>
-                <p>${mvp.stats}</p>
-                <p class="mvp-count">${mvp.mvps} MVP Awards</p>
-            </div>
-        `;
-        track.appendChild(slide);
+      const slide = document.createElement('div');
+      slide.className = 'mvp-card';
+      slide.innerHTML = `
+        <img src="${mvp.image}" alt="${mvp.name}">
+        <div class="mvp-info">
+          <h3>${mvp.name}</h3>
+          <p>${mvp.team}</p>
+          <p>${mvp.stats}</p>
+          <p class="mvp-count">${mvp.mvps} MVP Awards</p>
+        </div>
+      `;
+      track.appendChild(slide);
     });
+  }
 }
+
 
 
 // Sample Standings Data
@@ -296,12 +300,211 @@ function updatePlayoffs(season) {
 
 
 // Initialize default season
-updateStandings('Season1');
-updatePlayoffs('Season1');
+if (document.querySelector('.standings-table')) {
+    updateStandings('Season1');
+    updateStandings('Season2');
+
+    // ✅ Set default visible tab and season
+    document.querySelector('.tab[data-season="Season1"]').classList.add("active");
+    document.getElementById("Season1").classList.add("active");
+    updatePlayoffs("Season1");
+
+    document.querySelectorAll(".tab").forEach((tab) => {
+        tab.addEventListener("click", function () {
+            document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+            document.querySelectorAll(".season-content").forEach(c => c.classList.remove("active"));
+            this.classList.add("active");
+            document.getElementById(this.dataset.season).classList.add("active");
+
+            // 👇 Add playoff rendering on tab click
+            updatePlayoffs(this.dataset.season);
+        });
+    });
+}
+
+  
 
 // Scroll to carousel
-document.querySelector('.scroll-down').addEventListener('click', () => {
-    document.querySelector('.mvp-carousel').scrollIntoView({
-        behavior: 'smooth'
+const scrollDownBtn = document.querySelector('.scroll-down');
+
+if (scrollDownBtn) {
+  scrollDownBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth'
     });
-});
+  });
+}
+
+
+  
+
+const characterGrid = document.getElementById("characterGrid");
+
+if (characterGrid) {
+    const characters = [
+        { name: "Baby Daisy", image: "assets/images/baby daisy.png", class: "Power", avg: 0.452, gp: 12, rbi: 5 },
+        { name: "Baby DK", image: "assets/images/baby dk.png", class: "Speed", avg: 0.467, gp: 20, rbi: 18 },
+        { name: "Baby Luigi", image: "assets/images/baby luigi.png", class: "Speed", avg: 0.333, gp: 10, rbi: 1 },
+        { name: "Baby Mario", image: "assets/images/baby mario.png", class: "Speed", avg: 0.200, gp: 4, rbi: 1 },
+        { name: "Baby Peach", image: "assets/images/baby peach.png", class: "Balanced", avg: 0.295, gp: 18, rbi: 3 },
+        { name: "Birdo", image: "assets/images/birdo.png", class: "Power", avg: 0.541, gp: 20, rbi: 25 },
+        { name: "Blooper", image: "assets/images/blooper.png", class: "Balanced", avg: 0.431, gp: 18, rbi: 5 },
+        { name: "Boo", image: "assets/images/boo.png", class: "Speed", avg: 0.619, gp: 19, rbi: 6 },
+        { name: "Boomerang Bro", image: "assets/images/boomerang bro.png", class: "Power", avg: 0.528, gp: 20, rbi: 27 },
+        { name: "Bowser", image: "assets/images/bowser.png", class: "Power", avg: 0.568, gp: 20, rbi: 47 },
+        { name: "Bowser Jr", image: "assets/images/bowser jr.png", class: "Technique", avg: 0.465, gp: 20, rbi: 14 },
+        { name: "Daisy", image: "assets/images/daisy.png", class: "Power", avg: 0.478, gp: 18, rbi: 15 },
+        { name: "Dark Bones", image: "assets/images/dark bones.png", class: "Balanced", avg: 0.658, gp: 20, rbi: 14 },
+        { name: "Diddy Kong", image: "assets/images/diddy kong.png", class: "Technique", avg: 0.500, gp: 20, rbi: 12 },
+        { name: "Dixie Kong", image: "assets/images/dixie kong.png", class: "Balanced", avg: 0.583, gp: 10, rbi: 5 },
+        { name: "Donkey Kong", image: "assets/images/donkey kong.png", class: "Power", avg: 0.667, gp: 20, rbi: 54 },
+        { name: "Dry Bones", image: "assets/images/dry bones.png", class: "Balanced", avg: 0.625, gp: 20, rbi: 16 },
+        { name: "Blue Dry Bones", image: "assets/images/blue dry bones.png", class: "Balanced", avg: 0.587, gp: 20, rbi: 9 },
+        { name: "Green Dry Bones", image: "assets/images/green dry bones.png", class: "Balanced", avg: 0.549, gp: 20, rbi: 17 },
+        { name: "Fire Bro", image: "assets/images/fire bro.png", class: "Power", avg: 0.577, gp: 20, rbi: 44 },
+        { name: "Funky Kong", image: "assets/images/funky kong.png", class: "Power", avg: 0.473, gp: 20, rbi: 23 },
+        { name: "Goomba", image: "assets/images/goomba.png", class: "Speed", avg: 0.0, gp: 0, rbi: 0 },
+        { name: "Hammer Bro", image: "assets/images/hammer bro.png", class: "Power", avg: 0.529, gp: 20, rbi: 34 },
+        { name: "King Boo", image: "assets/images/king boo.png", class: "Power", avg: 0.507, gp: 20, rbi: 37 },
+        { name: "King K Rool", image: "assets/images/king k rool.png", class: "Power", avg: 0.573, gp: 20, rbi: 44 },
+        { name: "Red Koopa Paratroopa", image: "assets/images/red koopa paratroopa.png", class: "Balanced", avg: 0.394, gp: 10, rbi: 0 },
+        { name: "Koopa Paratroopa", image: "assets/images/koopa paratroopa.png", class: "Balanced", avg: 0.270, gp: 10, rbi: 1 },
+        { name: "Koopa Troopa", image: "assets/images/koopa troopa.png", class: "Speed", avg: 0.367, gp: 15, rbi: 3 },
+        { name: "Red Koopa Troopa", image: "assets/images/red koopa troopa.png", class: "Speed", avg: 0.368, gp: 6, rbi: 4 },
+        { name: "Kritter", image: "assets/images/kritter.png", class: "Power", avg: 0.578, gp: 20, rbi: 31 },
+        { name: "Blue Kritter", image: "assets/images/blue kritter.png", class: "Power", avg: 0.444, gp: 20, rbi: 15 },
+        { name: "Brown Kritter", image: "assets/images/brown kritter.png", class: "Power", avg: 0.479, gp: 20, rbi: 29 },
+        { name: "Red Kritter", image: "assets/images/red kritter.png", class: "Power", avg: 0.453, gp: 20, rbi: 22 },
+        { name: "Luigi", image: "assets/images/luigi.png", class: "Speed", avg: 0.493, gp: 20, rbi: 5 },
+        { name: "Magikoopa", image: "assets/images/magikoopa.png", class: "Balanced", avg: 0.500, gp: 20, rbi: 9 },
+        { name: "Green Magikoopa", image: "assets/images/green magikoopa.png", class: "Balanced", avg: 0.554, gp: 20, rbi: 8 },
+        { name: "Red Magikoopa", image: "assets/images/red magikoopa.png", class: "Balanced", avg: 0.439, gp: 19, rbi: 1 },
+        { name: "Yellow Magikoopa", image: "assets/images/yellow magikoopa.png", class: "Balanced", avg: 0.512, gp: 12, rbi: 5 },
+        { name: "Mario", image: "assets/images/mario.png", class: "Balanced", avg: 0.583, gp: 20, rbi: 11 },
+        { name: "Monty Mole", image: "assets/images/monty mole.png", class: "Speed", avg: 0.0, gp: 0, rbi: 0 },
+        { name: "Blue Noki", image: "assets/images/noki.png", class: "Balanced", avg: 0.0, gp: 0, rbi: 0 },
+        { name: "Green Noki", image: "assets/images/green noki.png", class: "Balanced", avg: 0.174, gp: 6, rbi: 1 },
+        { name: "Red Noki", image: "assets/images/red noki.png", class: "Balanced", avg: 0.400, gp: 10, rbi: 2 },
+        { name: "Paragoomba", image: "assets/images/paragoomba.png", class: "Balanced", avg: 0.413, gp: 13, rbi: 3 },
+        { name: "Peach", image: "assets/images/peach.png", class: "Balanced", avg: 0.343, gp: 20, rbi: 6 },
+        { name: "Petey Piranha", image: "assets/images/petey piranha.png", class: "Power", avg: 0.429, gp: 20, rbi: 29 },
+        { name: "Pianta", image: "assets/images/pianta.png", class: "Speed", avg: 0.620, gp: 20, rbi: 12 },
+        { name: "Red Pianta", image: "assets/images/red pianta.png", class: "Speed", avg: 0.602, gp: 20, rbi: 11 },
+        { name: "Yellow Pianta", image: "assets/images/yellow pianta.png", class: "Speed", avg: 0.557, gp: 20, rbi: 17 },
+        { name: "Shy Guy", image: "assets/images/shy guy.png", class: "Technique", avg: 0.389, gp: 14, rbi: 5 },
+        { name: "Black Shy Guy", image: "assets/images/black shy guy.png", class: "Technique", avg: 0.367, gp: 18, rbi: 5 },
+        { name: "Blue Shy Guy", image: "assets/images/blue shy guy.png", class: "Technique", avg: 0.167, gp: 4, rbi: 0 },
+        { name: "Green Shy Guy", image: "assets/images/green shy guy.png", class: "Technique", avg: 0.310, gp: 18, rbi: 3 },
+        { name: "Yellow Shy Guy", image: "assets/images/yellow shy guy.png", class: "Technique", avg: 0.238, gp: 6, rbi: 2 },
+        { name: "Tiny Kong", image: "assets/images/tiny kong.png", class: "Balanced", avg: 0.475, gp: 20, rbi: 6 },
+        { name: "Toad", image: "assets/images/toad.png", class: "Speed", avg: 0.721, gp: 12, rbi: 2 },
+        { name: "Blue Toad", image: "assets/images/blue toad.png", class: "Speed", avg: 0.612, gp: 14, rbi: 8 },
+        { name: "Green Toad", image: "assets/images/green toad.png", class: "Speed", avg: 0.671, gp: 20, rbi: 22 },
+        { name: "Purple Toad", image: "assets/images/purple toad.png", class: "Speed", avg: 0.833, gp: 2, rbi: 1 },
+        { name: "Yellow Toad", image: "assets/images/yellow toad.png", class: "Speed", avg: 0.583, gp: 18, rbi: 16 },
+        { name: "Toadette", image: "assets/images/toadette.png", class: "Balanced", avg: 0.323, gp: 18, rbi: 7 },
+        { name: "Toadsworth", image: "assets/images/toadsworth.png", class: "Balanced", avg: 0.217, gp: 13, rbi: 4 },
+        { name: "Waluigi", image: "assets/images/waluigi.png", class: "Technique", avg: 0.549, gp: 20, rbi: 9 },
+        { name: "Wario", image: "assets/images/wario.png", class: "Technique", avg: 0.638, gp: 20, rbi: 21 },
+        { name: "Wiggler", image: "assets/images/wiggler.png", class: "Speed", avg: 0.720, gp: 20, rbi: 13 },
+        { name: "Yoshi", image: "assets/images/yoshi.png", class: "Speed", avg: 0.350, gp: 20, rbi: 11 },
+        { name: "Blue Yoshi", image: "assets/images/blue yoshi.png", class: "Speed", avg: 0.333, gp: 1, rbi: 0 },
+        { name: "Light Blue Yoshi", image: "assets/images/light blue yoshi.png", class: "Speed", avg: 0.0, gp: 0, rbi: 0 },
+        { name: "Pink Yoshi", image: "assets/images/pink yoshi.png", class: "Speed", avg: 0.585, gp: 12, rbi: 3 },
+        { name: "Red Yoshi", image: "assets/images/red yoshi.png", class: "Speed", avg: 0.378, gp: 13, rbi: 5 },
+        { name: "Yellow Yoshi", image: "assets/images/yellow yoshi.png", class: "Speed", avg: 0.0, gp: 0, rbi: 0 },
+        { name: "Black Widow", image: "assets/images/black widow.png", class: "Balanced", avg: 0.467, gp: 9, rbi: 7 },
+        { name: "Borat", image: "assets/images/borat.jpg", class: "Balanced", avg: 0.443, gp: 20, rbi: 11 },
+        { name: "Captain Jack", image: "assets/images/capt.jack.jpg", class: "Balanced", avg: 0.407, gp: 8, rbi: 3 },
+        { name: "Chicken", image: "assets/images/chicken.jpg", class: "Balanced", avg: 0.411, gp: 16, rbi: 5 },
+        { name: "Dwayne Wade", image: "assets/images/dwyanewade.jpg", class: "Balanced", avg: 0.425, gp: 20, rbi: 13 },
+        { name: "Ice Cube", image: "assets/images/ice cube.jpg", class: "Balanced", avg: 0.367, gp: 8, rbi: 5 },
+        { name: "Mr. Incredible", image: "assets/images/incredible.jpg", class: "Balanced", avg: 0.355, gp: 20, rbi: 6 },
+        { name: "John", image: "assets/images/john.jpg", class: "Balanced", avg: 0.391, gp: 7, rbi: 0 },
+        { name: "Kevin G", image: "assets/images/KevinG.png", class: "Balanced", avg: 0.0, gp: 1, rbi: 0 },
+        { name: "Lara Croft", image: "assets/images/Lara Croft.png", class: "Balanced", avg: 0.281, gp: 10, rbi: 2 },
+        { name: "Lilo", image: "assets/images/Lilo.png", class: "Balanced", avg: 0.441, gp: 10, rbi: 5 },
+        { name: "MJ HeeHee", image: "assets/images/MJ heehee.jpg", class: "Balanced", avg: 0.415, gp: 17, rbi: 6 },
+        { name: "Matt", image: "assets/images/matt.jpg", class: "Balanced", avg: 0.517, gp: 8, rbi: 3 },
+        { name: "Mikasa", image: "assets/images/mikasa.png", class: "Balanced", avg: 0.410, gp: 10, rbi: 5 },
+        { name: "Minion", image: "assets/images/minion.jpg", class: "Balanced", avg: 0.406, gp: 18, rbi: 8 },
+        { name: "Miss Hot", image: "assets/images/misshot.jpg", class: "Balanced", avg: 0.522, gp: 20, rbi: 17 },
+        { name: "SemenLad", image: "assets/images/semenlad.jpg", class: "Balanced", avg: 0.360, gp: 13, rbi: 4 },
+        { name: "Snape", image: "assets/images/snape.jpg", class: "Balanced", avg: 0.312, gp: 13, rbi: 3 },
+        { name: "Trinity", image: "assets/images/trinity.png", class: "Balanced", avg: 0.424, gp: 10, rbi: 10 },
+        { name: "Unc", image: "assets/images/unc.jpg", class: "Balanced", avg: 0.541, gp: 20, rbi: 19 },
+        { name: "Lil Wayne", image: "assets/images/lilwayne.jpg", class: "Balanced", avg: 0.513, gp: 10, rbi: 8 }
+      ];
+      
+
+  function renderCharacters(data) {
+    characterGrid.innerHTML = '';
+    data.forEach(char => {
+      const card = document.createElement('div');
+      card.className = 'character-card';
+      card.setAttribute('data-class', char.class);
+      card.setAttribute('data-avg', char.avg);
+      card.setAttribute('data-games', char.gp);
+      card.innerHTML = `
+        <img src="${char.image}" alt="${char.name}">
+        <h3>${char.name}</h3>
+        <p>Class: ${char.class}</p>
+        <p>Games Played: ${char.gp}</p>
+        <p>AVG: ${char.avg.toFixed(3)}</p>
+        <p>RBI: ${char.rbi}</p>
+      `;
+
+      const captains = [
+        "Mario", "Luigi", "Peach", "Daisy", "Donkey Kong", "Bowser",
+        "Bowser Jr", "Wario", "Waluigi", "Diddy Kong", "Yoshi", "Birdo"
+      ];
+      
+      if (captains.includes(char.name)) {
+        card.classList.add('captain-card');
+      }
+      characterGrid.appendChild(card);
+    });
+  }
+
+  function applyFilters() {
+    const classVal = document.getElementById('classFilter').value;
+    const avgVal = parseFloat(document.getElementById('avgFilter').value);
+    const avgOp = document.getElementById('avgOperator').value;
+    const gamesVal = parseInt(document.getElementById('gamesFilter').value);
+    const gamesOp = document.getElementById('gamesOperator').value;
+  
+    document.querySelectorAll('.character-card').forEach(card => {
+      const cardClass = card.dataset.class;
+      const cardAvg = parseFloat(card.dataset.avg);
+      const cardGames = parseInt(card.dataset.games);
+  
+      let show = true;
+  
+      if (classVal && cardClass !== classVal) show = false;
+      if (!isNaN(avgVal)) {
+        if (avgOp === '>' && cardAvg <= avgVal) show = false;
+        if (avgOp === '<' && cardAvg >= avgVal) show = false;
+      }
+      if (!isNaN(gamesVal)) {
+        if (gamesOp === '>' && cardGames <= gamesVal) show = false;
+        if (gamesOp === '<' && cardGames >= gamesVal) show = false;
+      }
+  
+      card.style.display = show ? 'block' : 'none';
+    });
+  }
+  
+
+  document.getElementById('classFilter').addEventListener('change', applyFilters);
+  document.getElementById('avgFilter').addEventListener('input', applyFilters);
+  document.getElementById('avgOperator').addEventListener('change', applyFilters);
+  document.getElementById('gamesFilter').addEventListener('input', applyFilters);
+  document.getElementById('gamesOperator').addEventListener('change', applyFilters);
+
+
+  renderCharacters(characters);
+}
+
+  
+  

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Characters | Super Sluggers League</title>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="icon" href="favicon.png" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-content">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="characters.html" class="active">Characters</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="characters-section">
+    
+
+    <div class="filter-container">
+        <label for="classFilter">Class:</label>
+        <select id="classFilter">
+          <option value="">All</option>
+          <option value="Power">Power</option>
+          <option value="Speed">Speed</option>
+          <option value="Technique">Technique</option>
+          <option value="Balanced">Balanced</option>
+        </select>
+      
+        <label for="avgFilter">Batting Avg:</label>
+        <select id="avgOperator">
+          <option value=">">Above</option>
+          <option value="<">Below</option>
+        </select>
+        <input type="number" id="avgFilter" step="0.001" placeholder="e.g. 0.300">
+      
+        <label for="gamesFilter">Games Played:</label>
+        <select id="gamesOperator">
+          <option value=">">More than</option>
+          <option value="<">Less than</option>
+        </select>
+        <input type="number" id="gamesFilter" placeholder="e.g. 10">
+      
+        <button onclick="applyFilters()">Apply Filters</button>
+      </div>
+      
+
+    <div class="character-grid" id="characterGrid">
+      <!-- JS will inject cards here -->
+    </div>
+  </section>
+
+  <script src="scripts/app.js"></script>
+</body>
+</html>

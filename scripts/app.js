@@ -493,64 +493,64 @@ if (characterGrid) {
       ];
 
       const pitchingStats = {
-        "Baby Daisy": { ip: 2, earned_runs: 0, baa: 0.143 },
-        "Baby Luigi": { ip: 1, earned_runs: 0, baa: 0.4 },
-        "Baby Peach": { ip: 9, earned_runs: 13, baa: 0.591 },
-        "Birdo": { ip: 49, earned_runs: 15, baa: 0.384 },
-        "Black Shy Guy": { ip: 1, earned_runs: 0, baa: 0.6 },
-        "Black Widow": { ip: 2, earned_runs: 2, baa: 0.6 },
-        "Blooper": { ip: 3, earned_runs: 6, baa: 0.6 },
-        "Blue Dry Bones": { ip: 8, earned_runs: 9, baa: 0.635 },
-        "Blue Kritter": { ip: 1, earned_runs: 1, baa: 0.712 },
-        "Blue Toad": { ip: 2, earned_runs: 1, baa: 0.667 },
-        "Boo": { ip: 63, earned_runs: 43, baa: 0.506 },
-        "Boomerang Bro": { ip: 2, earned_runs: 1, baa: 0.583 },
-        "Bowser": { ip: 54, earned_runs: 29, baa: 0.466 },
-        "Bowser Jr": { ip: 43, earned_runs: 41, baa: 0.508 },
-        "Chicken": { ip: 2, earned_runs: 2, baa: 0.462 },
-        "Daisy": { ip: 61, earned_runs: 44, baa: 0.464 },
-        "Dark Bones": { ip: 1, earned_runs: 0, baa: 0.0 },
-        "Diddy Kong": { ip: 47, earned_runs: 39, baa: 0.5 },
-        "Dixie Kong": { ip: 3, earned_runs: 0, baa: 0.286 },
-        "Donkey Kong": { ip: 64, earned_runs: 51, baa: 0.496 },
-        "Dry Bones": { ip: 2, earned_runs: 1, baa: 0.545 },
-        "Dwayne Wade": { ip: 8, earned_runs: 0, baa: 0.357 },
-        "Fire Bro": { ip: 1, earned_runs: 3, baa: 0.652 },
-        "Funky Kong": { ip: 4, earned_runs: 2, baa: 0.57 },
-        "Green Magikoopa": { ip: 9, earned_runs: 15, baa: 0.452 },
-        "Green Noki": { ip: 0, earned_runs: 0, baa: 0.5 },
-        "Green Toad": { ip: 0, earned_runs: 0, baa: 0.75 },
-        "Hammer Bro": { ip: 2, earned_runs: 4, baa: 0.639 },
-        "King Boo": { ip: 18, earned_runs: 14, baa: 0.564 },
-        "King K Rool": { ip: 5, earned_runs: 5, baa: 0.439 },
-        "Koopa Paratroopa": { ip: 1, earned_runs: 0, baa: 0.5 },
-        "Koopa Troopa": { ip: 1, earned_runs: 2, baa: 0.667 },
-        "Kritter": { ip: 1, earned_runs: 1, baa: 0.5 },
-        "Luigi": { ip: 89, earned_runs: 64, baa: 0.481 },
-        "Magikoopa": { ip: 14, earned_runs: 20, baa: 0.488 },
-        "Mario": { ip: 85, earned_runs: 56, baa: 0.451 },
-        "Mikasa": { ip: 1, earned_runs: 2, baa: 0.727 },
-        "Minion": { ip: 10, earned_runs: 13, baa: 0.528 },
-        "Miss Hot": { ip: 1, earned_runs: 0, baa: 0.0 },
-        "Mr. Incredible": { ip: 1, earned_runs: 1, baa: 0.6 },
-        "Para KoopaTroopa": { ip: 2, earned_runs: 0, baa: 0.333 },
-        "Paragoomba": { ip: 27, earned_runs: 18, baa: 0.511 },
-        "Peach": { ip: 72, earned_runs: 45, baa: 0.483 },
-        "Petey Piranha": { ip: 0, earned_runs: 0, baa: 0.667 },
-        "Red Kritter": { ip: 5, earned_runs: 7, baa: 0.504 },
-        "Red Magikoopa": { ip: 36, earned_runs: 32, baa: 0.534 },
-        "Red Pianta": { ip: 1, earned_runs: 0, baa: 0.4 },
-        "Toad": { ip: 4, earned_runs: 4, baa: 0.47 },
-        "Toadsworth": { ip: 16, earned_runs: 21, baa: 0.548 },
-        "Trinity": { ip: 38, earned_runs: 11, baa: 0.419 },
-        "Unc": { ip: 2, earned_runs: 1, baa: 0.545 },
-        "Waluigi": { ip: 35, earned_runs: 21, baa: 0.454 },
-        "Wario": { ip: 34, earned_runs: 29, baa: 0.511 },
-        "Wiggler": { ip: 3, earned_runs: 1, baa: 0.312 },
-        "Yellow Magikoopa": { ip: 32, earned_runs: 27, baa: 0.399 },
-        "Yellow Pianta": { ip: 7, earned_runs: 7, baa: 0.53 },
-        "Yellow Toad": { ip: 2, earned_runs: 3, baa: 0.625 },
-        "Yoshi": { ip: 48, earned_runs: 37, baa: 0.456 }
+        "Baby Daisy": { ip: 2, era: 0.0, baa: 0.143 },
+        "Baby Luigi": { ip: 1, era: 0.0, baa: 0.4 },
+        "Baby Peach": { ip: 9, era: 13.0, baa: 0.591 },
+        "Birdo": { ip: 49, era: 2.76, baa: 0.384 },
+        "Black Shy Guy": { ip: 1, era: 0.0, baa: 0.6 },
+        "Black Widow": { ip: 2, era: 9.0, baa: 0.6 },
+        "Blooper": { ip: 3, era: 18.0, baa: 0.6 },
+        "Blue Dry Bones": { ip: 8, era: 10.12, baa: 0.635 },
+        "Blue Kritter": { ip: 1, era: 9.0, baa: 0.712 },
+        "Blue Toad": { ip: 2, era: 4.5, baa: 0.667 },
+        "Boo": { ip: 63, era: 6.14, baa: 0.506 },
+        "Boomerang Bro": { ip: 2, era: 4.5, baa: 0.583 },
+        "Bowser": { ip: 54, era: 4.83, baa: 0.466 },
+        "Bowser Jr": { ip: 43, era: 8.58, baa: 0.508 },
+        "Chicken": { ip: 2, era: 9.0, baa: 0.462 },
+        "Daisy": { ip: 61, era: 6.49, baa: 0.464 },
+        "Dark Bones": { ip: 1, era: 0.0, baa: 0.0 },
+        "Diddy Kong": { ip: 47, era: 7.47, baa: 0.5 },
+        "Dixie Kong": { ip: 3, era: 0.0, baa: 0.286 },
+        "Donkey Kong": { ip: 64, era: 7.17, baa: 0.496 },
+        "Dry Bones": { ip: 2, era: 4.5, baa: 0.545 },
+        "Dwayne Wade": { ip: 8, era: 0.0, baa: 0.357 },
+        "Fire Bro": { ip: 1, era: 27.0, baa: 0.652 },
+        "Funky Kong": { ip: 4, era: 4.5, baa: 0.57 },
+        "Green Magikoopa": { ip: 9, era: 15.0, baa: 0.452 },
+        "Green Noki": { ip: 0, era: 0, baa: 0.5 },
+        "Green Toad": { ip: 0, era: 0, baa: 0.75 },
+        "Hammer Bro": { ip: 2, era: 18.0, baa: 0.639 },
+        "King Boo": { ip: 18, era: 7.0, baa: 0.564 },
+        "King K Rool": { ip: 5, era: 9.0, baa: 0.439 },
+        "Koopa Paratroopa": { ip: 1, era: 0.0, baa: 0.5 },
+        "Koopa Troopa": { ip: 1, era: 18.0, baa: 0.667 },
+        "Kritter": { ip: 1, era: 9.0, baa: 0.5 },
+        "Luigi": { ip: 89, era: 6.47, baa: 0.481 },
+        "Magikoopa": { ip: 14, era: 12.86, baa: 0.488 },
+        "Mario": { ip: 85, era: 5.93, baa: 0.451 },
+        "Mikasa": { ip: 1, era: 18.0, baa: 0.727 },
+        "Minion": { ip: 10, era: 11.7, baa: 0.528 },
+        "Miss Hot": { ip: 1, era: 0.0, baa: 0.0 },
+        "Mr. Incredible": { ip: 1, era: 9.0, baa: 0.6 },
+        "Para KoopaTroopa": { ip: 2, era: 0.0, baa: 0.333 },
+        "Paragoomba": { ip: 27, era: 6.0, baa: 0.511 },
+        "Peach": { ip: 72, era: 5.63, baa: 0.483 },
+        "Petey Piranha": { ip: 0, era: 0, baa: 0.667 },
+        "Red Kritter": { ip: 5, era: 12.6, baa: 0.504 },
+        "Red Magikoopa": { ip: 36, era: 8.0, baa: 0.534 },
+        "Red Pianta": { ip: 1, era: 0.0, baa: 0.4 },
+        "Toad": { ip: 4, era: 9.0, baa: 0.47 },
+        "Toadsworth": { ip: 16, era: 11.81, baa: 0.548 },
+        "Trinity": { ip: 38, era: 2.61, baa: 0.419 },
+        "Unc": { ip: 2, era: 4.5, baa: 0.545 },
+        "Waluigi": { ip: 35, era: 5.4, baa: 0.454 },
+        "Wario": { ip: 34, era: 7.68, baa: 0.511 },
+        "Wiggler": { ip: 3, era: 3.0, baa: 0.312 },
+        "Yellow Magikoopa": { ip: 32, era: 7.59, baa: 0.399 },
+        "Yellow Pianta": { ip: 7, era: 9.0, baa: 0.53 },
+        "Yellow Toad": { ip: 2, era: 13.5, baa: 0.625 },
+        "Yoshi": { ip: 48, era: 6.94, baa: 0.456 }
       };
       
 
@@ -575,16 +575,16 @@ if (characterGrid) {
           const p = pitchingStats[char.name];
           statSection = `
             <p>IP: ${p.ip}</p>
-            <p>Earned Runs: ${p.earned_runs.toFixed(2)}</p>
+            <p>ERA: ${p.era.toFixed(2)}</p>
             <p>BAA: ${p.baa.toFixed(3)}</p>
           `;
           card.dataset.ip = p.ip;
-          card.dataset.earned_runs = p.earned_runs;
+          card.dataset.era = p.era;
           card.dataset.baa = p.baa;
         } else {
           statSection = `<p class="never-pitched">Never Pitched</p>`;
           card.dataset.ip = 0;
-          card.dataset.earned_runs = 0;
+          card.dataset.era = 0;
           card.dataset.baa = 1;
         }
       } else {
@@ -628,7 +628,7 @@ if (characterGrid) {
   
       if (showingPitching) {
         const ip = parseFloat(card.dataset.ip);
-        const er = parseFloat(card.dataset.earned_runs);
+        const er = parseFloat(card.dataset.era);
         const baa = parseFloat(card.dataset.baa);
   
         const ipVal = parseFloat(document.getElementById('ipFilter').value);
@@ -756,7 +756,7 @@ if (characterGrid) {
       ? `
         <option value="">-- Select --</option>
         <option value="ip">Innings Pitched</option>
-        <option value="earned_runs">Earned Runs</option>
+        <option value="era">Earned Run Average</option>
         <option value="baa">BAA</option>
       `
       : `

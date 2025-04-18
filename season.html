@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>Characters | Super Sluggers League</title>
-    <link rel="stylesheet" href="styles/main.css" />
-    <link rel="icon" type="image/jpg" href="favicon.jpg"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Current Season | Super Sluggers League</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="icon" type="image/jpg" href="favicon.jpg" />
 </head>
 <body>
 
@@ -18,8 +18,181 @@
       </ul>
     </div>
   </nav>
-  <br><br><br><br<br><br>
-  <h1 class="title">Coming soon...</h1>
-  <h2 class="subtitle">Season 3 draft on 4/17/2025</h2>
+
+  <section class="characters-section">
+    <div class="season-tabs">
+      <button class="tab special-tab" data-team="Standings">Standings</button>
+      <button class="tab special-tab" data-team="Matches">Matches</button>
+
+      <button class="tab" data-team="HarryKirch">HarryKirch</button>
+      <button class="tab" data-team="BenR">BenR</button>
+      <button class="tab" data-team="Carbone">Carbone</button>
+      <button class="tab" data-team="Julian">Julian</button>
+      <button class="tab" data-team="Tom">Tom</button>
+      <button class="tab" data-team="Kircher">Kircher</button>
+      <button class="tab" data-team="Jmo">Jmo</button>
+      <button class="tab" data-team="BenT">BenT</button>
+    </div>
+
+    <!-- Team Characters Content -->
+    <div class="season-content" id="Teams">
+      <div class="character-grid" id="teamCharacterGrid"></div>
+    </div>
+
+    
+  </section>
+
+  <script src="scripts/app.js"></script>
+  <script>
+    window.onload = () => {
+      const teamRosters = {
+        HarryKirch: ["Bowser", "Dark Bones", "Dry Bones", "Blue Dry Bones", "Yellow Pianta", "Red Koopa Troopa", "Koopa Troopa", "Red Magikoopa", "Carbone", "Red Yoshi", "Baby Mario", "Red Koopa Paratroopa", "Ice Cube"],
+        BenR: ["King K Rool", "Kritter", "Blue Kritter", "Luigi", "Rizzler", "Blue Shy Guy", "Minion", "Magikoopa", "Lilo", "Toadsworth", "Matt", "KSI", "Dixie Kong"],
+        Carbone: ["Donkey Kong", "Petey Piranha", "Funky Kong", "Wario", "Yoshi", "Diddy Kong", "Tiny Kong", "Tsitsipas", "Lizzy", "Yellow Magikoopa", "Frozone", "Harry Potter", "Dora"],
+        Julian: ["Unc", "Saddam Hussein", "Lara Croft", "Green Shy Guy", "Green Toad", "Green Magikoopa", "Peach", "Koopa Paratroopa", "Monty Mole", "Kim Jong Un", "Black Widow", "Snape", "Green Noki"],
+        Tom: ["Birdo", "King Boo", "Daisy", "Kevin G", "Shy Guy", "Baby Daisy", "Miss Hot", "Livvy Dunne", "Dwayne Wade", "Black Shy Guy", "Pink Yoshi", "Baby Luigi", "Goomba"],
+        Kircher: ["Wiggler", "Red Kritter", "Brown Kritter", "Waluigi", "Lebron James", "Borat", "Yellow Shy Guy", "Trinity", "Blooper", "Chicken", "The Penguin", "Lil Wayne", "SemenLad"],
+        Jmo: ["Fire Bro", "Boomerang Bro", "Red Pianta", "Mario", "Toad", "Blue Toad", "Toadette", "Purple Toad", "Mr. Incredible", "Baby Peach", "Blue Yoshi", "Handsome Squidward", "Light Blue Yoshi"],
+        BenT: ["Bowser Jr", "Hammer Bro", "Green Dry Bones", "Pianta", "Yellow Toad", "Boo", "Mikasa", "Baby DK", "Paragoomba", "Big AJ", "Yellow Yoshi", "Captain Jack", "MJ HeeHee"]
+      };
+
+      const teamGrid = document.getElementById('teamCharacterGrid');
+      const allCharacters = window.characters || [];
+
+      function renderTeam(team) {
+        teamGrid.innerHTML = '';
+        const roster = teamRosters[team];
+        const teamCharacters = roster.map(name => allCharacters.find(char => char.name === name)).filter(Boolean);
+
+        teamCharacters.forEach(char => {
+          const card = document.createElement('div');
+
+          const isCaptain = window.captains?.includes(char.name);
+          card.className = 'character-card' + (isCaptain ? ' captain-card' : '');
+
+          const miiInfo = window.miiMeta?.[char.name];
+          const badge = miiInfo ? `<div class="mii-badge" style="background-color:${miiInfo.color};">${miiInfo.gender}</div>` : '';
+
+          card.innerHTML = `
+            ${badge}
+            <img src="${char.image}" alt="${char.name}">
+            <h3>${char.name}</h3>
+            <p>Class: ${char.class}</p>
+            <p class="placeholder-stats">Stats Coming Soon</p>
+          `;
+
+          teamGrid.appendChild(card);
+        });
+      }
+
+      
+
+      document.querySelectorAll(".tab").forEach(tab => {
+        tab.addEventListener("click", () => {
+          const activeTab = document.querySelector(".tab.active");
+          if (activeTab) activeTab.classList.remove("active");
+          tab.classList.add("active");
+
+          // Hide all content sections
+          document.querySelectorAll(".season-content").forEach(s => s.classList.remove("active"));
+
+          const tabName = tab.dataset.team;
+          if (tabName === "Standings") {
+            renderStandings();
+            document.getElementById("Standings").classList.add("active");
+          } else if (tabName === "Matches") {
+            renderMatches();
+            document.getElementById("Matches").classList.add("active");
+          } else {
+            renderTeam(tabName);
+            document.getElementById("Teams").classList.add("active");
+          }
+        });
+      });
+
+      renderStandings();
+    document.getElementById("Standings").classList.add("active");
+    };
+
+    function renderStandings() {
+      const body = document.getElementById('season3-standings-body');
+      body.innerHTML = '';
+
+      const sorted = [...window.season3Standings].sort((a, b) => {
+        if (b.wins !== a.wins) return b.wins - a.wins;
+        return b.diff - a.diff;
+      });
+
+      sorted.forEach((team, i) => {
+        const row = document.createElement('tr');
+        if (i === 0) row.classList.add('gold-glow');
+        else if (i === 1) row.classList.add('gold-glow');
+        else if (i === 2) row.classList.add('green-glow');
+        else if (i === 3) row.classList.add('green-glow');
+        else if (i === 4) row.classList.add('green-glow');
+        else if (i === 5) row.classList.add('green-glow');
+        else if (i >= sorted.length - 2) row.classList.add('red-glow');
+
+        const pct = (team.wins / (team.wins + team.losses)).toFixed(3);
+        row.innerHTML = `
+          <td>${team.team}</td>
+          <td>${team.wins}</td>
+          <td>${team.losses}</td>
+          <td>${pct}</td>
+          <td>${team.diff > 0 ? '+' : ''}${team.diff}</td>
+        `;
+        body.appendChild(row);
+      });
+    }
+
+    function renderMatches() {
+      const matchList = document.getElementById('matchList');
+      matchList.innerHTML = '';
+
+      window.matches.forEach(match => {
+        const card = document.createElement('div');
+        card.className = 'match-card';
+        card.innerHTML = `
+          <img src="${match.stadiumImg}" alt="Stadium">
+          ${match.day ? `<div class="stadium-time-label ${match.day.toLowerCase()}">${match.day}</div>` : ''}
+          <div class="teams">
+            <span>${match.home}</span>
+            <span>${match.away}</span>
+          </div>
+          <div class="score">${match.score || 'TBD'}</div>
+          <div class="time">${match.date}</div>
+        `;
+        matchList.appendChild(card);
+      });
+    }
+  </script>
+
+  <!-- Standings Content -->
+  <div class="season-content" id="Standings">
+    <h3>Season 3 Standings</h3>
+    <table class="standings-table">
+      <thead>
+        <tr>
+          <th>Team</th>
+          <th>W</th>
+          <th>L</th>
+          <th>PCT</th>
+          <th>Diff</th>
+        </tr>
+      </thead>
+      <tbody id="season3-standings-body">
+        <!-- Filled dynamically -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Matches Content -->
+  <div class="season-content" id="Matches">
+    <h3>Upcoming & Completed Matches</h3>
+    <div id="matchList" class="character-grid match-grid">
+      <!-- Match cards will be inserted here -->
+    </div>
+  </div>
+
 </body>
 </html>

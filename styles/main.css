@@ -980,7 +980,7 @@ body {
   /* Custom scrollbar (WebKit browsers) */
   .season-tabs-scroll::-webkit-scrollbar {
     height: 8px; /* slightly larger to make it more noticeable */
-    background-color: #1e1e1e; /* dark gray background */
+    background-color: #acacac; /* dark gray background */
   }
   
   .season-tabs-scroll::-webkit-scrollbar-thumb {

@@ -978,6 +978,29 @@ body {
     background-color: #444;
     border-radius: 4px;
   }
+
+  .season-tabs-scroll {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.5rem 0;
+  }
+  
+  /* Custom scrollbar (WebKit browsers) */
+  .season-tabs-scroll::-webkit-scrollbar {
+    height: 8px; /* slightly larger to make it more noticeable */
+    background-color: #1e1e1e; /* dark gray background */
+  }
+  
+  .season-tabs-scroll::-webkit-scrollbar-thumb {
+    background-color: #888;   /* medium gray thumb */
+    border-radius: 4px;
+  }
+  
+  .season-tabs-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa;   /* lighter gray on hover */
+  }
+  
   
   
 

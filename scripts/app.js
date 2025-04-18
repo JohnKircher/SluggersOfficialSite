@@ -18,66 +18,74 @@ window.matches = [
   {
     home: "Jmo",
     away: "Julian",
-    score: "",
+    score: "0 - 0",
     date: "April 22, 2025, 5:00 PM",
     stadiumImg: "assets/stadiums/Mario.jpg",
-    day: "Day"
+    day: "Day",
+    mvp: "Sample MVP"
   },
   {
     home: "Carbone",
     away: "Kircher",
-    score: "",
+    score: "0 - 0",
     date: "April 22, 2025, 5:30 PM",
     stadiumImg: "assets/stadiums/Luigi.jpg",
-    day: "Night"
+    day: "Night",
+    mvp: "Sample MVP"
   },
   {
     home: "BenT",
     away: "HarryKirch",
-    score: "",
+    score: "0 - 0",
     date: "April 22, 2025, 6:00 PM",
     stadiumImg: "assets/stadiums/Yoshi.jpg",
-    day: "Night"
+    day: "Night",
+    mvp: "Sample MVP"
   },
   {
     home: "BenR",
     away: "Tom",
-    score: "",
+    score: "0 - 0",
     date: "April 22, 2025, 6:30 PM",
     stadiumImg: "assets/stadiums/Daisy.jpg",
-    day: "Day"
+    day: "Day",
+    mvp: "Sample MVP"
   },
   {
     home: "Jmo",
     away: "BenT",
-    score: "",
+    score: "0 - 0",
     date: "April 24, 2025, 5:00 PM",
     stadiumImg: "assets/stadiums/Wario.jpg",
-    day: "Night"
+    day: "Night",
+    mvp: "Sample MVP"
   },
   {
     home: "Julian",
     away: "HarryKirch",
-    score: "",
+    score: "0 - 0",
     date: "April 24, 2025, 5:30 PM",
     stadiumImg: "assets/stadiums/DK.jpg",
-    day: "Night"
+    day: "Night",
+    mvp: "Sample MVP"
   },
   {
     home: "BenR",
     away: "Carbone",
-    score: "",
+    score: "0 - 0",
     date: "April 24, 2025, 6:00 PM",
     stadiumImg: "assets/stadiums/BJ.jpg",
-    day: "Day"
+    day: "Day",
+    mvp: "Sample MVP"
   },
   {
     home: "Kircher",
     away: "Tom",
-    score: "",
+    score: "0 - 0",
     date: "April 24, 2025, 6:30 PM",
     stadiumImg: "assets/stadiums/Bowser.jpg",
-    day: "Night"
+    day: "Night",
+    mvp: "Sample MVP"
   },
 ];
 

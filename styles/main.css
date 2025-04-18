@@ -949,6 +949,16 @@ body {
     transform: scale(1.05);
   }
 
+  .match-mvp {
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    color: gold;
+    text-shadow: 0 0 6px gold, 0 0 12px gold;
+    text-align: center;
+  }
+  
+
   
   
   

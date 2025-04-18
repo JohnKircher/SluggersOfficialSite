@@ -161,7 +161,9 @@
           </div>
           <div class="score">${match.score || 'TBD'}</div>
           <div class="time">${match.date}</div>
+          ${match.mvp ? `<div class="match-mvp">MVP: ${match.mvp}</div>` : ''}
         `;
+
         matchList.appendChild(card);
       });
     }

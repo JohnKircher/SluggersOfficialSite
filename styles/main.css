@@ -957,6 +957,28 @@ body {
     text-shadow: 0 0 6px gold, 0 0 12px gold;
     text-align: center;
   }
+
+  .season-tabs-wrapper {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 0 10px;
+  }
+  
+  .season-tabs {
+    display: inline-flex;
+    gap: 10px;
+    min-width: max-content;
+  }
+  
+  .season-tabs::-webkit-scrollbar {
+    height: 6px;
+  }
+  
+  .season-tabs::-webkit-scrollbar-thumb {
+    background-color: #444;
+    border-radius: 4px;
+  }
+  
   
 
   

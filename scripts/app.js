@@ -3,7 +3,7 @@
 window.season3Standings = [
   { team: "HarryKirch", wins: 0, losses: 0, diff: 0 },
   { team: "BenR", wins: 0, losses: 0, diff: 0 },
-  { team: "Carbone", wins: 0, losses: 0, diff: 0 },
+  { team: "Carby", wins: 0, losses: 0, diff: 0 },
   { team: "Julian", wins: 0, losses: 0, diff: 0 },
   { team: "Tom", wins: 0, losses: 0, diff: 0 },
   { team: "Kircher", wins: 0, losses: 0, diff: 0 },
@@ -25,7 +25,7 @@ window.matches = [
     mvp: "Sample MVP"
   },
   {
-    home: "Carbone",
+    home: "Carby",
     away: "Kircher",
     score: "0 - 0",
     date: "April 22, 2025, 5:30 PM",
@@ -71,7 +71,7 @@ window.matches = [
   },
   {
     home: "BenR",
-    away: "Carbone",
+    away: "Carby",
     score: "0 - 0",
     date: "April 24, 2025, 6:00 PM",
     stadiumImg: "assets/stadiums/BJ.jpg",
@@ -125,7 +125,7 @@ const miiMeta = {
     "Dora": { gender: "F", color: "purple" },
     "KSI": { gender: "F", color: "brown" },
     "Big AJ": { gender: "F", color: "white" },
-    "Carbone": { gender: "M", color: "red" },
+    "Carby": { gender: "M", color: "red" },
     "Lebron James": { gender: "F", color: "yellow" },
     "Lizzy": { gender: "F", color: "lightgreen" },
     "Saddam Hussein": { gender: "F", color: "green" },
@@ -578,7 +578,7 @@ const characters = [
   { name: "Dora", image: "assets/images/dora.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0 },
   { name: "KSI", image: "assets/images/ksi.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0 },
   { name: "Big AJ", image: "assets/images/aj.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0 },
-  { name: "Carbone", image: "assets/images/mpc.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0 },
+  { name: "Carby", image: "assets/images/mpc.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0 },
   { name: "Lebron James", image: "assets/images/lbj.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0 },
   { name: "Lizzy", image: "assets/images/lizzy.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0 },
   { name: "Saddam Hussein", image: "assets/images/sadd.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0 },

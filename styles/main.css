@@ -888,10 +888,13 @@ body {
   
   .match-card img {
     width: 100%;
-    height: 160px;         /* or whatever height looks clean */
+    height: 220px;
     object-fit: cover;
+     /* Show more of the top, less of the bottom */
     border-radius: 6px;
+    object-position: 50% 10%;
   }
+
   
   
   .match-card .teams {

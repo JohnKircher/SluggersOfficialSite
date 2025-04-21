@@ -892,7 +892,7 @@ body {
     object-fit: cover;
      /* Show more of the top, less of the bottom */
     border-radius: 6px;
-    object-position: 50% 10%;
+    object-position: 50% 35%;
   }
 
   

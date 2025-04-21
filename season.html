@@ -157,6 +157,7 @@
         card.innerHTML = `
           <img src="${match.stadiumImg}" alt="Stadium">
           ${match.day ? `<div class="stadium-time-label ${match.day.toLowerCase()}">${match.day}</div>` : ''}
+          <div class="banned">${match.banned} Banned</div>
           <div class="teams">
             <span>${match.home}</span>
             <span>${match.away}</span>

@@ -20,72 +20,80 @@ window.matches = [
     away: "Julian",
     score: "0 - 0",
     date: "April 22, 2025, 5:00 PM",
-    stadiumImg: "assets/stadiums/Mario.jpg",
+    stadiumImg: "assets/stadiums/tbd.jpg",
     day: "Day",
-    mvp: "Sample MVP"
+    mvp: "tbd",
+    banned: ""
   },
   {
     home: "Carby",
     away: "Kircher",
     score: "0 - 0",
     date: "April 22, 2025, 5:30 PM",
-    stadiumImg: "assets/stadiums/Luigi.jpg",
-    day: "Night",
-    mvp: "Sample MVP"
+    stadiumImg: "assets/stadiums/Wario.jpg",
+    day: "Day",
+    mvp: "tbd",
+    banned: "Daisy Cruiser"
   },
   {
     home: "BenT",
     away: "HarryKirch",
     score: "0 - 0",
     date: "April 22, 2025, 6:00 PM",
-    stadiumImg: "assets/stadiums/Yoshi.jpg",
+    stadiumImg: "assets/stadiums/tbd.jpg",
     day: "Night",
-    mvp: "Sample MVP"
+    mvp: "tbd",
+    banned: ""
   },
   {
     home: "BenR",
     away: "Tom",
     score: "0 - 0",
     date: "April 22, 2025, 6:30 PM",
-    stadiumImg: "assets/stadiums/Daisy.jpg",
+    stadiumImg: "assets/stadiums/tbd.jpg",
     day: "Day",
-    mvp: "Sample MVP"
+    mvp: "tbd",
+    banned: ""
   },
   {
     home: "Jmo",
     away: "BenT",
     score: "0 - 0",
     date: "April 24, 2025, 5:00 PM",
-    stadiumImg: "assets/stadiums/Wario.jpg",
+    stadiumImg: "assets/stadiums/tbd.jpg",
     day: "Night",
-    mvp: "Sample MVP"
+    mvp: "tbd",
+    banned: ""
   },
   {
     home: "Julian",
     away: "HarryKirch",
     score: "0 - 0",
     date: "April 24, 2025, 5:30 PM",
-    stadiumImg: "assets/stadiums/DK.jpg",
+    stadiumImg: "assets/stadiums/tbd.jpg",
     day: "Night",
-    mvp: "Sample MVP"
+    mvp: "tbd",
+    banned: ""
   },
   {
     home: "BenR",
     away: "Carby",
     score: "0 - 0",
     date: "April 24, 2025, 6:00 PM",
-    stadiumImg: "assets/stadiums/BJ.jpg",
+    stadiumImg: "assets/stadiums/tbd.jpg",
     day: "Day",
-    mvp: "Sample MVP"
+    mvp: "tbd",
+    banned: ""
   },
   {
     home: "Kircher",
     away: "Tom",
     score: "0 - 0",
     date: "April 24, 2025, 6:30 PM",
-    stadiumImg: "assets/stadiums/Bowser.jpg",
+    stadiumImg: "assets/stadiums/tbd.jpg",
     day: "Night",
-    mvp: "Sample MVP"
+    mvp: "tbd",
+    banned: ""
   },
 ];
 

@@ -19,6 +19,10 @@
     </div>
   </nav>
 
+  <button id="adminToggle" style="position:fixed;top:10px;right:10px;z-index:999;display:none;">Toggle Admin Mode</button>
+  <div id="adminPanel" style="display:none;"></div>
+
+
   <section class="characters-section">
     <div class="season-tabs-scroll">
       <div class="season-tabs">
@@ -46,6 +50,100 @@
 
   <script src="scripts/app.js"></script>
   <script>
+    // Secret unlock: press Shift + A
+    window.addEventListener('keydown', e => {
+      if (e.shiftKey && e.key.toLowerCase() === 'a') {
+        document.getElementById('adminToggle').style.display = 'block';
+      }
+    });
+
+    document.getElementById('adminToggle').addEventListener('click', () => {
+      const panel = document.getElementById('adminPanel');
+      panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+      if (panel.style.display === 'block') renderAdminPanel();
+    });
+
+    let editingIndex = null; // Track which match you're editing
+
+    function renderAdminPanel() {
+      const panel = document.getElementById('adminPanel');
+      const editing = editingIndex !== null ? window.matches[editingIndex] : null;
+
+      panel.innerHTML = `
+        <h3>${editing ? 'Edit Match' : 'Add New Match'}</h3>
+        <form id="matchForm">
+          <input placeholder="Home Team" name="home" value="${editing?.home || ''}">
+          <input placeholder="Away Team" name="away" value="${editing?.away || ''}">
+          <input placeholder="Score (e.g. 3 - 2)" name="score" value="${editing?.score || ''}">
+          <input placeholder="Date (e.g. April 30, 2025, 6:00 PM)" name="date" value="${editing?.date || ''}">
+          <input placeholder="assets/stadiums/(name.jpg)" name="stadiumImg" value="${editing?.stadiumImg || ''}">
+          <input placeholder="Day/Night" name="day" value="${editing?.day || ''}">
+          <input placeholder="MVP" name="mvp" value="${editing?.mvp || ''}">
+          <input placeholder="Banned Stadium" name="banned" value="${editing?.banned || ''}">
+          <button type="submit">${editing ? 'Update' : 'Add'} Match</button>
+          ${editing ? '<button type="button" id="cancelEdit">Cancel</button>' : ''}
+        </form>
+        <h3>Current Matches</h3>
+        <ul id="adminMatchList"></ul>
+      `;
+
+      const list = document.getElementById('adminMatchList');
+      list.innerHTML = '';
+      window.matches.forEach((match, idx) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          ${match.home} vs ${match.away} — ${match.date}
+          <button onclick="editMatch(${idx})">✏️</button>
+          <button onclick="deleteMatch(${idx})">❌</button>
+        `;
+        list.appendChild(li);
+      });
+
+      document.getElementById('matchForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const form = e.target;
+        const matchData = {
+          home: form.home.value,
+          away: form.away.value,
+          score: form.score.value,
+          date: form.date.value,
+          stadiumImg: form.stadiumImg.value,
+          day: form.day.value,
+          mvp: form.mvp.value,
+          banned: form.banned.value
+        };
+
+        if (editingIndex !== null) {
+          window.matches[editingIndex] = matchData;
+          editingIndex = null;
+        } else {
+          window.matches.push(matchData);
+        }
+
+        renderMatches();
+        renderAdminPanel();
+      });
+
+      if (editing) {
+        document.getElementById('cancelEdit').addEventListener('click', () => {
+          editingIndex = null;
+          renderAdminPanel();
+        });
+      }
+    }
+
+    function editMatch(idx) {
+      editingIndex = idx;
+      renderAdminPanel();
+    }
+
+
+    function deleteMatch(idx) {
+      window.matches.splice(idx, 1);
+      renderMatches();
+      renderAdminPanel();
+    }
+
     window.onload = () => {
       const teamRosters = {
         HarryKirch: ["Bowser", "Dark Bones", "Dry Bones", "Blue Dry Bones", "Chicken", "Red Koopa Troopa", "Koopa Troopa", "Red Magikoopa", "Carby", "Red Yoshi", "Baby Mario", "Red Koopa Paratroopa", "Ice Cube", "Blooper"],

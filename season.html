@@ -6,6 +6,26 @@
   <title>Current Season | Super Sluggers League</title>
   <link rel="stylesheet" href="styles/main.css" />
   <link rel="icon" type="image/jpg" href="favicon.jpg" />
+
+  <style>
+    #loading-matches {
+      font-size: 1rem;
+      color: #555;
+    }
+  
+    .spinner::after {
+      content: '⏳';
+      animation: spin 1s linear infinite;
+      display: inline-block;
+      margin-left: 8px;
+    }
+  
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+  
 </head>
 <body>
 
@@ -148,12 +168,12 @@
       });
     }
 
-    window.onload = () => {
-      loadMatchesFromAPI().then(() => {
-        renderMatches(); // Optional, already inside loadMatchesFromAPI but safe
-      });
+    window.onload = async () => {
+      await loadMatchesFromAPI();
 
       renderStandings();
+      renderMatches(); // run only after data is ready
+
       document.getElementById("Standings").classList.add("active");
 
       const teamRosters = {
@@ -295,6 +315,9 @@
   </div>
 
   <!-- Matches Content -->
+  <div id="loading-matches" class="spinner" style="display:none; text-align:center;">Loading...</div>
+
+  
   <div class="season-content" id="Matches">
     <h3>Upcoming & Completed Matches</h3>
     <div id="matchList" class="character-grid match-grid">

@@ -15,11 +15,20 @@ window.season3Standings = [
 //images: 
 
 async function loadMatchesFromAPI() {
-  const res = await fetch("https://script.google.com/macros/s/AKfycbybAu3zUjcSV9_KU2_jxkoKS316lBA4S8dK2pZftbwxstWyHVk8VuGlwZaxQaH_g2FL/exec");
+  const loadingDiv = document.getElementById('loading-matches');
+  const matchList = document.getElementById('matchList');
+
+  if (loadingDiv) loadingDiv.style.display = 'block';
+  if (matchList) matchList.innerHTML = ''; // clear out cards while loading
+
+  const res = await fetch("https://script.google.com/macros/s/AKfycbybAu3zUjcSV9_KU2_jxkoKS316lBA4S8dK2pZftbwxstWyHVk8VuGlwZaxQaH_g2FL/exec?t=" + Date.now());
   const data = await res.json();
   window.matches = data;
-  renderMatches(); // Load them into the UI
+
+  if (loadingDiv) loadingDiv.style.display = 'none';
 }
+
+
 
 
 

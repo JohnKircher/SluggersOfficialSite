@@ -994,6 +994,15 @@ body {
   .season-tabs-scroll::-webkit-scrollbar-thumb:hover {
     background-color: #aaa;   /* lighter gray on hover */
   }
+
+  .match-loading {
+    font-size: 1rem;
+    text-align: center;
+    padding: 20px;
+    color: #aaa;
+    font-style: italic;
+  }
+  
   
   
   

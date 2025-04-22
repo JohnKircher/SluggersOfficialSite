@@ -113,15 +113,17 @@
           banned: form.banned.value
         };
 
-        if (editingIndex !== null) {
-          window.matches[editingIndex] = matchData;
-          editingIndex = null;
-        } else {
-          window.matches.push(matchData);
-        }
+        matchData.id = editingIndex !== null ? window.matches[editingIndex].id : Date.now().toString();
+        const method = editingIndex !== null ? 'PUT' : 'POST';
 
-        renderMatches();
-        renderAdminPanel();
+        fetch("https://script.google.com/macros/s/AKfycbybAu3zUjcSV9_KU2_jxkoKS316lBA4S8dK2pZftbwxstWyHVk8VuGlwZaxQaH_g2FL/exec", {
+          method,
+          body: JSON.stringify(matchData)
+        }).then(() => {
+          editingIndex = null;
+          loadMatchesFromAPI().then(renderAdminPanel);
+        });
+
       });
 
       if (editing) {
@@ -137,14 +139,23 @@
       renderAdminPanel();
     }
 
-
     function deleteMatch(idx) {
-      window.matches.splice(idx, 1);
-      renderMatches();
-      renderAdminPanel();
+      const id = window.matches[idx].id;
+      fetch(`https://script.google.com/macros/s/AKfycbybAu3zUjcSV9_KU2_jxkoKS316lBA4S8dK2pZftbwxstWyHVk8VuGlwZaxQaH_g2FL/exec?id=${id}`, {
+        method: 'DELETE'
+      }).then(() => {
+        loadMatchesFromAPI().then(renderAdminPanel);
+      });
     }
 
     window.onload = () => {
+      loadMatchesFromAPI().then(() => {
+        renderMatches(); // Optional, already inside loadMatchesFromAPI but safe
+      });
+
+      renderStandings();
+      document.getElementById("Standings").classList.add("active");
+
       const teamRosters = {
         HarryKirch: ["Bowser", "Dark Bones", "Dry Bones", "Blue Dry Bones", "Chicken", "Red Koopa Troopa", "Koopa Troopa", "Red Magikoopa", "Carby", "Red Yoshi", "Baby Mario", "Red Koopa Paratroopa", "Ice Cube", "Blooper"],
         BenR: ["King K Rool", "Kritter", "Blue Kritter", "Luigi", "Rizzler", "Blue Shy Guy", "Minion", "Magikoopa", "Lilo", "Toadsworth", "Matt", "KSI", "Dixie Kong"],
@@ -166,7 +177,6 @@
 
         teamCharacters.forEach(char => {
           const card = document.createElement('div');
-
           const isCaptain = window.captains?.includes(char.name);
           card.className = 'character-card' + (isCaptain ? ' captain-card' : '');
 
@@ -185,17 +195,13 @@
         });
       }
 
-      
-
       document.querySelectorAll(".tab").forEach(tab => {
         tab.addEventListener("click", () => {
           const activeTab = document.querySelector(".tab.active");
           if (activeTab) activeTab.classList.remove("active");
           tab.classList.add("active");
 
-          // Hide all content sections
           document.querySelectorAll(".season-content").forEach(s => s.classList.remove("active"));
-
           const tabName = tab.dataset.team;
           if (tabName === "Standings") {
             renderStandings();
@@ -209,10 +215,9 @@
           }
         });
       });
-
-      renderStandings();
-    document.getElementById("Standings").classList.add("active");
     };
+
+
 
     function renderStandings() {
       const body = document.getElementById('season3-standings-body');

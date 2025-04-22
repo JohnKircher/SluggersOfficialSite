@@ -14,88 +14,13 @@ window.season3Standings = [
 //ADD MATCHES HERE
 //images: 
 
-window.matches = [
-  {
-    home: "Jmo",
-    away: "Julian",
-    score: "0 - 0",
-    date: "April 22, 2025, 5:00 PM",
-    stadiumImg: "assets/stadiums/tbd.jpg",
-    day: "Day",
-    mvp: "tbd",
-    banned: ""
-  },
-  {
-    home: "Carby",
-    away: "Kircher",
-    score: "0 - 0",
-    date: "April 22, 2025, 5:30 PM",
-    stadiumImg: "assets/stadiums/Wario.jpg",
-    day: "Day",
-    mvp: "tbd",
-    banned: "Daisy Cruiser"
-  },
-  {
-    home: "BenT",
-    away: "HarryKirch",
-    score: "0 - 0",
-    date: "April 22, 2025, 6:00 PM",
-    stadiumImg: "assets/stadiums/tbd.jpg",
-    day: "Night",
-    mvp: "tbd",
-    banned: ""
-  },
-  {
-    home: "BenR",
-    away: "Tom",
-    score: "0 - 0",
-    date: "April 22, 2025, 6:30 PM",
-    stadiumImg: "assets/stadiums/tbd.jpg",
-    day: "Day",
-    mvp: "tbd",
-    banned: ""
-  },
-  {
-    home: "Jmo",
-    away: "BenT",
-    score: "0 - 0",
-    date: "April 24, 2025, 5:00 PM",
-    stadiumImg: "assets/stadiums/tbd.jpg",
-    day: "Night",
-    mvp: "tbd",
-    banned: ""
-  },
-  {
-    home: "Julian",
-    away: "HarryKirch",
-    score: "0 - 0",
-    date: "April 24, 2025, 5:30 PM",
-    stadiumImg: "assets/stadiums/tbd.jpg",
-    day: "Night",
-    mvp: "tbd",
-    banned: ""
-  },
-  {
-    home: "BenR",
-    away: "Carby",
-    score: "0 - 0",
-    date: "April 24, 2025, 6:00 PM",
-    stadiumImg: "assets/stadiums/tbd.jpg",
-    day: "Day",
-    mvp: "tbd",
-    banned: ""
-  },
-  {
-    home: "Kircher",
-    away: "Tom",
-    score: "0 - 0",
-    date: "April 24, 2025, 6:30 PM",
-    stadiumImg: "assets/stadiums/tbd.jpg",
-    day: "Night",
-    mvp: "tbd",
-    banned: ""
-  },
-];
+async function loadMatchesFromAPI() {
+  const res = await fetch("https://script.google.com/macros/s/AKfycbybAu3zUjcSV9_KU2_jxkoKS316lBA4S8dK2pZftbwxstWyHVk8VuGlwZaxQaH_g2FL/exec");
+  const data = await res.json();
+  window.matches = data;
+  renderMatches(); // Load them into the UI
+}
+
 
 
 const captains = [ "Mario", "Luigi", "Peach", "Daisy", "Donkey Kong", "Bowser", "Bowser Jr", "Wario", "Waluigi", "Diddy Kong", "Yoshi", "Birdo" ];

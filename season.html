@@ -50,11 +50,11 @@
         <button class="tab" data-team="Matches">Matches</button>
 
         <button class="tab" data-team="HarryKirch">HarryKirch</button>
-        <button class="tab" data-team="BenR">BenR</button>
-        <button class="tab" data-team="Carby">Carby</button>
-        <button class="tab" data-team="Julian">Julian</button>
-        <button class="tab" data-team="Tom">Tom</button>
-        <button class="tab" data-team="Kircher">Kircher</button>
+        <button class="tab" data-team="Rizzler's Boom Squad">Rizzler's Boom Squad (benR)</button>
+        <button class="tab" data-team="Monkey Mashers">Monkey Mashers (carby)</button>
+        <button class="tab" data-team="Unc's Breeding Program">Unc's Breeding Program (julian)</button>
+        <button class="tab" data-team="Kevin G's Escort Agency">Kevin G's Escort Agency (tom)</button>
+        <button class="tab" data-team="Trinity Triple Threat">Trinity Triple Threat (kircher)</button>
         <button class="tab" data-team="Jmo">Jmo</button>
         <button class="tab" data-team="BenT">BenT</button>
       </div>
@@ -181,11 +181,11 @@
 
       const teamRosters = {
         HarryKirch: ["Bowser", "Dark Bones", "Dry Bones", "Blue Dry Bones", "Chicken", "Red Koopa Troopa", "Koopa Troopa", "Red Magikoopa", "Carby", "Red Yoshi", "Baby Mario", "Red Koopa Paratroopa", "Ice Cube", "Blooper"],
-        BenR: ["King K Rool", "Kritter", "Blue Kritter", "Luigi", "Rizzler", "Blue Shy Guy", "Minion", "Magikoopa", "Lilo", "Toadsworth", "Matt", "KSI", "Dixie Kong"],
-        Carby: ["Donkey Kong", "Petey Piranha", "Funky Kong", "Wario", "Yoshi", "Diddy Kong", "Tiny Kong", "Tsitsipas", "Lizzy", "Yellow Magikoopa", "Frozone", "Harry Potter", "Dora"],
-        Julian: ["Unc", "Saddam Hussein", "Lara Croft", "Green Shy Guy", "Green Toad", "Green Magikoopa", "Peach", "Koopa Paratroopa", "Monty Mole", "Kim Jong Un", "Black Widow", "Snape", "Green Noki"],
-        Tom: ["Birdo", "King Boo", "Daisy", "Kevin G", "Shy Guy", "Baby Daisy", "Miss Hot", "Livvy Dunne", "Dwayne Wade", "Black Shy Guy", "Pink Yoshi", "Baby Luigi", "Goomba"],
-        Kircher: ["Wiggler", "Red Kritter", "Brown Kritter", "Waluigi", "Lebron James", "Borat", "Yellow Shy Guy", "Trinity", "Yellow Pianta", "The Penguin", "Lil Wayne", "SemenLad"],
+        "Rizzler's Boom Squad": ["King K Rool", "Kritter", "Blue Kritter", "Luigi", "Rizzler", "Blue Shy Guy", "Minion", "Magikoopa", "Lilo", "Toadsworth", "Matt", "KSI", "Dixie Kong"],
+        "Monkey Mashers": ["Donkey Kong", "Petey Piranha", "Funky Kong", "Wario", "Yoshi", "Diddy Kong", "Tiny Kong", "Tsitsipas", "Lizzy", "Yellow Magikoopa", "Frozone", "Harry Potter", "Dora"],
+        "Unc's Breeding Program": ["Unc", "Saddam Hussein", "Lara Croft", "Green Shy Guy", "Green Toad", "Green Magikoopa", "Peach", "Koopa Paratroopa", "Monty Mole", "Kim Jong Un", "Black Widow", "Snape", "Green Noki"],
+        "Kevin G's Escort Agency": ["Birdo", "King Boo", "Daisy", "Kevin G", "Shy Guy", "Baby Daisy", "Miss Hot", "Livvy Dunne", "Dwayne Wade", "Black Shy Guy", "Pink Yoshi", "Baby Luigi", "Goomba"],
+        "Trinity Triple Threat": ["Wiggler", "Red Kritter", "Brown Kritter", "Waluigi", "Lebron James", "Borat", "Yellow Shy Guy", "Trinity", "Yellow Pianta", "The Penguin", "Lil Wayne", "SemenLad"],
         Jmo: ["Fire Bro", "Boomerang Bro", "Red Pianta", "Mario", "Toad", "Blue Toad", "Toadette", "Purple Toad", "Mr. Incredible", "Baby Peach", "Blue Yoshi", "Handsome Squidward", "Light Blue Yoshi"],
         BenT: ["Bowser Jr", "Hammer Bro", "Green Dry Bones", "Pianta", "Yellow Toad", "Boo", "Mikasa", "Baby DK", "Paragoomba", "Big AJ", "Yellow Yoshi", "Captain Jack", "MJ HeeHee"]
       };
@@ -239,18 +239,74 @@
               <img src="${match.stadiumImg}" alt="Stadium">
               ${match.day ? `<div class="stadium-time-label ${match.day.toLowerCase()}">${match.day}</div>` : ''}
               <div class="banned">${match.banned} Banned</div>
-              <div class="teams">
+              <div class="teams vertical">
                 <span>${match.home}</span>
+                <div class="vs-text">vs</div>
                 <span>${match.away}</span>
               </div>
               <div class="score">${match.score || 'TBD'}</div>
               <div class="time">${match.date}</div>
               ${match.mvp ? `<div class="match-mvp">MVP: ${match.mvp}</div>` : ''}
+
+              <div class="match-stats-container">
+                <button class="toggle-stats-btn">📊 View Stats</button>
+                <div class="team-stat-box" style="display: none;">
+                  <div class="team-stat home">
+                    <strong>${match.home}</strong><br><br>
+                    <div class="stat-block">
+                      <span class="stat-label">Stat Adj:</span><br>
+                      ${formatMultiline(match.homeStatAdjust)}
+                    </div>
+                    <div class="stat-block">
+                      <span class="stat-label">Trajectory:</span><br>
+                      ${formatMultiline(match.homeTrajectory)}
+                    </div>
+                    <div class="stat-block">
+                      <span class="stat-label">Class:</span><br>
+                      ${formatMultiline(match.homeClass)}
+                    </div>
+                    <div class="stat-block">
+                      <span class="stat-label">Star:</span><br>
+                      <span class="star-player">${match.homeStar}</span>
+                    </div>
+                  </div>
+
+                  <hr class="stat-divider">
+
+                  <div class="team-stat away">
+                    <strong>${match.away}</strong><br><br>
+                    <div class="stat-block">
+                      <span class="stat-label">Stat Adj:</span><br>
+                      ${formatMultiline(match.awayStatAdjust)}
+                    </div>
+                    <div class="stat-block">
+                      <span class="stat-label">Trajectory:</span><br>
+                      ${formatMultiline(match.awayTrajectory)}
+                    </div>
+                    <div class="stat-block">
+                      <span class="stat-label">Class:</span><br>
+                      ${formatMultiline(match.awayClass)}
+                    </div>
+                    <div class="stat-block">
+                      <span class="stat-label">Star:</span><br>
+                      <span class="star-player">${match.awayStar}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             `;
 
             matchGrid.appendChild(card);
           });
         }
+        document.querySelectorAll('.toggle-stats-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const statsBox = btn.nextElementSibling;
+            const isVisible = statsBox.style.display === 'block';
+            statsBox.style.display = isVisible ? 'none' : 'block';
+            btn.textContent = isVisible ? '📊 View Stats' : '📉 Hide Stats';
+          });
+        });
       }
 
       document.querySelectorAll(".tab").forEach(tab => {
@@ -312,6 +368,12 @@
       });
     }
 
+    function formatMultiline(input) {
+      if (!input) return '—';
+      const lines = input.split(/\r?\n/).filter(Boolean);
+      return lines.map((line, i) => `${i + 1}) ${line}`).join('<br>');
+    }
+
 
     function renderMatches() {
       const matchList = document.getElementById('matchList');
@@ -324,16 +386,74 @@
           <img src="${match.stadiumImg}" alt="Stadium">
           ${match.day ? `<div class="stadium-time-label ${match.day.toLowerCase()}">${match.day}</div>` : ''}
           <div class="banned">${match.banned} Banned</div>
-          <div class="teams">
+          <div class="teams vertical">
             <span>${match.home}</span>
+            <div class="vs-text">vs</div>
             <span>${match.away}</span>
           </div>
           <div class="score">${match.score || 'TBD'}</div>
           <div class="time">${match.date}</div>
           ${match.mvp ? `<div class="match-mvp">MVP: ${match.mvp}</div>` : ''}
+          
+          <div class="match-stats-container">
+            <button class="toggle-stats-btn">📊 View Stats</button>
+            <div class="team-stat-box" style="display: none;">
+              <div class="team-stat home">
+                <strong>${match.home}</strong><br><br>
+                <div class="stat-block">
+                  <span class="stat-label">Stat Adj:</span><br>
+                  ${formatMultiline(match.homeStatAdjust)}
+                </div>
+                <div class="stat-block">
+                  <span class="stat-label">Trajectory:</span><br>
+                  ${formatMultiline(match.homeTrajectory)}
+                </div>
+                <div class="stat-block">
+                  <span class="stat-label">Class:</span><br>
+                  ${formatMultiline(match.homeClass)}
+                </div>
+                <div class="stat-block">
+                  <span class="stat-label">Star:</span><br>
+                  <span class="star-player">${match.homeStar}</span>
+                </div>
+              </div>
+
+              <hr class="stat-divider">
+
+              <div class="team-stat away">
+                <strong>${match.away}</strong><br><br>
+                <div class="stat-block">
+                  <span class="stat-label">Stat Adj:</span><br>
+                  ${formatMultiline(match.awayStatAdjust)}
+                </div>
+                <div class="stat-block">
+                  <span class="stat-label">Trajectory:</span><br>
+                  ${formatMultiline(match.awayTrajectory)}
+                </div>
+                <div class="stat-block">
+                  <span class="stat-label">Class:</span><br>
+                  ${formatMultiline(match.awayClass)}
+                </div>
+                <div class="stat-block">
+                  <span class="stat-label">Star:</span><br>
+                  <span class="star-player">${match.awayStar}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
         `;
 
         matchList.appendChild(card);
+      });
+      document.querySelectorAll('.toggle-stats-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const statsBox = btn.nextElementSibling;
+            const isVisible = statsBox.style.display === 'block';
+            statsBox.style.display = isVisible ? 'none' : 'block';
+            btn.textContent = isVisible ? '📊 View Stats' : '📉 Hide Stats';
+          });
       });
     }
   </script>

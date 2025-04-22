@@ -63,7 +63,10 @@
     <!-- Team Characters Content -->
     <div class="season-content" id="Teams">
       <div class="character-grid" id="teamCharacterGrid"></div>
+      <h3 id="teamMatchesHeader" style="margin-top: 30px;"></h3>
+      <div class="character-grid match-grid" id="teamMatchGrid"></div>
     </div>
+    
 
     
   </section>
@@ -191,6 +194,8 @@
       const allCharacters = window.characters || [];
 
       function renderTeam(team) {
+        document.getElementById('teamMatchGrid').innerHTML = '';
+        document.getElementById('teamMatchesHeader').textContent = '';
         teamGrid.innerHTML = '';
         const roster = teamRosters[team];
         const teamCharacters = roster.map(name => allCharacters.find(char => char.name === name)).filter(Boolean);
@@ -213,6 +218,39 @@
 
           teamGrid.appendChild(card);
         });
+
+        // RENDER MATCHES FOR THIS TEAM
+        const matchGrid = document.getElementById('teamMatchGrid');
+        const matchHeader = document.getElementById('teamMatchesHeader');
+        const teamMatches = window.matches.filter(m => m.home === team || m.away === team);
+
+        if (teamMatches.length === 0) {
+          matchHeader.textContent = `No games played by ${team} yet.`;
+          matchGrid.innerHTML = '';
+        } else {
+          matchHeader.textContent = `${team}'s Games`;
+          matchGrid.innerHTML = '';
+
+          teamMatches.forEach(match => {
+            const card = document.createElement('div');
+            card.className = 'match-card';
+
+            card.innerHTML = `
+              <img src="${match.stadiumImg}" alt="Stadium">
+              ${match.day ? `<div class="stadium-time-label ${match.day.toLowerCase()}">${match.day}</div>` : ''}
+              <div class="banned">${match.banned} Banned</div>
+              <div class="teams">
+                <span>${match.home}</span>
+                <span>${match.away}</span>
+              </div>
+              <div class="score">${match.score || 'TBD'}</div>
+              <div class="time">${match.date}</div>
+              ${match.mvp ? `<div class="match-mvp">MVP: ${match.mvp}</div>` : ''}
+            `;
+
+            matchGrid.appendChild(card);
+          });
+        }
       }
 
       document.querySelectorAll(".tab").forEach(tab => {
@@ -243,7 +281,8 @@
       const body = document.getElementById('season3-standings-body');
       body.innerHTML = '';
 
-      const sorted = [...window.season3Standings].sort((a, b) => {
+      const standings = calculateStandingsFromMatches(window.matches);
+      const sorted = standings.sort((a, b) => {
         if (b.wins !== a.wins) return b.wins - a.wins;
         return b.diff - a.diff;
       });
@@ -252,23 +291,27 @@
         const row = document.createElement('tr');
         if (i === 0) row.classList.add('gold-glow');
         else if (i === 1) row.classList.add('gold-glow');
-        else if (i === 2) row.classList.add('green-glow');
-        else if (i === 3) row.classList.add('green-glow');
-        else if (i === 4) row.classList.add('green-glow');
-        else if (i === 5) row.classList.add('green-glow');
+        else if (i >= 2 && i <= 5) row.classList.add('green-glow');
         else if (i >= sorted.length - 2) row.classList.add('red-glow');
 
         const pct = (team.wins / (team.wins + team.losses)).toFixed(3);
+
         row.innerHTML = `
           <td>${team.team}</td>
           <td>${team.wins}</td>
           <td>${team.losses}</td>
           <td>${pct}</td>
           <td>${team.diff > 0 ? '+' : ''}${team.diff}</td>
+          <td>${team.streakFormatted}</td>
+          <td>${team.homeWins}</td>
+          <td>${team.awayWins}</td>
         `;
+
+
         body.appendChild(row);
       });
     }
+
 
     function renderMatches() {
       const matchList = document.getElementById('matchList');
@@ -306,6 +349,9 @@
           <th>L</th>
           <th>PCT</th>
           <th>Diff</th>
+          <th>Streak</th>
+          <th>Home W</th>
+          <th>Away W</th>
         </tr>
       </thead>
       <tbody id="season3-standings-body">

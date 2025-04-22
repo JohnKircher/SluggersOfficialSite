@@ -1,15 +1,6 @@
 //UPDATE STANDINGS ONLY HERE< THEN COMMIT AND PUSH TO AUTO DEPLOY
 
-window.season3Standings = [
-  { team: "HarryKirch", wins: 0, losses: 0, diff: 0 },
-  { team: "BenR", wins: 0, losses: 0, diff: 0 },
-  { team: "Carby", wins: 0, losses: 0, diff: 0 },
-  { team: "Julian", wins: 0, losses: 0, diff: 0 },
-  { team: "Tom", wins: 0, losses: 0, diff: 0 },
-  { team: "Kircher", wins: 0, losses: 0, diff: 0 },
-  { team: "Jmo", wins: 0, losses: 0, diff: 0 },
-  { team: "BenT", wins: 0, losses: 0, diff: 0 }
-];
+
 
 //ADD MATCHES HERE
 //images: 
@@ -293,6 +284,70 @@ document.querySelectorAll('.tab').forEach(tab => {
         updatePlayoffs(season);
     });
 });
+
+function calculateStandingsFromMatches(matches) {
+  const standingsMap = {};
+
+  matches.forEach(match => {
+    if (!match.score || match.score === "0 - 0") return;
+
+    const [homeScoreStr, awayScoreStr] = match.score.split('-').map(s => parseInt(s.trim()));
+    if (isNaN(homeScoreStr) || isNaN(awayScoreStr)) return;
+
+    const home = match.home;
+    const away = match.away;
+
+    const homeScore = homeScoreStr;
+    const awayScore = awayScoreStr;
+
+    if (!standingsMap[home]) {
+      standingsMap[home] = { team: home, wins: 0, losses: 0, diff: 0, streak: [], homeWins: 0, awayWins: 0 };
+    }
+    if (!standingsMap[away]) {
+      standingsMap[away] = { team: away, wins: 0, losses: 0, diff: 0, streak: [], homeWins: 0, awayWins: 0 };
+    }
+
+    // Determine winner and loser
+    if (homeScore > awayScore) {
+      standingsMap[home].wins += 1;
+      standingsMap[home].homeWins += 1;
+      standingsMap[away].losses += 1;
+
+      standingsMap[home].streak.push("W");
+      standingsMap[away].streak.push("L");
+    } else if (awayScore > homeScore) {
+      standingsMap[away].wins += 1;
+      standingsMap[away].awayWins += 1;
+      standingsMap[home].losses += 1;
+
+      standingsMap[home].streak.push("L");
+      standingsMap[away].streak.push("W");
+    }
+
+    standingsMap[home].diff += (homeScore - awayScore);
+    standingsMap[away].diff += (awayScore - homeScore);
+  });
+
+  // Convert streaks into readable W3 / L2 style
+  Object.values(standingsMap).forEach(team => {
+    const streakArr = team.streak;
+    if (streakArr.length === 0) {
+      team.streakFormatted = '-';
+    } else {
+      let last = streakArr[streakArr.length - 1];
+      let count = 1;
+      for (let i = streakArr.length - 2; i >= 0; i--) {
+        if (streakArr[i] === last) count++;
+        else break;
+      }
+      team.streakFormatted = `${last}${count}`;
+    }
+  });
+
+  return Object.values(standingsMap);
+}
+
+
 
 function updateStandings(season) {
     const tbody = document.querySelector(`#${season} .standings-table tbody`);

@@ -55,6 +55,49 @@
           <option value="<">Less than</option>
         </select>
         <input type="number" id="gamesFilter" placeholder="e.g. 10" />
+
+        <label for="obpFilter">On-Base %:</label>
+        <select id="obpOperator">
+          <option value=">">Above</option>
+          <option value="<">Below</option>
+        </select>
+        <input type="number" id="obpFilter" step="0.001" placeholder="e.g. 0.400" />
+
+        <label for="slgFilter">Slugging %:</label>
+        <select id="slgOperator">
+          <option value=">">Above</option>
+          <option value="<">Below</option>
+        </select>
+        <input type="number" id="slgFilter" step="0.001" placeholder="e.g. 0.600" />
+
+        <label for="paFilter">Plate Appearances:</label>
+        <select id="paOperator">
+          <option value=">">More than</option>
+          <option value="<">Less than</option>
+        </select>
+        <input type="number" id="paFilter" placeholder="e.g. 20" />
+
+        <label for="hitsFilter">Hits:</label>
+        <select id="hitsOperator">
+          <option value=">">More than</option>
+          <option value="<">Less than</option>
+        </select>
+        <input type="number" id="hitsFilter" placeholder="e.g. 15" />
+
+        <label for="doublesFilter">Doubles:</label>
+        <select id="doublesOperator">
+          <option value=">">More than</option>
+          <option value="<">Less than</option>
+        </select>
+        <input type="number" id="doublesFilter" placeholder="e.g. 5" />
+
+        <label for="triplesFilter">Triples:</label>
+        <select id="triplesOperator">
+          <option value=">">More than</option>
+          <option value="<">Less than</option>
+        </select>
+        <input type="number" id="triplesFilter" placeholder="e.g. 1" />
+
       </div>
 
       <div id="pitchingFilters" style="display: none;">
@@ -78,6 +121,14 @@
           <option value="<">Below</option>
         </select>
         <input type="number" id="baaFilter" step="0.001" placeholder="e.g. 0.300" />
+
+        <label for="soFilter">Strikeouts:</label>
+        <select id="soOperator">
+          <option value=">">More than</option>
+          <option value="<">Less than</option>
+        </select>
+        <input type="number" id="soFilter" placeholder="e.g. 10" />
+
       </div>
       
       <button onclick="resetFilters()">Reset Filters</button>
@@ -86,10 +137,17 @@
         <label for="sortOption">Sort By:</label>
         <select id="sortOption">
           <option value="">-- Select --</option>
+          <option value="avg">Batting Average</option>
+          <option value="obp">On-Base %</option>
+          <option value="slg">Slugging %</option>
+          <option value="pa">Plate Appearances</option>
+          <option value="hits">Hits</option>
+          <option value="doubles">Doubles</option>
+          <option value="triples">Triples</option>
           <option value="games">Home Runs</option>
           <option value="gp">Games Played</option>
-          <option value="avg">Batting Average</option>
         </select>
+        
       </div>
       <div class="toggle-container">
         <button id="toggleStatsBtn">Switch to Pitching Stats</button>

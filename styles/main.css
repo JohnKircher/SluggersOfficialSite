@@ -1120,6 +1120,35 @@ body {
     color: #999;
     font-style: italic;
   }
+
+  .character-card .team-name {
+    font-weight: bold;
+    color: var(--secondary-accent);
+    margin: 0.5rem 0;
+  }
+  
+  /* Make sure the filter container looks good */
+  .season-content .filter-container {
+    background-color: #1e1e1e;
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .season-content .filter-container label {
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+  
+  .season-content .filter-container select,
+  .season-content .filter-container input {
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+    border: 1px solid #555;
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+    margin-right: 0.5rem;
+  }
   
   
   

@@ -1,5 +1,6 @@
 //UPDATE STANDINGS ONLY HERE< THEN COMMIT AND PUSH TO AUTO DEPLOY
-
+let currentSortKey = null;
+let currentSortDirection = 'desc';
 
 
 //ADD MATCHES HERE
@@ -46,7 +47,7 @@ async function loadPlayerStats() {
         statsMap[key] = {
           ...statsMap[key],
           IP: stat["Innings Pitched"],
-          ER: stat["Earned Runs"],
+          ER: stat["Earned Run Average"],
           BAA: stat["Batting Average Against"]
         };
       }
@@ -921,10 +922,283 @@ if (characterGrid) {
     if (select) select.addEventListener('change', applyFilters);
   });
 
-  
 
 
 }
+
+function renderSeason3Stats() {
+  const grid = document.getElementById('season3StatsGrid');
+  grid.innerHTML = '';
+  
+  const teamRosters = {
+    "Car-bones White Van": ["Bowser", "Dark Bones", "Dry Bones", "Blue Dry Bones", "Chicken", "Red Koopa Troopa", "Koopa Troopa", "Red Magikoopa", "Carby", "Red Yoshi", "Baby Mario", "Red Koopa Paratroopa", "Ice Cube", "Blooper"],
+    "Rizzler's Boom Squad": ["King K Rool", "Kritter", "Blue Kritter", "Luigi", "Rizzler", "Blue Shy Guy", "Minion", "Magikoopa", "Lilo", "Toadsworth", "Matt", "KSI", "Dixie Kong"],
+    "Monkey Mashers": ["Donkey Kong", "Petey Piranha", "Funky Kong", "Wario", "Yoshi", "Diddy Kong", "Tiny Kong", "Tsitsipas", "Lizzy", "Yellow Magikoopa", "Frozone", "Harry Potter", "Dora"],
+    "Unc's Breeding Program": ["Unc", "Saddam Hussein", "Lara Croft", "Green Shy Guy", "Green Toad", "Green Magikoopa", "Peach", "Koopa Paratroopa", "Monty Mole", "Kim Jong Un", "Black Widow", "Snape", "Green Noki"],
+    "Kevin G's Escort Agency": ["Birdo", "King Boo", "Daisy", "Kevin G", "Shy Guy", "Baby Daisy", "Miss Hot", "Livvy Dunne", "Dwayne Wade", "Black Shy Guy", "Pink Yoshi", "Baby Luigi", "Goomba"],
+    "Trinity Triple Threat": ["Wiggler", "Red Kritter", "Brown Kritter", "Waluigi", "Lebron James", "Borat", "Yellow Shy Guy", "Trinity", "Yellow Pianta", "The Penguin", "Lil Wayne", "SemenLad"],
+    "Toadette's Hit List": ["Fire Bro", "Boomerang Bro", "Red Pianta", "Mario", "Toad", "Blue Toad", "Toadette", "Purple Toad", "Mr. Incredible", "Baby Peach", "Blue Yoshi", "Handsome Squidward", "Light Blue Yoshi"],
+    BenT: ["Bowser Jr", "Hammer Bro", "Green Dry Bones", "Pianta", "Yellow Toad", "Boo", "Mikasa", "Baby DK", "Paragoomba", "Big AJ", "Yellow Yoshi", "Captain Jack", "MJ HeeHee"]
+  };
+
+  const allCharacters = window.characters.map(char => {
+    let team = '';
+    for (const [teamName, roster] of Object.entries(teamRosters)) {
+      if (roster.includes(char.name)) {
+        team = teamName;
+        break;
+      }
+    }
+    return { ...char, team };
+  });
+
+  const stats = window.playerStats || {};
+  
+  allCharacters.forEach(char => {
+    const card = document.createElement('div');
+    const isCaptain = captains.includes(char.name);
+    card.className = 'character-card' + (isCaptain ? ' captain-card' : '');
+    
+    // Set all data attributes
+    card.setAttribute('data-class', char.class || '');
+    card.setAttribute('data-team', char.team || '');
+    
+    // Batting stats
+    card.setAttribute('data-avg', stats[char.name.toLowerCase()]?.AVG || 0);
+    card.setAttribute('data-hr', stats[char.name.toLowerCase()]?.HR || 0);
+    card.setAttribute('data-gp', stats[char.name.toLowerCase()]?.GP || 0);
+    
+    // Pitching stats
+    card.setAttribute('data-ip', stats[char.name.toLowerCase()]?.IP || 0);
+    card.setAttribute('data-era', stats[char.name.toLowerCase()]?.ER || 0); // Note: Using ER for ERA
+    card.setAttribute('data-baa', stats[char.name.toLowerCase()]?.BAA || 0);
+
+    const miiInfo = window.miiMeta?.[char.name];
+    const badge = miiInfo ? `<div class="mii-badge" style="background-color:${miiInfo.color};">${miiInfo.gender}</div>` : '';
+
+    card.innerHTML = `
+      ${badge}
+      <img src="${char.image}" alt="${char.name}">
+      <h3>${char.name}</h3>
+      <p>Class: ${char.class}</p>
+      ${char.team ? `<p class="team-name">Team: ${char.team}</p>` : ''}
+      ${stats[char.name.toLowerCase()] ? `
+        <div class="char-stat">AVG: ${stats[char.name.toLowerCase()].AVG || '—'}</div>
+        <div class="char-stat">HR: ${stats[char.name.toLowerCase()].HR || '—'}</div>
+        <div class="char-stat">GP: ${stats[char.name.toLowerCase()].GP || '—'}</div>
+        <div class="char-stat">IP: ${stats[char.name.toLowerCase()].IP || '—'}</div>
+        <div class="char-stat">ERA: ${stats[char.name.toLowerCase()].ER || '—'}</div>
+        <div class="char-stat">BAA: ${stats[char.name.toLowerCase()].BAA || '—'}</div>
+      ` : `<div class="placeholder-stats">No Games Played</div>`}
+    `;
+
+    grid.appendChild(card);
+  });
+
+  setupSeason3Filters();
+}
+
+function setupSeason3Filters() {
+  // Copy the filter functionality from characters page
+  document.getElementById('classFilter').addEventListener('change', applySeason3Filters);
+  document.getElementById('avgFilter').addEventListener('input', applySeason3Filters);
+  document.getElementById('avgOperator').addEventListener('change', applySeason3Filters);
+  document.getElementById('gamesFilter').addEventListener('input', applySeason3Filters);
+  document.getElementById('gamesOperator').addEventListener('change', applySeason3Filters);
+  document.getElementById('gamesPlayedFilter').addEventListener('input', applySeason3Filters);
+  document.getElementById('gamesPlayedOperator').addEventListener('change', applySeason3Filters);
+  document.getElementById('teamFilter').addEventListener('change', applySeason3Filters);
+  document.getElementById('sortOption').addEventListener('change', sortSeason3Characters);
+
+  // Toggle between batting/pitching stats
+  let showingPitching = false;
+  document.getElementById('toggleStatsBtn').addEventListener('click', () => {
+    showingPitching = !showingPitching;
+    document.getElementById('toggleStatsBtn').textContent =
+      showingPitching ? 'Switch to Batting Stats' : 'Switch to Pitching Stats';
+    document.getElementById('battingFilters').style.display = showingPitching ? 'none' : 'block';
+    document.getElementById('pitchingFilters').style.display = showingPitching ? 'block' : 'none';
+    
+    // Update sort options
+    const sortSelect = document.getElementById('sortOption');
+    sortSelect.innerHTML = showingPitching
+      ? `
+        <option value="">-- Select --</option>
+        <option value="ip">Innings Pitched</option>
+        <option value="era">ERA</option>
+        <option value="baa">BAA</option>
+      `
+      : `
+        <option value="">-- Select --</option>
+        <option value="avg">Batting Average</option>
+        <option value="games">Home Runs</option>
+        <option value="gp">Games Played</option>
+      `;
+    
+    // Reset the sort selection
+    sortSelect.value = '';
+  });
+}
+
+function applySeason3Filters() {
+  const classVal = document.getElementById('classFilter').value;
+  const teamVal = document.getElementById('teamFilter').value;
+  const showingPitching = document.getElementById('pitchingFilters').style.display === 'block';
+  const cards = document.querySelectorAll('#season3StatsGrid .character-card');
+
+  cards.forEach(card => {
+    const cardClass = card.dataset.class;
+    const cardTeam = card.dataset.team;
+    let show = true;
+
+    // Class filter
+    if (classVal && cardClass !== classVal) show = false;
+
+    // Team filter
+    if (teamVal && cardTeam !== teamVal) show = false;
+
+    if (showingPitching) {
+      // Pitching stats filters
+      const ip = parseFloat(card.dataset.ip || 0);
+      const era = parseFloat(card.dataset.era || 0);
+      const baa = parseFloat(card.dataset.baa || 0);
+
+      const ipVal = parseFloat(document.getElementById('ipFilter').value);
+      const ipOp = document.getElementById('ipOperator').value;
+      if (!isNaN(ipVal)) {
+        if (ipOp === '>' && ip <= ipVal) show = false;
+        if (ipOp === '<' && ip >= ipVal) show = false;
+      }
+
+      const erVal = parseFloat(document.getElementById('erFilter').value);
+      const erOp = document.getElementById('erOperator').value;
+      if (!isNaN(erVal)) {
+        if (erOp === '>' && era <= erVal) show = false;
+        if (erOp === '<' && era >= erVal) show = false;
+      }
+
+      const baaVal = parseFloat(document.getElementById('baaFilter').value);
+      const baaOp = document.getElementById('baaOperator').value;
+      if (!isNaN(baaVal)) {
+        if (baaOp === '>' && baa <= baaVal) show = false;
+        if (baaOp === '<' && baa >= baaVal) show = false;
+      }
+    } else {
+      // Batting stats filters
+      const avgVal = parseFloat(document.getElementById('avgFilter').value);
+      const avgOp = document.getElementById('avgOperator').value;
+      const gamesVal = parseInt(document.getElementById('gamesFilter').value);
+      const gamesOp = document.getElementById('gamesOperator').value;
+      const gpVal = parseInt(document.getElementById('gamesPlayedFilter').value);
+      const gpOp = document.getElementById('gamesPlayedOperator').value;
+
+      const cardAvg = parseFloat(card.dataset.avg || 0);
+      const cardHR = parseInt(card.dataset.hr || 0);
+      const cardGP = parseInt(card.dataset.gp || 0);
+
+      if (!isNaN(avgVal)) {
+        if (avgOp === '>' && cardAvg <= avgVal) show = false;
+        if (avgOp === '<' && cardAvg >= avgVal) show = false;
+      }
+      if (!isNaN(gamesVal)) {
+        if (gamesOp === '>' && cardHR <= gamesVal) show = false;
+        if (gamesOp === '<' && cardHR >= gamesVal) show = false;
+      }
+      if (!isNaN(gpVal)) {
+        if (gpOp === '>' && cardGP <= gpVal) show = false;
+        if (gpOp === '<' && cardGP >= gpVal) show = false;
+      }
+    }
+
+    card.style.display = show ? 'block' : 'none';
+  });
+}
+
+function sortSeason3Characters() {
+  const sortBy = document.getElementById('sortOption').value;
+  const container = document.getElementById('season3StatsGrid');
+  const showingPitching = document.getElementById('pitchingFilters').style.display === 'block';
+
+  if (!sortBy) return;
+
+  const cards = Array.from(container.querySelectorAll('.character-card')).filter(c => 
+    c.style.display !== 'none'
+  );
+
+  cards.sort((a, b) => {
+    let aVal, bVal;
+
+    if (showingPitching) {
+      // Handle pitching stats sorting
+      switch(sortBy) {
+        case 'ip':
+          aVal = parseFloat(a.dataset.ip || 0);
+          bVal = parseFloat(b.dataset.ip || 0);
+          break;
+        case 'era':
+          aVal = parseFloat(a.dataset.era || 0);
+          bVal = parseFloat(b.dataset.era || 0);
+          break;
+        case 'baa':
+          aVal = parseFloat(a.dataset.baa || 0);
+          bVal = parseFloat(b.dataset.baa || 0);
+          break;
+      }
+    } else {
+      // Handle batting stats sorting
+      switch(sortBy) {
+        case 'avg':
+          aVal = parseFloat(a.dataset.avg || 0);
+          bVal = parseFloat(b.dataset.avg || 0);
+          break;
+        case 'games':
+          aVal = parseInt(a.dataset.hr || 0);
+          bVal = parseInt(b.dataset.hr || 0);
+          break;
+        case 'gp':
+          aVal = parseInt(a.dataset.gp || 0);
+          bVal = parseInt(b.dataset.gp || 0);
+          break;
+      }
+    }
+
+    // For ERA and BAA, lower is better so we reverse the sort
+    if (showingPitching && (sortBy === 'era' || sortBy === 'baa')) {
+      return aVal - bVal;
+    }
+    
+    // Default descending sort for other stats
+    return bVal - aVal;
+  });
+
+  // Re-append in sorted order
+  cards.forEach(card => container.appendChild(card));
+}
+
+function resetSeason3Filters() {
+  document.getElementById('classFilter').value = '';
+  document.getElementById('avgFilter').value = '';
+  document.getElementById('avgOperator').value = '>';
+  document.getElementById('gamesFilter').value = '';
+  document.getElementById('gamesOperator').value = '>';
+  document.getElementById('gamesPlayedFilter').value = '';
+  document.getElementById('gamesPlayedOperator').value = '>';
+  document.getElementById('ipFilter').value = '';
+  document.getElementById('ipOperator').value = '>';
+  document.getElementById('erFilter').value = '';
+  document.getElementById('erOperator').value = '>';
+  document.getElementById('baaFilter').value = '';
+  document.getElementById('baaOperator').value = '>';
+  document.getElementById('teamFilter').value = '';
+  document.getElementById('sortOption').value = '';
+  
+  document.querySelectorAll('#season3StatsGrid .character-card').forEach(card => {
+    card.style.display = 'block';
+  });
+}
+
+
+
 
   
   

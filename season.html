@@ -48,7 +48,8 @@
       <div class="season-tabs">
         <button class="tab active" data-team="Standings">Standings</button>
         <button class="tab" data-team="Matches">Matches</button>
-
+        <!-- In season.html, add this tab button with the others -->
+        <button class="tab" data-team="Season3Stats">Season 3 Stats</button>
         <button class="tab" data-team="Car-bones White Van">Car-bones White Van (harrykirch)</button>
         <button class="tab" data-team="Rizzler's Boom Squad">Rizzler's Boom Squad (benR)</button>
         <button class="tab" data-team="Monkey Mashers">Monkey Mashers (carby)</button>
@@ -181,6 +182,11 @@
       renderStandings();
       renderMatches(); // run only after data is ready
 
+      ['ipFilter', 'ipOperator', 'erFilter', 'erOperator', 'baaFilter', 'baaOperator'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('input', applySeason3Filters);
+      });
+
       document.getElementById("Standings").classList.add("active");
 
       const teamRosters = {
@@ -231,9 +237,9 @@
               <div class="char-stat">HR: ${char.stats.HR || '—'}</div>
               <div class="char-stat">GP: ${char.stats.GP || '—'}</div>
               <div class="char-stat">IP: ${char.stats.IP || '—'}</div>
-              <div class="char-stat">ER: ${char.stats.ER || '—'}</div>
+              <div class="char-stat">ERA: ${char.stats.ER || '—'}</div>
               <div class="char-stat">BAA: ${char.stats.BAA || '—'}</div>
-            ` : `<div class="placeholder-stats">Stats Coming Soon</div>`}
+            ` : `<div class="placeholder-stats">No Games Played</div>`}
           `;
 
           teamGrid.appendChild(card);
@@ -341,6 +347,10 @@
           if (tabName === "Standings") {
             renderStandings();
             document.getElementById("Standings").classList.add("active");
+          } 
+          if (tabName === "Season3Stats") {
+            renderSeason3Stats();
+            document.getElementById("Season3Stats").classList.add("active");
           } else if (tabName === "Matches") {
             renderMatches();
             document.getElementById("Matches").classList.add("active");
@@ -499,6 +509,101 @@
         <!-- Filled dynamically -->
       </tbody>
     </table>
+  </div>
+
+
+  <!-- Season 3 Stats Content -->
+  <div class="season-content" id="Season3Stats">
+    <div class="filter-container">
+      <label for="classFilter">Class:</label>
+      <select id="classFilter">
+        <option value="">All</option>
+        <option value="Power">Power</option>
+        <option value="Speed">Speed</option>
+        <option value="Technique">Technique</option>
+        <option value="Balanced">Balanced</option>
+      </select>
+      
+      <div id="battingFilters">
+        <label for="avgFilter">Batting Avg:</label>
+        <select id="avgOperator">
+          <option value=">">Above</option>
+          <option value="<">Below</option>
+        </select>
+        <input type="number" id="avgFilter" step="0.001" placeholder="e.g. 0.300" />
+      
+        <label for="gamesPlayedFilter">Games Played:</label>
+        <select id="gamesPlayedOperator">
+          <option value=">">More than</option>
+          <option value="<">Less than</option>
+        </select>
+        <input type="number" id="gamesPlayedFilter" placeholder="e.g. 10" />
+      
+        <label for="gamesFilter">Home Runs:</label>
+        <select id="gamesOperator">
+          <option value=">">More than</option>
+          <option value="<">Less than</option>
+        </select>
+        <input type="number" id="gamesFilter" placeholder="e.g. 10" />
+      </div>
+
+      <div id="pitchingFilters" style="display: none;">
+        <label for="ipFilter">Innings Pitched:</label>
+        <select id="ipOperator">
+          <option value=">">More than</option>
+          <option value="<">Less than</option>
+        </select>
+        <input type="number" id="ipFilter" step="0.1" placeholder="e.g. 10" />
+      
+        <label for="erFilter">Earned Run Average:</label>
+        <select id="erOperator">
+          <option value=">">More than</option>
+          <option value="<">Less than</option>
+        </select>
+        <input type="number" id="erFilter" step="1" placeholder="e.g. 5" />
+      
+        <label for="baaFilter">BAA:</label>
+        <select id="baaOperator">
+          <option value=">">Above</option>
+          <option value="<">Below</option>
+        </select>
+        <input type="number" id="baaFilter" step="0.001" placeholder="e.g. 0.300" />
+      </div>
+      
+      <button onclick="resetSeason3Filters()">Reset Filters</button>
+
+      <div class="sort-container" style="margin-top: 1rem;">
+        <label for="sortOption">Sort By:</label>
+        <select id="sortOption">
+          <option value="">-- Select --</option>
+          <option value="games">Home Runs</option>
+          <option value="gp">Games Played</option>
+          <option value="avg">Batting Average</option>
+        </select>
+      </div>
+      <div class="toggle-container">
+        <button id="toggleStatsBtn">Switch to Pitching Stats</button>
+      </div>
+
+      <div class="team-filter-container" style="margin-top: 1rem;">
+        <label for="teamFilter">Team:</label>
+        <select id="teamFilter">
+          <option value="">All Teams</option>
+          <option value="Car-bones White Van">Car-bones White Van</option>
+          <option value="Rizzler's Boom Squad">Rizzler's Boom Squad</option>
+          <option value="Monkey Mashers">Monkey Mashers</option>
+          <option value="Unc's Breeding Program">Unc's Breeding Program</option>
+          <option value="Kevin G's Escort Agency">Kevin G's Escort Agency</option>
+          <option value="Trinity Triple Threat">Trinity Triple Threat</option>
+          <option value="Toadette's Hit List">Toadette's Hit List</option>
+          <option value="BenT">BenT</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="character-grid" id="season3StatsGrid">
+      <!-- Character cards will be inserted here -->
+    </div>
   </div>
 
   <!-- Matches Content -->

@@ -233,12 +233,12 @@
             <h3>${char.name}</h3>
             <p>Class: ${char.class}</p>
             ${char.stats ? `
-              <div class="char-stat">AVG: ${char.stats.AVG || '—'}</div>
-              <div class="char-stat">HR: ${char.stats.HR || '—'}</div>
-              <div class="char-stat">GP: ${char.stats.GP || '—'}</div>
-              <div class="char-stat">IP: ${char.stats.IP || '—'}</div>
-              <div class="char-stat">ERA: ${char.stats.ER || '—'}</div>
-              <div class="char-stat">BAA: ${char.stats.BAA || '—'}</div>
+              <div class="char-stat">AVG: ${char.stats.AVG || '0'}</div>
+              <div class="char-stat">HR: ${char.stats.HR || '0'}</div>
+              <div class="char-stat">GP: ${char.stats.GP || '0'}</div>
+              <div class="char-stat">IP: ${char.stats.IP || '0'}</div>
+              <div class="char-stat">ERA: ${char.stats.ER || '0'}</div>
+              <div class="char-stat">BAA: ${char.stats.BAA || '0'}</div>
             ` : `<div class="placeholder-stats">No Games Played</div>`}
           `;
 

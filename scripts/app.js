@@ -983,12 +983,12 @@ function renderSeason3Stats() {
       <p>Class: ${char.class}</p>
       ${char.team ? `<p class="team-name">Team: ${char.team}</p>` : ''}
       ${stats[char.name.toLowerCase()] ? `
-        <div class="char-stat">AVG: ${stats[char.name.toLowerCase()].AVG || '—'}</div>
-        <div class="char-stat">HR: ${stats[char.name.toLowerCase()].HR || '—'}</div>
-        <div class="char-stat">GP: ${stats[char.name.toLowerCase()].GP || '—'}</div>
-        <div class="char-stat">IP: ${stats[char.name.toLowerCase()].IP || '—'}</div>
-        <div class="char-stat">ERA: ${stats[char.name.toLowerCase()].ER || '—'}</div>
-        <div class="char-stat">BAA: ${stats[char.name.toLowerCase()].BAA || '—'}</div>
+        <div class="char-stat">AVG: ${stats[char.name.toLowerCase()].AVG || '0'}</div>
+        <div class="char-stat">HR: ${stats[char.name.toLowerCase()].HR || '0'}</div>
+        <div class="char-stat">GP: ${stats[char.name.toLowerCase()].GP || '0'}</div>
+        <div class="char-stat">IP: ${stats[char.name.toLowerCase()].IP || '0'}</div>
+        <div class="char-stat">ERA: ${stats[char.name.toLowerCase()].ER || '0'}</div>
+        <div class="char-stat">BAA: ${stats[char.name.toLowerCase()].BAA || '0'}</div>
       ` : `<div class="placeholder-stats">No Games Played</div>`}
     `;
 

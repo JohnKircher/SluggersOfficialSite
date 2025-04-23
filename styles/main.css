@@ -1109,6 +1109,18 @@ body {
     border-top: 1px solid #555;
     margin: 10px 0;
   }
+
+  .char-stat {
+    font-size: 0.7rem;
+    color: #eee;
+    line-height: 1.2;
+  }
+  .placeholder-stats {
+    font-size: 0.7rem;
+    color: #999;
+    font-style: italic;
+  }
+  
   
   
   

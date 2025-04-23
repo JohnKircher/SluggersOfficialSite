@@ -64,6 +64,8 @@
     <div class="season-content" id="Teams">
       <div class="character-grid" id="teamCharacterGrid"></div>
       <h3 id="teamMatchesHeader" style="margin-top: 30px;"></h3>
+      
+      
       <div class="character-grid match-grid" id="teamMatchGrid"></div>
     </div>
     
@@ -173,6 +175,8 @@
 
     window.onload = async () => {
       await loadMatchesFromAPI();
+      await loadPlayerStats(); // ⬅️ load player stats early
+
 
       renderStandings();
       renderMatches(); // run only after data is ready
@@ -198,12 +202,21 @@
         document.getElementById('teamMatchesHeader').textContent = '';
         teamGrid.innerHTML = '';
         const roster = teamRosters[team];
-        const teamCharacters = roster.map(name => allCharacters.find(char => char.name === name)).filter(Boolean);
+        const teamCharacters = roster.map(name => {
+          const char = allCharacters.find(char => char.name === name);
+          const stats = window.playerStats?.[char.name.toLowerCase()];
+          if (!stats) console.log(`Missing stats for: ${char.name}`);
+          return { ...char, stats };
+        }).filter(Boolean);
 
         teamCharacters.forEach(char => {
           const card = document.createElement('div');
           const isCaptain = window.captains?.includes(char.name);
           card.className = 'character-card' + (isCaptain ? ' captain-card' : '');
+          card.setAttribute('data-class', char.class || '');
+          card.setAttribute('data-avg', char.stats?.AVG ?? 0);
+          card.setAttribute('data-hr', char.stats?.HR ?? 0);
+          card.setAttribute('data-gp', char.stats?.GP ?? 0);
 
           const miiInfo = window.miiMeta?.[char.name];
           const badge = miiInfo ? `<div class="mii-badge" style="background-color:${miiInfo.color};">${miiInfo.gender}</div>` : '';
@@ -213,10 +226,18 @@
             <img src="${char.image}" alt="${char.name}">
             <h3>${char.name}</h3>
             <p>Class: ${char.class}</p>
-            <p class="placeholder-stats">Stats Coming Soon</p>
+            ${char.stats ? `
+              <div class="char-stat">AVG: ${char.stats.AVG || '—'}</div>
+              <div class="char-stat">HR: ${char.stats.HR || '—'}</div>
+              <div class="char-stat">GP: ${char.stats.GP || '—'}</div>
+              <div class="char-stat">IP: ${char.stats.IP || '—'}</div>
+              <div class="char-stat">ER: ${char.stats.ER || '—'}</div>
+              <div class="char-stat">BAA: ${char.stats.BAA || '—'}</div>
+            ` : `<div class="placeholder-stats">Stats Coming Soon</div>`}
           `;
 
           teamGrid.appendChild(card);
+          
         });
 
         // RENDER MATCHES FOR THIS TEAM

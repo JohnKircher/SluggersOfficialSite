@@ -19,7 +19,46 @@ async function loadMatchesFromAPI() {
   if (loadingDiv) loadingDiv.style.display = 'none';
 }
 
+async function loadPlayerStats() {
+  try {
+    const res = await fetch("https://script.google.com/macros/s/AKfycbyPd-rGO1-02viPV9WpRozOyz_QC96f8KrF_w49YJJnq6weJi3lVf33Ju7T6aeCCA5r/exec");
+    const { batting, pitching } = await res.json();
 
+    const statsMap = {};
+
+    // Normalize batting stats
+    batting.forEach(stat => {
+      if (stat["First Name"]) {
+        const key = stat["First Name"].trim().toLowerCase();
+        statsMap[key] = {
+          ...statsMap[key],
+          GP: stat["Games Played"],
+          AVG: stat["Batting Average"],
+          HR: stat["Home Runs"]
+        };
+      }
+    });
+
+    // Normalize pitching stats
+    pitching.forEach(stat => {
+      if (stat["First Name"]) {
+        const key = stat["First Name"].trim().toLowerCase();
+        statsMap[key] = {
+          ...statsMap[key],
+          IP: stat["Innings Pitched"],
+          ER: stat["Earned Runs"],
+          BAA: stat["Batting Average Against"]
+        };
+      }
+    });
+
+    console.log("✅ Loaded stat keys:", Object.keys(statsMap));
+    window.playerStats = statsMap;
+
+  } catch (err) {
+    console.error("Failed to load player stats:", err);
+  }
+}
 
 
 
@@ -780,6 +819,7 @@ if (characterGrid) {
       card.style.display = show ? 'block' : 'none';
     });
   }
+  
   
 
   function sortCharacters() {

@@ -1149,6 +1149,38 @@ body {
     border-radius: 8px;
     margin-right: 0.5rem;
   }
+
+  .mvp-badge {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    background-color: gold;
+    color: black;
+    font-weight: bold;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 50px;
+    box-shadow: 0 0 5px gold;
+  }
+  .character-card {
+    position: relative;
+  }
+
+  .mvp-star {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: gold;
+    color: black;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 4px 8px;
+    font-size: 12px;
+    box-shadow: 0 0 6px rgba(255, 215, 0, 0.6);
+    z-index: 2;
+  }
+  
+  
   
   
   

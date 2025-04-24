@@ -232,8 +232,16 @@
           const miiInfo = window.miiMeta?.[char.name];
           const badge = miiInfo ? `<div class="mii-badge" style="background-color:${miiInfo.color};">${miiInfo.gender}</div>` : '';
 
+          const mvpCount = window.mvpS3Counts?.[char.name];
+          const mvpBadge = mvpCount
+            ? `<div class="mvp-badge">${mvpCount}⭐</div>`
+            : '';
+
+
+
           card.innerHTML = `
             ${badge}
+            ${mvpBadge}
             <img src="${char.image}" alt="${char.name}">
             <h3>${char.name}</h3>
             <p>Class: ${char.class}</p>

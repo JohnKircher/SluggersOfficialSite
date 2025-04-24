@@ -126,74 +126,81 @@ window.miiMeta = miiMeta;
 const mvps = [
     {
         name: "King K Rool",
-        team: "BenT & Luigi's Long Schlongs",
-        mvps: 6,
+        team: "BenT & Luigi's Long Schlongs & Rizzler's Boom Squad",
+        mvps: 7,
         image: "assets/images/krool.png",
-        stats: "BA: .584 | HR: 20 | RBI: 45"
+        stats: "BA: 0.593 | HR: 22 | SLG: 1.427"
     },
     {
         name: "Donkey Kong",
-        team: "DK's Swamp Monkeys & Diddy's Blue Ball Boys",
+        team: "DK's Swamp Monkeys & Diddy's Blue Ball Boys & Monkey Mashers",
         mvps: 5,
         image: "assets/images/dk.png",
-        stats: "BA: .678 | HR: 18 | RBI: 54"
+        stats: "BA: 0.642 | HR: 21 | SLG: 1.345"
     },
     {
         name: "Bowser",
-        team: "UNC & BenT",
+        team: "UNC & BenT & Car-bones White Van",
         mvps: 5,
         image: "assets/images/bowser1.png",
-        stats: "BA: .580 | HR: 23 | RBI: 47"
+        stats: "BA: 0.541 | HR: 23 | SLG: 1.409"
     },
     {
         name: "Red Kritter",
-        team: "Bowser Jr. OnlyShells & Caillou's House",
+        team: "Bowser Jr. OnlyShells & Caillou's House & Trinity Triple Threat",
         mvps: 5,
         image: "assets/images/rkrit.png",
-        stats: "BA: .455 | HR: 10 | RBI: 22"
+        stats: "BA: 0.443 | HR: 6 | SLG: 0.738"
     },
     {
         name: "Brown Kritter",
-        team: "DK's Swamp Monekys & Caillou's House & BenT",
+        team: "DK's Swamp Monekys & Caillou's House & BenT & Trinity Triple Threat",
         mvps: 5,
         image: "assets/images/bkrit.png",
-        stats: "BA: .491 | HR: 11 | RBI: 29"
+        stats: "BA: 0.461 | HR: 11 | SLG: 0.972"
     },
     {
         name: "Hammer Bro",
-        team: "Tom-Splosion & Petey's Thirst Trap & Julian",
+        team: "Tom-Splosion & Petey's Thirst Trap & Julian & BenT",
         mvps: 4,
         image: "assets/images/hbro.png",
-        stats: "BA: .5145 | HR: 18 | RBI: 34"
+        stats: "BA: 0.514 | HR: 18 | SLG: 1.223"
     },
     {
         name: "Unc",
-        team: "UNC & Luigi's Long Schlongs",
+        team: "UNC & Luigi's Long Schlongs & Unc's Breeding Program",
         mvps: 4,
         image: "assets/images/unc.png",
-        stats: "BA: .557 | HR: 3 | RBI: 19"
+        stats: "BA: 0.545 | HR: 3 | SLG: 0.693"
     },
     {
         name: "Fire Bro",
-        team: "Bowser Jr. OnlyShells & Caillou's House & BenT",
+        team: "Bowser Jr. OnlyShells & Caillou's House & BenT & Toadette's Hit List",
         mvps: 3,
         image: "assets/images/fbro.png",
-        stats: "BA: .571 | HR: 22 | RBI: 44"
+        stats: "BA: 0.585 | HR: 23 | SLG: 1.45"
     },
     {
         name: "Boomerang Bro",
-        team: "Bowser Jr. OnlyShells & Sucked and Severed",
+        team: "Bowser Jr. OnlyShells & Sucked and Severed & Toadette's Hit List",
         mvps: 3,
         image: "assets/images/bbro.png",
-        stats: "BA: .533 | HR: 10 | RBI: 27"
+        stats: "BA: 0.513 | HR: 10 | SLG: 0.934"
     },
     {
         name: "Dry Bones",
-        team: "UNC & Luigi's Long Schlongs",
+        team: "UNC & Luigi's Long Schlongs & Car-bones White Van",
         mvps: 3,
         image: "assets/images/dry.png",
-        stats: "BA: .637 | HR: 5 | RBI: 16"
-    }
+        stats: "BA: 0.613 | HR: 5 | SLG: 0.906"
+    },
+    {
+      name: "Birdo",
+      team: "Birdo Backshots & Sucked and Severed & Kevin G's Escort Agency",
+      mvps: 3,
+      image: "assets/images/birdonk.png",
+      stats: "BA: 0.545 | HR: 5 | SLG: 0.791"
+  }
 ];
 
 
@@ -524,6 +531,58 @@ if (scrollDownBtn) {
   });
 }
 
+const mvpCounts = {
+  "King K Rool": 7,
+  "Red Kritter": 5,
+  "Donkey Kong": 5,
+  "Brown Kritter": 5,
+  "Bowser": 5,
+  "Unc": 4,
+  "Hammer Bro": 4,
+  "Fire Bro": 3,
+  "Dry Bones": 3,
+  "Birdo": 3,
+  "Boomerang Bro": 3,
+  "Kritter": 2,
+  "Funky Kong": 2,
+  "Bowser Jr": 2,
+  "Daisy": 2,
+  "Lil Wayne": 2,
+  "Red Pianta": 2,
+  "King Boo": 2,
+  "Green Toad": 2,
+  "Mario": 2,
+  "Wario": 2,
+  "Blue Toad": 2,
+  "Wiggler": 2,
+  "Toad": 1,
+  "John 2.0": 1,
+  "Boo": 1,
+  "Borat": 1,
+  "Baby Daisy": 1,
+  "Dixie Kong": 1,
+  "Black Widow": 1,
+  "Miss Hot": 1,
+  "Blue Dry Bones": 1,
+  "Dark Bones": 1,
+  "Green Magikoopa": 1,
+  "Blue Kritter": 1,
+  "Petey Piranha": 1,
+  "Trinity": 1,
+  "Yellow Pianta": 1,
+  "MJ HeeHee": 1,
+  "Magikoopa": 1,
+  "Green Dry Bones": 1
+};
+
+window.mvpS3Counts = {
+  "King K Rool": 1,
+  "Red Pianta": 1,
+  "Wiggler": 1,
+  "Green Dry Bones": 1
+};
+
+
 const characters = [
   { name: "Baby DK", image: "assets/images/baby dk.png", class: "Speed", avg: 0.481, gp: 21, hr: 3, pa: 81, hits: 39, slg: 0.676, obp: 0.494, doubles: 3, triples: 1 },
   { name: "Baby Daisy", image: "assets/images/baby daisy.png", class: "Power", avg: 0.435, gp: 13, hr: 0, pa: 46, hits: 20, slg: 0.521, obp: 0.427, doubles: 2, triples: 1 },
@@ -742,6 +801,12 @@ if (characterGrid) {
       const genderBadge = miiInfo
         ? `<div class="mii-badge" style="background-color:${miiInfo.color};">${miiInfo.gender}</div>`
         : '';
+
+      const mvpCount = mvpCounts[char.name];
+      const mvpBadge = mvpCount
+        ? `<div class="mvp-badge">${mvpCount}⭐</div>`
+        : '';
+        
   
       let statSection = '';
       if (usePitching) {
@@ -781,6 +846,7 @@ if (characterGrid) {
   
       card.innerHTML = `
         ${genderBadge}
+        ${mvpBadge}
         <img src="${char.image}" alt="${char.name}">
         <h3>${char.name}</h3>
         <p>Class: ${char.class}</p>
@@ -1052,8 +1118,15 @@ function renderSeason3Stats() {
     const miiInfo = window.miiMeta?.[char.name];
     const badge = miiInfo ? `<div class="mii-badge" style="background-color:${miiInfo.color};">${miiInfo.gender}</div>` : '';
 
+    const mvpCount = mvpS3Counts[char.name];
+    const mvpBadge = mvpCount
+      ? `<div class="mvp-badge">${mvpCount}⭐</div>`
+      : '';
+
+
     card.innerHTML = `
       ${badge}
+      ${mvpBadge}
       <img src="${char.image}" alt="${char.name}">
       <h3>${char.name}</h3>
       <p>Class: ${char.class}</p>

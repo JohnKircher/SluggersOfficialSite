@@ -1043,9 +1043,15 @@ if (characterGrid) {
       `
       : `
         <option value="">-- Select --</option>
+        <option value="avg">Batting Average</option>
+        <option value="obp">On-Base %</option>
+        <option value="slg">Slugging %</option>
+        <option value="pa">Plate Appearances</option>
+        <option value="hits">Hits</option>
+        <option value="doubles">Doubles</option>
+        <option value="triples">Triples</option>
         <option value="games">Home Runs</option>
         <option value="gp">Games Played</option>
-        <option value="avg">Batting Average</option>
       `;
   
     // ✅ Toggle filter visibility

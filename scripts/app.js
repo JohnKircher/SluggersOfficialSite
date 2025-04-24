@@ -69,7 +69,7 @@ window.captains = captains;
 const miiMeta = {
     "Black Widow": { gender: "F", color: "black" },
     "Borat": { gender: "M", color: "yellow" },
-    "Captain Jack": { gender: "M", color: "white" },
+    "Captain Jack Sparrow": { gender: "M", color: "white" },
     "Chicken": { gender: "F", color: "red" },
     "Dwayne Wade": { gender: "M", color: "pink" },
     "Ice Cube": { gender: "M", color: "brown" },
@@ -102,7 +102,20 @@ const miiMeta = {
     "Lebron James": { gender: "F", color: "yellow" },
     "Lizzy": { gender: "F", color: "lightgreen" },
     "Saddam Hussein": { gender: "F", color: "green" },
-    "Livvy Dunne": { gender: "F", color: "pink" }
+    "Livvy Dunne": { gender: "F", color: "pink" },
+    "Caillou": { gender: "M", color: "red" },
+    "Epiccooper": { gender: "M", color: "purple" },
+    "Gandalf": { gender: "M", color: "white" },
+    "Helly R": { gender: "F", color: "blue" },
+    "John 2.0": { gender: "M", color: "purple" },
+    "John K": { gender: "M", color: "black" },
+    "KevinG": { gender: "M", color: "orange" },
+    "Miss Casey": { gender: "F", color: "white" },
+    "Mrs.Claus": { gender: "F", color: "yellow" },
+    "Queen Elizabeth": { gender: "F", color: "green" },
+    "Yghur": { gender: "M", color: "green" },
+    "Zorro": { gender: "M", color: "black" },
+    "Chickenrice": { gender: "M", color: "blue" }
   };
 
 window.miiMeta = miiMeta;
@@ -560,7 +573,7 @@ const characters = [
   { name: "John 2.0", image: "assets/images/john 2.0.jpg", class: "Balanced", avg: 0.562, gp: 4, hr: 0, pa: 16, hits: 9, slg: 0.6, obp: 0.6, doubles: 0, triples: 0 },
   { name: "John K", image: "assets/images/john k.jpg", class: "Balanced", avg: 0.325, gp: 12, hr: 0, pa: 40, hits: 13, slg: 0.325, obp: 0.325, doubles: 0, triples: 0 },
   { name: "John", image: "assets/images/john.jpg", class: "Balanced", avg: 0.391, gp: 7, hr: 0, pa: 23, hits: 9, slg: 0.421, obp: 0.358, doubles: 1, triples: 0 },
-  { name: "KevinG", image: "assets/images/kevin g.jpg", class: "Balanced", avg: 0.0, gp: 2, hr: 0, pa: 7, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Kevin G", image: "assets/images/kevin g.jpg", class: "Balanced", avg: 0.0, gp: 2, hr: 0, pa: 7, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
   { name: "King Boo", image: "assets/images/king boo.png", class: "Power", avg: 0.5, gp: 21, hr: 14, pa: 76, hits: 38, slg: 1.095, obp: 0.479, doubles: 2, triples: 0 },
   { name: "King K Rool", image: "assets/images/king k rool.png", class: "Power", avg: 0.593, gp: 21, hr: 22, pa: 86, hits: 51, slg: 1.427, obp: 0.593, doubles: 3, triples: 0 },
   { name: "Koopa Paratroopa", image: "assets/images/koopa paratroopa.png", class: "Balanced", avg: 0.29, gp: 17, hr: 1, pa: 62, hits: 18, slg: 0.339, obp: 0.29, doubles: 0, triples: 0 },
@@ -600,7 +613,7 @@ const characters = [
   { name: "Red Yoshi", image: "assets/images/red yoshi.png", class: "Speed", avg: 0.375, gp: 14, hr: 1, pa: 48, hits: 18, slg: 0.438, obp: 0.375, doubles: 0, triples: 0 },
   { name: "Rizzler", image: "assets/images/rizzler.jpg", class: "Balanced", avg: 0.75, gp: 1, hr: 0, pa: 4, hits: 3, slg: 0.75, obp: 0.75, doubles: 0, triples: 0 },
   { name: "Saddam Hussein", image: "assets/images/saddam hussein.jpg", class: "Balanced", avg: 0.25, gp: 1, hr: 0, pa: 4, hits: 1, slg: 0.25, obp: 0.25, doubles: 0, triples: 0 },
-  { name: "Semenlad", image: "assets/images/semenlad.jpg", class: "Balanced", avg: 0.346, gp: 13, hr: 0, pa: 52, hits: 18, slg: 0.357, obp: 0.35, doubles: 0, triples: 0 },
+  { name: "SemenLad", image: "assets/images/semenlad.jpg", class: "Balanced", avg: 0.346, gp: 13, hr: 0, pa: 52, hits: 18, slg: 0.357, obp: 0.35, doubles: 0, triples: 0 },
   { name: "Shy Guy", image: "assets/images/shy guy.png", class: "Technique", avg: 0.452, gp: 18, hr: 0, pa: 62, hits: 28, slg: 0.526, obp: 0.468, doubles: 4, triples: 0 },
   { name: "Snape", image: "assets/images/snape.jpg", class: "Balanced", avg: 0.312, gp: 13, hr: 0, pa: 48, hits: 15, slg: 0.309, obp: 0.309, doubles: 0, triples: 0 },
   { name: "Tiny Kong", image: "assets/images/tiny kong.png", class: "Balanced", avg: 0.47, gp: 21, hr: 1, pa: 83, hits: 39, slg: 0.554, obp: 0.47, doubles: 2, triples: 1 },
@@ -620,6 +633,16 @@ const characters = [
   { name: "Yghur", image: "assets/images/yghur.jpg", class: "Balanced", avg: 0.381, gp: 6, hr: 1, pa: 21, hits: 8, slg: 0.571, obp: 0.381, doubles: 1, triples: 0 },
   { name: "Yoshi", image: "assets/images/yoshi.png", class: "Speed", avg: 0.349, gp: 21, hr: 2, pa: 83, hits: 29, slg: 0.453, obp: 0.355, doubles: 2, triples: 0 },
   { name: "Zorro", image: "assets/images/zorro.jpg", class: "Balanced", avg: 0.286, gp: 2, hr: 0, pa: 7, hits: 2, slg: 0.286, obp: 0.286, doubles: 0, triples: 0 },
+  { name: "Tsitsipas", image: "assets/images/tsitsipas.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "KSI", image: "assets/images/ksi.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Harry Potter", image: "assets/images/Harry Potter.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Dora", image: "assets/images/Dora.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Kim Jong Un", image: "assets/images/Kim Jong Un.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Goomba", image: "assets/images/goomba.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "The Penguin", image: "assets/images/The Penguin.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Handsome Squidward", image: "assets/images/Handsome Squidward.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Light Blue Yoshi", image: "assets/images/Light Blue Yoshi.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Big AJ", image: "assets/images/Big AJ.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 }
 ];
 
 window.characters = characters;
@@ -991,7 +1014,7 @@ function renderSeason3Stats() {
     "Kevin G's Escort Agency": ["Birdo", "King Boo", "Daisy", "Kevin G", "Shy Guy", "Baby Daisy", "Miss Hot", "Livvy Dunne", "Dwayne Wade", "Black Shy Guy", "Pink Yoshi", "Baby Luigi", "Goomba"],
     "Trinity Triple Threat": ["Wiggler", "Red Kritter", "Brown Kritter", "Waluigi", "Lebron James", "Borat", "Yellow Shy Guy", "Trinity", "Yellow Pianta", "The Penguin", "Lil Wayne", "SemenLad"],
     "Toadette's Hit List": ["Fire Bro", "Boomerang Bro", "Red Pianta", "Mario", "Toad", "Blue Toad", "Toadette", "Purple Toad", "Mr. Incredible", "Baby Peach", "Blue Yoshi", "Handsome Squidward", "Light Blue Yoshi"],
-    BenT: ["Bowser Jr", "Hammer Bro", "Green Dry Bones", "Pianta", "Yellow Toad", "Boo", "Mikasa", "Baby DK", "Paragoomba", "Big AJ", "Yellow Yoshi", "Captain Jack", "MJ HeeHee"]
+    BenT: ["Bowser Jr", "Hammer Bro", "Green Dry Bones", "Pianta", "Yellow Toad", "Boo", "Mikasa", "Baby DK", "Paragoomba", "Big AJ", "Yellow Yoshi", "Captain Jack Sparrow", "MJ HeeHee"]
   };
 
   const allCharacters = window.characters.map(char => {

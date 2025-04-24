@@ -210,10 +210,15 @@
         const roster = teamRosters[team];
         const teamCharacters = roster.map(name => {
           const char = allCharacters.find(char => char.name === name);
+          if (!char) {
+            console.warn(`Character not found for: ${name}`);
+            return null;
+          }
           const stats = window.playerStats?.[char.name.toLowerCase()];
           if (!stats) console.log(`Missing stats for: ${char.name}`);
           return { ...char, stats };
         }).filter(Boolean);
+
 
         teamCharacters.forEach(char => {
           const card = document.createElement('div');
@@ -347,8 +352,7 @@
           if (tabName === "Standings") {
             renderStandings();
             document.getElementById("Standings").classList.add("active");
-          } 
-          if (tabName === "Season3Stats") {
+          } else if (tabName === "Season3Stats") {
             renderSeason3Stats();
             document.getElementById("Season3Stats").classList.add("active");
           } else if (tabName === "Matches") {
@@ -358,6 +362,7 @@
             renderTeam(tabName);
             document.getElementById("Teams").classList.add("active");
           }
+
         });
       });
     };
@@ -532,12 +537,12 @@
         </select>
         <input type="number" id="avgFilter" step="0.001" placeholder="e.g. 0.300" />
       
-        <label for="gamesPlayedFilter">Games Played:</label>
-        <select id="gamesPlayedOperator">
+        <label for="gpFilter">Games Played:</label>
+        <select id="gpOperator">
           <option value=">">More than</option>
           <option value="<">Less than</option>
         </select>
-        <input type="number" id="gamesPlayedFilter" placeholder="e.g. 10" />
+        <input type="number" id="gpFilter" placeholder="e.g. 10" />
       
         <label for="gamesFilter">Home Runs:</label>
         <select id="gamesOperator">

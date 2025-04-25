@@ -1179,6 +1179,39 @@ body {
     box-shadow: 0 0 6px rgba(255, 215, 0, 0.6);
     z-index: 2;
   }
+
+  .result-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.7);
+    text-shadow: 0 0 10px black;
+    z-index: 5;
+    pointer-events: none;
+  }
+  
+  .result-overlay.won {
+    background-color: rgba(0, 255, 0, 0.7);
+    color: #0f0;
+  }
+  
+  .result-overlay.lost {
+    background-color: rgba(255, 0, 0, 0.7);
+    color: #f00;
+  }
+  
+  .match-card {
+    position: relative; /* Make sure overlays position correctly! */
+  }
+
+  
+  
   
   
   

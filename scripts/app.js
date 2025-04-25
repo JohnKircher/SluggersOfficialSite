@@ -126,7 +126,7 @@ window.miiMeta = miiMeta;
 const mvps = [
     {
         name: "King K Rool",
-        team: "BenT & Luigi's Long Schlongs & Rizzler's Boom Squad",
+        team: "BenT & Luigi's Long Schlongs & Kritter Town USA",
         mvps: 7,
         image: "assets/images/krool.png",
         stats: "BA: 0.593 | HR: 22 | SLG: 1.427"
@@ -1085,7 +1085,7 @@ function renderSeason3Stats() {
   
   const teamRosters = {
     "Car-bones White Van": ["Bowser", "Dark Bones", "Dry Bones", "Blue Dry Bones", "Chicken", "Red Koopa Troopa", "Koopa Troopa", "Red Magikoopa", "Carby", "Red Yoshi", "Baby Mario", "Red Koopa Paratroopa", "Ice Cube", "Blooper"],
-    "Rizzler's Boom Squad": ["King K Rool", "Kritter", "Blue Kritter", "Luigi", "Rizzler", "Blue Shy Guy", "Minion", "Magikoopa", "Lilo", "Toadsworth", "Matt", "KSI", "Dixie Kong"],
+    "Kritter Town USA": ["King K Rool", "Kritter", "Blue Kritter", "Luigi", "Rizzler", "Blue Shy Guy", "Minion", "Magikoopa", "Lilo", "Toadsworth", "Matt", "KSI", "Dixie Kong"],
     "Monkey Mashers": ["Donkey Kong", "Petey Piranha", "Funky Kong", "Wario", "Yoshi", "Diddy Kong", "Tiny Kong", "Tsitsipas", "Lizzy", "Yellow Magikoopa", "Frozone", "Harry Potter", "Dora"],
     "Unc's Breeding Program": ["Unc", "Saddam Hussein", "Lara Croft", "Green Shy Guy", "Green Toad", "Green Magikoopa", "Peach", "Koopa Paratroopa", "Monty Mole", "Kim Jong Un", "Black Widow", "Snape", "Green Noki"],
     "Kevin G's Escort Agency": ["Birdo", "King Boo", "Daisy", "Kevin G", "Shy Guy", "Baby Daisy", "Miss Hot", "Livvy Dunne", "Dwayne Wade", "Black Shy Guy", "Pink Yoshi", "Baby Luigi", "Goomba"],

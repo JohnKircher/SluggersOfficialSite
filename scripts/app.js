@@ -69,7 +69,7 @@ window.captains = captains;
 const miiMeta = {
     "Black Widow": { gender: "F", color: "black" },
     "Borat": { gender: "M", color: "yellow" },
-    "Captain Jack Sparrow": { gender: "M", color: "white" },
+    "Captain Jack": { gender: "M", color: "white" },
     "Chicken": { gender: "F", color: "red" },
     "Dwayne Wade": { gender: "M", color: "pink" },
     "Ice Cube": { gender: "M", color: "brown" },

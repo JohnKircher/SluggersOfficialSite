@@ -129,77 +129,77 @@ const mvps = [
         team: "BenT & Luigi's Long Schlongs & Kritter Town USA",
         mvps: 7,
         image: "assets/images/krool.png",
-        stats: "BA: 0.593 | HR: 22 | SLG: 1.427"
+        stats: "BA: 0.529 | HR: 22 | SLG: 1.375"
     },
     {
         name: "Bowser",
         team: "UNC & BenT & Car-bones White Van",
         mvps: 6,
         image: "assets/images/bowser1.png",
-        stats: "BA: 0.541 | HR: 23 | SLG: 1.409"
+        stats: "BA: 0.510 | HR: 24 | SLG: 1.404"
     },
     {
         name: "Red Kritter",
         team: "Bowser Jr. OnlyShells & Caillou's House & Trinity Triple Threat",
         mvps: 6,
         image: "assets/images/rkrit.png",
-        stats: "BA: 0.443 | HR: 6 | SLG: 0.738"
+        stats: "BA: 0.417 | HR: 8 | SLG: 0.823"
     },
     {
       name: "Donkey Kong",
       team: "DK's Swamp Monkeys & Diddy's Blue Ball Boys & Monkey Mashers",
       mvps: 5,
       image: "assets/images/dk.png",
-      stats: "BA: 0.642 | HR: 21 | SLG: 1.345"
+      stats: "BA: 0.614 | HR: 19 | SLG: 1.337"
     },
     {
         name: "Brown Kritter",
         team: "DK's Swamp Monekys & Caillou's House & BenT & Trinity Triple Threat",
         mvps: 5,
         image: "assets/images/bkrit.png",
-        stats: "BA: 0.461 | HR: 11 | SLG: 0.972"
+        stats: "BA: 0.446 | HR: 11 | SLG: 0.95"
     },
     {
         name: "Hammer Bro",
         team: "Tom-Splosion & Petey's Thirst Trap & Julian & BenT",
         mvps: 4,
         image: "assets/images/hbro.png",
-        stats: "BA: 0.514 | HR: 18 | SLG: 1.223"
+        stats: "BA: 0.481 | HR: 18 | SLG: 1.199"
     },
     {
       name: "Boomerang Bro",
       team: "Bowser Jr. OnlyShells & Sucked and Severed & Toadette's Hit List",
       mvps: 4,
       image: "assets/images/bbro.png",
-      stats: "BA: 0.513 | HR: 10 | SLG: 0.934"
+      stats: "BA: 0.483 | HR: 14 | SLG: 1.087"
     },
     {
         name: "Unc",
         team: "UNC & Luigi's Long Schlongs & Unc's Breeding Program",
         mvps: 4,
         image: "assets/images/unc.png",
-        stats: "BA: 0.545 | HR: 3 | SLG: 0.693"
+        stats: "BA: 0.487 | HR: 4 | SLG: 0.703"
     },
     {
         name: "Fire Bro",
         team: "Bowser Jr. OnlyShells & Caillou's House & BenT & Toadette's Hit List",
         mvps: 3,
         image: "assets/images/fbro.png",
-        stats: "BA: 0.585 | HR: 23 | SLG: 1.45"
+        stats: "BA: 0.526 | HR: 25 | SLG: 1.469"
     },
     {
         name: "Dry Bones",
         team: "UNC & Luigi's Long Schlongs & Car-bones White Van",
         mvps: 3,
         image: "assets/images/dry.png",
-        stats: "BA: 0.613 | HR: 5 | SLG: 0.906"
+        stats: "BA: 0.562 | HR: 6 | SLG: 0.937"
     },
     {
       name: "Birdo",
       team: "Birdo Backshots & Sucked and Severed & Kevin G's Escort Agency",
       mvps: 3,
       image: "assets/images/birdonk.png",
-      stats: "BA: 0.545 | HR: 5 | SLG: 0.791"
+      stats: "BA: 0.501 | HR: 6 | SLG: 0.813"
   }
 ];
 

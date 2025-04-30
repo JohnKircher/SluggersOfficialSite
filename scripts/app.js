@@ -126,77 +126,77 @@ window.miiMeta = miiMeta;
 const mvps = [
     {
         name: "King K Rool",
-        team: "BenT & Luigi's Long Schlongs & Kritter Town USA",
+        team: "BenT & BenR (x2)",
         mvps: 7,
         image: "assets/images/krool.png",
         stats: "BA: 0.529 | HR: 22 | SLG: 1.375"
     },
     {
         name: "Bowser",
-        team: "UNC & BenT & Car-bones White Van",
+        team: "Julian & BenT & HarryKirch",
         mvps: 6,
         image: "assets/images/bowser1.png",
         stats: "BA: 0.510 | HR: 24 | SLG: 1.404"
     },
     {
         name: "Red Kritter",
-        team: "Bowser Jr. OnlyShells & Caillou's House & Trinity Triple Threat",
+        team: "Kircher (x3)",
         mvps: 6,
         image: "assets/images/rkrit.png",
         stats: "BA: 0.417 | HR: 8 | SLG: 0.823"
     },
     {
       name: "Donkey Kong",
-      team: "DK's Swamp Monkeys & Diddy's Blue Ball Boys & Monkey Mashers",
+      team: "BenR, Tom, Carby",
       mvps: 5,
       image: "assets/images/dk.png",
       stats: "BA: 0.614 | HR: 19 | SLG: 1.337"
     },
     {
         name: "Brown Kritter",
-        team: "DK's Swamp Monekys & Caillou's House & BenT & Trinity Triple Threat",
+        team: "BenR, BenT, Kircher",
         mvps: 5,
         image: "assets/images/bkrit.png",
         stats: "BA: 0.446 | HR: 11 | SLG: 0.95"
     },
     {
         name: "Hammer Bro",
-        team: "Tom-Splosion & Petey's Thirst Trap & Julian & BenT",
+        team: "Tom, Jmo, Julian, BenT",
         mvps: 4,
         image: "assets/images/hbro.png",
         stats: "BA: 0.481 | HR: 18 | SLG: 1.199"
     },
     {
       name: "Boomerang Bro",
-      team: "Bowser Jr. OnlyShells & Sucked and Severed & Toadette's Hit List",
+      team: "Kircher, Jmo (x2)",
       mvps: 4,
       image: "assets/images/bbro.png",
       stats: "BA: 0.483 | HR: 14 | SLG: 1.087"
     },
     {
         name: "Unc",
-        team: "UNC & Luigi's Long Schlongs & Unc's Breeding Program",
+        team: "Julian (x2), BenR",
         mvps: 4,
         image: "assets/images/unc.png",
         stats: "BA: 0.487 | HR: 4 | SLG: 0.703"
     },
     {
       name: "Dry Bones",
-      team: "UNC & Luigi's Long Schlongs & Car-bones White Van",
+      team: "Julian, BenR, HarryKirch",
       mvps: 4,
       image: "assets/images/dry.png",
       stats: "BA: 0.562 | HR: 6 | SLG: 0.937"
   },
   {
     name: "Birdo",
-    team: "Birdo Backshots & Sucked and Severed & Kevin G's Escort Agency",
+    team: "HarryKirch, Jmo, Tom",
     mvps: 4,
     image: "assets/images/birdonk.png",
     stats: "BA: 0.501 | HR: 6 | SLG: 0.813"
   },
     {
         name: "Fire Bro",
-        team: "Bowser Jr. OnlyShells & Caillou's House & BenT & Toadette's Hit List",
+        team: "Kircher (x2), Jmo",
         mvps: 3,
         image: "assets/images/fbro.png",
         stats: "BA: 0.526 | HR: 25 | SLG: 1.469"
@@ -256,24 +256,24 @@ if (track) {
 // Sample Standings Data
 const standings = {
     "Season1": [
-        { team: "DK's Swamp Monkeys", wins: 7, losses: 3, diff: 29 },
-        { team: "Ben T", wins: 7, losses: 3, diff: 23 },
-        { team: "UNC", wins: 6, losses: 4, diff: 8 },
-        { team: "Wario is a Pedophile", wins: 5, losses: 5, diff: 3 },
-        { team: "Birdo Backshots", wins: 5, losses: 5, diff: -13 },
-        { team: "SemenLad Cum-Splosion", wins: 4, losses: 6, diff: -13 },
-        { team: "BowserJr. OnlyShells Account", wins: 4, losses: 6, diff: -14 },
-        { team: "Petey's Thirst Trap", wins: 2, losses: 8, diff: -23 }
+        { team: "(BenR) Mokney Squad", wins: 7, losses: 3, diff: 29 },
+        { team: "(BenT) BenT", wins: 7, losses: 3, diff: 23 },
+        { team: "(Julian) UNC", wins: 6, losses: 4, diff: 8 },
+        { team: "(Carby) Wario Squad", wins: 5, losses: 5, diff: 3 },
+        { team: "(HarryKirch) Birdo Bombs", wins: 5, losses: 5, diff: -13 },
+        { team: "(Tom) Tom-Splosion", wins: 4, losses: 6, diff: -13 },
+        { team: "(Kircher) BowserJr. Mog", wins: 4, losses: 6, diff: -14 },
+        { team: "(Jmo) Petey's Fly-Trap", wins: 2, losses: 8, diff: -23 }
     ],
     "Season2": [
-        { team: "BenT", wins: 7, losses: 3, diff: 32 },
-        { team: "Sucked & Severed", wins: 7, losses: 3, diff: 27 },
-        { team: "Diddy's Blue Ball Boys", wins: 5, losses: 5, diff: 6 },
-        { team: "Caillou's House", wins: 5, losses: 5, diff: -1 },
-        { team: "Luigi's Long Schlongs", wins: 5, losses: 5, diff: -3 },
-        { team: "Baby Daisy Bent Over", wins: 4, losses: 6, diff: -12 },
-        { team: "Mario PocketPussy", wins: 4, losses: 6, diff: -14 },
-        { team: "Mii's and Nightmares", wins: 3, losses: 7, diff: -35 }
+        { team: "(BenT) BenT", wins: 7, losses: 3, diff: 32 },
+        { team: "(Jmo) Severance & Birdo", wins: 7, losses: 3, diff: 27 },
+        { team: "(Tom) Diddy's Ball Boys", wins: 5, losses: 5, diff: 6 },
+        { team: "(Kircher) Caillou's House", wins: 5, losses: 5, diff: -1 },
+        { team: "(BenR) Luigi Squad", wins: 5, losses: 5, diff: -3 },
+        { team: "(HarryKirch) Baby Daisy Hits Dingers", wins: 4, losses: 6, diff: -12 },
+        { team: "(Julian) Mario Flyout", wins: 4, losses: 6, diff: -14 },
+        { team: "(Carby) Mii's and Nightmares", wins: 3, losses: 7, diff: -35 }
     ]
 };
 
@@ -285,21 +285,21 @@ const playoffs = {
             {
                 name: "Round 1",
                 matches: [
-                    { team1: "UNC", score1: 2, team2: "SemenLad Cum-Splosion", score2: 1 },
-                    { team1: "Wario is a Pedophile", score1: 1, team2: "Birdo Backshots", score2: 2 }
+                    { team1: "(Julian) UNC", score1: 2, team2: "(Tom) Tom-Splosion", score2: 1 },
+                    { team1: "(Carby) Wario Squad", score1: 1, team2: "(HarryKirch) Birdo Bombs", score2: 2 }
                 ]
             },
             {
                 name: "Semifinals",
                 matches: [
-                    { team1: "DK's Swamp Monkeys", score1: 2, team2: "Birdo Backshots", score2: 0 },
-                    { team1: "Ben T", score1: 1, team2: "UNC", score2: 2 }
+                    { team1: "(BenR) Monkey Squad", score1: 2, team2: "(HarryKirch) Birdo Bombs", score2: 0 },
+                    { team1: "(BenT) Ben T", score1: 1, team2: "(Julian) UNC", score2: 2 }
                 ]
             },
             {
                 name: "Finals",
                 matches: [
-                    { team1: "DK's Swamp Monkeys", score1: 3, team2: "UNC", score2: 2 }
+                    { team1: "(BenR) Monkey Squad", score1: 3, team2: "(Julian) UNC", score2: 2 }
                 ]
             }
         ]
@@ -309,21 +309,21 @@ const playoffs = {
         {
             name: "Round 1",
             matches: [
-                { team1: "Diddy's Blue Ball Boys", score1: 2, team2: "Baby Daisy Bent Over", score2: 1 },
-                { team1: "Caillou's House", score1: 2, team2: "Luigi's Long Schlongs", score2: 0 }
+                { team1: "(Tom) Diddy's Ball Boys", score1: 2, team2: "(HarryKirch) Baby Daisy Hits Dingers", score2: 1 },
+                { team1: "(Kircher) Caillou's House", score1: 2, team2: "(BenR) Luigi Squad", score2: 0 }
             ]
         },
         {
             name: "Semifinals",
             matches: [
-                { team1: "BenT", score1: 2, team2: "Caillou's House", score2: 0 },
-                { team1: "Sucked & Severed", score1: 2, team2: "Diddy's Blue Ball Boys", score2: 1 },
+                { team1: "(BenT) BenT", score1: 2, team2: "(Kircher) Caillou's House", score2: 0 },
+                { team1: "(Jmo) Severance & Birdo", score1: 2, team2: "(Tom) Diddy's Ball Boys", score2: 1 },
             ]
         },
         {
             name: "Finals",
             matches: [
-                { team1: "BenT", score1: 3, team2: "Sucked & Severed", score2: 0 }
+                { team1: "(BenT) BenT", score1: 3, team2: "(Jmo) Severance & Birdo", score2: 0 }
             ]
         }
     ]

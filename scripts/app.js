@@ -75,7 +75,7 @@ const miiMeta = {
     "Ice Cube": { gender: "M", color: "brown" },
     "Mr. Incredible": { gender: "M", color: "red" },
     "John": { gender: "M", color: "lightgreen" },
-    "Kevin G": { gender: "M", color: "orange" },
+    "KevinG": { gender: "M", color: "orange" },
     "Lara Croft": { gender: "F", color: "green" },
     "Lilo": { gender: "F", color: "blue" },
     "MJ HeeHee": { gender: "M", color: "lightblue" },
@@ -1095,7 +1095,7 @@ function renderSeason3Stats() {
     "Kritter Town USA": ["King K Rool", "Kritter", "Blue Kritter", "Luigi", "Rizzler", "Blue Shy Guy", "Minion", "Magikoopa", "Lilo", "Toadsworth", "Matt", "KSI", "Dixie Kong"],
     "Monkey Mashers": ["Donkey Kong", "Petey Piranha", "Funky Kong", "Wario", "Yoshi", "Diddy Kong", "Tiny Kong", "Tsitsipas", "Lizzy", "Yellow Magikoopa", "Frozone", "Harry Potter", "Dora"],
     "Unc's Breeding Program": ["Unc", "Saddam Hussein", "Lara Croft", "Green Shy Guy", "Green Toad", "Green Magikoopa", "Peach", "Koopa Paratroopa", "Monty Mole", "Kim Jong Un", "Black Widow", "Snape", "Green Noki"],
-    "Kevin G's Escort Agency": ["Birdo", "King Boo", "Daisy", "Kevin G", "Shy Guy", "Baby Daisy", "Miss Hot", "Livvy Dunne", "Dwayne Wade", "Black Shy Guy", "Pink Yoshi", "Baby Luigi", "Goomba"],
+    "Kevin G's Escort Agency": ["Birdo", "King Boo", "Daisy", "KevinG", "Shy Guy", "Baby Daisy", "Miss Hot", "Livvy Dunne", "Dwayne Wade", "Black Shy Guy", "Pink Yoshi", "Baby Luigi", "Goomba"],
     "Trinity Triple Threat": ["Wiggler", "Red Kritter", "Brown Kritter", "Waluigi", "Lebron James", "Borat", "Yellow Shy Guy", "Trinity", "Yellow Pianta", "The Penguin", "Lil Wayne", "SemenLad"],
     "Toadette's Hit List": ["Fire Bro", "Boomerang Bro", "Red Pianta", "Mario", "Toad", "Blue Toad", "Toadette", "Purple Toad", "Mr. Incredible", "Baby Peach", "Blue Yoshi", "Handsome Squidward", "Light Blue Yoshi"],
     BenT: ["Bowser Jr", "Hammer Bro", "Green Dry Bones", "Pianta", "Yellow Toad", "Boo", "Mikasa", "Baby DK", "Paragoomba", "Big AJ", "Yellow Yoshi", "Captain Jack Sparrow", "MJ HeeHee"]

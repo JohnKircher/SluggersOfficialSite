@@ -59,6 +59,22 @@
         <button class="tab" data-team="Toadette's Hit List">Toadette's Hit List (jmo)</button>
         <button class="tab" data-team="BenT">BenT</button>
       </div>
+      <!-- Matches Content -->
+      <div class="season-content" id="Matches">
+        <div class="matches-filter-bar">
+          <label for="weekFilter">Filter by Week:</label>
+          <select id="weekFilter">
+            <option value="all">All Weeks</option>
+            <option value="1">Week 1</option>
+            <option value="2">Week 2</option>
+            <option value="3">Week 3</option>
+            <option value="4">Week 4</option>
+            <option value="5">Week 5</option>
+          </select>
+        </div>
+
+        <div id="matchList" class="character-grid match-grid"></div>
+      </div>
     </div>
 
     <!-- Team Characters Content -->
@@ -395,6 +411,12 @@
 
         });
       });
+
+      document.getElementById('weekFilter').addEventListener('change', (e) => {
+        const selectedWeek = e.target.value;
+        renderMatches(selectedWeek);
+      });
+
     };
 
 
@@ -440,88 +462,125 @@
       return lines.map((line, i) => `${i + 1}) ${line}`).join('<br>');
     }
 
+    function getWeekLabel(dateStr) {
+    // Extract just the date part (ignore time)
+    const cleanDateStr = dateStr.split(',').slice(0, 2).join(',').trim();
+    const date = new Date(cleanDateStr);
 
-    function renderMatches() {
-      const matchList = document.getElementById('matchList');
-      matchList.innerHTML = '';
+    const weeks = [
+      { start: new Date("April 22, 2025"), end: new Date("April 24, 2025"), week: 1 },
+      { start: new Date("April 29, 2025"), end: new Date("May 1, 2025"), week: 2 },
+      { start: new Date("May 6, 2025"), end: new Date("May 8, 2025"), week: 3 },
+      { start: new Date("May 13, 2025"), end: new Date("May 15, 2025"), week: 4 },
+      { start: new Date("May 20, 2025"), end: new Date("May 22, 2025"), week: 5 },
+    ];
 
-      window.matches.forEach(match => {
-        const card = document.createElement('div');
-        card.className = 'match-card';
-        card.innerHTML = `
-          <img src="${match.stadiumImg}" alt="Stadium">
-          ${match.day ? `<div class="stadium-time-label ${match.day.toLowerCase()}">${match.day}</div>` : ''}
-          <div class="banned">${match.banned} Banned</div>
-          <div class="teams vertical">
-            <span>${match.home}</span>
-            <div class="vs-text">vs</div>
-            <span>${match.away}</span>
-          </div>
-          <div class="score">${match.score || 'TBD'}</div>
-          <div class="time">${match.date}</div>
-          ${match.mvp ? `<div class="match-mvp">MVP: ${match.mvp}</div>` : ''}
-          
-          <div class="match-stats-container">
-            <button class="toggle-stats-btn">📊 View Stats</button>
-            <div class="team-stat-box" style="display: none;">
-              <div class="team-stat home">
-                <strong>${match.home}</strong><br><br>
-                <div class="stat-block">
-                  <span class="stat-label">Stat Adj:</span><br>
-                  ${formatMultiline(match.homeStatAdjust)}
-                </div>
-                <div class="stat-block">
-                  <span class="stat-label">Trajectory:</span><br>
-                  ${formatMultiline(match.homeTrajectory)}
-                </div>
-                <div class="stat-block">
-                  <span class="stat-label">Class:</span><br>
-                  ${formatMultiline(match.homeClass)}
-                </div>
-                <div class="stat-block">
-                  <span class="stat-label">Star:</span><br>
-                  <span class="star-player">${match.homeStar}</span>
-                </div>
+    for (const { start, end, week } of weeks) {
+      if (date >= start && date <= end) return `Week ${week}`;
+    }
+
+    return '';
+  }
+
+
+  function renderMatches(selectedWeek = "all") {
+    const matchList = document.getElementById('matchList');
+    matchList.innerHTML = '';
+
+    window.matches.forEach(match => {
+      const weekLabel = getWeekLabel(match.date);
+      if (selectedWeek !== "all" && weekLabel !== `Week ${selectedWeek}`) return;
+
+      const card = document.createElement('div');
+      card.className = 'match-card';
+      card.innerHTML = `
+        <img src="${match.stadiumImg}" alt="Stadium">
+        ${match.day ? `<div class="stadium-time-label ${match.day.toLowerCase()}">${match.day}</div>` : ''}
+        <div class="banned">${match.banned} Banned</div>
+        <div class="teams vertical">
+          <span>${match.home}</span>
+          <div class="vs-text">vs</div>
+          <span>${match.away}</span>
+        </div>
+        <div class="score">${match.score || 'TBD'}</div>
+        <div class="time">${match.date}</div>
+        ${match.mvp ? `<div class="match-mvp">MVP: ${match.mvp}</div>` : ''}
+        
+        <div class="match-stats-container">
+          <button class="toggle-stats-btn">📊 View Stats</button>
+          ${weekLabel ? `<div class="week-label">${weekLabel}</div>` : ''}
+          <div class="team-stat-box" style="display: none;">
+            <div class="team-stat home">
+              <strong>${match.home}</strong><br><br>
+              <div class="stat-block">
+                <span class="stat-label">Stat Adj:</span><br>
+                ${formatMultiline(match.homeStatAdjust)}
               </div>
+              <div class="stat-block">
+                <span class="stat-label">Trajectory:</span><br>
+                ${formatMultiline(match.homeTrajectory)}
+              </div>
+              <div class="stat-block">
+                <span class="stat-label">Class:</span><br>
+                ${formatMultiline(match.homeClass)}
+              </div>
+              <div class="stat-block">
+                <span class="stat-label">Star:</span><br>
+                <span class="star-player">${match.homeStar}</span>
+              </div>
+            </div>
 
-              <hr class="stat-divider">
+            <hr class="stat-divider">
 
-              <div class="team-stat away">
-                <strong>${match.away}</strong><br><br>
-                <div class="stat-block">
-                  <span class="stat-label">Stat Adj:</span><br>
-                  ${formatMultiline(match.awayStatAdjust)}
-                </div>
-                <div class="stat-block">
-                  <span class="stat-label">Trajectory:</span><br>
-                  ${formatMultiline(match.awayTrajectory)}
-                </div>
-                <div class="stat-block">
-                  <span class="stat-label">Class:</span><br>
-                  ${formatMultiline(match.awayClass)}
-                </div>
-                <div class="stat-block">
-                  <span class="stat-label">Star:</span><br>
-                  <span class="star-player">${match.awayStar}</span>
-                </div>
+            <div class="team-stat away">
+              <strong>${match.away}</strong><br><br>
+              <div class="stat-block">
+                <span class="stat-label">Stat Adj:</span><br>
+                ${formatMultiline(match.awayStatAdjust)}
+              </div>
+              <div class="stat-block">
+                <span class="stat-label">Trajectory:</span><br>
+                ${formatMultiline(match.awayTrajectory)}
+              </div>
+              <div class="stat-block">
+                <span class="stat-label">Class:</span><br>
+                ${formatMultiline(match.awayClass)}
+              </div>
+              <div class="stat-block">
+                <span class="stat-label">Star:</span><br>
+                <span class="star-player">${match.awayStar}</span>
               </div>
             </div>
           </div>
+        </div>
+      `;
 
+      // ✅ Highlight winning team in green (Matches tab)
+      const [homeScore, awayScore] = match.score?.split('-').map(s => parseInt(s.trim())) || [0, 0];
+      if (!(homeScore === 0 && awayScore === 0)) {
+        const homeSpan = card.querySelector('.teams span:first-child');
+        const awaySpan = card.querySelector('.teams span:last-child');
 
-        `;
+        if (homeScore > awayScore) {
+          homeSpan.classList.add('green-win');
+        } else if (awayScore > homeScore) {
+          awaySpan.classList.add('green-win');
+        }
+      }
 
-        matchList.appendChild(card);
+      matchList.appendChild(card);
+    });
+
+    document.querySelectorAll('.toggle-stats-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const statsBox = btn.nextElementSibling.nextElementSibling || btn.nextElementSibling;
+        const isVisible = statsBox.style.display === 'block';
+        statsBox.style.display = isVisible ? 'none' : 'block';
+        btn.textContent = isVisible ? '📊 View Stats' : '📉 Hide Stats';
       });
-      document.querySelectorAll('.toggle-stats-btn').forEach(btn => {
-          btn.addEventListener('click', () => {
-            const statsBox = btn.nextElementSibling;
-            const isVisible = statsBox.style.display === 'block';
-            statsBox.style.display = isVisible ? 'none' : 'block';
-            btn.textContent = isVisible ? '📊 View Stats' : '📉 Hide Stats';
-          });
-      });
-    }
+    });
+  }
+
   </script>
 
   <!-- Standings Content -->

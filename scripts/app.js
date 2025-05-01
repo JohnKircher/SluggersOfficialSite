@@ -200,6 +200,13 @@ const mvps = [
         mvps: 3,
         image: "assets/images/fbro.png",
         stats: "BA: 0.526 | HR: 25 | SLG: 1.469"
+    },
+    {
+      name: "Petey Piranha",
+      team: "Jmo, HarryKirch, Carby",
+      mvps: 3,
+      image: "assets/images/petey.png",
+      stats: "BA: 0.455 | HR: 19 | SLG: 1.114"
     }
     
 ];
@@ -568,12 +575,14 @@ const mvpCounts = {
   "Dark Bones": 1,
   "Green Magikoopa": 1,
   "Blue Kritter": 2,
-  "Petey Piranha": 2,
+  "Petey Piranha": 3,
   "Trinity": 1,
   "Yellow Pianta": 1,
   "MJ HeeHee": 1,
   "Magikoopa": 1,
-  "Green Dry Bones": 1
+  "Green Dry Bones": 1,
+  "Red Magikoopa": 1,
+  "Saddam Hussein": 1
 };
 
 window.mvpS3Counts = {
@@ -588,7 +597,10 @@ window.mvpS3Counts = {
   "Toad": 1,
   "Dry Bones": 1,
   "Birdo": 1,
-  "Petey Piranha": 1
+  "Petey Piranha": 2,
+  "Red Magikoopa": 1,
+  "Saddam Hussein": 1,
+  "Pianta": 1
 };
 
 const characters = [

@@ -940,17 +940,21 @@ body {
   }
 
   .stadium-time-label {
-    margin-top: 8px;
-    margin-bottom: 8px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: 6px;
-    text-transform: uppercase;
+    display: block;
     text-align: center;
-    min-width: 60px;
+    background-color: #3c3cff;
+    color: white;
+    font-weight: bold;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    margin: 6px auto 10px auto; /* centers and adds spacing */
+    clear: both;
+    width: fit-content;
   }
+  
+  
+  
   
   .stadium-time-label.day {
     background-color: #a7d8ff;  /* light blue */
@@ -1209,6 +1213,43 @@ body {
   .match-card {
     position: relative; /* Make sure overlays position correctly! */
   }
+
+  .week-label {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: gold;
+    text-align: center;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.4);
+  }
+
+  .green-win {
+    color: #00ff66;
+    font-weight: bold;
+    text-shadow: 0 0 6px rgba(0, 255, 102, 0.6);
+  }
+
+  .matches-filter-bar {
+    margin: 1rem 0;
+    text-align: center;
+  }
+  
+  #weekFilter {
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    background: #1e1e1e;
+    color: white;
+    border: 1px solid #444;
+  }
+
+  .match-image-wrapper {
+    position: relative;
+  }
+  
+  
+  
+  
 
   
   

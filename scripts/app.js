@@ -129,84 +129,84 @@ const mvps = [
         team: "BenT & BenR (x2)",
         mvps: 7,
         image: "assets/images/krool.png",
-        stats: "BA: 0.529 | HR: 22 | SLG: 1.375"
+        stats: "BA: 0.577 | HR: 23 | SLG: 1.358"
     },
     {
         name: "Bowser",
         team: "Julian & BenT & HarryKirch",
         mvps: 6,
         image: "assets/images/bowser1.png",
-        stats: "BA: 0.510 | HR: 24 | SLG: 1.404"
+        stats: "BA: 0.545 | HR: 25 | SLG: 1.364"
     },
     {
         name: "Red Kritter",
         team: "Kircher (x3)",
         mvps: 6,
         image: "assets/images/rkrit.png",
-        stats: "BA: 0.417 | HR: 8 | SLG: 0.823"
+        stats: "BA: 0.462 | HR: 9 | SLG: 0.817"
     },
     {
       name: "Donkey Kong",
       team: "BenR, Tom, Carby",
       mvps: 5,
       image: "assets/images/dk.png",
-      stats: "BA: 0.614 | HR: 19 | SLG: 1.337"
+      stats: "BA: 0.634 | HR:21 | SLG: 1.356"
     },
     {
         name: "Brown Kritter",
         team: "BenR, BenT, Kircher",
         mvps: 5,
         image: "assets/images/bkrit.png",
-        stats: "BA: 0.446 | HR: 11 | SLG: 0.95"
+        stats: "BA: 0.459 | HR: 11 | SLG: 0.933"
     },
     {
         name: "Hammer Bro",
         team: "Tom, Jmo, Julian, BenT",
         mvps: 4,
         image: "assets/images/hbro.png",
-        stats: "BA: 0.481 | HR: 18 | SLG: 1.199"
+        stats: "BA: 0.529 | HR: 19 | SLG: 1.167"
     },
     {
       name: "Boomerang Bro",
       team: "Kircher, Jmo (x2)",
       mvps: 4,
       image: "assets/images/bbro.png",
-      stats: "BA: 0.483 | HR: 14 | SLG: 1.087"
+      stats: "BA: 0.517 | HR: 14 | SLG: 1.023"
     },
     {
         name: "Unc",
         team: "Julian (x2), BenR",
         mvps: 4,
         image: "assets/images/unc.png",
-        stats: "BA: 0.487 | HR: 4 | SLG: 0.703"
+        stats: "BA: 0.511 | HR: 4 | SLG: 0.671"
     },
     {
       name: "Dry Bones",
       team: "Julian, BenR, HarryKirch",
       mvps: 4,
       image: "assets/images/dry.png",
-      stats: "BA: 0.562 | HR: 6 | SLG: 0.937"
+      stats: "BA: 0.629 | HR: 10 | SLG: 1.055"
   },
   {
     name: "Birdo",
     team: "HarryKirch, Jmo, Tom",
     mvps: 4,
     image: "assets/images/birdonk.png",
-    stats: "BA: 0.501 | HR: 6 | SLG: 0.813"
+    stats: "BA: 0.567 | HR: 10 | SLG: 0.943"
   },
     {
         name: "Fire Bro",
         team: "Kircher (x2), Jmo",
         mvps: 3,
         image: "assets/images/fbro.png",
-        stats: "BA: 0.526 | HR: 25 | SLG: 1.469"
+        stats: "BA: 0.574 | HR: 27 | SLG: 1.452"
     },
     {
       name: "Petey Piranha",
       team: "Jmo, HarryKirch, Carby",
       mvps: 3,
       image: "assets/images/petey.png",
-      stats: "BA: 0.455 | HR: 19 | SLG: 1.114"
+      stats: "BA: 0.467 | HR: 21 | SLG: 1.163"
     }
     
 ];

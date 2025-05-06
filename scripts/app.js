@@ -582,7 +582,9 @@ const mvpCounts = {
   "Magikoopa": 1,
   "Green Dry Bones": 1,
   "Red Magikoopa": 1,
-  "Saddam Hussein": 1
+  "Saddam Hussein": 1,
+  "Pianta": 1,
+  "Yellow Shy Guy": 1
 };
 
 window.mvpS3Counts = {

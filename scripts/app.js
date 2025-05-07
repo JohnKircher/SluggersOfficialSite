@@ -129,84 +129,85 @@ const mvps = [
         team: "BenT & BenR (x2)",
         mvps: 8,
         image: "assets/images/krool.png",
-        stats: "BA: 0.577 | HR: 23 | SLG: 1.358"
+        stats: "BA: 098 | HR: 26 | SLG: 1.428"
     },
     {
         name: "Bowser",
         team: "Julian & BenT & HarryKirch",
         mvps: 6,
         image: "assets/images/bowser1.png",
-        stats: "BA: 0.545 | HR: 25 | SLG: 1.364"
+        stats: "BA: 0.561 | HR: 6 | SLG: 1.390"
     },
     {
         name: "Red Kritter",
         team: "Kircher (x3)",
         mvps: 6,
         image: "assets/images/rkrit.png",
-        stats: "BA: 0.462 | HR: 9 | SLG: 0.817"
+        stats: "BA: 058 | HR: 9 | SLG: 0.805"
     },
     {
       name: "Donkey Kong",
       team: "BenR, Tom, Carby",
       mvps: 5,
       image: "assets/images/dk.png",
-      stats: "BA: 0.634 | HR:21 | SLG: 1.356"
+      stats: "BA: 0.629 | HR:21 | SLG: 1.319"
     },
     {
         name: "Brown Kritter",
         team: "BenR, BenT, Kircher",
         mvps: 5,
         image: "assets/images/bkrit.png",
-        stats: "BA: 0.459 | HR: 11 | SLG: 0.933"
-    },
-    {
-        name: "Hammer Bro",
-        team: "Tom, Jmo, Julian, BenT",
-        mvps: 4,
-        image: "assets/images/hbro.png",
-        stats: "BA: 0.529 | HR: 19 | SLG: 1.167"
-    },
-    {
-      name: "Boomerang Bro",
-      team: "Kircher, Jmo (x2)",
-      mvps: 4,
-      image: "assets/images/bbro.png",
-      stats: "BA: 0.517 | HR: 14 | SLG: 1.023"
-    },
-    {
-        name: "Unc",
-        team: "Julian (x2), BenR",
-        mvps: 4,
-        image: "assets/images/unc.png",
-        stats: "BA: 0.511 | HR: 4 | SLG: 0.671"
+        stats: "BA: 0.483 | HR: 12 | SLG: 0.974"
     },
     {
       name: "Dry Bones",
       team: "Julian, BenR, HarryKirch",
       mvps: 5,
       image: "assets/images/dry.png",
-      stats: "BA: 0.629 | HR: 10 | SLG: 1.055"
+      stats: "BA: 0.653 | HR: 12 | SLG: 1.146"
   },
+    {
+        name: "Hammer Bro",
+        team: "Tom, Jmo, Julian, BenT",
+        mvps: 4,
+        image: "assets/images/hbro.png",
+        stats: "BA: 0.516 | HR: 19 | SLG: 1.126"
+    },
+    {
+      name: "Boomerang Bro",
+      team: "Kircher, Jmo (x2)",
+      mvps: 4,
+      image: "assets/images/bbro.png",
+      stats: "BA: 0.522 | HR: 14 | SLG: 1.000"
+    },
+    {
+        name: "Unc",
+        team: "Julian (x2), BenR",
+        mvps: 4,
+        image: "assets/images/unc.png",
+        stats: "BA: 0.511 | HR: 4 | SLG: 0.664"
+    },
+    
   {
     name: "Birdo",
     team: "HarryKirch, Jmo, Tom",
     mvps: 4,
     image: "assets/images/birdonk.png",
-    stats: "BA: 0.567 | HR: 10 | SLG: 0.943"
+    stats: "BA: 0.548 | HR: 10 | SLG: 0.913"
   },
     {
         name: "Fire Bro",
         team: "Kircher (x2), Jmo",
-        mvps: 3,
+        mvps: 4,
         image: "assets/images/fbro.png",
-        stats: "BA: 0.574 | HR: 27 | SLG: 1.452"
+        stats: "BA: 0.586 | HR: 29 | SLG: 1.481"
     },
     {
       name: "Petey Piranha",
       team: "Jmo, HarryKirch, Carby",
       mvps: 3,
       image: "assets/images/petey.png",
-      stats: "BA: 0.467 | HR: 21 | SLG: 1.163"
+      stats: "BA: 0.490 | HR: 23 | SLG: 1.219"
     }
     
 ];
@@ -823,6 +824,7 @@ if (characterGrid) {
       card.setAttribute('data-doubles', char.doubles);
       card.setAttribute('data-triples', char.triples);
       card.setAttribute('data-hits', char.hits);
+      card.setAttribute('data-mvps', mvpCounts[char.name] || 0);
       card.dataset.name = char.name;
       
 
@@ -978,14 +980,24 @@ if (characterGrid) {
 
   function sortCharacters() {
     const sortBy = document.getElementById('sortOption').value;
-    const container = document.getElementById('characterGrid'); // ✅ FIXED
-  
+    const container = document.getElementById('characterGrid');
+    
     // Convert NodeList to array and sort
     const cards = Array.from(container.querySelectorAll('.character-card')).filter(c => c.style.display !== 'none');
   
     cards.sort((a, b) => {
-      const aVal = parseFloat(a.dataset[sortBy]);
-      const bVal = parseFloat(b.dataset[sortBy]);
+      let aVal, bVal;
+      
+      if (sortBy === 'mvps') {
+        // For MVPs, we'll use the mvpCounts object directly
+        aVal = mvpCounts[a.dataset.name] || 0;
+        bVal = mvpCounts[b.dataset.name] || 0;
+      } else {
+        // Existing sorting logic for other stats
+        aVal = parseFloat(a.dataset[sortBy]);
+        bVal = parseFloat(b.dataset[sortBy]);
+      }
+      
       return bVal - aVal; // Descending order
     });
   
@@ -1083,9 +1095,9 @@ if (characterGrid) {
         <option value="triples">Triples</option>
         <option value="games">Home Runs</option>
         <option value="gp">Games Played</option>
+        <option value="mvps">MVPs</option>
       `;
-  
-    // ✅ Toggle filter visibility
+    
     document.getElementById('battingFilters').style.display = showingPitching ? 'none' : 'block';
     document.getElementById('pitchingFilters').style.display = showingPitching ? 'block' : 'none';
   });

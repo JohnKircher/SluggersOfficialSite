@@ -549,12 +549,12 @@ if (scrollDownBtn) {
 const mvpCounts = {
   "King K Rool": 8,
   "Red Kritter": 6,
-  "Donkey Kong": 5,
+  "Donkey Kong": 6,
   "Brown Kritter": 5,
   "Bowser": 6,
   "Unc": 4,
   "Hammer Bro": 4,
-  "Fire Bro": 4,
+  "Fire Bro": 5,
   "Dry Bones": 5,
   "Birdo": 5,
   "Boomerang Bro": 4,
@@ -563,11 +563,11 @@ const mvpCounts = {
   "Bowser Jr": 2,
   "Daisy": 2,
   "Lil Wayne": 2,
-  "Red Pianta": 2,
-  "King Boo": 2,
+  "Red Pianta": 3,
+  "King Boo": 3,
   "Green Toad": 2,
   "Mario": 2,
-  "Wario": 2,
+  "Wario": 3,
   "Blue Toad": 2,
   "Wiggler": 3,
   "Toad": 2,
@@ -596,7 +596,7 @@ const mvpCounts = {
 
 window.mvpS3Counts = {
   "King K Rool": 2,
-  "Red Pianta": 1,
+  "Red Pianta": 2,
   "Wiggler": 2,
   "Green Dry Bones": 1,
   "Boomerang Bro": 1,
@@ -610,10 +610,13 @@ window.mvpS3Counts = {
   "Red Magikoopa": 1,
   "Saddam Hussein": 1,
   "Pianta": 1,
-  "Fire Bro": 1,
+  "Fire Bro": 2,
   "Yellow Shy Guy": 1,
   "Toadette": 1,
-  "Yellow Toad": 1
+  "Yellow Toad": 1,
+  "King Boo": 1,
+  "Donkey Kong:": 1,
+  "Wario": 1
 };
 
 const characters = [

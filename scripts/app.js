@@ -825,7 +825,7 @@ if (characterGrid) {
     characterGrid.innerHTML = '';
     data.forEach(char => {
       const card = document.createElement('div');
-      card.className = 'character-card';
+      card.className = 'character-card card-hover-pop';
       card.setAttribute('data-class', char.class);
       card.setAttribute('data-avg', char.avg);
       card.setAttribute('data-games', char.hr);
@@ -1160,7 +1160,7 @@ function renderSeason3Stats() {
   allCharacters.forEach(char => {
     const card = document.createElement('div');
     const isCaptain = captains.includes(char.name);
-    card.className = 'character-card' + (isCaptain ? ' captain-card' : '');
+    card.className = 'character-card card-hover-pop' + (isCaptain ? ' captain-card' : '');
     
     // Set all data attributes
     card.setAttribute('data-class', char.class || '');

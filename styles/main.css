@@ -731,9 +731,7 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     transition: transform 0.2s;
   }
-  .character-card:hover {
-    transform: scale(1.03);
-  }
+
   .character-card img {
     max-height: 120px;
     object-fit: contain;
@@ -1246,6 +1244,19 @@ body {
   .match-image-wrapper {
     position: relative;
   }
+
+  /* Applies to both match cards and character cards */
+  .card-hover-pop {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    will-change: transform;
+  }
+
+  .card-hover-pop:hover {
+    transform: scale(1.33);
+    box-shadow: 0 6px 16px rgba(255, 196, 0, 0.25);
+    z-index: 10; /* helps prevent overlap issues */
+  }
+
   
   
   

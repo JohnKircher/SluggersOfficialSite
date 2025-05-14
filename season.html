@@ -240,7 +240,7 @@
         teamCharacters.forEach(char => {
           const card = document.createElement('div');
           const isCaptain = window.captains?.includes(char.name);
-          card.className = 'character-card' + (isCaptain ? ' captain-card' : '');
+          card.className = 'character-card card-hover-pop' + (isCaptain ? ' captain-card' : '');
           card.setAttribute('data-class', char.class || '');
           card.setAttribute('data-avg', char.stats?.AVG ?? 0);
           card.setAttribute('data-hr', char.stats?.HR ?? 0);

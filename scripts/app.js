@@ -1,7 +1,7 @@
 //UPDATE STANDINGS ONLY HERE< THEN COMMIT AND PUSH TO AUTO DEPLOY
 let currentSortKey = null;
 let currentSortDirection = 'desc';
-const OPENAI_API_KEY = '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';
+const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
 
 
 

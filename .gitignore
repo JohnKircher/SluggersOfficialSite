@@ -1,5 +1,15 @@
+# Environment variables
 .env
-node_modules/
+.env.local
+.env*.local
+
+# Build files
 dist/
 build/
+
+# Editor files
+.vscode/
+.idea/
+
+# System files
 .DS_Store

@@ -1,7 +1,7 @@
 //UPDATE STANDINGS ONLY HERE< THEN COMMIT AND PUSH TO AUTO DEPLOY
 let currentSortKey = null;
 let currentSortDirection = 'desc';
-const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
+const OPENAI_API_KEY = process.env.API_KEY
 
 
 

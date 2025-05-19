@@ -688,7 +688,10 @@ const mvpCounts = {
   "Red Magikoopa": 1,
   "Saddam Hussein": 1,
   "Pianta": 1,
-  "Yellow Shy Guy": 1
+  "Yellow Shy Guy": 1,
+  "Toadette": 1,
+  "Red Yoshi": 1,
+  "Yellow Toad": 1
 };
 
 window.mvpS3Counts = {
@@ -709,7 +712,6 @@ window.mvpS3Counts = {
   "Pianta": 1,
   "Fire Bro": 2,
   "Yellow Shy Guy": 1,
-  "Toadette": 1,
   "Yellow Toad": 1,
   "King Boo": 1,
   "Wario": 1,
@@ -717,7 +719,8 @@ window.mvpS3Counts = {
   "Hammer Bro": 1,
   "Red Yoshi": 1,
   "Kritter": 1,
-  "Donkey Kong": 1
+  "Donkey Kong": 1,
+  "Toadette": 1
 };
 
 const characters = [
@@ -1236,15 +1239,15 @@ function renderSeason3Stats() {
   grid.innerHTML = '';
   
   const teamRosters = {
-    "Car-bones White Van": ["Bowser", "Dark Bones", "Dry Bones", "Blue Dry Bones", "Chicken", "Red Koopa Troopa", "Koopa Troopa", "Red Magikoopa", "Carby", "Red Yoshi", "Baby Mario", "Red Koopa Paratroopa", "Ice Cube", "Blooper"],
-    "Kritter Town USA": ["King K Rool", "Kritter", "Blue Kritter", "Luigi", "Rizzler", "Blue Shy Guy", "Minion", "Magikoopa", "Lilo", "Toadsworth", "Matt", "KSI", "Dixie Kong"],
-    "Monkey Mashers": ["Donkey Kong", "Petey Piranha", "Funky Kong", "Wario", "Yoshi", "Diddy Kong", "Tiny Kong", "Tsitsipas", "Lizzy", "Yellow Magikoopa", "Frozone", "Harry Potter", "Dora"],
-    "Unc's Breeding Program": ["Unc", "Saddam Hussein", "Lara Croft", "Green Shy Guy", "Green Toad", "Green Magikoopa", "Peach", "Koopa Paratroopa", "Monty Mole", "Kim Jong Un", "Black Widow", "Snape", "Green Noki"],
-    "Kevin G's Escort Agency": ["Birdo", "King Boo", "Daisy", "KevinG", "Shy Guy", "Baby Daisy", "Miss Hot", "Livvy Dunne", "Dwayne Wade", "Black Shy Guy", "Pink Yoshi", "Baby Luigi", "Goomba"],
-    "Trinity Triple Threat": ["Wiggler", "Red Kritter", "Brown Kritter", "Waluigi", "Lebron James", "Borat", "Yellow Shy Guy", "Trinity", "Yellow Pianta", "The Penguin", "Lil Wayne", "SemenLad"],
-    "Toadette's Hit List": ["Fire Bro", "Boomerang Bro", "Red Pianta", "Mario", "Toad", "Blue Toad", "Toadette", "Purple Toad", "Mr. Incredible", "Baby Peach", "Blue Yoshi", "Handsome Squidward", "Light Blue Yoshi"],
-    BenT: ["Bowser Jr", "Hammer Bro", "Green Dry Bones", "Pianta", "Yellow Toad", "Boo", "Mikasa", "Baby DK", "Paragoomba", "Big AJ", "Yellow Yoshi", "Captain Jack Sparrow", "MJ HeeHee"]
-  };
+        "Car-bones White Van": ["Bowser", "Dark Bones", "Dry Bones", "Blue Dry Bones", "Chicken", "Red Koopa Troopa", "Koopa Troopa", "Red Magikoopa", "Carby", "Red Yoshi", "Baby Mario", "Red Koopa Paratroopa", "Ice Cube", "Blooper"],
+        "Kritter Town USA": ["King K Rool", "Kritter", "Blue Kritter", "Luigi", "Rizzler", "Blue Shy Guy", "Minion", "Magikoopa", "Lilo", "Toadsworth", "Matt", "Yellow Magikoopa", "Dora"],
+        "Monkey Mashers": ["Donkey Kong", "Petey Piranha", "Funky Kong", "Yellow Pianta", "Yoshi", "Diddy Kong", "Tiny Kong", "Tsitsipas", "Lizzy", "Frozone", "Harry Potter", "Semenlad", "Dixie Kong"],
+        "Unc's Breeding Program": ["Unc", "Saddam Hussein", "Lara Croft", "Green Shy Guy", "Green Toad", "Green Magikoopa", "Peach", "Koopa Paratroopa", "Monty Mole", "Kim Jong Un", "Black Widow", "Snape", "Green Noki"],
+        "Kevin G's Escort Agency": ["Birdo", "King Boo", "Daisy", "KevinG", "Shy Guy", "Baby Daisy", "Miss Hot", "Livvy Dunne", "Dwayne Wade", "Black Shy Guy", "Pink Yoshi", "Baby Luigi", "Goomba"],
+        "Trinity Triple Threat": ["Wiggler", "Red Kritter", "Brown Kritter", "Waluigi", "Lebron James", "Borat", "Yellow Shy Guy", "Trinity", "Wario", "The Penguin", "Lil Wayne", "KSI"],
+        "Toadette's Hit List": ["Fire Bro", "Boomerang Bro", "Red Pianta", "Mario", "Toad", "Blue Toad", "Toadette", "Purple Toad", "Mr. Incredible", "Baby Peach", "Blue Yoshi", "Handsome Squidward", "Light Blue Yoshi"],
+        BenT: ["Bowser Jr", "Hammer Bro", "Green Dry Bones", "Pianta", "Yellow Toad", "Boo", "Mikasa", "Baby DK", "Paragoomba", "Big AJ", "Yellow Yoshi", "Captain Jack", "MJ HeeHee"]
+      };
 
   const allCharacters = window.characters.map(char => {
     let team = '';

@@ -11,19 +11,32 @@ export async function handler(event) {
     const stadiumName = getReadableStadiumName(match.stadiumImg);
 
     const prompt = `
-Write a dramatic and fun Mario Super Sluggers match preview in one paragraph.
+    Write a dramatic and fun Mario Super Sluggers match preview in one paragraph. Include context about division standings and playoff implications.
 
-Teams: ${match.home} (${homeRecord}) vs ${match.away} (${awayRecord})
-Date: ${match.date} • Time: ${match.day}
-Location: ${stadiumName}
-Star Players: ${match.homeStar} and ${match.awayStar}
-Stat Buffs: ${match.homeStatAdjust} / ${match.awayStatAdjust}
-Lineups:
-- Home: ${match["Home Lineup"]}
-- Away: ${match["Away Lineup"]}
+    League Info:
+    - There are 8 teams, split into two divisions: East and West.
+    - East Division: Toadette's Hit List, Monkey Mashers, Trinity Triple Threat, Unc's Breeding Program
+    - West Division: Kevin G's Escort Agency, Kritter Town USA, BenT, Car-bones White Van
+    - The team with the best record in each division receives a first-round bye in the playoffs.
+    - The next best 4 teams by record (regardless of division) earn wildcard spots.
+    - The bottom 2 teams are eliminated from playoff contention.
+    - Standings are ranked by win-loss record first. If teams have the same record, run differential is used as the tiebreaker.
 
-Make it hype, energetic, and fun. Mention key matchups or interesting player dynamics.
+    When considering playoff implications, use the current win-loss record and run differential provided for each team. Consider how this specific match could influence playoff seeding depending on possible outcomes — for example, if either team wins by 1–10 runs, how might that shift their position in the standings or impact their chances at a bye, wildcard, or elimination?
+
+    Teams: ${match.home} (${homeRecord}) vs ${match.away} (${awayRecord})
+    Date: ${match.date} • Time: ${match.day}
+    Location: ${stadiumName}
+    Star Players: ${match.homeStar} and ${match.awayStar}
+    Stat Buffs: ${match.homeStatAdjust} / ${match.awayStatAdjust}
+    Lineups:
+    - Home: ${match["Home Lineup"]}
+    - Away: ${match["Away Lineup"]}
+
+    Use this information to infer playoff stakes. Is this a must-win? A chance to clinch a bye? A do-or-die for wildcard hopes? Highlight the playoff race pressure, mention standout players or lineup dynamics, and make the tone high-energy and suspenseful.
     `;
+
+
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",

@@ -1,31 +1,11 @@
 //UPDATE STANDINGS ONLY HERE< THEN COMMIT AND PUSH TO AUTO DEPLOY
 let currentSortKey = null;
 let currentSortDirection = 'desc';
-const OPENAI_API_KEY = import.meta.env.VITE_API_KEY;
 
 
 
 //ADD MATCHES HERE
 //images: 
-
-function getReadableStadiumName(imgPath) {
-  const map = {
-    Mario: "Mario Stadium",
-    Yoshi: "Yoshi Park",
-    Wario: "Wario City",
-    DK: "DK Jungle",
-    Bowser: "Bowser Castle",
-    BJ: "Bowser Jr. Playroom",
-    Luigi: "Luigi's Mansion",
-    Daisy: "Daisy Cruiser"
-  };
-
-  for (const key in map) {
-    if (imgPath.includes(key)) return map[key];
-  }
-
-  return "Unknown Stadium";
-}
 
 
 
@@ -80,63 +60,32 @@ async function loadMatchesFromAPI() {
 }
 
 
-
-function getTeamRecord(teamName, standingsMap) {
-  const entry = standingsMap[teamName];
-  if (!entry) return "Record not available";
-  return `${entry.wins}-${entry.losses} (${entry.diff >= 0 ? "+" : ""}${entry.diff} run diff)`;
-}
-
-
 async function generatePreview(match, standingsMap) {
-  const homeRecord = getTeamRecord(match.home, standingsMap);
-  const awayRecord = getTeamRecord(match.away, standingsMap);
-  const stadiumName = getReadableStadiumName(match.stadiumImg);
+  const res = await fetch("/.netlify/functions/generatePreview", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      home: match.home,
+      away: match.away,
+      score: match.score,
+      date: match.date,
+      day: match.day,
+      stadiumImg: match.stadiumImg,
+      homeStar: match.homeStar,
+      awayStar: match.awayStar,
+      homeStatAdjust: match.homeStatAdjust,
+      awayStatAdjust: match.awayStatAdjust,
+      "Home Lineup": match["Home Lineup"],
+      "Away Lineup": match["Away Lineup"],
+      standingsMap,
+    })
+  });
 
-
-  const prompt = `
-Write a dramatic and fun Mario Super Sluggers match preview in one paragraph.
-
-Teams: ${match.home} (${homeRecord}) vs ${match.away} (${awayRecord})
-Date: ${match.date} • Time: ${match.day}
-Location: ${stadiumName}
-Star Players: ${match.homeStar} and ${match.awayStar}
-Stat Buffs: ${match.homeStatAdjust} / ${match.awayStatAdjust}
-Lineups:
-- Home: ${match["Home Lineup"]}
-- Away: ${match["Away Lineup"]}
-
-Make it hype, energetic, and fun. Mention key matchups or interesting player dynamics.
-`;
-
-  try {
-    const res = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${OPENAI_API_KEY}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        model: "gpt-4o",
-        messages: [{ role: "user", content: prompt }],
-        temperature: 0.85,
-        max_tokens: 350
-      })
-    });
-
-    const data = await res.json();
-
-    if (!data.choices || !data.choices[0]) {
-      console.warn("⚠️ No preview generated:", data);
-      return "Preview could not be generated (rate limit or error).";
-    }
-
-    return data.choices[0].message.content.trim();
-  } catch (err) {
-    console.error("Error generating preview:", err);
-    return "Preview failed due to a network or API error.";
-  }
+  const { preview } = await res.json();
+  return preview || "Preview could not be generated.";
 }
+
+
 
 
 

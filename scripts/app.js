@@ -712,12 +712,12 @@ window.mvpS3Counts = {
   "Toadette": 1,
   "Yellow Toad": 1,
   "King Boo": 1,
-  "Donkey Kong:": 1,
   "Wario": 1,
   "Miss Hot": 1,
   "Hammer Bro": 1,
   "Red Yoshi": 1,
-  "Kritter": 1
+  "Kritter": 1,
+  "Donkey Kong": 1
 };
 
 const characters = [

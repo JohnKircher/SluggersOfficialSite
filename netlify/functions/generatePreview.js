@@ -21,8 +21,11 @@ export async function handler(event) {
     - The next best 4 teams by record (regardless of division) earn wildcard spots.
     - The bottom 2 teams are eliminated from playoff contention.
     - Standings are ranked by win-loss record first. If teams have the same record, run differential is used as the tiebreaker.
+    - 
 
-    When considering playoff implications, use the current win-loss record and run differential provided for each team. Consider how this specific match could influence playoff seeding depending on possible outcomes — for example, if either team wins by 1–10 runs, how might that shift their position in the standings or impact their chances at a bye, wildcard, or elimination?
+    When considering playoff implications, use the current win-loss record and run differential provided for each team. 
+    Consider how this specific match could influence playoff seeding depending on possible outcomes.
+    - for example, if either team wins by 1–10 runs, how might that shift their position in the standings or impact their chances at a bye, wildcard, or elimination?
 
     Teams: ${match.home} (${homeRecord}) vs ${match.away} (${awayRecord})
     Date: ${match.date} • Time: ${match.day}
@@ -33,7 +36,22 @@ export async function handler(event) {
     - Home: ${match["Home Lineup"]}
     - Away: ${match["Away Lineup"]}
 
-    Use this information to infer playoff stakes. Is this a must-win? A chance to clinch a bye? A do-or-die for wildcard hopes? Highlight the playoff race pressure, mention standout players or lineup dynamics, and make the tone high-energy and suspenseful.
+    Use this information to infer playoff stakes. Is this a must-win? A chance to clinch a bye? 
+    A do-or-die for wildcard hopes? Highlight the playoff race pressure, mention standout players or lineup dynamics, and make the tone high-energy and suspenseful.
+
+    I also want a game outcome prediction with the score. And the game betting line and spread which you can say comes from the Official Sluggers Sportsbook.
+
+    Finally, also factor in the official playoff probabilities matrix here when doing all this, It should tell you who is already certain to be eliminated, who is safe, etc: Team	Clinch Bye (%)	Make Playoffs (%)	Eliminated (%)
+    BenT	5.98%	73.88%	20.14%
+    Tom	6.39%	70.03%	23.58%
+    Jmo	83.49%	16.51%	0.00%
+    BenR	13.58%	73.53%	12.89%
+    Kircher	16.51%	83.42%	0.07%
+    Carbone	0.00%	56.68%	43.32%
+    Julian	0.00%	0.00%	100.00%
+    HarryKirch	74.05%	25.95%	0.00%
+
+    For above, BenT is BenT, Tom is Kevin G's Escort Agency, Jmo is Toadette's Hit List, BenR is Kritter Town USA, Kircher is trinity Triple Threat, Carbone is Monkey Mashers, Julian is Unc's Bredding Program, and HarryKirch is Car-bone's White Van. 
     `;
 
 

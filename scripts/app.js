@@ -464,21 +464,21 @@ const playoffs = {
         {
             name: "Round 1",
             matches: [
-                { team1: "(BenR) Kritter Town USA", score1: 0, team2: "(BenT) BenT", score2: 0 },
-                { team1: "(Kircher) Trinity Triple Threat", score1: 0, team2: "(Carby) Mokney Mashers", score2: 0 }
+                { team1: "(BenR) Kritter Town USA", score1: 2, team2: "(BenT) BenT", score2: 1 },
+                { team1: "(Kircher) Trinity Triple Threat", score1: 0, team2: "(Carby) Mokney Mashers", score2: 2 }
             ]
         },
         {
             name: "Semifinals",
             matches: [
-                { team1: "(Jmo) Toadette's Hit List", score1: 0, team2: "tbd", score2: 0 },
-                { team1: "(HarryKirch) Dry My Bone", score1: 0, team2: "tbd", score2: 0 },
+                { team1: "(Jmo) Toadette's Hit List", score1: 1, team2: "(Carby) Monkey Mashers", score2: 2 },
+                { team1: "(HarryKirch) Dry My Bone", score1: 0, team2: "(BenR) Kritter Town USA  ", score2: 0 },
             ]
         },
         {
             name: "Finals",
             matches: [
-                { team1: "tbd", score1: 0, team2: "tbd", score2: 0 }
+                { team1: "(Carby) Mokney Mashers", score1: 0, team2: "tbd", score2: 0 }
             ]
         }
     ]

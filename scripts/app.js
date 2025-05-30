@@ -198,42 +198,42 @@ const mvps = [
         team: "BenT & BenR (x2)",
         mvps: 8,
         image: "assets/images/krool.png",
-        stats: ""
+        stats: "+2 Playoff MVPs"
     },
     {
         name: "Bowser",
         team: "Julian & BenT & HarryKirch",
         mvps: 7,
         image: "assets/images/bowser1.png",
-        stats: ""
+        stats: "+6 Playoff MVPs"
     },
     {
       name: "Donkey Kong",
       team: "BenR, Tom, Carby",
       mvps: 7,
       image: "assets/images/dk.png",
-      stats: ""
+      stats: "+5 Playoff MVPs"
     },
     {
         name: "Red Kritter",
         team: "Kircher (x3)",
         mvps: 6,
         image: "assets/images/rkrit.png",
-        stats: ""
+        stats: "+2 Playoff MVPs"
     },
     {
         name: "Hammer Bro",
         team: "Tom, Jmo, Julian, BenT",
         mvps: 6,
         image: "assets/images/hbro.png",
-        stats: ""
+        stats: "+1 Playoff MVPs"
     },
     {
         name: "Fire Bro",
         team: "Kircher (x2), Jmo",
         mvps: 6,
         image: "assets/images/fbro.png",
-        stats: ""
+        stats: "+2 Playoff MVPs"
     },
     
     {
@@ -241,21 +241,21 @@ const mvps = [
         team: "BenR, BenT, Kircher",
         mvps: 5,
         image: "assets/images/bkrit.png",
-        stats: ""
+        stats: "+2 Playoff MVPs"
     },
     {
       name: "Dry Bones",
       team: "Julian, BenR, HarryKirch",
       mvps: 5,
       image: "assets/images/dry.png",
-      stats: ""
+      stats: "+1 Playoff MVPs"
   },
   {
     name: "Birdo",
     team: "HarryKirch, Jmo, Tom",
     mvps: 5,
     image: "assets/images/birdonk.png",
-    stats: ""
+    stats: "+2 Playoff MVPs"
   },
     
     {
@@ -263,21 +263,21 @@ const mvps = [
       team: "Kircher, Jmo (x2)",
       mvps: 4,
       image: "assets/images/bbro.png",
-      stats: ""
+      stats: "+1 Playoff MVPs"
     },
     {
         name: "Unc",
         team: "Julian (x2), BenR",
         mvps: 4,
         image: "assets/images/unc.png",
-        stats: ""
+        stats: "+1 Playoff MVPs"
     },
     {
       name: "Petey Piranha",
       team: "Jmo, HarryKirch, Carby",
       mvps: 4,
       image: "assets/images/petey.png",
-      stats: ""
+      stats: "+3 Playoff MVPs"
     },
     {
       name: "Kritter",
@@ -291,7 +291,7 @@ const mvps = [
       team: "BenT, HarryKirch, Kircher",
       mvps: 3,
       image: "assets/images/wiggy.png",
-      stats: ""
+      stats: "+1 Playoff MVPs"
     },
     {
       name: "Red Pianta",

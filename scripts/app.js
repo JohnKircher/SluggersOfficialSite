@@ -472,13 +472,13 @@ const playoffs = {
             name: "Semifinals",
             matches: [
                 { team1: "(Jmo) Toadette's Hit List", score1: 1, team2: "(Carby) Monkey Mashers", score2: 2 },
-                { team1: "(HarryKirch) Dry My Bone", score1: 0, team2: "(BenR) Kritter Town USA  ", score2: 0 },
+                { team1: "(HarryKirch) Dry My Bone", score1: 2, team2: "(BenR) Kritter Town USA  ", score2: 0 },
             ]
         },
         {
             name: "Finals",
             matches: [
-                { team1: "(Carby) Mokney Mashers", score1: 0, team2: "tbd", score2: 0 }
+                { team1: "(Carby) Mokney Mashers", score1: 3, team2: "(HarryKirch) Dry My Bone", score2: 1}
             ]
         }
     ]

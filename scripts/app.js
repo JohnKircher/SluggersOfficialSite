@@ -755,34 +755,7 @@ const mvpCounts = {
 };
 
 window.mvpS3Counts = {
-  "King K Rool": 2,
-  "Red Pianta": 2,
-  "Wiggler": 2,
-  "Green Dry Bones": 1,
-  "Boomerang Bro": 1,
-  "Bowser": 2,
-  "Blue Kritter": 1,
-  "Red Kritter": 1,
-  "Toad": 1,
-  "Dry Bones": 2,
-  "Birdo": 2,
-  "Petey Piranha": 3,
-  "Red Magikoopa": 1,
-  "Saddam Hussein": 1,
-  "Pianta": 1,
-  "Fire Bro": 3,
-  "Yellow Shy Guy": 1,
-  "Yellow Toad": 1,
-  "King Boo": 1,
-  "Wario": 1,
-  "Miss Hot": 1,
-  "Hammer Bro": 2,
-  "Red Yoshi": 1,
-  "Kritter": 2,
-  "Donkey Kong": 2,
-  "Toadette": 1,
-  "Borat": 1,
-  "Chicken": 1,
+  
 };
 
 const characters = [
@@ -918,7 +891,8 @@ const characters = [
   { name: "Beyonce", image: "assets/images/beyonce.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
   { name: "Whoopie Goldberg", image: "assets/images/whoopie.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
   { name: "Evie", image: "assets/images/evie.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
-  { name: "Diminutive", image: "assets/images/diminutive.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 }
+  { name: "Diminutive", image: "assets/images/diminutive.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Noki", image: "assets/images/Noki.PNG", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 }
 ];
 
 window.characters = characters;
@@ -1332,14 +1306,14 @@ function renderSeason3Stats() {
   grid.innerHTML = '';
   
   const teamRosters = {
-        "Car-bones White Van": ["Bowser", "Dark Bones", "Dry Bones", "Blue Dry Bones", "Chicken", "Red Koopa Troopa", "Koopa Troopa", "Red Magikoopa", "Carby", "Red Yoshi", "Baby Mario", "Red Koopa Paratroopa", "Ice Cube", "Blooper"],
-        "Kritter Town USA": ["King K Rool", "Kritter", "Blue Kritter", "Luigi", "Rizzler", "Blue Shy Guy", "Minion", "Magikoopa", "Lilo", "Toadsworth", "Matt", "Yellow Magikoopa", "Dora"],
-        "Monkey Mashers": ["Donkey Kong", "Petey Piranha", "Funky Kong", "Yellow Pianta", "Yoshi", "Diddy Kong", "Tiny Kong", "Tsitsipas", "Lizzy", "Frozone", "Harry Potter", "Semenlad", "Dixie Kong"],
-        "Unc's Breeding Program": ["Unc", "Saddam Hussein", "Lara Croft", "Green Shy Guy", "Green Toad", "Green Magikoopa", "Peach", "Koopa Paratroopa", "Monty Mole", "Kim Jong Un", "Black Widow", "Snape", "Green Noki"],
-        "Kevin G's Escort Agency": ["Birdo", "King Boo", "Daisy", "KevinG", "Shy Guy", "Baby Daisy", "Miss Hot", "Livvy Dunne", "Dwayne Wade", "Black Shy Guy", "Pink Yoshi", "Baby Luigi", "Goomba"],
-        "Trinity Triple Threat": ["Wiggler", "Red Kritter", "Brown Kritter", "Waluigi", "Lebron James", "Borat", "Yellow Shy Guy", "Trinity", "Wario", "The Penguin", "Lil Wayne", "KSI"],
-        "Toadette's Hit List": ["Fire Bro", "Boomerang Bro", "Red Pianta", "Mario", "Toad", "Blue Toad", "Toadette", "Purple Toad", "Mr. Incredible", "Baby Peach", "Blue Yoshi", "Handsome Squidward", "Light Blue Yoshi"],
-        BenT: ["Bowser Jr", "Hammer Bro", "Green Dry Bones", "Pianta", "Yellow Toad", "Boo", "Mikasa", "Baby DK", "Paragoomba", "Big AJ", "Yellow Yoshi", "Captain Jack", "MJ HeeHee"]
+        Julian: ["Bowser", "Boomerang Bro", "Blue Dry Bones", "Blue Shy Guy", "Magikoopa", "Red Koopa Troopa", "Red Koopa Paratroopa"],
+        Kircher: ["Donkey Kong", "Wario", "Dry Bones", "Black Shy Guy", "Boo", "Dixie Kong", "Yellow Shy Guy", "Monty Mole", "Light Blue Yoshi"],
+        Tom: ["Petey Piranha", "Dark Bones", "Mario", "Blue Toad", "Toadette", "Red Magikoopa", "Red Yoshi"],
+        BenT: ["King K Rool", "King Boo", "Blue Kritter", "Green Dry Bones", "Green Toad", "Green Shy Guy", "Peach", "Koopa Troopa", "Toadsworth", "Koopa Paratroopa"],
+        Carby: ["Fire Bro", "Wiggler", "Yellow Pianta", "Toad", "Bowser Jr", "Yellow Magikoopa", "Blooper", "Yellow Yoshi", "Goomba"],
+        HarryKirch: ["Birdo", "Funky Kong", "Red Pianta", "Pianta", "Purple Toad", "Shy Guy", "Dixie Kong", "Blue Yoshi"],
+        Jmo: ["Hammer Bro", "Red Kritter", "Luigi", "Daisy", "Yellow Toad", "Green Magikoopa", "Baby Daisy", "Waluigi", "Pink Yoshi"],
+        BenR: ["Kritter", "Brown Kritter", "Baby DK", "Diddy Kong", "Paragoomba", "Yoshi", "Baby Peach", "Baby Luigi", "Baby Mario", "Noki"]
       };
 
   const allCharacters = window.characters.map(char => {

@@ -138,7 +138,7 @@ window.captains = captains;
 const miiMeta = {
     "Black Widow": { gender: "F", color: "black" },
     "Borat": { gender: "M", color: "yellow" },
-    "Captain Jack": { gender: "M", color: "white" },
+    "Captain Jack Sparrow": { gender: "M", color: "white" },
     "Chicken": { gender: "F", color: "red" },
     "Dwayne Wade": { gender: "M", color: "pink" },
     "Ice Cube": { gender: "M", color: "brown" },
@@ -152,7 +152,7 @@ const miiMeta = {
     "Mikasa": { gender: "F", color: "yellow" },
     "Minion": { gender: "M", color: "blue" },
     "Miss Hot": { gender: "F", color: "pink" },
-    "SemenLad": { gender: "M", color: "white" },
+    "Semenlad": { gender: "M", color: "white" },
     "Snape": { gender: "M", color: "black" },
     "Trinity": { gender: "F", color: "purple" },
     "Unc": { gender: "M", color: "green" },
@@ -184,7 +184,22 @@ const miiMeta = {
     "Queen Elizabeth": { gender: "F", color: "green" },
     "Yghur": { gender: "M", color: "green" },
     "Zorro": { gender: "M", color: "black" },
-    "Chickenrice": { gender: "M", color: "blue" }
+    "Chickenrice": { gender: "M", color: "blue" },
+    "Winnie The Pooh": { gender: "M", color: "blue" },
+    "Tobey Maguire": { gender: "M", color: "blue" },
+    "Gus Fring": { gender: "M", color: "blue" },
+    "Tung Tung Tung Sahur": { gender: "M", color: "blue" },
+    "Taylor Swift": { gender: "M", color: "blue" },
+    "Angelina Joeli": { gender: "M", color: "blue" },
+    "Pops": { gender: "M", color: "blue" },
+    "Ghandi": { gender: "M", color: "blue" },
+    "Count Dooku": { gender: "M", color: "blue" },
+    "MLK Jr": { gender: "M", color: "blue" },
+    "Syndrome": { gender: "M", color: "blue" },
+    "Beyonce": { gender: "M", color: "blue" },
+    "Whoopie Goldberg": { gender: "M", color: "blue" },
+    "Evie": { gender: "M", color: "blue" },
+    "Diminutive": { gender: "M", color: "blue" }
   };
 
 window.miiMeta = miiMeta;
@@ -888,7 +903,22 @@ const characters = [
   { name: "The Penguin", image: "assets/images/The Penguin.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
   { name: "Handsome Squidward", image: "assets/images/Handsome Squidward.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
   { name: "Light Blue Yoshi", image: "assets/images/Light Blue Yoshi.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
-  { name: "Big AJ", image: "assets/images/Big AJ.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 }
+  { name: "Big AJ", image: "assets/images/Big AJ.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Winnie The Pooh", image: "assets/images/pooh.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Tobey Maguire", image: "assets/images/tobey.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Gus Fring", image: "assets/images/gus.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Tung Tung Tung Sahur", image: "assets/images/tung.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Taylor Swift", image: "assets/images/taylor.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Angelina Joeli", image: "assets/images/angelina.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Pops", image: "assets/images/pops.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Ghandi", image: "assets/images/ghandi.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Count Dooku", image: "assets/images/countdooku.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "MLK Jr", image: "assets/images/mlk.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Syndrome", image: "assets/images/syndrome.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Beyonce", image: "assets/images/beyonce.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Whoopie Goldberg", image: "assets/images/whoopie.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Evie", image: "assets/images/evie.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Diminutive", image: "assets/images/diminutive.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 }
 ];
 
 window.characters = characters;
@@ -977,6 +1007,14 @@ if (characterGrid) {
 
   function renderCharacters(data, usePitching = false) {
     characterGrid.innerHTML = '';
+    data = [...data].sort((a, b) => a.name.localeCompare(b.name));
+    // Filter for Mii characters if we're in Miis mode
+    if (window.displayMode === "miis") {
+      data = data
+        .filter(char => miiMeta.hasOwnProperty(char.name))
+        .sort((a, b) => a.name.localeCompare(b.name));
+    }
+
     data.forEach(char => {
       const card = document.createElement('div');
       card.className = 'character-card card-hover-pop';
@@ -997,18 +1035,23 @@ if (characterGrid) {
 
   
       const miiInfo = miiMeta[char.name];
-      const genderBadge = miiInfo
-        ? `<div class="mii-badge" style="background-color:${miiInfo.color};">${miiInfo.gender}</div>`
+      const genderBadge = miiMeta.hasOwnProperty(char.name)
+        ? `<div class="mii-badge" style="background-color:white; color:black;">Mii</div>`
         : '';
 
+
+
       const mvpCount = mvpCounts[char.name];
-      const mvpBadge = mvpCount
-        ? `<div class="mvp-badge">${mvpCount}⭐</div>`
-        : '';
+      const mvpBadge = (window.displayMode === "miis")
+        ? ''  // ❌ No MVP badge for Miis
+        : (mvpCount ? `<div class="mvp-badge">${mvpCount}⭐</div>` : '');
+
         
   
       let statSection = '';
-      if (usePitching) {
+      if (window.displayMode === "miis") {
+        statSection = ''; // 🔇 No stats on Miis page
+      } else if (usePitching) {
         if (pitchingStats[char.name]) {
           const p = pitchingStats[char.name];
           statSection = `
@@ -1048,9 +1091,10 @@ if (characterGrid) {
         ${mvpBadge}
         <img src="${char.image}" alt="${char.name}">
         <h3>${char.name}</h3>
-        <p>Class: ${char.class}</p>
+        ${window.displayMode !== "miis" ? `<p>Class: ${char.class}</p>` : ''}
         ${statSection}
       `;
+
   
       if (captains.includes(char.name)) {
         card.classList.add('captain-card');

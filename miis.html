@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miis | Super Sluggers League</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="icon" type="image/jpg" href="favicon.jpg"/>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-content">
+      <ul class="nav-links">
+        <li><a href="index.html">📅 Home</a></li>
+        <li><a href="characters.html">🧢 Character Cast & Stats</a></li>
+        <li><a href="season.html">📅 Current Season</a></li>
+        <li><a href="miis.html" class="active">👤 Miis</a></li>
+        <li><a href="simulator.html">🏆 Playoff Simulator</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="characters-section">
+
+    <!-- Loading Message -->
+    <div id="loadingMessage" style="text-align:center;margin-top:2rem;">Loading Miis...</div>
+
+    <!-- Character Cards -->
+    <div class="character-grid" id="characterGrid" style="display: none;">
+      <!-- JS will inject Mii cards here -->
+    </div>
+  </section>
+
+  <!-- Set display mode flag -->
+  <script>
+    window.displayMode = "miis";
+  </script>
+
+  <!-- Core Script -->
+  <script src="scripts/app.js"></script>
+
+  <!-- Load stats & render -->
+  <script>
+    window.addEventListener('DOMContentLoaded', async () => {
+      await loadPlayerStats();
+      renderCharacters(characters);
+      document.getElementById('loadingMessage').style.display = 'none';
+      document.getElementById('characterGrid').style.display = 'grid';
+    });
+  </script>
+</body>
+</html>

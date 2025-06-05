@@ -35,6 +35,7 @@
         <li><a href="index.html">📅 Home</a></li>
         <li><a href="characters.html">🧢 Character Cast & Stats</a></li>
         <li><a href="season.html" class="active">📅 Current Season</a></li>
+        <li><a href="miis.html">👤 Miis</a></li>
         <a href="simulator.html" class="nav-link">🏆 Playoff Simulator</a>
       </ul>
     </div>
@@ -93,103 +94,7 @@
 
   <script src="scripts/app.js"></script>
   <script>
-    // Secret unlock: press Shift + A
-    window.addEventListener('keydown', e => {
-      if (e.shiftKey && e.key.toLowerCase() === 'a') {
-        document.getElementById('adminToggle').style.display = 'block';
-      }
-    });
-
-    document.getElementById('adminToggle').addEventListener('click', () => {
-      const panel = document.getElementById('adminPanel');
-      panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
-      if (panel.style.display === 'block') renderAdminPanel();
-    });
-
-    let editingIndex = null; // Track which match you're editing
-
-    function renderAdminPanel() {
-      const panel = document.getElementById('adminPanel');
-      const editing = editingIndex !== null ? window.matches[editingIndex] : null;
-
-      panel.innerHTML = `
-        <h3>${editing ? 'Edit Match' : 'Add New Match'}</h3>
-        <form id="matchForm">
-          <input placeholder="Home Team" name="home" value="${editing?.home || ''}">
-          <input placeholder="Away Team" name="away" value="${editing?.away || ''}">
-          <input placeholder="Score (e.g. 3 - 2)" name="score" value="${editing?.score || ''}">
-          <input placeholder="Date (e.g. April 30, 2025, 6:00 PM)" name="date" value="${editing?.date || ''}">
-          <input placeholder="assets/stadiums/(name.jpg)" name="stadiumImg" value="${editing?.stadiumImg || ''}">
-          <input placeholder="Day/Night" name="day" value="${editing?.day || ''}">
-          <input placeholder="MVP" name="mvp" value="${editing?.mvp || ''}">
-          <input placeholder="Banned Stadium" name="banned" value="${editing?.banned || ''}">
-          <button type="submit">${editing ? 'Update' : 'Add'} Match</button>
-          ${editing ? '<button type="button" id="cancelEdit">Cancel</button>' : ''}
-        </form>
-        <h3>Current Matches</h3>
-        <ul id="adminMatchList"></ul>
-      `;
-
-      const list = document.getElementById('adminMatchList');
-      list.innerHTML = '';
-      window.matches.forEach((match, idx) => {
-        const li = document.createElement('li');
-        li.innerHTML = `
-          ${match.home} vs ${match.away} — ${match.date}
-          <button onclick="editMatch(${idx})">✏️</button>
-          <button onclick="deleteMatch(${idx})">❌</button>
-        `;
-        list.appendChild(li);
-      });
-
-      document.getElementById('matchForm').addEventListener('submit', e => {
-        e.preventDefault();
-        const form = e.target;
-        const matchData = {
-          home: form.home.value,
-          away: form.away.value,
-          score: form.score.value,
-          date: form.date.value,
-          stadiumImg: form.stadiumImg.value,
-          day: form.day.value,
-          mvp: form.mvp.value,
-          banned: form.banned.value
-        };
-
-        matchData.id = editingIndex !== null ? window.matches[editingIndex].id : Date.now().toString();
-        const method = editingIndex !== null ? 'PUT' : 'POST';
-
-        fetch("https://script.google.com/macros/s/AKfycbybAu3zUjcSV9_KU2_jxkoKS316lBA4S8dK2pZftbwxstWyHVk8VuGlwZaxQaH_g2FL/exec", {
-          method,
-          body: JSON.stringify(matchData)
-        }).then(() => {
-          editingIndex = null;
-          loadMatchesFromAPI().then(renderAdminPanel);
-        });
-
-      });
-
-      if (editing) {
-        document.getElementById('cancelEdit').addEventListener('click', () => {
-          editingIndex = null;
-          renderAdminPanel();
-        });
-      }
-    }
-
-    function editMatch(idx) {
-      editingIndex = idx;
-      renderAdminPanel();
-    }
-
-    function deleteMatch(idx) {
-      const id = window.matches[idx].id;
-      fetch(`https://script.google.com/macros/s/AKfycbybAu3zUjcSV9_KU2_jxkoKS316lBA4S8dK2pZftbwxstWyHVk8VuGlwZaxQaH_g2FL/exec?id=${id}`, {
-        method: 'DELETE'
-      }).then(() => {
-        loadMatchesFromAPI().then(renderAdminPanel);
-      });
-    }
+    
 
     window.onload = async () => {
       await loadMatchesFromAPI();

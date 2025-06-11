@@ -1309,14 +1309,14 @@ function renderSeason3Stats() {
   grid.innerHTML = '';
   
   const teamRosters = {
-        Julian: ["Bowser", "Boomerang Bro", "Blue Dry Bones", "Unc", "Blue Shy Guy", "Magikoopa", "Saddam Hussein", "Kim Jong Un", "Ghandi", "Lara Croft", "Gandalf", "Red Koopa Troopa", "Red Koopa Paratroopa"],
-        Kircher: ["Donkey Kong", "Wario", "Dry Bones", "Black Shy Guy", "Boo", "Frozone", "Miss Hot", "Tiny Kong", "Yellow Shy Guy", "Monty Mole", "John K", "Evie", "Light Blue Yoshi"],
+        "Dad's Brother": ["Bowser", "Boomerang Bro", "Blue Dry Bones", "Unc", "Blue Shy Guy", "Magikoopa", "Saddam Hussein", "Kim Jong Un", "Ghandi", "Lara Croft", "Gandalf", "Red Koopa Troopa", "Red Koopa Paratroopa"],
+        "Kronos Unveiled": ["Donkey Kong", "Wario", "Dry Bones", "Black Shy Guy", "Boo", "Frozone", "Miss Hot", "Tiny Kong", "Yellow Shy Guy", "Monty Mole", "John K", "Evie", "Light Blue Yoshi"],
         Tom: ["Petey Piranha", "Dark Bones", "Mario", "Red Kritter", "Baby Daisy", "Diminutive", "Tung Tung Tung Sahur", "Carby", "Red Yoshi", "Tobey Maguire", "Harry Potter", "Tsitsipas"],
         BenT: ["King K Rool", "King Boo", "Blue Kritter", "Green Dry Bones", "Green Toad", "Mrs.Claus", "Green Shy Guy", "Peach", "Gus Fring", "Koopa Troopa", "Toadsworth", "Koopa Paratroopa", "Borat"],
-        Carby: ["Fire Bro", "Wiggler", "Yellow Pianta", "Toad", "Bowser Jr", "KevinG", "Yellow Magikoopa", "MLK Jr", "Blooper", "Semenlad", "Yellow Yoshi", "Goomba", "MJ HeeHee"],
-        HarryKirch: ["Birdo", "Funky Kong", "Red Pianta", "Pianta", "Purple Toad", "Shy Guy", "Dwayne Wade", "Winnie The Pooh", "Dixie Kong", "Chicken", "Big AJ", "Yghur", "Blue Yoshi"],
+        "Bowser Jr. Had a Wet Dream": ["Fire Bro", "Wiggler", "Yellow Pianta", "Toad", "Bowser Jr", "KevinG", "Yellow Magikoopa", "MLK Jr", "Blooper", "Semenlad", "Yellow Yoshi", "Goomba", "MJ HeeHee"],
+        "Birdo Backshots V2": ["Birdo", "Funky Kong", "Red Pianta", "Pianta", "Purple Toad", "Shy Guy", "Dwayne Wade", "Winnie The Pooh", "Dixie Kong", "Chicken", "Big AJ", "Yghur", "Blue Yoshi"],
         Jmo: ["Hammer Bro", "Blue Toad", "Luigi", "Daisy", "Yellow Toad", "Green Magikoopa", "Toadette", "Waluigi", "Syndrome", "Beyonce", "Pink Yoshi", "Lilo", "Taylor Swift", "Red Magikoopa"],
-        BenR: ["Kritter", "Brown Kritter", "Baby DK", "Diddy Kong", "Pops", "Paragoomba", "Yoshi", "Baby Peach", "Rizzler", "Lebron James", "Baby Luigi", "Baby Mario", "Noki"]
+        "LeBron's I Promise School": ["Kritter", "Brown Kritter", "Baby DK", "Diddy Kong", "Pops", "Paragoomba", "Yoshi", "Baby Peach", "Rizzler", "Lebron James", "Baby Luigi", "Baby Mario", "Noki"]
       };
 
   const allCharacters = window.characters.map(char => {

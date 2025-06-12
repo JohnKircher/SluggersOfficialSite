@@ -276,7 +276,7 @@ const mvps = [
     {
       name: "Boomerang Bro",
       team: "Kircher, Jmo (x2)",
-      mvps: 4,
+      mvps: 5,
       image: "assets/images/bbro.png",
       stats: "+1 Playoff MVPs"
     },
@@ -392,34 +392,34 @@ if (track) {
 // Sample Standings Data
 const standings = {
     "Season1": [
-        { team: "(BenR) Mokney Squad", wins: 7, losses: 3, diff: 29 },
+        { team: "(BenR) DK's Swamp Monkeys", wins: 7, losses: 3, diff: 29 },
         { team: "(BenT) BenT", wins: 7, losses: 3, diff: 23 },
         { team: "(Julian) UNC", wins: 6, losses: 4, diff: 8 },
-        { team: "(Carby) Wario Squad", wins: 5, losses: 5, diff: 3 },
-        { team: "(HarryKirch) Birdo Bombs", wins: 5, losses: 5, diff: -13 },
+        { team: "(Carby) Wario is a Pedo", wins: 5, losses: 5, diff: 3 },
+        { team: "(HarryKirch) Birdo Backshots", wins: 5, losses: 5, diff: -13 },
         { team: "(Tom) Tom-Splosion", wins: 4, losses: 6, diff: -13 },
-        { team: "(Kircher) BowserJr. Mog", wins: 4, losses: 6, diff: -14 },
-        { team: "(Jmo) Petey's Fly-Trap", wins: 2, losses: 8, diff: -23 }
+        { team: "(Kircher) BowserJr. OnlyShells Account", wins: 4, losses: 6, diff: -14 },
+        { team: "(Jmo) Petey's Thirst Trap", wins: 2, losses: 8, diff: -23 }
     ],
     "Season2": [
         { team: "(BenT) BenT", wins: 7, losses: 3, diff: 32 },
-        { team: "(Jmo) Severance & Birdo", wins: 7, losses: 3, diff: 27 },
-        { team: "(Tom) Diddy's Ball Boys", wins: 5, losses: 5, diff: 6 },
+        { team: "(Jmo) Sucked & Severed", wins: 7, losses: 3, diff: 27 },
+        { team: "(Tom) Diddy's Blue Ball Boys", wins: 5, losses: 5, diff: 6 },
         { team: "(Kircher) Caillou's House", wins: 5, losses: 5, diff: -1 },
-        { team: "(BenR) Luigi Squad", wins: 5, losses: 5, diff: -3 },
-        { team: "(HarryKirch) Baby Daisy Hits Dingers", wins: 4, losses: 6, diff: -12 },
-        { team: "(Julian) Mario Flyout", wins: 4, losses: 6, diff: -14 },
+        { team: "(BenR) Luigi Long Schlongs", wins: 5, losses: 5, diff: -3 },
+        { team: "(HarryKirch) Baby Daisy Bent Over", wins: 4, losses: 6, diff: -12 },
+        { team: "(Julian) Mario Pocket P****", wins: 4, losses: 6, diff: -14 },
         { team: "(Carby) Mii's and Nightmares", wins: 3, losses: 7, diff: -35 }
     ],
     "Season3": [
         { team: "(Jmo) Toadette's Hit List", wins: 8, losses: 2, diff: 21 },
-        { team: "(HarryKirch) Dry My Bone", wins: 7, losses: 3, diff: 24 },
+        { team: "(HarryKirch) Car-bone's White Van", wins: 7, losses: 3, diff: 24 },
         { team: "(Kircher) Trinity Triple Threat", wins: 6, losses: 4, diff: 6 },
         { team: "(BenR) Kritter Town USA", wins: 5, losses: 5, diff: -3 },
         { team: "(BenT) BenT", wins: 5, losses: 5, diff: -9 },
         { team: "(Carby) Mokney Mashers", wins: 4, losses: 6, diff: 0 },
-        { team: "(Tom) KevinG Agency", wins: 4, losses: 6, diff: -19 },
-        { team: "(Julian) Unc's Program", wins: 1, losses: 9, diff: -20 }
+        { team: "(Tom) KevinG's Escort Agency", wins: 4, losses: 6, diff: -19 },
+        { team: "(Julian) Unc's Breeding Program", wins: 1, losses: 9, diff: -20 }
     ]
 };
 
@@ -432,20 +432,20 @@ const playoffs = {
                 name: "Round 1",
                 matches: [
                     { team1: "(Julian) UNC", score1: 2, team2: "(Tom) Tom-Splosion", score2: 1 },
-                    { team1: "(Carby) Wario Squad", score1: 1, team2: "(HarryKirch) Birdo Bombs", score2: 2 }
+                    { team1: "(Carby) Wario is a Pedo", score1: 1, team2: "(HarryKirch) Birdo Backshots", score2: 2 }
                 ]
             },
             {
                 name: "Semifinals",
                 matches: [
-                    { team1: "(BenR) Monkey Squad", score1: 2, team2: "(HarryKirch) Birdo Bombs", score2: 0 },
+                    { team1: "(BenR) DK's Swamp Monkeys", score1: 2, team2: "(HarryKirch) Birdo Backshots", score2: 0 },
                     { team1: "(BenT) Ben T", score1: 1, team2: "(Julian) UNC", score2: 2 }
                 ]
             },
             {
                 name: "Finals",
                 matches: [
-                    { team1: "(BenR) Monkey Squad", score1: 3, team2: "(Julian) UNC", score2: 2 }
+                    { team1: "(BenR) DK's Swamp Monkeys", score1: 3, team2: "(Julian) UNC", score2: 2 }
                 ]
             }
         ]
@@ -455,21 +455,21 @@ const playoffs = {
         {
             name: "Round 1",
             matches: [
-                { team1: "(Tom) Diddy's Ball Boys", score1: 2, team2: "(HarryKirch) Baby Daisy Hits Dingers", score2: 1 },
-                { team1: "(Kircher) Caillou's House", score1: 2, team2: "(BenR) Luigi Squad", score2: 0 }
+                { team1: "(Tom) Diddy's Blue Ball Boys", score1: 2, team2: "(HarryKirch) Baby Daisy Bent Over", score2: 1 },
+                { team1: "(Kircher) Caillou's House", score1: 2, team2: "(BenR) Luigi Long Schlongs", score2: 0 }
             ]
         },
         {
             name: "Semifinals",
             matches: [
                 { team1: "(BenT) BenT", score1: 2, team2: "(Kircher) Caillou's House", score2: 0 },
-                { team1: "(Jmo) Severance & Birdo", score1: 2, team2: "(Tom) Diddy's Ball Boys", score2: 1 },
+                { team1: "(Jmo) Sucked & Severed", score1: 2, team2: "(Tom) Diddy's Blue Ball Boys", score2: 1 },
             ]
         },
         {
             name: "Finals",
             matches: [
-                { team1: "(BenT) BenT", score1: 3, team2: "(Jmo) Severance & Birdo", score2: 0 }
+                { team1: "(BenT) BenT", score1: 3, team2: "(Jmo) Sucked & Severed", score2: 0 }
             ]
         }
     ]
@@ -487,13 +487,13 @@ const playoffs = {
             name: "Semifinals",
             matches: [
                 { team1: "(Jmo) Toadette's Hit List", score1: 1, team2: "(Carby) Monkey Mashers", score2: 2 },
-                { team1: "(HarryKirch) Dry My Bone", score1: 2, team2: "(BenR) Kritter Town USA  ", score2: 0 },
+                { team1: "(HarryKirch) Car-bone's White Van", score1: 2, team2: "(BenR) Kritter Town USA  ", score2: 0 },
             ]
         },
         {
             name: "Finals",
             matches: [
-                { team1: "(Carby) Mokney Mashers", score1: 3, team2: "(HarryKirch) Dry My Bone", score2: 1}
+                { team1: "(Carby) Mokney Mashers", score1: 3, team2: "(HarryKirch) Car-bone's White Van", score2: 1}
             ]
         }
     ]
@@ -714,7 +714,7 @@ const mvpCounts = {
   "Fire Bro": 7,
   "Dry Bones": 5,
   "Birdo": 5,
-  "Boomerang Bro": 4,
+  "Boomerang Bro": 5,
   "Kritter": 4,
   "Funky Kong": 2,
   "Bowser Jr": 2,
@@ -754,10 +754,37 @@ const mvpCounts = {
   "Yellow Toad": 2
 };
 
+const playoffMvpCounts = {
+  "Bowser": 6,
+  "Donkey Kong": 5,
+  "Petey Piranha": 3,
+  "Brown Kritter": 2,
+  "Red Kritter": 2,
+  "Green Dry Bones": 2,
+  "Blue Dry Bones": 2,
+  "Fire Bro": 2,
+  "King K Rool": 2,
+  "Birdo": 2,
+  "Toadette": 1,
+  "Pianta": 1,
+  "Funky Kong": 1,
+  "Unc": 1,
+  "MJ HeeHee": 1,
+  "Wiggler": 1,
+  "Boomerang Bro": 1,
+  "Yellow Toad": 1,
+  "Mrs.Claus": 1,
+  "Hammer Bro": 1,
+  "Yellow Pianta": 1,
+  "Mario": 1,
+  "Dry Bones": 1
+};
+
 window.mvpS3Counts = {
   "Fire Bro": 1,
   "Pianta": 1,
-  "Yellow Toad": 1
+  "Yellow Toad": 1,
+  "Boomerang Bro": 1
 };
 
 const characters = [
@@ -1066,6 +1093,8 @@ if (characterGrid) {
       card.innerHTML = `
         ${genderBadge}
         ${mvpBadge}
+        ${(window.displayMode !== "miis" && playoffMvpCounts[char.name]) ? 
+          `<div class="playoff-mvp-badge">${playoffMvpCounts[char.name]}💎</div>` : ''}
         <img src="${char.image}" alt="${char.name}">
         <h3>${char.name}</h3>
         ${window.displayMode !== "miis" ? `<p>Class: ${char.class}</p>` : ''}
@@ -1174,8 +1203,13 @@ if (characterGrid) {
   
     cards.sort((a, b) => {
       let aVal, bVal;
-      
-      if (sortBy === 'mvps') {
+
+      // In the sortCharacters function, add this case to the sorting logic:
+      if (sortBy === 'playoffmvps') {
+        aVal = playoffMvpCounts[a.dataset.name] || 0;
+        bVal = playoffMvpCounts[b.dataset.name] || 0;
+      }
+      else if (sortBy === 'mvps') {
         // For MVPs, we'll use the mvpCounts object directly
         aVal = mvpCounts[a.dataset.name] || 0;
         bVal = mvpCounts[b.dataset.name] || 0;
@@ -1283,6 +1317,7 @@ if (characterGrid) {
         <option value="games">Home Runs</option>
         <option value="gp">Games Played</option>
         <option value="mvps">MVPs</option>
+        <option value="playoffmvps">Playoff MVPs</option>
       `;
     
     document.getElementById('battingFilters').style.display = showingPitching ? 'none' : 'block';

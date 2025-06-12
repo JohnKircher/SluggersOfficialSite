@@ -1350,7 +1350,7 @@ function renderSeason3Stats() {
         BenT: ["King K Rool", "King Boo", "Blue Kritter", "Green Dry Bones", "Green Toad", "Mrs.Claus", "Green Shy Guy", "Peach", "Gus Fring", "Koopa Troopa", "Toadsworth", "Koopa Paratroopa", "Borat"],
         "Bowser Jr. Had a Wet Dream": ["Fire Bro", "Wiggler", "Yellow Pianta", "Toad", "Bowser Jr", "KevinG", "Yellow Magikoopa", "MLK Jr", "Blooper", "Semenlad", "Yellow Yoshi", "Goomba", "MJ HeeHee"],
         "Birdo Backshots V2": ["Birdo", "Funky Kong", "Red Pianta", "Pianta", "Purple Toad", "Shy Guy", "Dwayne Wade", "Winnie The Pooh", "Dixie Kong", "Chicken", "Big AJ", "Yghur", "Blue Yoshi"],
-        Jmo: ["Hammer Bro", "Blue Toad", "Luigi", "Daisy", "Yellow Toad", "Green Magikoopa", "Toadette", "Waluigi", "Syndrome", "Beyonce", "Pink Yoshi", "Lilo", "Taylor Swift", "Red Magikoopa"],
+        "Toadette's Hot Girl Summer": ["Hammer Bro", "Blue Toad", "Luigi", "Daisy", "Yellow Toad", "Green Magikoopa", "Toadette", "Waluigi", "Syndrome", "Beyonce", "Pink Yoshi", "Lilo", "Taylor Swift", "Red Magikoopa"],
         "LeBron's I Promise School": ["Kritter", "Brown Kritter", "Baby DK", "Diddy Kong", "Pops", "Paragoomba", "Yoshi", "Baby Peach", "Rizzler", "Lebron James", "Baby Luigi", "Baby Mario", "Noki"]
       };
 

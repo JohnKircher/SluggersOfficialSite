@@ -793,23 +793,24 @@ const playoffMvpCounts = {
 
 window.mvpS3Counts = {
   "Fire Bro": 2,
-  "Pianta": 1,
+  "Pianta": 2,
   "Yellow Toad": 1,
   "Boomerang Bro": 1,
   "Red Magikoopa": 1,
   "Wiggler": 1,
   "King K Rool": 2,
   "Winnie The Pooh": 1,
+  "Blue Kritter": 1,
   "Petey Piranha": 2,
-  "Bowser": 1,
+  "Bowser": 2,
+  "Blue Toad": 2,
   "Brown Kritter": 1,
   "Hammer Bro": 1,
   "Pops": 1,
   "Green Shy Guy": 1,
   "Toadette": 1,
   "Yellow Pianta": 1,
-  "Kim Jong Un": 1,
-  "Blue Toad": 1
+  "Kim Jong Un": 1
 };
 
 const characters = [

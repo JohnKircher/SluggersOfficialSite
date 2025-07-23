@@ -541,15 +541,16 @@ const playoffs = {
         {
             name: "Round 1",
             matches: [
-                { team1: "(Julain) Dad's Brother", score1: 0, team2: "(BenT) BenT", score2: 0 },
-                { team1: "(HarryKirch) Birdo Backshots V2", score1: 0, team2: "(Tom) Petey's Piss Pioneers", score2: 0 }
+                { team1: "(HarryKirch) Birdo Backshots V2", score1: 2, team2: "(Tom) Petey's Piss Pioneers", score2: 1 },
+                { team1: "(Julain) Dad's Brother", score1: 2, team2: "(BenT) BenT", score2: 0 }
+                
             ]
         },
         {
             name: "Semifinals",
             matches: [
-                { team1: "(Jmo) Toadette's Hot Girl Summer", score1: 0, team2: "tbd", score2: 0 },
-                { team1: "(Carby) Bowser Jr. Had a Wet Dream", score1: 0, team2: "tbd", score2: 0 },
+                { team1: "(Jmo) Toadette's Hot Girl Summer", score1: 0, team2: "(Julian) Dad's Brother", score2: 0 },
+                { team1: "(Carby) Bowser Jr. Had a Wet Dream", score1: 0, team2: "(HarryKirch) Birdo Backshots V2", score2: 0 },
             ]
         },
         {
@@ -824,7 +825,7 @@ const mvpCounts = {
 const playoffMvpCounts = {
   "Bowser": 6,
   "Donkey Kong": 5,
-  "Petey Piranha": 3,
+  "Petey Piranha": 4,
   "Brown Kritter": 2,
   "Red Kritter": 2,
   "Green Dry Bones": 2,
@@ -833,12 +834,12 @@ const playoffMvpCounts = {
   "King K Rool": 2,
   "Birdo": 2,
   "Toadette": 1,
-  "Pianta": 1,
+  "Pianta": 3,
   "Funky Kong": 1,
-  "Unc": 1,
+  "Unc": 2,
   "MJ HeeHee": 1,
   "Wiggler": 1,
-  "Boomerang Bro": 1,
+  "Boomerang Bro": 2,
   "Yellow Toad": 1,
   "Mrs.Claus": 1,
   "Hammer Bro": 1,

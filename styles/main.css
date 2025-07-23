@@ -413,9 +413,10 @@ body {
     border: 1px solid #444;
     padding: 1rem;
     border-radius: 10px;
-    min-width: 180px;
-    max-width: 200px;
+    min-width: 220px;   /* was 180px */
+    max-width: 260px;   /* was 200px */
 }
+
 
 
 .match .score {

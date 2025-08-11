@@ -549,14 +549,14 @@ const playoffs = {
         {
             name: "Semifinals",
             matches: [
-                { team1: "(Jmo) Toadette's Hot Girl Summer", score1: 0, team2: "(Julian) Dad's Brother", score2: 0 },
-                { team1: "(Carby) Bowser Jr. Had a Wet Dream", score1: 0, team2: "(HarryKirch) Birdo Backshots V2", score2: 0 },
+                { team1: "(Jmo) Toadette's Hot Girl Summer", score1: 1, team2: "(Julian) Dad's Brother", score2: 2 },
+                { team1: "(Carby) Bowser Jr. Had a Wet Dream", score1: 1, team2: "(HarryKirch) Birdo Backshots V2", score2: 2 },
             ]
         },
         {
             name: "Finals",
             matches: [
-                { team1: "tbd", score1: 0, team2: "tbd", score2: 0}
+                { team1: "(Julian) Dad's Brother", score1: 1, team2: "(HarryKirch) Birdo Backshots V2", score2: 3}
             ]
         }
     ]
@@ -823,7 +823,7 @@ const mvpCounts = {
 };
 
 const playoffMvpCounts = {
-  "Bowser": 6,
+  "Bowser": 7,
   "Donkey Kong": 5,
   "Petey Piranha": 4,
   "Brown Kritter": 2,
@@ -834,18 +834,21 @@ const playoffMvpCounts = {
   "King K Rool": 2,
   "Birdo": 2,
   "Toadette": 1,
-  "Pianta": 3,
+  "Pianta": 5,
   "Funky Kong": 1,
-  "Unc": 2,
+  "Unc": 3,
   "MJ HeeHee": 1,
-  "Wiggler": 1,
-  "Boomerang Bro": 2,
+  "Wiggler": 2,
+  "Boomerang Bro": 3,
   "Yellow Toad": 1,
   "Mrs.Claus": 1,
-  "Hammer Bro": 1,
+  "Hammer Bro": 2,
   "Yellow Pianta": 1,
   "Mario": 1,
-  "Dry Bones": 1
+  "Dry Bones": 1,
+  "Winnie The Pooh": 1,
+  "Red Pianta": 1,
+  "Dixie Kong": 1,
 };
 
 window.mvpS3Counts = {

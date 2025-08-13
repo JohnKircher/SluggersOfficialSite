@@ -188,7 +188,7 @@ const miiMeta = {
     "Winnie The Pooh": { gender: "F", color: "green" },
     "Tobey Maguire": { gender: "F", color: "lightgreen" },
     "Gus Fring": { gender: "M", color: "red" },
-    "Tung Tung Tung Sahur": { gender: "F", color: "blue" },
+    "Tung Tung Tung Sahur": { gender: "F", color: "red" },
     "Taylor Swift": { gender: "M", color: "pink" },
     "Angelina Joeli": { gender: "M", color: "blue" },
     "Pops": { gender: "M", color: "brown" },
@@ -204,7 +204,7 @@ const miiMeta = {
     "Doc Brown": { gender: "F", color: "pink" },
     "Saka": { gender: "F", color: "blue" },
     "Cole Palmer": { gender: "F", color: "lightgreen" },
-    "Vicar": { gender: "F", color: "red" },
+    "Vicar": { gender: "F", color: "blue" },
     "Idi Amin": { gender: "M", color: "yellow"}
   };
 
@@ -226,7 +226,7 @@ const mvps = [
         team: "Julian (x2), BenT, HarryKirch",
         mvps: 9,
         image: "assets/images/bowser1.png",
-        stats: "+6 Playoff MVPs"
+        stats: "+7 Playoff MVPs"
     },
     {
         name: "Fire Bro",
@@ -240,7 +240,7 @@ const mvps = [
       team: "Jmo, HarryKirch, Carby, Tom",
       mvps: 9,
       image: "assets/images/petey.png",
-      stats: "+3 Playoff MVPs"
+      stats: "+4 Playoff MVPs"
     },
     {
         name: "Brown Kritter",
@@ -254,7 +254,7 @@ const mvps = [
         team: "Tom, Jmo, Julian, BenT",
         mvps: 8,
         image: "assets/images/hbro.png",
-        stats: "+1 Playoff MVPs"
+        stats: "+2 Playoff MVPs"
     },
     {
       name: "Donkey Kong",
@@ -305,6 +305,7 @@ const mvps = [
         stats: "+1 Playoff MVPs"
     },
     
+    /*
     {
       name: "Kritter",
       team: "BenT, BenR (x3)",
@@ -369,7 +370,7 @@ const mvps = [
       image: "assets/images/bby.png",
       stats: ""
     },
-    
+    */
     
 ];
 
@@ -1432,14 +1433,14 @@ function renderSeason3Stats() {
   grid.innerHTML = '';
   
   const teamRosters = {
-        "Carby": ["Bowser", "Dark Bones", "Boomerang Bro", "Wario", "Yoshi", "Yellow Magikoopa", "Baby Daisy", "Pink Yoshi", "Goomba", "Carby", "Rizzler", "Doc Brown", "Matt"],
+        "Carby": ["Bowser", "Dark Bones", "Boomerang Bro", "Wario", "Yoshi", "Yellow Magikoopa", "Baby Daisy", "Pink Yoshi", "Caillou", "Carby", "Rizzler", "Doc Brown", "Matt"],
         "BenT": ["Birdo", "Red Pianta", "Mario", "Yellow Toad", "Green Toad", "Yellow Shy Guy", "Paragoomba", "Yellow Yoshi", "Red Koopa Troopa", "Baby Mario", "Gus Fring", "KevinG", "Minion"],
         "Kircher": ["King K Rool", "Red Kritter", "Brown Kritter", "Blue Kritter", "Waluigi", "Blue Yoshi", "Blue Shy Guy", "Dixie Kong", "Green Shy Guy", "Light Blue Yoshi", "Livvy Dunne", "Count Dooku", "Gandalf"],
         "Julian": ["Donkey Kong", "Wiggler", "Monty Mole", "Toadsworth", "Red Noki", "Red Koopa Paratroopa", "Unc", "Saddam Hussein", "Ghandi", "Kim Jong Un", "Queen Elizabeth", "Idi Amin", "MLK Jr"],
         "Jmo": ["Petey Piranha", "Kritter", "Green Dry Bones", "King Boo", "Peach", "Boo", "Green Magikoopa", "Koopa Troopa", "Blooper", "Frozone", "Diminutive", "Syndrome", "Cole Palmer"],
         "HarryKirch": ["Fire Bro", "Hammer Bro", "Luigi", "Daisy", "Purple Toad", "Shy Guy", "Baby Luigi", "Green Noki", "Koopa Paratroopa", "Bowler", "Miss Hot", "Dwayne Wade", "Winnie The Pooh"],
         "BenR": ["Funky Kong", "Diddy Kong", "Toad", "Toadette", "Blue Toad", "Baby DK", "Red Yoshi", "Tiny Kong", "Baby Peach", "Lebron James", "Lil Wayne", "Handsome Squidward", "Ice Cube"],
-        "Tom": ["Pianta", "Yellow Pianta", "Dry Bones", "Blue Dry Bones", "Bowser Jr", "Magikoopa", "Red Magikoopa", "Noki", "Black Shy Guy", "Saka", "Tung Tung Tung Sahur", "Vicar", "Caillou"]
+        "Tom": ["Pianta", "Yellow Pianta", "Dry Bones", "Blue Dry Bones", "Bowser Jr", "Magikoopa", "Red Magikoopa", "Noki", "Black Shy Guy", "Goomba", "Saka", "Tung Tung Tung Sahur", "Vicar"]
       };
 
   const allCharacters = window.characters.map(char => {

@@ -156,7 +156,7 @@ const miiMeta = {
     "Snape": { gender: "M", color: "black" },
     "Trinity": { gender: "F", color: "purple" },
     "Unc": { gender: "M", color: "brown" },
-    "Lil Wayne": { gender: "M", color: "lightblue" },
+    "Lil Wayne": { gender: "M", color: "red" },
     "Kim Jong Un": { gender: "F", color: "brown" },
     "Frozone": { gender: "F", color: "purple" },
     "The Penguin": { gender: "M", color: "purple" },
@@ -168,7 +168,7 @@ const miiMeta = {
     "KSI": { gender: "F", color: "brown" },
     "Big AJ": { gender: "F", color: "purple" },
     "Carby": { gender: "M", color: "pink" },
-    "Lebron James": { gender: "M", color: "red" },
+    "Lebron James": { gender: "M", color: "lightblue" },
     "Lizzy": { gender: "F", color: "lightgreen" },
     "Saddam Hussein": { gender: "M", color: "brown" },
     "Livvy Dunne": { gender: "F", color: "pink" },
@@ -1434,12 +1434,12 @@ function renderSeason3Stats() {
   
   const teamRosters = {
         "Carby": ["Bowser", "Dark Bones", "Boomerang Bro", "Wario", "Yoshi", "Yellow Magikoopa", "Baby Daisy", "Pink Yoshi", "Caillou", "Carby", "Rizzler", "Doc Brown", "Matt"],
-        "BenT": ["Birdo", "Red Pianta", "Mario", "Yellow Toad", "Purple Toad", "Yellow Shy Guy", "Paragoomba", "Yellow Yoshi", "Red Koopa Troopa", "Baby Mario", "Gus Fring", "KevinG", "Minion"],
+        "BenT": ["Birdo", "Red Pianta", "Mario", "Yellow Toad", "Toad", "Yellow Shy Guy", "Paragoomba", "Yellow Yoshi", "Red Koopa Troopa", "Baby Mario", "Gus Fring", "KevinG", "Minion"],
         "Kircher": ["King K Rool", "Red Kritter", "Brown Kritter", "Blue Kritter", "Waluigi", "Blue Yoshi", "Blue Shy Guy", "Dixie Kong", "Green Shy Guy", "Light Blue Yoshi", "Livvy Dunne", "Count Dooku", "Gandalf"],
         "Julian": ["Donkey Kong", "Wiggler", "Monty Mole", "Toadsworth", "Red Noki", "Red Koopa Paratroopa", "Unc", "Saddam Hussein", "Ghandi", "Kim Jong Un", "Queen Elizabeth", "Idi Amin", "MLK Jr"],
         "Jmo": ["Petey Piranha", "Kritter", "Green Dry Bones", "King Boo", "Peach", "Boo", "Green Magikoopa", "Koopa Troopa", "Blooper", "Green Toad", "Diminutive", "Syndrome", "Cole Palmer"],
         "HarryKirch": ["Fire Bro", "Hammer Bro", "Luigi", "Daisy", "Shy Guy", "Baby Luigi", "Green Noki", "Koopa Paratroopa", "Bowler", "Miss Hot", "Dwayne Wade", "Winnie The Pooh", "Frozone"],
-        "BenR": ["Funky Kong", "Diddy Kong", "Toad", "Toadette", "Blue Toad", "Baby DK", "Red Yoshi", "Tiny Kong", "Baby Peach", "Lebron James", "Lil Wayne", "Handsome Squidward", "Ice Cube"],
+        "BenR": ["Funky Kong", "Diddy Kong", "Purple Toad", "Toadette", "Blue Toad", "Baby DK", "Red Yoshi", "Tiny Kong", "Baby Peach", "Lebron James", "Lil Wayne", "Handsome Squidward", "Ice Cube"],
         "Tom": ["Pianta", "Yellow Pianta", "Dry Bones", "Blue Dry Bones", "Bowser Jr", "Magikoopa", "Red Magikoopa", "Noki", "Black Shy Guy", "Goomba", "Saka", "Tung Tung Tung Sahur", "Vicar"]
       };
 

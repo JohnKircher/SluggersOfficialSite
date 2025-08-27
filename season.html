@@ -100,6 +100,7 @@
       await loadMatchesFromAPI();
       await loadPlayerStats(); // ⬅️ load player stats early
 
+      
 
       renderStandings();
       renderMatches(); // run only after data is ready
@@ -328,6 +329,20 @@
 
 
     function renderStandings() {
+      // Division maps for standings badges
+      const EAST_TEAMS = new Set([
+        "Mii Horny",
+        "Bone Bros",
+        "Big League Chew: Daisy Flavor",
+        "Special K"
+      ]);
+      const WEST_TEAMS = new Set([
+        "Is It Pink?",
+        "The Squid",
+        "Funky LeGooners",
+        "Tom"
+      ]);
+      
       const body = document.getElementById('season3-standings-body');
       body.innerHTML = '';
 
@@ -346,8 +361,18 @@
 
         const pct = (team.wins / (team.wins + team.losses)).toFixed(3);
 
+        // Decide division + badge
+        // Decide division + badge
+        let badge = '';
+        if (EAST_TEAMS.has(team.team)) {
+          badge = `<span class="division-badge east">East</span>`;
+        } else if (WEST_TEAMS.has(team.team)) {
+          badge = `<span class="division-badge west">West</span>`;
+        }
+
+
         row.innerHTML = `
-          <td>${team.team}</td>
+          <td>${team.team} ${badge}</td>
           <td>${team.wins}</td>
           <td>${team.losses}</td>
           <td>${pct}</td>

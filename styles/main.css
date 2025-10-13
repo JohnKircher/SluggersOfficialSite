@@ -211,11 +211,6 @@ body {
     padding: 4rem 2rem;
 }
 
-.season-tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-}
 
 .tab {
     padding: 1rem 2rem;
@@ -989,39 +984,7 @@ body {
     text-align: center;
   }
 
-  .season-tabs-wrapper {
-    overflow-x: auto;
-    white-space: nowrap;
-    padding: 0 10px;
-  }
-  
-  .season-tabs {
-    display: inline-flex;
-    gap: 10px;
-    min-width: max-content;
-  }
 
-  .season-tabs-scroll {
-    overflow-x: auto;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-    padding: 0.5rem 0;
-  }
-  
-  /* Custom scrollbar (WebKit browsers) */
-  .season-tabs-scroll::-webkit-scrollbar {
-    height: 8px; /* slightly larger to make it more noticeable */
-    background-color: #252525; /* dark gray background */
-  }
-  
-  .season-tabs-scroll::-webkit-scrollbar-thumb {
-    background-color: #888;   /* medium gray thumb */
-    border-radius: 4px;
-  }
-  
-  .season-tabs-scroll::-webkit-scrollbar-thumb:hover {
-    background-color: #aaa;   /* lighter gray on hover */
-  }
 
   .match-loading {
     font-size: 1rem;
@@ -1393,38 +1356,37 @@ body {
 
 
 
+/* Allow horizontal AND vertical touch panning globally */
+html, body {
+  touch-action: pan-x pan-y; /* was pan-y */
+}
 
+/* Scrollable, swipeable season tabs */
+.season-tabs-wrap { position: relative; }
 
+.season-tabs {
+  display: flex;
+  gap: .5rem;
+  padding: .5rem 1rem;
+  justify-content: flex-start;      /* override earlier center rule */
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  max-width: 100%;
+}
 
+.season-tabs .tab {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  scroll-snap-align: center;
+}
 
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
+/* Optional: fade edges to hint scrollability */
+.season-tabs-wrap::before,
+.season-tabs-wrap::after {
+  content: "";
+  position: absolute; top: 0; bottom: 0; width: 28px; pointer-events: none;
+}
+.season-tabs-wrap::before { left: 0;  background: linear-gradient(to right, rgba(0,0,0,.45), rgba(0,0,0,0)); }
+.season-tabs-wrap::after  { right: 0; background: linear-gradient(to left,  rgba(0,0,0,.45), rgba(0,0,0,0)); }

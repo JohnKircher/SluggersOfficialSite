@@ -1317,6 +1317,81 @@ body {
   color: #0b3d66;
 }
 
+/* === Season 6 Diagonal Banner === */
+.diagonal-banner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-18deg);
+  width: 140vw;                 /* stretch across the whole page */
+  padding: 1rem 0.5rem;
+  text-align: center;
+  z-index: 9999;                /* above everything */
+  pointer-events: none;         /* don't block clicks on the page */
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: clamp(18px, 3.2vw, 38px);
+  color: #111;
+  background: rgba(255, 230, 0, 0.92);  /* bold yellow sash */
+  border: 3px solid #111;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+}
+
+/* Optional: subtle repeating texture/stripe */
+.diagonal-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.15) 0 12px,
+    rgba(255,255,255,0) 12px 24px
+  );
+}
+
+/* Optional: quick toggle utility */
+.hidden { display: none !important; }
+
+.champion-popout {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ffe66b 0%, #ffd43b 60%, #ffef99 100%);
+  color: #111;
+  font-weight: 800;
+  font-family: "Montserrat", sans-serif;
+  border: 2px solid rgba(0,0,0,0.2);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.champion-popout:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+.champion-popout .emoji {
+  font-size: 1.3rem;
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,0.6));
+}
+
+.champion-popout .name {
+  font-weight: 900;
+  margin-left: 0.25rem;
+}
+
+/* Center within the header text block */
+.header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
 
 
 

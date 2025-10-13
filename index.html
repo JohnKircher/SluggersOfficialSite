@@ -26,8 +26,10 @@
       
       
     <header class="main-header">
+        
+
         <div class="header-text">
-            <h1 class="title">SUPER SLUGGERS LEAGUE <span class="subtitle">(season 5)</span></h1>
+            <h1 class="title">SUPER SLUGGERS LEAGUE <span class="subtitle">(season 6 coming soon!)</span></h1>
             <h2 class="subtitle">League Created by John Kircher</h2>
             <div class="twitch-plug">
                 <a href="https://twitch.tv/kircher" target="_blank">
@@ -37,30 +39,17 @@
               </div>
 
               <a href="characters.html" class="view-cast-button">Character Cast & Statistics</a>
-
-              
+            
+              <div class="champion-popout" aria-label="Current Sluggers Champion">
+                <span class="emoji" role="img" aria-label="crown">👑</span>
+                <span class="label">Sluggers Champions:</span>
+                <span class="name">BenR (S1), BenT (S2), Carby (S3 & S5), HarryKirch (S4)</span>
+              </div> 
         </div>
 
         
         <div class="scroll-down">⌄</div>
     </header>
-    
-
-    <section class="mvp-carousel">
-        <h2>5+ LEAGUE MVPs</h2>
-        <div class="carousel-container">
-            <button class="carousel-button prev" aria-label="Previous MVP">&#10094;</button>
-            <div class="carousel-track">
-                <!-- MVP items will be added dynamically with JavaScript -->
-            </div>
-            <button class="carousel-button next" aria-label="Next MVP">&#10095;</button>
-        </div>
-
-        <div style="text-align: center; margin-top: 2rem;">
-            <a href="characters.html" class="view-cast-button">Full Cast & Statistics</a>
-          </div>
-          
-    </section>
 
 
     <section class="seasons">
@@ -69,6 +58,7 @@
             <button class="tab" data-season="Season2">Season 2</button>
             <button class="tab" data-season="Season3">Season 3</button>
             <button class="tab" data-season="Season4">Season 4</button>
+            <button class="tab" data-season="Season5">Season 5</button>
         </div>
 
         <div class="season-content active" id="Season1">
@@ -209,6 +199,57 @@
         
             
         </div>
+
+        <div class="season-content" id="Season5">
+            <div class="standings">
+                <div class="champion-banner">Champion: (Carby) Bone Bros</div>
+
+                
+                <div class="playoffs">
+                    <h3>Season 5 Playoff Bracket</h3>
+                    <div class="bracket-scroll">
+                        <div class="bracket">
+                          <!-- Bracket rounds get injected here -->
+                        </div>
+                      </div>
+                </div>
+                <br><br>
+                <h3>Season 5 Standings</h3>
+
+                <table class="standings-table">
+                    <thead>
+                        <tr>
+                            <th>Team</th>
+                            <th>W</th>
+                            <th>L</th>
+                            <th>PCT</th>
+                            <th>Diff</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Will be populated with JS -->
+                    </tbody>
+                </table>
+            </div>
+        
+            
+        </div>
+    </section>
+
+    <section class="mvp-carousel">
+        <h2>5+ LEAGUE MVPs</h2>
+        <div class="carousel-container">
+            <button class="carousel-button prev" aria-label="Previous MVP">&#10094;</button>
+            <div class="carousel-track">
+                <!-- MVP items will be added dynamically with JavaScript -->
+            </div>
+            <button class="carousel-button next" aria-label="Next MVP">&#10095;</button>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="characters.html" class="view-cast-button">Full Cast & Statistics</a>
+          </div>
+          
     </section>
 
     <script src="scripts/app.js"></script>

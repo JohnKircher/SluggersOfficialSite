@@ -1,0 +1,2034 @@
+{
+  "Baby Daisy": {
+    "likes": [
+      "Orange Mii Male",
+      "Baby DK",
+      "Baby Mario",
+      "Pink Yoshi",
+      "Orange Mii Female",
+      "Yoshi",
+      "Light Blue Yoshi",
+      "Baby Luigi",
+      "Yellow Yoshi",
+      "Red Yoshi",
+      "Blue Yoshi",
+      "Baby Peach"
+    ],
+    "hates": [
+      "Boo",
+      "Petey Piranha",
+      "Blue Dry Bones",
+      "King Boo",
+      "Dark Bones",
+      "Bowser",
+      "Green Dry Bones",
+      "Dry Bones"
+    ]
+  },
+  "Baby DK": {
+    "likes": [
+      "Tiny Kong",
+      "Brown Mii Male",
+      "Brown Mii Male 2",
+      "Dixie Kong",
+      "Baby Daisy",
+      "Baby Mario",
+      "Funky Kong",
+      "Pink Yoshi",
+      "Yoshi",
+      "Light Blue Yoshi",
+      "Baby Luigi",
+      "Yellow Yoshi",
+      "Red Yoshi",
+      "Brown Mii Female",
+      "Brown Mii Female 2",
+      "Blue Yoshi",
+      "Baby Peach"
+    ],
+    "hates": [
+      "Blue Shy Guy",
+      "Red Kritter",
+      "Yellow Shy Guy",
+      "Green Shy Guy",
+      "Shy Guy",
+      "Blue Kritter",
+      "Bowser",
+      "King K Rool",
+      "Black Shy Guy",
+      "Petey Piranha",
+      "Kritter",
+      "Brown Kritter"
+    ]
+  },
+  "Baby Luigi": {
+    "likes": [
+      "Baby DK",
+      "Green Mii Female",
+      "Green Mii Female 2",
+      "Green Mii Male",
+      "Green Mii Male 2",
+      "Baby Daisy",
+      "Baby Mario",
+      "Pink Yoshi",
+      "Yoshi",
+      "Light Blue Yoshi",
+      "Yellow Yoshi",
+      "Red Yoshi",
+      "Blue Yoshi",
+      "Baby Peach"
+    ],
+    "hates": [
+      "Blue Shy Guy",
+      "Boo",
+      "Yellow Shy Guy",
+      "King Boo",
+      "Green Shy Guy",
+      "Shy Guy",
+      "Green Magikoopa",
+      "Bowser",
+      "Magikoopa",
+      "Black Shy Guy",
+      "Red Magikoopa",
+      "Petey Piranha",
+      "Yellow Magikoopa"
+    ]
+  },
+  "Baby Mario": {
+    "likes": [
+      "Baby DK",
+      "Baby Daisy",
+      "Red Mii Female",
+      "Red Mii Female 2",
+      "Pink Yoshi",
+      "Red Mii Male 2",
+      "Red Mii Male",
+      "Yoshi",
+      "Light Blue Yoshi",
+      "Baby Luigi",
+      "Yellow Yoshi",
+      "Red Yoshi",
+      "Blue Yoshi",
+      "Baby Peach"
+    ],
+    "hates": [
+      "Blue Shy Guy",
+      "Boo",
+      "Yellow Shy Guy",
+      "King Boo",
+      "Green Shy Guy",
+      "Shy Guy",
+      "Green Magikoopa",
+      "Bowser",
+      "Magikoopa",
+      "Black Shy Guy",
+      "Red Magikoopa",
+      "Petey Piranha",
+      "Yellow Magikoopa"
+    ]
+  },
+  "Baby Peach": {
+    "likes": [
+      "Baby DK",
+      "Green Toad",
+      "Pink Mii Male",
+      "Pink Mii Male 2",
+      "Purple Toad",
+      "Baby Daisy",
+      "Baby Mario",
+      "Pink Yoshi",
+      "Yoshi",
+      "Light Blue Yoshi",
+      "Blue Toad",
+      "Yellow Toad",
+      "Baby Luigi",
+      "Yellow Yoshi",
+      "Pink Mii Female",
+      "Pink Mii Female 2",
+      "Red Yoshi",
+      "Toad",
+      "Blue Yoshi",
+      "Toadsworth"
+    ],
+    "hates": [
+      "Blue Shy Guy",
+      "Boo",
+      "Yellow Shy Guy",
+      "Blue Dry Bones",
+      "King Boo",
+      "Dry Bones",
+      "Shy Guy",
+      "Green Shy Guy",
+      "Dark Bones",
+      "Bowser",
+      "Black Shy Guy",
+      "Green Dry Bones",
+      "Petey Piranha"
+    ]
+  },
+  "Birdo": {
+    "likes": [
+      "Blue Shy Guy",
+      "Pink Mii Male",
+      "Pink Mii Male 2",
+      "Yellow Shy Guy",
+      "Daisy",
+      "Pink Yoshi",
+      "Toadette",
+      "Shy Guy",
+      "Green Shy Guy",
+      "Yoshi",
+      "Light Blue Yoshi",
+      "Yellow Yoshi",
+      "Black Shy Guy",
+      "Pink Mii Female",
+      "Pink Mii Female 2",
+      "Red Yoshi",
+      "Petey Piranha",
+      "Blue Yoshi"
+    ],
+    "hates": [
+      "Wario",
+      "Blooper",
+      "Tiny Kong",
+      "Waluigi",
+      "Peach"
+    ]
+  },
+  "Black Mii Female": {
+    "likes": [
+      "Bowser Jr",
+      "Bowser",
+      "Black Shy Guy",
+      "Black Mii Male"
+    ],
+    "hates": []
+  },
+  "Black Mii Male": {
+    "likes": [
+      "Black Mii Female",
+      "Bowser Jr",
+      "Bowser",
+      "Black Shy Guy"
+    ],
+    "hates": []
+  },
+  "Black Shy Guy": {
+    "likes": [
+      "Black Mii Female",
+      "Boo",
+      "Black Mii Male",
+      "Monty Mole",
+      "Birdo"
+    ],
+    "hates": [
+      "Baby DK",
+      "Baby Mario",
+      "Pink Yoshi",
+      "Yoshi",
+      "Light Blue Yoshi",
+      "Baby Luigi",
+      "Yellow Yoshi",
+      "Red Yoshi",
+      "Blue Yoshi",
+      "Baby Peach"
+    ]
+  },
+  "Blooper": {
+    "likes": [
+      "White Mii Male",
+      "Boo",
+      "Wiggler",
+      "Petey Piranha",
+      "White Mii Female"
+    ],
+    "hates": [
+      "Birdo"
+    ]
+  },
+  "Blue Dry Bones": {
+    "likes": [
+      "Red Koopa Troopa",
+      "Blue Mii Male",
+      "Blue Mii Male 2",
+      "Bowser",
+      "Blue Mii Female 2",
+      "Blue Mii Female",
+      "Koopa Troopa"
+    ],
+    "hates": [
+      "Luigi",
+      "Baby Daisy",
+      "Baby Peach",
+      "Dixie Kong"
+    ]
+  },
+  "Blue Kritter": {
+    "likes": [
+      "Blue Mii Male",
+      "Blue Mii Male 2",
+      "King K Rool",
+      "Blue Mii Female 2",
+      "Blue Mii Female"
+    ],
+    "hates": [
+      "Baby DK",
+      "Diddy Kong",
+      "Tiny Kong",
+      "Dixie Kong",
+      "Funky Kong",
+      "Donkey Kong"
+    ]
+  },
+  "Blue Mii Female": {
+    "likes": [
+      "Blue Dry Bones",
+      "Noki",
+      "Boomerang Bro",
+      "Blue Mii Male",
+      "Blue Mii Male 2",
+      "Blue Kritter",
+      "Blue Toad",
+      "Magikoopa",
+      "Pianta",
+      "Blue Shy Guy",
+      "Blue Yoshi"
+    ],
+    "hates": []
+  },
+  "Blue Mii Female 2": {
+    "likes": [
+      "Blue Dry Bones",
+      "Noki",
+      "Boomerang Bro",
+      "Blue Mii Male",
+      "Blue Mii Male 2",
+      "Blue Kritter",
+      "Blue Toad",
+      "Magikoopa",
+      "Pianta",
+      "Blue Shy Guy",
+      "Blue Yoshi"
+    ],
+    "hates": []
+  },
+  "Blue Mii Male": {
+    "likes": [
+      "Blue Dry Bones",
+      "Noki",
+      "Boomerang Bro",
+      "Blue Kritter",
+      "Blue Toad",
+      "Magikoopa",
+      "Blue Mii Female 2",
+      "Blue Mii Female",
+      "Pianta",
+      "Blue Shy Guy",
+      "Blue Yoshi"
+    ],
+    "hates": []
+  },
+  "Blue Mii Male 2": {
+    "likes": [
+      "Blue Dry Bones",
+      "Noki",
+      "Boomerang Bro",
+      "Blue Kritter",
+      "Blue Toad",
+      "Magikoopa",
+      "Blue Mii Female 2",
+      "Blue Mii Female",
+      "Pianta",
+      "Blue Shy Guy",
+      "Blue Yoshi"
+    ],
+    "hates": []
+  },
+  "Blue Shy Guy": {
+    "likes": [
+      "Boo",
+      "Blue Mii Male",
+      "Blue Mii Male 2",
+      "Monty Mole",
+      "Blue Mii Female 2",
+      "Blue Mii Female",
+      "Birdo"
+    ],
+    "hates": [
+      "Baby DK",
+      "Baby Mario",
+      "Pink Yoshi",
+      "Yoshi",
+      "Light Blue Yoshi",
+      "Baby Luigi",
+      "Yellow Yoshi",
+      "Red Yoshi",
+      "Blue Yoshi",
+      "Baby Peach"
+    ]
+  },
+  "Blue Toad": {
+    "likes": [
+      "Red Pianta",
+      "Yellow Pianta",
+      "Blue Mii Male",
+      "Blue Mii Male 2",
+      "Toadette",
+      "Peach",
+      "Blue Mii Female 2",
+      "Blue Mii Female",
+      "Pianta",
+      "Toadsworth",
+      "Baby Peach"
+    ],
+    "hates": [
+      "Paragoomba",
+      "Bowser",
+      "Goomba"
+    ]
+  },
+  "Blue Yoshi": {
+    "likes": [
+      "Baby DK",
+      "Baby Daisy",
+      "Blue Mii Male",
+      "Blue Mii Male 2",
+      "Baby Mario",
+      "Mario",
+      "Baby Luigi",
+      "Blue Mii Female 2",
+      "Blue Mii Female",
+      "Birdo",
+      "Baby Peach"
+    ],
+    "hates": [
+      "Boo",
+      "Yellow Shy Guy",
+      "King Boo",
+      "Green Shy Guy",
+      "Shy Guy",
+      "Green Magikoopa",
+      "Magikoopa",
+      "Black Shy Guy",
+      "Red Magikoopa",
+      "Blue Shy Guy",
+      "Yellow Magikoopa"
+    ]
+  },
+  "Boo": {
+    "likes": [
+      "White Mii Male",
+      "Blooper",
+      "Yellow Shy Guy",
+      "King Boo",
+      "Green Shy Guy",
+      "Shy Guy",
+      "Green Magikoopa",
+      "Magikoopa",
+      "Black Shy Guy",
+      "Red Magikoopa",
+      "Blue Shy Guy",
+      "White Mii Female",
+      "Yellow Magikoopa"
+    ],
+    "hates": [
+      "Baby Daisy",
+      "Baby Mario",
+      "Pink Yoshi",
+      "Yoshi",
+      "Luigi",
+      "Light Blue Yoshi",
+      "Baby Luigi",
+      "Yellow Yoshi",
+      "Red Yoshi",
+      "Blue Yoshi",
+      "Baby Peach"
+    ]
+  },
+  "Boomerang Bro": {
+    "likes": [
+      "Bowser Jr",
+      "Blue Mii Male",
+      "Blue Mii Male 2",
+      "Green Magikoopa",
+      "Bowser",
+      "Magikoopa",
+      "Red Magikoopa",
+      "Blue Mii Female 2",
+      "Blue Mii Female",
+      "Yellow Magikoopa"
+    ],
+    "hates": [
+      "Green Noki",
+      "Red Noki",
+      "Noki",
+      "Daisy"
+    ]
+  },
+  "Bowser": {
+    "likes": [
+      "Red Koopa Troopa",
+      "Fire Bro",
+      "Hammer Bro",
+      "Black Mii Female",
+      "Blue Dry Bones",
+      "Boomerang Bro",
+      "Bowser Jr",
+      "Black Mii Male",
+      "Koopa Paratroopa",
+      "Green Magikoopa",
+      "Dark Bones",
+      "Magikoopa",
+      "Red Magikoopa",
+      "Green Dry Bones",
+      "Dry Bones",
+      "Red Koopa Paratroopa",
+      "Yellow Magikoopa",
+      "Koopa Troopa"
+    ],
+    "hates": [
+      "Baby DK",
+      "Green Toad",
+      "Purple Toad",
+      "Baby Daisy",
+      "Baby Mario",
+      "Toadette",
+      "Mario",
+      "Blue Toad",
+      "Luigi",
+      "Peach",
+      "King K Rool",
+      "Baby Luigi",
+      "Yellow Toad",
+      "Toad",
+      "Toadsworth",
+      "Baby Peach"
+    ]
+  },
+  "Bowser Jr": {
+    "likes": [
+      "Red Koopa Troopa",
+      "Fire Bro",
+      "Hammer Bro",
+      "Black Mii Female",
+      "Boomerang Bro",
+      "Black Mii Male",
+      "Green Magikoopa",
+      "Bowser",
+      "Magikoopa",
+      "Red Magikoopa",
+      "Yellow Magikoopa",
+      "Koopa Troopa"
+    ],
+    "hates": [
+      "Red Pianta",
+      "Green Noki",
+      "Red Noki",
+      "Yellow Pianta",
+      "Noki",
+      "Mario",
+      "Pianta"
+    ]
+  },
+  "Brown Kritter": {
+    "likes": [
+      "Brown Mii Female",
+      "Brown Mii Female 2",
+      "King K Rool",
+      "Brown Mii Male",
+      "Brown Mii Male 2"
+    ],
+    "hates": [
+      "Baby DK",
+      "Diddy Kong",
+      "Tiny Kong",
+      "Dixie Kong",
+      "Funky Kong",
+      "Donkey Kong"
+    ]
+  },
+  "Brown Mii Female": {
+    "likes": [
+      "Baby DK",
+      "Brown Kritter",
+      "Brown Mii Male",
+      "Brown Mii Male 2",
+      "Donkey Kong",
+      "Monty Mole",
+      "Paragoomba",
+      "Goomba",
+      "Toadsworth"
+    ],
+    "hates": []
+  },
+  "Brown Mii Female 2": {
+    "likes": [
+      "Baby DK",
+      "Brown Kritter",
+      "Brown Mii Male",
+      "Brown Mii Male 2",
+      "Donkey Kong",
+      "Monty Mole",
+      "Paragoomba",
+      "Goomba",
+      "Toadsworth"
+    ],
+    "hates": []
+  },
+  "Brown Mii Male": {
+    "likes": [
+      "Baby DK",
+      "Brown Kritter",
+      "Brown Mii Female",
+      "Brown Mii Female 2",
+      "Donkey Kong",
+      "Monty Mole",
+      "Paragoomba",
+      "Goomba",
+      "Toadsworth"
+    ],
+    "hates": []
+  },
+  "Brown Mii Male 2": {
+    "likes": [
+      "Baby DK",
+      "Brown Kritter",
+      "Brown Mii Female",
+      "Brown Mii Female 2",
+      "Donkey Kong",
+      "Monty Mole",
+      "Paragoomba",
+      "Goomba",
+      "Toadsworth"
+    ],
+    "hates": []
+  },
+  "Daisy": {
+    "likes": [
+      "Orange Mii Male",
+      "Orange Mii Female",
+      "Luigi",
+      "Peach",
+      "Birdo"
+    ],
+    "hates": [
+      "Fire Bro",
+      "Hammer Bro",
+      "Boomerang Bro"
+    ]
+  },
+  "Dark Bones": {
+    "likes": [
+      "Red Koopa Troopa",
+      "Red Mii Female",
+      "Red Mii Female 2",
+      "Red Mii Male 2",
+      "Red Mii Male",
+      "Bowser",
+      "Koopa Troopa"
+    ],
+    "hates": [
+      "Luigi",
+      "Baby Daisy",
+      "Baby Peach",
+      "Dixie Kong"
+    ]
+  },
+  "Diddy Kong": {
+    "likes": [
+      "Funky Kong",
+      "Tiny Kong",
+      "Donkey Kong",
+      "Dixie Kong"
+    ],
+    "hates": [
+      "Red Kritter",
+      "Blue Kritter",
+      "King K Rool",
+      "Kritter",
+      "Brown Kritter"
+    ]
+  },
+  "Dixie Kong": {
+    "likes": [
+      "Diddy Kong",
+      "Tiny Kong",
+      "Pink Mii Male",
+      "Pink Mii Male 2",
+      "Funky Kong",
+      "Donkey Kong",
+      "Pink Mii Female",
+      "Pink Mii Female 2"
+    ],
+    "hates": [
+      "Red Kritter",
+      "Blue Dry Bones",
+      "Blue Kritter",
+      "Dark Bones",
+      "King K Rool",
+      "Green Dry Bones",
+      "Dry Bones",
+      "Kritter",
+      "Brown Kritter"
+    ]
+  },
+  "Donkey Kong": {
+    "likes": [
+      "Diddy Kong",
+      "Tiny Kong",
+      "Brown Mii Male",
+      "Brown Mii Male 2",
+      "Dixie Kong",
+      "Funky Kong",
+      "Brown Mii Female",
+      "Brown Mii Female 2"
+    ],
+    "hates": [
+      "Red Kritter",
+      "Blue Kritter",
+      "King K Rool",
+      "Kritter",
+      "Brown Kritter"
+    ]
+  },
+  "Dry Bones": {
+    "likes": [
+      "Red Koopa Troopa",
+      "White Mii Male",
+      "Bowser",
+      "White Mii Female",
+      "Koopa Troopa"
+    ],
+    "hates": [
+      "Luigi",
+      "Baby Daisy",
+      "Baby Peach",
+      "Dixie Kong"
+    ]
+  },
+  "Fire Bro": {
+    "likes": [
+      "Red Mii Female",
+      "Red Mii Female 2",
+      "Bowser Jr",
+      "Red Mii Male 2",
+      "Red Mii Male",
+      "Green Magikoopa",
+      "Bowser",
+      "Magikoopa",
+      "Red Magikoopa",
+      "Yellow Magikoopa"
+    ],
+    "hates": [
+      "Green Noki",
+      "Red Noki",
+      "Noki",
+      "Daisy"
+    ]
+  },
+  "Funky Kong": {
+    "likes": [
+      "Baby DK",
+      "Light Blue Mii Male",
+      "Diddy Kong",
+      "Tiny Kong",
+      "Light Blue Mii Female",
+      "Dixie Kong",
+      "Donkey Kong"
+    ],
+    "hates": [
+      "Red Kritter",
+      "Blue Kritter",
+      "King K Rool",
+      "Kritter",
+      "Brown Kritter"
+    ]
+  },
+  "Goomba": {
+    "likes": [
+      "Red Koopa Troopa",
+      "Brown Mii Male",
+      "Brown Mii Male 2",
+      "Brown Mii Female",
+      "Brown Mii Female 2",
+      "Monty Mole",
+      "Paragoomba",
+      "Koopa Troopa"
+    ],
+    "hates": [
+      "Red Pianta",
+      "Green Toad",
+      "Yellow Pianta",
+      "Purple Toad",
+      "Toadette",
+      "Blue Toad",
+      "Yellow Toad",
+      "Pianta",
+      "Toad",
+      "Toadsworth"
+    ]
+  },
+  "Green Dry Bones": {
+    "likes": [
+      "Red Koopa Troopa",
+      "Green Mii Female",
+      "Green Mii Female 2",
+      "Green Mii Male",
+      "Green Mii Male 2",
+      "Bowser",
+      "Koopa Troopa"
+    ],
+    "hates": [
+      "Luigi",
+      "Baby Daisy",
+      "Baby Peach",
+      "Dixie Kong"
+    ]
+  },
+  "Green Magikoopa": {
+    "likes": [
+      "Fire Bro",
+      "Hammer Bro",
+      "Boo",
+      "Green Mii Female",
+      "Green Mii Female 2",
+      "Boomerang Bro",
+      "Green Mii Male",
+      "Green Mii Male 2",
+      "Bowser"
+    ],
+    "hates": [
+      "Baby Mario",
+      "Pink Yoshi",
+      "Yoshi",
+      "Light Blue Yoshi",
+      "Baby Luigi",
+      "Yellow Yoshi",
+      "Red Yoshi",
+      "Blue Yoshi"
+    ]
+  },
+  "Green Mii Female": {
+    "likes": [
+      "Green Noki",
+      "Green Toad",
+      "Hammer Bro",
+      "Green Mii Male",
+      "Green Mii Male 2",
+      "Green Shy Guy",
+      "Luigi",
+      "Green Magikoopa",
+      "Koopa Paratroopa",
+      "Baby Luigi",
+      "Green Dry Bones",
+      "King K Rool",
+      "Kritter",
+      "Koopa Troopa"
+    ],
+    "hates": []
+  },
+  "Green Mii Female 2": {
+    "likes": [
+      "Green Noki",
+      "Green Toad",
+      "Hammer Bro",
+      "Green Mii Male",
+      "Green Mii Male 2",
+      "Green Shy Guy",
+      "Luigi",
+      "Green Magikoopa",
+      "Koopa Paratroopa",
+      "Baby Luigi",
+      "Green Dry Bones",
+      "King K Rool",
+      "Kritter",
+      "Koopa Troopa"
+    ],
+    "hates": []
+  },
+  "Green Mii Male": {
+    "likes": [
+      "Green Noki",
+      "Green Toad",
+      "Hammer Bro",
+      "Green Mii Female",
+      "Green Mii Female 2",
+      "Green Shy Guy",
+      "Luigi",
+      "Green Magikoopa",
+      "Koopa Paratroopa",
+      "Baby Luigi",
+      "Green Dry Bones",
+      "King K Rool",
+      "Kritter",
+      "Koopa Troopa"
+    ],
+    "hates": []
+  },
+  "Green Mii Male 2": {
+    "likes": [
+      "Green Noki",
+      "Green Toad",
+      "Hammer Bro",
+      "Green Mii Female",
+      "Green Mii Female 2",
+      "Green Shy Guy",
+      "Luigi",
+      "Green Magikoopa",
+      "Koopa Paratroopa",
+      "Baby Luigi",
+      "Green Dry Bones",
+      "King K Rool",
+      "Kritter",
+      "Koopa Troopa"
+    ],
+    "hates": []
+  },
+  "Green Noki": {
+    "likes": [
+      "Red Pianta",
+      "Green Mii Female",
+      "Green Mii Female 2",
+      "Yellow Pianta",
+      "Green Mii Male",
+      "Green Mii Male 2",
+      "Toadette",
+      "Mario",
+      "Pianta"
+    ],
+    "hates": [
+      "Fire Bro",
+      "Hammer Bro",
+      "Boomerang Bro",
+      "Petey Piranha"
+    ]
+  },
+  "Green Shy Guy": {
+    "likes": [
+      "Green Mii Female",
+      "Green Mii Female 2",
+      "Boo",
+      "Green Mii Male",
+      "Green Mii Male 2",
+      "Monty Mole",
+      "Birdo"
+    ],
+    "hates": [
+      "Baby DK",
+      "Baby Mario",
+      "Pink Yoshi",
+      "Yoshi",
+      "Light Blue Yoshi",
+      "Baby Luigi",
+      "Yellow Yoshi",
+      "Red Yoshi",
+      "Blue Yoshi",
+      "Baby Peach"
+    ]
+  },
+  "Green Toad": {
+    "likes": [
+      "Red Pianta",
+      "Green Mii Female",
+      "Green Mii Female 2",
+      "Yellow Pianta",
+      "Green Mii Male",
+      "Green Mii Male 2",
+      "Toadette",
+      "Peach",
+      "Pianta",
+      "Toadsworth",
+      "Baby Peach"
+    ],
+    "hates": [
+      "Paragoomba",
+      "Bowser",
+      "Goomba"
+    ]
+  },
+  "Hammer Bro": {
+    "likes": [
+      "Green Mii Female",
+      "Green Mii Female 2",
+      "Green Mii Male",
+      "Green Mii Male 2",
+      "Bowser Jr",
+      "Green Magikoopa",
+      "Bowser",
+      "Magikoopa",
+      "Red Magikoopa",
+      "Yellow Magikoopa"
+    ],
+    "hates": [
+      "Green Noki",
+      "Red Noki",
+      "Noki",
+      "Daisy"
+    ]
+  },
+  "King Boo": {
+    "likes": [
+      "White Mii Male",
+      "Boo",
+      "Wiggler",
+      "King K Rool",
+      "Petey Piranha",
+      "White Mii Female"
+    ],
+    "hates": [
+      "Baby Daisy",
+      "Baby Mario",
+      "Pink Yoshi",
+      "Mario",
+      "Yoshi",
+      "Luigi",
+      "Light Blue Yoshi",
+      "Baby Luigi",
+      "Yellow Yoshi",
+      "Red Yoshi",
+      "Blue Yoshi",
+      "Baby Peach"
+    ]
+  },
+  "King K Rool": {
+    "likes": [
+      "Green Mii Female",
+      "Green Mii Female 2",
+      "Red Kritter",
+      "Green Mii Male",
+      "Green Mii Male 2",
+      "King Boo",
+      "Blue Kritter",
+      "Kritter",
+      "Brown Kritter"
+    ],
+    "hates": [
+      "Baby DK",
+      "Diddy Kong",
+      "Tiny Kong",
+      "Dixie Kong",
+      "Funky Kong",
+      "Donkey Kong",
+      "Bowser"
+    ]
+  },
+  "Koopa Paratroopa": {
+    "likes": [
+      "Red Koopa Troopa",
+      "Green Mii Female",
+      "Green Mii Female 2",
+      "Green Mii Male",
+      "Green Mii Male 2",
+      "Bowser",
+      "Paragoomba",
+      "Koopa Troopa"
+    ],
+    "hates": [
+      "Toadsworth"
+    ]
+  },
+  "Koopa Troopa": {
+    "likes": [
+      "Green Mii Female",
+      "Green Mii Female 2",
+      "Blue Dry Bones",
+      "Green Mii Male",
+      "Green Mii Male 2",
+      "Bowser Jr",
+      "Koopa Paratroopa",
+      "Dark Bones",
+      "Bowser",
+      "Green Dry Bones",
+      "Dry Bones",
+      "Red Koopa Paratroopa",
+      "Goomba"
+    ],
+    "hates": []
+  },
+  "Kritter": {
+    "likes": [
+      "King K Rool",
+      "Green Mii Female",
+      "Green Mii Female 2",
+      "Green Mii Male",
+      "Green Mii Male 2"
+    ],
+    "hates": [
+      "Baby DK",
+      "Diddy Kong",
+      "Tiny Kong",
+      "Dixie Kong",
+      "Funky Kong",
+      "Donkey Kong"
+    ]
+  },
+  "Light Blue Mii Female": {
+    "likes": [
+      "Light Blue Yoshi",
+      "Light Blue Mii Male",
+      "Funky Kong",
+      "Tiny Kong"
+    ],
+    "hates": []
+  },
+  "Light Blue Mii Male": {
+    "likes": [
+      "Light Blue Yoshi",
+      "Funky Kong",
+      "Tiny Kong",
+      "Light Blue Mii Female"
+    ],
+    "hates": []
+  },
+  "Light Blue Yoshi": {
+    "likes": [
+      "Baby DK",
+      "Light Blue Mii Male",
+      "Light Blue Mii Female",
+      "Baby Daisy",
+      "Baby Mario",
+      "Mario",
+      "Baby Luigi",
+      "Birdo",
+      "Baby Peach"
+    ],
+    "hates": [
+      "Boo",
+      "Yellow Shy Guy",
+      "King Boo",
+      "Green Shy Guy",
+      "Shy Guy",
+      "Green Magikoopa",
+      "Magikoopa",
+      "Black Shy Guy",
+      "Red Magikoopa",
+      "Blue Shy Guy",
+      "Yellow Magikoopa"
+    ]
+  },
+  "Light Green Mii Female": {
+    "likes": [
+      "Light Green Mii Male",
+      "Petey Piranha",
+      "Yoshi"
+    ],
+    "hates": []
+  },
+  "Light Green Mii Male": {
+    "likes": [
+      "Light Green Mii Female",
+      "Petey Piranha",
+      "Yoshi"
+    ],
+    "hates": []
+  },
+  "Luigi": {
+    "likes": [
+      "Green Mii Male",
+      "Green Mii Male 2",
+      "Green Mii Female",
+      "Green Mii Female 2",
+      "Mario",
+      "Daisy"
+    ],
+    "hates": [
+      "Boo",
+      "Blue Dry Bones",
+      "Waluigi",
+      "King Boo",
+      "Dark Bones",
+      "Bowser",
+      "Green Dry Bones",
+      "Dry Bones"
+    ]
+  },
+  "Magikoopa": {
+    "likes": [
+      "Fire Bro",
+      "Hammer Bro",
+      "Boo",
+      "Boomerang Bro",
+      "Blue Mii Male",
+      "Blue Mii Male 2",
+      "Bowser",
+      "Blue Mii Female 2",
+      "Blue Mii Female"
+    ],
+    "hates": [
+      "Baby Mario",
+      "Pink Yoshi",
+      "Yoshi",
+      "Light Blue Yoshi",
+      "Baby Luigi",
+      "Yellow Yoshi",
+      "Red Yoshi",
+      "Blue Yoshi"
+    ]
+  },
+  "Mario": {
+    "likes": [
+      "Red Pianta",
+      "Green Noki",
+      "Red Noki",
+      "Yellow Pianta",
+      "Noki",
+      "Red Mii Female",
+      "Red Mii Female 2",
+      "Pink Yoshi",
+      "Red Mii Male 2",
+      "Red Mii Male",
+      "Yoshi",
+      "Luigi",
+      "Peach",
+      "Light Blue Yoshi",
+      "Yellow Yoshi",
+      "Red Yoshi",
+      "Pianta",
+      "Blue Yoshi"
+    ],
+    "hates": [
+      "Wario",
+      "Bowser",
+      "King Boo"
+    ]
+  },
+  "Monty Mole": {
+    "likes": [
+      "Brown Mii Male",
+      "Brown Mii Male 2",
+      "Yellow Shy Guy",
+      "Brown Mii Female",
+      "Brown Mii Female 2",
+      "Green Shy Guy",
+      "Shy Guy",
+      "Black Shy Guy",
+      "Blue Shy Guy",
+      "Paragoomba",
+      "Goomba"
+    ],
+    "hates": []
+  },
+  "Noki": {
+    "likes": [
+      "Red Pianta",
+      "Yellow Pianta",
+      "Blue Mii Male",
+      "Blue Mii Male 2",
+      "Toadette",
+      "Mario",
+      "Blue Mii Female 2",
+      "Blue Mii Female",
+      "Pianta"
+    ],
+    "hates": [
+      "Fire Bro",
+      "Hammer Bro",
+      "Boomerang Bro",
+      "Petey Piranha"
+    ]
+  },
+  "Orange Mii Female": {
+    "likes": [
+      "Orange Mii Male",
+      "Baby Daisy",
+      "Daisy"
+    ],
+    "hates": []
+  },
+  "Orange Mii Male": {
+    "likes": [
+      "Baby Daisy",
+      "Orange Mii Female",
+      "Daisy"
+    ],
+    "hates": []
+  },
+  "Paragoomba": {
+    "likes": [
+      "Brown Mii Male",
+      "Brown Mii Male 2",
+      "Brown Mii Female",
+      "Brown Mii Female 2",
+      "Monty Mole",
+      "Koopa Paratroopa",
+      "Red Koopa Paratroopa",
+      "Goomba"
+    ],
+    "hates": [
+      "Green Toad",
+      "Purple Toad",
+      "Toadette",
+      "Blue Toad",
+      "Yellow Toad",
+      "Toad",
+      "Toadsworth"
+    ]
+  },
+  "Peach": {
+    "likes": [
+      "Green Toad",
+      "Pink Mii Male",
+      "Pink Mii Male 2",
+      "Daisy",
+      "Purple Toad",
+      "Toadette",
+      "Mario",
+      "Blue Toad",
+      "Yellow Toad",
+      "Pink Mii Female",
+      "Pink Mii Female 2",
+      "Toad",
+      "Toadsworth"
+    ],
+    "hates": [
+      "Bowser",
+      "Birdo"
+    ]
+  },
+  "Petey Piranha": {
+    "likes": [
+      "Blooper",
+      "Wiggler",
+      "King Boo",
+      "Light Green Mii Male",
+      "Light Green Mii Female",
+      "Birdo"
+    ],
+    "hates": [
+      "Red Pianta",
+      "Baby DK",
+      "Green Noki",
+      "Red Noki",
+      "Yellow Pianta",
+      "Noki",
+      "Baby Daisy",
+      "Baby Mario",
+      "Baby Luigi",
+      "Pianta",
+      "Baby Peach"
+    ]
+  },
+  "Pianta": {
+    "likes": [
+      "Green Toad",
+      "Green Noki",
+      "Red Noki",
+      "Noki",
+      "Purple Toad",
+      "Blue Mii Male",
+      "Blue Mii Male 2",
+      "Mario",
+      "Blue Toad",
+      "Yellow Toad",
+      "Blue Mii Female 2",
+      "Blue Mii Female",
+      "Toad",
+      "Toadsworth"
+    ],
+    "hates": [
+      "Goomba",
+      "Petey Piranha"
+    ]
+  },
+  "Pink Mii Female": {
+    "likes": [
+      "Pink Mii Male",
+      "Pink Mii Male 2",
+      "Dixie Kong",
+      "Pink Yoshi",
+      "Toadette",
+      "Peach",
+      "Birdo",
+      "Baby Peach"
+    ],
+    "hates": []
+  },
+  "Pink Mii Female 2": {
+    "likes": [
+      "Pink Mii Male",
+      "Pink Mii Male 2",
+      "Dixie Kong",
+      "Pink Yoshi",
+      "Toadette",
+      "Peach",
+      "Birdo",
+      "Baby Peach"
+    ],
+    "hates": []
+  },
+  "Pink Mii Male": {
+    "likes": [
+      "Dixie Kong",
+      "Pink Yoshi",
+      "Toadette",
+      "Peach",
+      "Pink Mii Female",
+      "Pink Mii Female 2",
+      "Birdo",
+      "Baby Peach"
+    ],
+    "hates": []
+  },
+  "Pink Mii Male 2": {
+    "likes": [
+      "Dixie Kong",
+      "Pink Yoshi",
+      "Toadette",
+      "Peach",
+      "Pink Mii Female",
+      "Pink Mii Female 2",
+      "Birdo",
+      "Baby Peach"
+    ],
+    "hates": []
+  },
+  "Pink Yoshi": {
+    "likes": [
+      "Baby DK",
+      "Pink Mii Male",
+      "Pink Mii Male 2",
+      "Baby Daisy",
+      "Baby Mario",
+      "Mario",
+      "Baby Luigi",
+      "Pink Mii Female",
+      "Pink Mii Female 2",
+      "Birdo",
+      "Baby Peach"
+    ],
+    "hates": [
+      "Boo",
+      "Yellow Shy Guy",
+      "King Boo",
+      "Green Shy Guy",
+      "Shy Guy",
+      "Green Magikoopa",
+      "Magikoopa",
+      "Black Shy Guy",
+      "Red Magikoopa",
+      "Blue Shy Guy",
+      "Yellow Magikoopa"
+    ]
+  },
+  "Purple Mii Female": {
+    "likes": [
+      "Waluigi",
+      "Purple Mii Male",
+      "Purple Toad"
+    ],
+    "hates": []
+  },
+  "Purple Mii Male": {
+    "likes": [
+      "Waluigi",
+      "Purple Mii Female",
+      "Purple Toad"
+    ],
+    "hates": []
+  },
+  "Purple Toad": {
+    "likes": [
+      "Red Pianta",
+      "Purple Mii Male",
+      "Yellow Pianta",
+      "Toadette",
+      "Peach",
+      "Purple Mii Female",
+      "Pianta",
+      "Toadsworth",
+      "Baby Peach"
+    ],
+    "hates": [
+      "Paragoomba",
+      "Bowser",
+      "Goomba"
+    ]
+  },
+  "Red Koopa Paratroopa": {
+    "likes": [
+      "Red Koopa Troopa",
+      "Red Mii Female",
+      "Red Mii Female 2",
+      "Red Mii Male 2",
+      "Red Mii Male",
+      "Bowser",
+      "Paragoomba",
+      "Koopa Troopa"
+    ],
+    "hates": [
+      "Toadsworth"
+    ]
+  },
+  "Red Koopa Troopa": {
+    "likes": [
+      "Blue Dry Bones",
+      "Red Mii Female",
+      "Red Mii Female 2",
+      "Bowser Jr",
+      "Red Mii Male 2",
+      "Red Mii Male",
+      "Koopa Paratroopa",
+      "Dark Bones",
+      "Bowser",
+      "Green Dry Bones",
+      "Dry Bones",
+      "Red Koopa Paratroopa",
+      "Goomba"
+    ],
+    "hates": []
+  },
+  "Red Kritter": {
+    "likes": [
+      "Red Mii Female",
+      "Red Mii Female 2",
+      "King K Rool",
+      "Red Mii Male 2",
+      "Red Mii Male"
+    ],
+    "hates": [
+      "Baby DK",
+      "Diddy Kong",
+      "Tiny Kong",
+      "Dixie Kong",
+      "Funky Kong",
+      "Donkey Kong"
+    ]
+  },
+  "Red Magikoopa": {
+    "likes": [
+      "Fire Bro",
+      "Hammer Bro",
+      "Boo",
+      "Boomerang Bro",
+      "Red Mii Female",
+      "Red Mii Female 2",
+      "Red Mii Male 2",
+      "Red Mii Male",
+      "Bowser"
+    ],
+    "hates": [
+      "Baby Mario",
+      "Pink Yoshi",
+      "Yoshi",
+      "Light Blue Yoshi",
+      "Baby Luigi",
+      "Yellow Yoshi",
+      "Red Yoshi",
+      "Blue Yoshi"
+    ]
+  },
+  "Red Mii Female": {
+    "likes": [
+      "Red Pianta",
+      "Red Koopa Troopa",
+      "Fire Bro",
+      "Red Noki",
+      "Red Kritter",
+      "Baby Mario",
+      "Red Mii Male 2",
+      "Red Mii Male",
+      "Shy Guy",
+      "Mario",
+      "Dark Bones",
+      "Red Magikoopa",
+      "Red Yoshi",
+      "Toad",
+      "Red Koopa Paratroopa"
+    ],
+    "hates": []
+  },
+  "Red Mii Female 2": {
+    "likes": [
+      "Red Pianta",
+      "Red Koopa Troopa",
+      "Fire Bro",
+      "Red Noki",
+      "Red Kritter",
+      "Baby Mario",
+      "Red Mii Male 2",
+      "Red Mii Male",
+      "Shy Guy",
+      "Mario",
+      "Dark Bones",
+      "Red Magikoopa",
+      "Red Yoshi",
+      "Toad",
+      "Red Koopa Paratroopa"
+    ],
+    "hates": []
+  },
+  "Red Mii Male": {
+    "likes": [
+      "Red Pianta",
+      "Red Koopa Troopa",
+      "Fire Bro",
+      "Red Noki",
+      "Red Kritter",
+      "Red Mii Female",
+      "Red Mii Female 2",
+      "Baby Mario",
+      "Shy Guy",
+      "Mario",
+      "Dark Bones",
+      "Red Magikoopa",
+      "Red Yoshi",
+      "Toad",
+      "Red Koopa Paratroopa"
+    ],
+    "hates": []
+  },
+  "Red Mii Male 2": {
+    "likes": [
+      "Red Pianta",
+      "Red Koopa Troopa",
+      "Fire Bro",
+      "Red Noki",
+      "Red Kritter",
+      "Red Mii Female",
+      "Red Mii Female 2",
+      "Baby Mario",
+      "Shy Guy",
+      "Mario",
+      "Dark Bones",
+      "Red Magikoopa",
+      "Red Yoshi",
+      "Toad",
+      "Red Koopa Paratroopa"
+    ],
+    "hates": []
+  },
+  "Red Noki": {
+    "likes": [
+      "Red Pianta",
+      "Yellow Pianta",
+      "Red Mii Female",
+      "Red Mii Female 2",
+      "Red Mii Male 2",
+      "Red Mii Male",
+      "Toadette",
+      "Mario",
+      "Pianta"
+    ],
+    "hates": [
+      "Fire Bro",
+      "Hammer Bro",
+      "Boomerang Bro",
+      "Petey Piranha"
+    ]
+  },
+  "Red Pianta": {
+    "likes": [
+      "Green Toad",
+      "Green Noki",
+      "Red Noki",
+      "Noki",
+      "Purple Toad",
+      "Red Mii Female",
+      "Red Mii Female 2",
+      "Red Mii Male 2",
+      "Red Mii Male",
+      "Mario",
+      "Blue Toad",
+      "Yellow Toad",
+      "Toad",
+      "Toadsworth"
+    ],
+    "hates": [
+      "Goomba",
+      "Petey Piranha"
+    ]
+  },
+  "Red Yoshi": {
+    "likes": [
+      "Baby DK",
+      "Baby Daisy",
+      "Red Mii Female",
+      "Red Mii Female 2",
+      "Baby Mario",
+      "Red Mii Male 2",
+      "Red Mii Male",
+      "Mario",
+      "Baby Luigi",
+      "Birdo",
+      "Baby Peach"
+    ],
+    "hates": [
+      "Boo",
+      "Yellow Shy Guy",
+      "King Boo",
+      "Green Shy Guy",
+      "Shy Guy",
+      "Green Magikoopa",
+      "Magikoopa",
+      "Black Shy Guy",
+      "Red Magikoopa",
+      "Blue Shy Guy",
+      "Yellow Magikoopa"
+    ]
+  },
+  "Shy Guy": {
+    "likes": [
+      "Boo",
+      "Red Mii Female",
+      "Red Mii Female 2",
+      "Red Mii Male 2",
+      "Red Mii Male",
+      "Monty Mole",
+      "Birdo"
+    ],
+    "hates": [
+      "Baby DK",
+      "Baby Mario",
+      "Pink Yoshi",
+      "Yoshi",
+      "Light Blue Yoshi",
+      "Baby Luigi",
+      "Yellow Yoshi",
+      "Red Yoshi",
+      "Blue Yoshi",
+      "Baby Peach"
+    ]
+  },
+  "Tiny Kong": {
+    "likes": [
+      "Baby DK",
+      "Light Blue Mii Male",
+      "Diddy Kong",
+      "Light Blue Mii Female",
+      "Dixie Kong",
+      "Funky Kong",
+      "Donkey Kong"
+    ],
+    "hates": [
+      "Red Kritter",
+      "Blue Kritter",
+      "King K Rool",
+      "Birdo",
+      "Kritter",
+      "Brown Kritter"
+    ]
+  },
+  "Toad": {
+    "likes": [
+      "Red Pianta",
+      "Yellow Pianta",
+      "Red Mii Female",
+      "Red Mii Female 2",
+      "Red Mii Male 2",
+      "Red Mii Male",
+      "Toadette",
+      "Peach",
+      "Pianta",
+      "Toadsworth",
+      "Baby Peach"
+    ],
+    "hates": [
+      "Paragoomba",
+      "Bowser",
+      "Goomba"
+    ]
+  },
+  "Toadette": {
+    "likes": [
+      "Green Toad",
+      "Green Noki",
+      "Pink Mii Male",
+      "Pink Mii Male 2",
+      "Red Noki",
+      "Noki",
+      "Purple Toad",
+      "Blue Toad",
+      "Yellow Toad",
+      "Peach",
+      "Pink Mii Female",
+      "Pink Mii Female 2",
+      "Birdo",
+      "Toad",
+      "Toadsworth"
+    ],
+    "hates": [
+      "Paragoomba",
+      "Bowser",
+      "Goomba"
+    ]
+  },
+  "Toadsworth": {
+    "likes": [
+      "Red Pianta",
+      "Green Toad",
+      "Brown Mii Male",
+      "Brown Mii Male 2",
+      "Yellow Pianta",
+      "Purple Toad",
+      "Toadette",
+      "Blue Toad",
+      "Yellow Toad",
+      "Peach",
+      "Pianta",
+      "Brown Mii Female",
+      "Brown Mii Female 2",
+      "Toad",
+      "Baby Peach"
+    ],
+    "hates": [
+      "Paragoomba",
+      "Koopa Paratroopa",
+      "Bowser",
+      "Red Koopa Paratroopa",
+      "Goomba"
+    ]
+  },
+  "Waluigi": {
+    "likes": [
+      "Wario",
+      "Purple Mii Male",
+      "Purple Mii Female"
+    ],
+    "hates": [
+      "Luigi",
+      "Birdo"
+    ]
+  },
+  "Wario": {
+    "likes": [
+      "Waluigi",
+      "Yellow Mii Female",
+      "Yellow Mii Female 2",
+      "Yellow Mii Male",
+      "Yellow Mii Male 2"
+    ],
+    "hates": [
+      "Mario",
+      "Birdo"
+    ]
+  },
+  "White Mii Female": {
+    "likes": [
+      "White Mii Male",
+      "Boo",
+      "Blooper",
+      "King Boo",
+      "Dry Bones"
+    ],
+    "hates": []
+  },
+  "White Mii Male": {
+    "likes": [
+      "Boo",
+      "Blooper",
+      "King Boo",
+      "Dry Bones",
+      "White Mii Female"
+    ],
+    "hates": []
+  },
+  "Wiggler": {
+    "likes": [
+      "Blooper",
+      "Yellow Mii Female",
+      "Yellow Mii Female 2",
+      "Yellow Mii Male",
+      "Yellow Mii Male 2",
+      "King Boo",
+      "Petey Piranha"
+    ],
+    "hates": []
+  },
+  "Yellow Magikoopa": {
+    "likes": [
+      "Fire Bro",
+      "Hammer Bro",
+      "Boo",
+      "Yellow Mii Female",
+      "Yellow Mii Female 2",
+      "Boomerang Bro",
+      "Yellow Mii Male",
+      "Yellow Mii Male 2",
+      "Bowser"
+    ],
+    "hates": [
+      "Baby Mario",
+      "Pink Yoshi",
+      "Yoshi",
+      "Light Blue Yoshi",
+      "Baby Luigi",
+      "Yellow Yoshi",
+      "Red Yoshi",
+      "Blue Yoshi"
+    ]
+  },
+  "Yellow Mii Female": {
+    "likes": [
+      "Wario",
+      "Yellow Shy Guy",
+      "Yellow Pianta",
+      "Wiggler",
+      "Yellow Mii Male",
+      "Yellow Mii Male 2",
+      "Yellow Toad",
+      "Yellow Yoshi",
+      "Yellow Magikoopa"
+    ],
+    "hates": []
+  },
+  "Yellow Mii Female 2": {
+    "likes": [
+      "Wario",
+      "Yellow Shy Guy",
+      "Yellow Pianta",
+      "Wiggler",
+      "Yellow Mii Male",
+      "Yellow Mii Male 2",
+      "Yellow Toad",
+      "Yellow Yoshi",
+      "Yellow Magikoopa"
+    ],
+    "hates": []
+  },
+  "Yellow Mii Male": {
+    "likes": [
+      "Wario",
+      "Yellow Mii Female",
+      "Yellow Mii Female 2",
+      "Yellow Shy Guy",
+      "Yellow Pianta",
+      "Wiggler",
+      "Yellow Toad",
+      "Yellow Yoshi",
+      "Yellow Magikoopa"
+    ],
+    "hates": []
+  },
+  "Yellow Mii Male 2": {
+    "likes": [
+      "Wario",
+      "Yellow Mii Female",
+      "Yellow Mii Female 2",
+      "Yellow Shy Guy",
+      "Yellow Pianta",
+      "Wiggler",
+      "Yellow Toad",
+      "Yellow Yoshi",
+      "Yellow Magikoopa"
+    ],
+    "hates": []
+  },
+  "Yellow Pianta": {
+    "likes": [
+      "Green Toad",
+      "Green Noki",
+      "Red Noki",
+      "Yellow Mii Female",
+      "Yellow Mii Female 2",
+      "Noki",
+      "Purple Toad",
+      "Yellow Mii Male",
+      "Yellow Mii Male 2",
+      "Mario",
+      "Blue Toad",
+      "Yellow Toad",
+      "Toad",
+      "Toadsworth"
+    ],
+    "hates": [
+      "Goomba",
+      "Petey Piranha"
+    ]
+  },
+  "Yellow Shy Guy": {
+    "likes": [
+      "Boo",
+      "Yellow Mii Female",
+      "Yellow Mii Female 2",
+      "Yellow Mii Male",
+      "Yellow Mii Male 2",
+      "Monty Mole",
+      "Birdo"
+    ],
+    "hates": [
+      "Baby DK",
+      "Baby Mario",
+      "Pink Yoshi",
+      "Yoshi",
+      "Light Blue Yoshi",
+      "Baby Luigi",
+      "Yellow Yoshi",
+      "Red Yoshi",
+      "Blue Yoshi",
+      "Baby Peach"
+    ]
+  },
+  "Yellow Toad": {
+    "likes": [
+      "Red Pianta",
+      "Yellow Mii Female",
+      "Yellow Mii Female 2",
+      "Yellow Pianta",
+      "Yellow Mii Male",
+      "Yellow Mii Male 2",
+      "Toadette",
+      "Peach",
+      "Pianta",
+      "Toadsworth",
+      "Baby Peach"
+    ],
+    "hates": [
+      "Paragoomba",
+      "Bowser",
+      "Goomba"
+    ]
+  },
+  "Yellow Yoshi": {
+    "likes": [
+      "Baby DK",
+      "Yellow Mii Female",
+      "Yellow Mii Female 2",
+      "Yellow Mii Male",
+      "Yellow Mii Male 2",
+      "Baby Daisy",
+      "Baby Mario",
+      "Mario",
+      "Baby Luigi",
+      "Birdo",
+      "Baby Peach"
+    ],
+    "hates": [
+      "Boo",
+      "Yellow Shy Guy",
+      "King Boo",
+      "Green Shy Guy",
+      "Shy Guy",
+      "Green Magikoopa",
+      "Magikoopa",
+      "Black Shy Guy",
+      "Red Magikoopa",
+      "Blue Shy Guy",
+      "Yellow Magikoopa"
+    ]
+  },
+  "Yoshi": {
+    "likes": [
+      "Baby DK",
+      "Baby Daisy",
+      "Baby Mario",
+      "Light Green Mii Male",
+      "Mario",
+      "Light Green Mii Female",
+      "Baby Luigi",
+      "Birdo",
+      "Baby Peach"
+    ],
+    "hates": [
+      "Boo",
+      "Yellow Shy Guy",
+      "King Boo",
+      "Green Shy Guy",
+      "Shy Guy",
+      "Green Magikoopa",
+      "Magikoopa",
+      "Black Shy Guy",
+      "Red Magikoopa",
+      "Blue Shy Guy",
+      "Yellow Magikoopa"
+    ]
+  }
+}

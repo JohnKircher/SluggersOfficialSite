@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Open+Sans&display=swap" rel="stylesheet">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sluggers – Mock Draft</title>
+  <style>
+  :root{
+    --bg:#0e1117; --card:#161b22; --muted:#a1a7b2; --text:#e6edf3; --line:#232b36;
+    --accent:#7dd3fc; --accent2:#34d399; --danger:#f87171; --warn:#f59e0b;
+  }
+  html,body{background:var(--bg);color:var(--text);margin:0;font-family:System-UI,-apple-system,Segoe UI,Roboto,Inter,Ubuntu,"Helvetica Neue",Arial,sans-serif}
+  a{color:inherit}
+  .wrap{max-width:1200px;margin:0 auto;padding:24px}
+  .topbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:16px}
+  .pill{background:#0f141b;border:1px solid var(--line);border-radius:999px;padding:10px 14px}
+  .muted{color:var(--muted)}
+  select,button,input{background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+  button.primary{border-color:#1f2937}
+  button:disabled{opacity:.6;cursor:not-allowed}
+  .grid{display:grid;gap:12px}
+  .grid.cols-2{grid-template-columns:1fr 1fr}
+  .section{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+  .sec-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+  .badge{display:inline-flex;align-items:center;gap:6px;border-radius:999px;font-size:12px;padding:6px 10px;border:1px solid var(--line)}
+  .badge.chem{background:rgba(52,211,153,.12);border-color:#14532d}
+  .badge.hate{background:rgba(248,113,113,.12);border-color:#7f1d1d}
+  .badge.warn{background:rgba(245,158,11,.12);border-color:#7c4a0b}
+  .players{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+  .card{background:#0f131b;border:1px solid #233046;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer}
+  /* Big card image = direct child only (won't affect mini faces) */
+  .card > img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#0d0f14;display:block}
+  .card .meta{padding:8px 10px;display:flex;flex-direction:column;gap:6px}
+  .card .name{font-weight:600}
+  .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .sticky-footer{position:sticky;bottom:0;background:linear-gradient(180deg, rgba(15,17,21,0), var(--bg));padding-top:8px;margin-top:8px}
+  .toolbar{display:flex;gap:8px;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px}
+  .srch{max-width:320px;width:100%}
+  .chips{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{border:1px solid var(--line);border-radius:999px;padding:6px 10px;cursor:pointer}
+  .chip.active{background:#1a2232}
+  .mini{font-size:12px}
+  .list{display:flex;flex-direction:column;gap:8px}
+  details{background:#0f141b;border:1px solid var(--line);border-radius:12px;padding:10px}
+  summary{cursor:pointer}
+  .kicker{font-size:12px;color:var(--muted)}
+  .danger{color:var(--danger)}
+  .green{color:var(--accent2)}
+  .accent{color:var(--accent)}
+  .divider{height:1px;background:var(--line);margin:10px 0}
+
+  /* Mini chemistry strips under each card */
+  .affinity{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;align-items:center}
+  .affinity-group{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .affinity-label{font-size:11px;opacity:.7}
+  /* Mini faces: square, show whole character */
+  .mini-face{
+    width:28px;height:28px;aspect-ratio:1/1;
+    border-radius:6px;
+    object-fit:contain;              /* show entire image */
+    background:#0b0d12;
+    border:2px solid transparent;
+    box-shadow:0 0 0 1px rgba(35,48,70,.55) inset;
+    display:block;flex:0 0 auto;
+  }
+  /* Strong override in case any generic img rules leak through */
+  .card img.mini-face{
+    width:28px !important;height:28px !important;aspect-ratio:1/1 !important;
+    object-fit:contain !important;
+  }
+  .mini-face.green{border-color:#22c55e;box-shadow:0 0 8px rgba(34,197,94,.28)}
+  .mini-face.red{border-color:#ef4444;box-shadow:0 0 8px rgba(239,68,68,.28)}
+  /* Keep badges + faces tidy spacing */
+  .card .meta .row + .affinity{margin-top:4px}
+
+  /* widen page and rebalance columns */
+.wrap{max-width:1440px;margin:0 auto;padding:24px}
+.grid.cols-2{grid-template-columns:1.2fr 1fr} /* roster wider than board */
+
+/* tighter card grid (smaller cards) */
+.players{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px}
+
+/* compact card visuals */
+.card{border-radius:12px}
+.card > img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#0d0f14;display:block}
+.card .meta{padding:6px 8px;gap:4px}
+.card .name{font-weight:600;font-size:13px;line-height:1.1}
+
+/* keep mini-faces square and unaffected by the big img rule */
+.card img.mini-face{
+  width:28px !important;height:28px !important;aspect-ratio:1/1 !important;
+  object-fit:contain !important;
+}
+
+/* Draft order bar */
+.teambar {
+  display:flex; gap:8px; align-items:center; flex-wrap:nowrap;
+  overflow-x:auto; padding:6px 0;
+  -webkit-overflow-scrolling: touch;
+}
+.teamchip {
+  flex:0 0 auto;
+  border:1px solid var(--line);
+  background:#0f141b;
+  color:var(--text);
+  border-radius:999px;
+  padding:8px 12px;
+  font-size:13px;
+  cursor:pointer;
+  user-select:none;
+  transition:transform .08s ease, box-shadow .2s ease, border-color .2s ease;
+  white-space:nowrap;
+}
+.teamchip:hover { transform:translateY(-1px); }
+.teamchip.active {
+  border-color:#a16207;
+  background:linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
+  color:#0b0d12;
+  box-shadow:0 0 0 1px #78350f inset, 0 2px 10px rgba(245,158,11,.25);
+}
+.teamchip.onclock::before {
+  content:"⏱️";
+  margin-right:6px;
+}
+
+
+</style>
+
+</head>
+<body>
+    <nav class="navbar">
+    <div class="nav-content">
+      <ul class="nav-links">
+        <li><a href="index.html">📅 Home</a></li>
+        <li><a href="characters.html">🧢 Character Cast & Stats</a></li>
+        <li><a href="season.html">📅 Current Season</a></li>
+        <li><a href="miis.html">👤 Miis</a></li>
+        <a href="simulator.html" class="nav-link">🏆 Playoff Simulator</a>
+        <li><a href="mock-draft.html" class="active">🧪 Mock Draft</a></li>
+      </ul>          
+    </div>
+  </nav>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="row">
+        <div class="pill">🧪 Mock Draft</div>
+        <div id="pickNo" class="pill">Pick #1</div>
+        <div class="pill mini muted">Lives on-site • Snake draft • Chemistry-aware • Captain rule</div>
+      </div>
+      <div class="row">
+        <div id="teamBar" class="teambar" role="tablist" aria-label="Draft order"></div>
+        <button id="resetBtn" class="danger">Reset Draft</button>
+
+      </div>
+    </div>
+
+    <div class="grid cols-2">
+      <section class="section">
+        <div class="sec-title">
+          <h3>Current Roster</h3>
+          <div id="captainStatus" class="badge">Captain: <span id="captainState" class="muted">—</span></div>
+        </div>
+        <div id="roster" class="players"></div>
+        <div class="divider"></div>
+        <details>
+          <summary>Draft Settings</summary>
+          <div class="list">
+            <label class="mini"><input type="checkbox" id="keepSnake" checked> Use snake order</label>
+            <label class="mini"><input type="checkbox" id="enforceCaptain" checked> Enforce captain rule</label>
+          </div>
+        </details>
+      </section>
+
+      <section class="section">
+        <div class="sec-title">
+          <h3>Draft Board</h3>
+          <div class="row">
+            <input id="search" class="srch" placeholder="Search players…" />
+            <div class="chips">
+              <div class="chip" data-filter="all">All</div>
+              <div class="chip" data-filter="chem">Good Chem</div>
+              <div class="chip" data-filter="hate">Hated</div>
+              <div class="chip" data-filter="captains">Captains</div>
+            </div>
+          </div>
+        </div>
+        <div id="warning" class="mini muted" style="min-height:18px"></div>
+        <div id="players" class="players" aria-live="polite"></div>
+        <div class="sticky-footer">
+          <div class="toolbar">
+            <div id="whoIsUp" class="muted">Loading draft order…</div>
+            <div class="row mini">
+              <span class="badge warn">Captain requirement: <span id="mustPickState" class="muted">—</span></span>
+              <span class="badge">Remaining: <span id="remainCount" class="muted">—</span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="section" style="margin-top:12px">
+      <div class="sec-title"><h3>How it works</h3><span class="mini muted">Data-driven • Local only</span></div>
+      <ol class="mini muted">
+        <li>Drop JSON files into <code>/data</code> on your site: <code>players.json</code>, <code>captains.json</code>, <code>chemistry.json</code> (schemas below).</li>
+        <li>Images are loaded from <code>IMAGE_BASE</code> (defaults to <code>./images</code>) using <code>&lt;Name&gt;.PNG</code>.</li>
+        <li>Draft state persists in <code>localStorage</code>; use Reset to wipe.</li>
+      </ol>
+      <details>
+        <summary>Schemas</summary>
+        <pre class="mini muted">/data/players.json -> ["Mario","Luigi","Peach", ...]
+/data/captains.json -> ["Mario","Bowser", ...]
+/data/chemistry.json -> {
+  "Mario":   {"likes":["Luigi","Peach"],"hates":["Wario"]},
+  "Luigi":   {"likes":["Mario"],             "hates":[]},
+  ...
+}
+        </pre>
+      </details>
+    </div>
+  </div>
+
+  <script>
+    // ====== CONFIG ======
+    const IMAGE_BASE = './assets/draftimages'; // change if your images live elsewhere
+    const DATA_BASE  = './data';   // folder containing the three JSON files
+    const STORAGE_KEY = 'sluggers_mock_draft_v1';
+
+    // ====== Minimal fallback data so page is usable without JSON ======
+    const FALLBACK = {
+      teams: [
+        'Kircher','Julian','Jmo','Carby',
+        'Tom','BenR','HarryKirch','BenT'
+      ],
+      players: ['Mario','Luigi','Peach','Daisy','Yoshi','Wario','Waluigi','Bowser','Toad','Toadette'],
+      captains: ['Mario','Bowser','Peach','Yoshi'],
+      chemistry: {
+        'Mario':   {likes:['Luigi','Peach'], hates:['Wario']},
+        'Luigi':   {likes:['Mario'], hates:[]},
+        'Peach':   {likes:['Toadette'], hates:['Bowser']},
+        'Daisy':   {likes:['Peach'], hates:[]},
+        'Yoshi':   {likes:['Mario'], hates:['Waluigi']},
+        'Wario':   {likes:[], hates:['Mario']},
+        'Waluigi': {likes:['Wario'], hates:['Yoshi']},
+        'Bowser':  {likes:['Wario'], hates:['Peach']},
+        'Toad':    {likes:['Toadette'], hates:[]},
+        'Toadette':{likes:['Toad'], hates:[]}
+      }
+    };
+
+    // ====== State ======
+    let state = {
+      draftId: null,
+      teams: [],            // array of team names
+      order: [],            // current linear order for this round
+      snakeForward: true,
+      teamRosters: {},      // name -> [players]
+      hasCaptain: {},       // name -> boolean
+      remaining: [],        // available player names
+      remainingCaptains: [],// available captain names
+      players: [],
+      captains: [],
+      chemistry: {},
+      selectedTeam: null,
+      enforceCaptain: true,
+      keepSnake: true,
+      turnIndex: 0,        // which team index is currently on the clock
+    };
+
+    const els = sel => document.querySelector(sel);
+    const teamBarEl = els('#teamBar');
+
+    const rosterEl = els('#roster');
+    const playersEl = els('#players');
+    const whoIsUpEl = els('#whoIsUp');
+    const mustPickEl = els('#mustPickState');
+    const remainCountEl = els('#remainCount');
+    const captainStateEl = els('#captainState');
+    const warningEl = els('#warning');
+
+    const keepSnakeChk = els('#keepSnake');
+    const enforceCaptainChk = els('#enforceCaptain');
+
+    const chips = [...document.querySelectorAll('.chip')];
+    const searchEl = els('#search');
+    let activeFilter = 'all';
+    let searchTerm = '';
+
+    function save(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+    function load(){ try { return JSON.parse(localStorage.getItem(STORAGE_KEY)); } catch { return null; } }
+
+    function ensureDefaults(){
+      if(!state.draftId) state.draftId = crypto.randomUUID();
+      if(!state.teams?.length) state.teams = [...FALLBACK.teams];
+      if(!state.order?.length) state.order = [...state.teams];
+      if(!state.teamRosters){ state.teamRosters = {}; }
+      state.teams.forEach(t=>{ if(!Array.isArray(state.teamRosters[t])) state.teamRosters[t] = []; });
+      if(!state.hasCaptain){ state.hasCaptain = {}; }
+      state.teams.forEach(t=>{ if(typeof state.hasCaptain[t] !== 'boolean') state.hasCaptain[t] = state.teamRosters[t].some(p=>state.captains.includes(p)); });
+      if (!Array.isArray(state.remaining) || state.remaining.length === 0) {
+        state.remaining = [...state.players];
+      }
+      if (!Array.isArray(state.remainingCaptains) || state.remainingCaptains.length === 0) {
+        state.remainingCaptains = state.captains.filter(c => state.remaining.includes(c));
+      }
+      if(!state.selectedTeam) state.selectedTeam = state.teams[0];
+      if(typeof state.enforceCaptain !== 'boolean') state.enforceCaptain = true;
+      if(typeof state.keepSnake !== 'boolean') state.keepSnake = true;
+    }
+
+    async function fetchJSON(path){
+      const res = await fetch(path, {cache:'no-store'});
+      if(!res.ok) throw new Error('HTTP '+res.status);
+      return res.json();
+    }
+
+    async function loadData(){
+      // try to pull site data; fall back if missing
+      try{
+        const [players, captains, chemistry] = await Promise.all([
+          fetchJSON(`${DATA_BASE}/players.json`),
+          fetchJSON(`${DATA_BASE}/captains.json`),
+          fetchJSON(`${DATA_BASE}/chemistry.json`)
+        ]);
+        state.players = players;
+        state.captains = captains;
+        state.chemistry = chemistry;
+      }catch(e){
+        console.warn('Using fallback data:', e.message);
+        state.players = [...FALLBACK.players];
+        state.captains = [...FALLBACK.captains];
+        state.chemistry = {...FALLBACK.chemistry};
+      }
+    }
+
+    // ====== Draft mechanics ======
+    function mustPickCaptainNow(){
+      // If the count of teams without captain equals remaining captains, then all such teams must pick captain
+      const teamsMissing = state.teams.filter(t=>!state.hasCaptain[t]);
+      return teamsMissing.length === state.remainingCaptains.length;
+    }
+
+    function currentCaptainStatusLabel(team){
+      return state.hasCaptain[team] ? 'Owned' : 'Not yet';
+    }
+
+    function rosterChemistryBreakdown(name, roster){
+        const others = (roster || []).filter(x => x !== name);
+        const chem = state.chemistry[name] || {likes:[], hates:[]};
+        const likesSet = new Set(chem.likes||[]);
+        const hatesSet = new Set(chem.hates||[]);
+
+        const likedList = [];
+        const hatedList = [];
+
+        for (const o of others){
+            const oChem = state.chemistry[o] || {likes:[], hates:[]};
+            const oLikes = new Set(oChem.likes||[]);
+            const oHates = new Set(oChem.hates||[]);
+
+            // POSITIVE if name likes o OR o likes name
+            if (likesSet.has(o) || oLikes.has(name)) likedList.push(o);
+
+            // NEGATIVE if name hates o OR o hates name
+            if (hatesSet.has(o) || oHates.has(name)) hatedList.push(o);
+        }
+
+        return { likedList, hatedList };
+    }
+
+
+    function chemistryLinks(candidate, roster){
+        const chem = state.chemistry[candidate] || {likes:[], hates:[]};
+        const likesSet = new Set(chem.likes||[]);
+        const hatesSet = new Set(chem.hates||[]);
+
+        const likedByList = [];
+        const hatedByList = [];
+
+        for (const r of roster){
+            const rChem = state.chemistry[r] || {likes:[], hates:[]};
+            const rLikes = new Set(rChem.likes||[]);
+            const rHates = new Set(rChem.hates||[]);
+
+            // POSITIVE if candidate likes r OR r likes candidate
+            if (likesSet.has(r) || rLikes.has(candidate)) likedByList.push(r);
+
+            // NEGATIVE if candidate hates r OR r hates candidate
+            if (hatesSet.has(r) || rHates.has(candidate)) hatedByList.push(r);
+        }
+
+        return {
+            likedBy: likedByList.length,
+            hatedBy: hatedByList.length,
+            likedByList,
+            hatedByList
+        };
+    }
+
+    function visiblePlayers(){
+      const roster = state.teamRosters[state.selectedTeam]||[];
+      return state.remaining
+        .map(name=>{
+          const {likedBy, hatedBy, likedByList, hatedByList} = chemistryLinks(name, roster);
+          return {
+          name,
+          isCaptain: state.captains.includes(name),
+          likedBy, hatedBy,
+          likedByList, hatedByList
+          };
+        })
+        .filter(it=>{
+          const matchesText = !searchTerm || it.name.toLowerCase().includes(searchTerm);
+          if(!matchesText) return false;
+          if(activeFilter==='chem') return it.likedBy>0;
+          if(activeFilter==='hate') return it.hatedBy>0;
+          if(activeFilter==='captains') return it.isCaptain;
+          return true;
+        })
+        // Optional: simple sort – captains first if must-pick; otherwise by chem signal
+        .sort((a,b)=>{
+          if(mustPickCaptainNow() && (a.isCaptain!==b.isCaptain)) return a.isCaptain? -1: 1;
+          const scoreA = (b.likedBy - b.hatedBy) - (a.likedBy - a.hatedBy);
+          if(scoreA!==0) return scoreA;
+          return a.name.localeCompare(b.name);
+        });
+    }
+
+    function peekNextTeam() {
+        // Which team would pick next (without advancing yet)
+        const order = state.order;
+        const i = state.turnIndex;
+
+        if (state.snakeForward) {
+            // left -> right
+            if (i === order.length - 1) return order[i]; // end gets back-to-back
+            return order[i + 1];
+        } else {
+            // right -> left
+            if (i === 0) return order[i]; // end gets back-to-back
+            return order[i - 1];
+        }
+    }
+
+    function advanceTurnAfterPick() {
+        // Move the clock AFTER a pick has been made
+        const order = state.order;
+        let i = state.turnIndex;
+
+        if (state.snakeForward) {
+            if (i === order.length - 1) {
+            // hit right end: flip and SAME team picks again
+            state.snakeForward = true === state.keepSnake ? false : true; // flip only if snake is on
+            // i stays the same for back-to-back
+            } else {
+            i += 1;
+            }
+        } else {
+            if (i === 0) {
+            // hit left end: flip and SAME team picks again
+            state.snakeForward = true === state.keepSnake ? true : false; // flip only if snake is on
+            // i stays the same for back-to-back
+            } else {
+            i -= 1;
+            }
+        }
+
+        state.turnIndex = i;
+        state.selectedTeam = order[state.turnIndex];
+    }
+
+
+    function imgFor(name){
+      const safe = encodeURIComponent(name);
+      return `${IMAGE_BASE}/${safe}.PNG`;
+    }
+
+    // ====== Rendering ======
+    function renderTeams(){
+      teamSelect.innerHTML = state.teams.map(t=>`<option value="${t}">${t}</option>`).join('');
+      
+    }
+
+    function renderTeamBar(){
+        const order = state.order || state.teams;
+        const chips = order.map((t, idx)=>{
+            const isActive = state.selectedTeam === t;
+            const isOnClock = idx === state.turnIndex;
+            return `
+            <button class="teamchip ${isActive ? 'active' : ''} ${isOnClock ? 'onclock' : ''}" 
+                    data-team="${t}" title="Jump to ${t}">
+                ${idx+1}. ${t}
+            </button>`;
+        }).join('');
+        teamBarEl.innerHTML = chips;
+        teamBarEl.querySelectorAll('.teamchip').forEach(btn=>{
+            btn.addEventListener('click', ()=>{
+            const t = btn.dataset.team;
+            state.selectedTeam = t;
+            state.turnIndex = (state.order || state.teams).indexOf(t);
+            save();
+            renderAll();
+            // gentle focus for accessibility
+            btn.focus({preventScroll:true});
+            });
+        });
+    }
+
+
+    function renderRoster(){
+      const roster = state.teamRosters[state.selectedTeam]||[];
+      rosterEl.innerHTML = roster.map(p=>`
+        <div class="card" tabindex="0" aria-label="${p}">
+            <img loading="lazy" src="${imgFor(p)}" alt="${p}">
+            <div class="meta">
+                <div class="name">${p}</div>
+                ${(()=>{
+                const { likedList, hatedList } = rosterChemistryBreakdown(p, roster);
+                return affinityStripHTML(likedList, hatedList);
+                })()}
+            </div>
+        </div>
+
+      `).join('') || `<div class="muted">No picks yet.</div>`;
+      captainStateEl.textContent = currentCaptainStatusLabel(state.selectedTeam);
+    }
+
+    function renderPlayers(){
+      const items = visiblePlayers();
+      playersEl.innerHTML = items.map(it=>`
+        <button class="card" data-player="${it.name}" title="Pick ${it.name}">
+          <img loading="lazy" src="${imgFor(it.name)}" alt="${it.name}">
+          <div class="meta">
+            <div class="name">${it.name}</div>
+            <div class="row">
+              ${it.likedBy? `<span class="badge chem">Chem ×${it.likedBy}</span>`:''}
+              ${it.hatedBy? `<span class="badge hate">Hate ×${it.hatedBy}</span>`:''}
+              ${it.isCaptain? `<span class="badge">Captain</span>`:''}
+            </div>
+            ${affinityStripHTML(it.likedByList, it.hatedByList)}
+
+            ${(it.likedBy || it.hatedBy) ? `
+                <div class="affinity">
+                    ${it.likedBy ? `
+                    <div class="affinity-group" title="Positive chemistry with current roster">
+                        <span class="affinity-label">Chem:</span>
+                        ${it.likedByList.map(n=>`
+                        <img class="mini-face green" src="${imgFor(n)}" alt="${n}" title="${n}">
+                        `).join('')}
+                    </div>
+                    ` : ''}
+
+                    ${it.hatedBy ? `
+                    <div class="affinity-group" title="Negative chemistry with current roster">
+                        <span class="affinity-label">Hate:</span>
+                        ${it.hatedByList.map(n=>`
+                        <img class="mini-face red" src="${imgFor(n)}" alt="${n}" title="${n}">
+                        `).join('')}
+                    </div>
+                    ` : ''}
+                </div>
+                ` : '' }
+
+          </div>
+        </button>
+      `).join('');
+      playersEl.querySelectorAll('.card').forEach(btn=>btn.addEventListener('click',()=>pick(btn.dataset.player)));
+      remainCountEl.textContent = state.remaining.length;
+    }
+
+    function renderToolbar(){
+        // pick number = total drafted + 1
+        const totalPicks = Object.values(state.teamRosters).reduce((a,b)=>a + (b?.length||0), 0);
+        const pickNum = totalPicks + 1;
+        const pickNoEl = document.querySelector('#pickNo');
+        if (pickNoEl) pickNoEl.textContent = `Pick #${pickNum}`;
+
+        whoIsUpEl.textContent = `Next up: ${peekNextTeam()}`;
+        mustPickEl.textContent = mustPickCaptainNow() && state.enforceCaptain ? 'Yes' : 'No';
+        warningEl.textContent = (mustPickCaptainNow() && state.enforceCaptain)
+            ? '⚠️ Captain picks are now mandatory for teams without one.' : '';
+    }
+
+
+
+    // ====== Actions ======
+    function resetAll(){
+        localStorage.removeItem(STORAGE_KEY);
+
+        // keep current league data, but wipe draft state
+        const keep = {
+            players: state.players,
+            captains: state.captains,
+            chemistry: state.chemistry,
+            teams: [...state.teams]
+        };
+
+        state = {
+            draftId: null,
+            teams: keep.teams,
+            order: [],                 // will be set to teams in ensureDefaults
+            snakeForward: true,
+            teamRosters: {},           // empty rosters
+            hasCaptain: {},            // recomputed below
+            remaining: [],             // <— intentionally empty; will be repopulated
+            remainingCaptains: [],     // <— intentionally empty; will be repopulated
+            players: keep.players,
+            captains: keep.captains,
+            chemistry: keep.chemistry,
+            selectedTeam: null,
+            enforceCaptain: true,
+            keepSnake: true,
+            turnIndex: 0,
+        };
+
+        ensureDefaults();
+
+        // Recompute captain flags for fresh, empty rosters
+        state.teams.forEach(t => {
+            state.hasCaptain[t] = false;
+        });
+
+        // Make sure we have a starting turn index
+        state.turnIndex = (state.order || state.teams).indexOf(state.selectedTeam);
+
+        save();
+        renderAll();
+    }
+
+
+    function canPick(team, player){
+      if(!state.remaining.includes(player)) return [false,'Already taken'];
+      if(!state.enforceCaptain) return [true,''];
+      // If captain is mandatory now, and this team lacks a captain, they must pick one
+      if(mustPickCaptainNow() && !state.hasCaptain[team] && !state.captains.includes(player)){
+        return [false,'You must pick a captain now'];
+      }
+      // If team already has captain, they cannot pick another captain while captain-only stage? (Allow picking another captain afterward if desired)
+      // Keep rule consistent with prior behavior: prevent picking a captain if you already own one while captain-only stage.
+      if(mustPickCaptainNow() && state.hasCaptain[team] && state.captains.includes(player)){
+        return [false,'You already have a captain'];
+      }
+      return [true,''];
+    }
+
+    function pick(player){
+      const team = state.selectedTeam;
+      const [ok, why] = canPick(team, player);
+      if(!ok){ alert(why); return; }
+
+      state.teamRosters[team].push(player);
+      state.remaining = state.remaining.filter(p=>p!==player);
+      if(state.captains.includes(player)){
+        state.hasCaptain[team] = true;
+        state.remainingCaptains = state.remainingCaptains.filter(c=>c!==player);
+      }
+      // advance selection to next team
+      advanceTurnAfterPick();
+      save();
+      renderAll();
+      // update dropdown selection
+      teamSelect.value = state.selectedTeam;
+    }
+
+    function renderAll(){
+      renderTeamBar();
+      renderRoster();
+      renderPlayers();
+      renderToolbar();
+    }
+
+    function affinityStripHTML(likedList, hatedList){
+        const likedHTML = likedList && likedList.length ? `
+            <div class="affinity-group" title="Positive chemistry">
+            <span class="affinity-label">Chem:</span>
+            ${likedList.map(n=>`<img class="mini-face green" src="${imgFor(n)}" alt="${n}" title="${n}">`).join('')}
+            </div>` : '';
+
+        const hatedHTML = hatedList && hatedList.length ? `
+            <div class="affinity-group" title="Negative chemistry">
+            <span class="affinity-label">Hate:</span>
+            ${hatedList.map(n=>`<img class="mini-face red" src="${imgFor(n)}" alt="${n}" title="${n}">`).join('')}
+            </div>` : '';
+
+        if (!likedHTML && !hatedHTML) return '';
+        return `<div class="affinity">${likedHTML}${hatedHTML}</div>`;
+    }
+
+
+    // ====== Bootstrap ======
+    async function init(){
+      await loadData();
+      const persisted = load();
+      if(persisted){ state = Object.assign(state, persisted); }
+      ensureDefaults();
+      // after ensureDefaults();
+      state.turnIndex = (state.order || state.teams).indexOf(state.selectedTeam);
+
+      // initialize remaining & remainingCaptains if this is a fresh load
+      if(!persisted){
+        state.remaining = [...state.players];
+        state.remainingCaptains = state.captains.filter(c=>state.remaining.includes(c));
+      }
+      // UI wires
+      els('#resetBtn').addEventListener('click', ()=>{ if(confirm('Reset the entire draft?')) resetAll(); });
+      
+
+      keepSnakeChk.addEventListener('change', ()=>{ state.keepSnake = keepSnakeChk.checked; save(); renderToolbar(); });
+      enforceCaptainChk.addEventListener('change', ()=>{ state.enforceCaptain = enforceCaptainChk.checked; save(); renderToolbar(); });
+      searchEl.addEventListener('input', ()=>{ searchTerm = searchEl.value.trim().toLowerCase(); renderPlayers(); });
+      chips.forEach(c=>c.addEventListener('click', ()=>{ chips.forEach(x=>x.classList.remove('active')); c.classList.add('active'); activeFilter = c.dataset.filter; renderPlayers(); }));
+      chips[0].classList.add('active');
+
+      renderAll();
+      save();
+    }
+
+    init();
+  </script>
+</body>
+</html>

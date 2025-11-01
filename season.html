@@ -54,15 +54,15 @@
         <button class="tab active" data-team="Standings">Standings</button>
         <button class="tab" data-team="Matches">Matches</button>
         <!-- In season.html, add this tab button with the others -->
-        <button class="tab" data-team="Season3Stats">Season 5 Stats</button>
-        <button class="tab" data-team="Bone Bros">Bone Bros (Carby)</button>
-        <button class="tab" data-team="Is It Pink?">Is It Pink? (BenT)</button>
-        <button class="tab" data-team="Special K">Special K (Kircher)</button>
-        <button class="tab" data-team="Mii Horny">Mii Horny (Julian)</button>
-        <button class="tab" data-team="The Squid">The Squid (Jmo)</button>
-        <button class="tab" data-team="Big League Chew: Daisy Flavor">Big League Chew: Daisy Flavor (HarryKirch)</button>
-        <button class="tab" data-team="Funky LeGooners">Funky LeGooners (BenR)</button>
+        <button class="tab" data-team="Season3Stats">Season 6 Stats</button>
+        <button class="tab" data-team="Kircher">Kircher</button>
+        <button class="tab" data-team="Julian">Julian</button>
+        <button class="tab" data-team="Jmo">Jmo</button>
+        <button class="tab" data-team="Carby">Carby</button>
         <button class="tab" data-team="Tom">Tom</button>
+        <button class="tab" data-team="BenR">BenR</button>
+        <button class="tab" data-team="HarryKirch">HarryKirch</button>
+        <button class="tab" data-team="BenT">BenT</button>
       </div>
       <!-- Matches Content -->
       <div class="season-content" id="Matches">
@@ -116,14 +116,14 @@
       document.getElementById("Standings").classList.add("active");
 
       const teamRosters = {
-        "Bone Bros": ["Bowser", "Dark Bones", "Boomerang Bro", "Wario", "Yoshi", "Yellow Magikoopa", "Baby Daisy", "Pink Yoshi", "Caillou", "Carby", "Rizzler", "Doc Brown", "Matt"],
-        "Is It Pink?": ["Birdo", "Red Pianta", "Mario", "Yellow Toad", "Toad", "Yellow Shy Guy", "Paragoomba", "Yellow Yoshi", "Red Koopa Troopa", "Baby Mario", "Gus Fring", "KevinG", "Minion"],
-        "Special K": ["King K Rool", "Red Kritter", "Brown Kritter", "Blue Kritter", "Waluigi", "Blue Yoshi", "Blue Shy Guy", "Dixie Kong", "Green Shy Guy", "Light Blue Yoshi", "Livvy Dunne", "Count Dooku", "Gandalf"],
-        "Mii Horny": ["Donkey Kong", "Wiggler", "Monty Mole", "Toadsworth", "Red Noki", "Red Koopa Paratroopa", "Unc", "Saddam Hussein", "Ghandi", "Kim Jong Un", "Queen Elizabeth", "Idi Amin", "MLK Jr"],
-        "The Squid": ["Petey Piranha", "Kritter", "Green Dry Bones", "King Boo", "Peach", "Boo", "Green Magikoopa", "Koopa Troopa", "Blooper", "Green Toad", "Diminutive", "Syndrome", "Cole Palmer"],
-        "Big League Chew: Daisy Flavor": ["Fire Bro", "Hammer Bro", "Luigi", "Daisy", "Shy Guy", "Baby Luigi", "Green Noki", "Koopa Paratroopa", "Bowler", "Miss Hot", "Dwayne Wade", "Winnie The Pooh", "Frozone"],
-        "Funky LeGooners": ["Funky Kong", "Diddy Kong", "Purple Toad", "Toadette", "Blue Toad", "Baby DK", "Red Yoshi", "Tiny Kong", "Baby Peach", "Lebron James", "Lil Wayne", "Handsome Squidward", "Ice Cube"],
-        "Tom": ["Pianta", "Yellow Pianta", "Dry Bones", "Blue Dry Bones", "Bowser Jr", "Magikoopa", "Red Magikoopa", "Noki", "Black Shy Guy", "Goomba", "Saka", "Tung Tung Tung Sahur", "Vicar"]
+        "Kircher": ["Bowser", "Dark Bones", "Blue Dry Bones", "Magikoopa", "Blue Toad", "John 2.0", "KevinG", "Blue Yoshi", "Tiny Kong", "Vicar", "Black Shy Guy", "Chicken", "Noki"],
+        "Julian": ["King K Rool", "Blue Kritter", "Red Kritter", "Toad", "Purple Toad", "Peach", "Baby Peach", "Toadsworth", "Saddam Hussein", "Ghandi", "Idi Amin", "Kim Jong Un", "MLK Jr"],
+        "Jmo": ["Donkey Kong", "Yellow Pianta", "King Boo", "Yellow Toad", "Baby DK", "Yellow Yoshi", "Carby", "Yellow Shy Guy", "John K", "Baby Daisy", "Dixie Kong", "Lil Wayne", "Green Noki"],
+        "Carby": ["Petey Piranha", "Red Pianta", "Wiggler", "Wario", "Waluigi", "Yellow Magikoopa", "Blooper", "Caillou", "Livvy Dunne", "Doc Brown", "Monty Mole", "Lara Croft", "Diminutive"],
+        "Tom": ["Fire Bro", "Funky Kong", "Dry Bones", "Luigi", "Daisy", "Tung Tung Tung Sahur", "Saka", "Red Magikoopa", "Mikasa", "Semenlad", "Red Yoshi", "Red Koopa Paratroopa", "Yghur"],
+        "BenR": ["Hammer Bro", "Boomerang Bro", "Bowser Jr", "Blue Shy Guy", "Green Magikoopa", "Unc", "Gus Fring", "Lebron James", "Paragoomba", "Shy Guy", "Goomba", "Red Koopa Troopa", "Ice Cube"],
+        "HarryKirch": ["Birdo", "Pianta", "Mario", "Yoshi", "Toadette", "Baby Luigi", "Miss Hot", "Dwayne Wade", "Pink Yoshi", "Dora", "Baby Mario", "Light Blue Yoshi", "Red Noki"],
+        "BenT": ["Brown Kritter", "Kritter", "Green Dry Bones", "Green Toad", "Diddy Kong", "Rizzler", "Green Shy Guy", "Boo", "Koopa Troopa", "Pops", "Koopa Paratroopa", "Handsome Squidward", "Big AJ"]
       };
 
       const teamGrid = document.getElementById('teamCharacterGrid');
@@ -334,16 +334,16 @@
     function renderStandings() {
       // Division maps for standings badges
       const EAST_TEAMS = new Set([
-        "Mii Horny",
-        "Bone Bros",
-        "Big League Chew: Daisy Flavor",
-        "Special K"
+        "Jmo",
+        "Carby",
+        "HarryKirch",
+        "Tom"
       ]);
       const WEST_TEAMS = new Set([
-        "Is It Pink?",
-        "The Squid",
-        "Funky LeGooners",
-        "Tom"
+        "BenT",
+        "Kircher",
+        "Julian",
+        "BenR"
       ]);
       
       const body = document.getElementById('season3-standings-body');
@@ -402,11 +402,11 @@
     const date = new Date(cleanDateStr);
 
     const weeks = [
-      { start: new Date("August 20, 2025"), end: new Date("August 21, 2025"), week: 1 },
-      { start: new Date("August 26, 2025"), end: new Date("August 28, 2025"), week: 2 },
-      { start: new Date("September 2, 2025"), end: new Date("September 4, 2025"), week: 3 },
-      { start: new Date("September 9, 2025"), end: new Date("September 11, 2025"), week: 4 },
-      { start: new Date("September 16, 2025"), end: new Date("September 18, 2025"), week: 5 },
+      { start: new Date("November 4, 2025"), end: new Date("November 6, 2025"), week: 1 },
+      { start: new Date("November 11, 2025"), end: new Date("November 13, 2025"), week: 2 },
+      { start: new Date("November 18, 2025"), end: new Date("November 20, 2025"), week: 3 },
+      { start: new Date("December 2, 2025"), end: new Date("December 4, 2025"), week: 4 },
+      { start: new Date("December 9, 2025"), end: new Date("December 11, 2025"), week: 5 },
     ];
 
     for (const { start, end, week } of weeks) {
@@ -634,14 +634,14 @@
         <label for="teamFilter">Team:</label>
         <select id="teamFilter">
           <option value="">All Teams</option>
-          <option value="Bone Bros">Bone Bros (carby)</option>
-          <option value="Is It Pink?">Is It Pink? (BenT)</option>
-          <option value="Special K">Special K (Kircher)</option>
-          <option value="Mii Horny">Mii Horny (Julian)</option>
-          <option value="The Squid">The Squid (Jmo)</option>
-          <option value="Big League Chew: Daisy Flavor">Big League Chew: Daisy Flavor (HarryKirch)</option>
-          <option value="Funky LeGooners">Funky LeGooners (BenR)</option>
+          <option value="Kircher">Kircher</option>
+          <option value="Julian">Julian</option>
+          <option value="Jmo">Jmo</option>
+          <option value="Carby">Carby</option>
           <option value="Tom">Tom</option>
+          <option value="BenR">BenR</option>
+          <option value="HarryKirch">HarryKirch</option>
+          <option value="BenT">BenT</option>
         </select>
       </div>
     </div>

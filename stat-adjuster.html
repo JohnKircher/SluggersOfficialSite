@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Stat Adjuster • Super Sluggers League</title>
+  <link rel="icon" type="image/jpg" href="favicon.jpg"/>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    /* light tab styling so it looks decent in the card */
+    .tabbar { display:flex; gap:1rem; margin-bottom: .75rem; }
+    .tab_selection { cursor:pointer; font-weight:700; padding:.4rem .75rem; border-radius:10px; }
+    .tab_selection.selected { background:#1f1f1f; border:1px solid #333; box-shadow:0 4px 12px rgba(0,0,0,.25); }
+    .tab { padding:.25rem; }
+    .invisible { display:none; }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-content">
+      <ul class="nav-links">
+        <li><a href="index.html">📅 Home</a></li>
+        <li><a href="characters.html">🧢 Character Cast & Stats</a></li>
+        <li><a href="season.html">📅 Current Season</a></li>
+        <li><a href="miis.html">👤 Miis</a></li>
+        <a href="simulator.html" class="nav-link">🏆 Playoff Simulator</a>
+        <li><a href="mock-draft.html">🧪 Mock Draft</a></li>
+        <li><a href="stat-adjuster.html" class="active">🛠️ Stat Adjuster</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="page-header">
+    <h1 class="page-title">🛠️ Stat Adjuster</h1>
+    <p class="page-subtitle">Edit player stats, toggle <strong>Star Player</strong>, and copy the Dolphin Gecko code.</p>
+  </header>
+
+  <!-- Editor container -->
+  <main class="container-xl">
+    <div class="stat-grid">
+      <!-- Left: controls -->
+      <section class="stat-card">
+        <h2 class="card-title">Controls</h2>
+
+        <!-- 👇 Required by your existing scripts -->
+        <div id="tab_menu" class="tabbar">
+          <p class="tab_selection selected">Players</p>
+          <p class="tab_selection">Chemistry</p>
+        </div>
+
+        <div id="tabs">
+          <div id="fields" class="tab"></div>
+          <div id="chemistry" class="tab invisible"></div>
+        </div>
+
+        <!-- optional placeholders (your JS reads these IDs if present) -->
+        <div id="extra" class="invisible"></div>
+        <div id="random" class="invisible"></div>
+
+        <!-- keep an offscreen legacy output node for compatibility -->
+        <code style="display:none"><p id="output"></p></code>
+      </section>
+
+      <!-- Right: output -->
+      <section class="stat-card">
+        <h2 class="card-title">Generated Gecko Code</h2>
+        <p class="muted">This updates automatically as you change values.</p>
+        <textarea id="gecko-output" class="code-block" readonly></textarea>
+        <button id="copy-gecko" class="btn-primary">Copy Code</button>
+      </section>
+    </div>
+  </main>
+
+  <div style="height:4rem;"></div>
+
+  <!-- IMPORTANT: use the original load order your editor expects -->
+  <script src="scripts/stat-adjuster/bytes.js"></script>
+  <script src="scripts/stat-adjuster/consts.js"></script>
+  <script src="scripts/stat-adjuster/inputTypes.js"></script>
+  <script src="scripts/stat-adjuster/stats.js"></script>
+  <script src="scripts/stat-adjuster/chem.js"></script>
+
+  <script type="text/javascript">
+//converts integer to hexadecimal string needed for Gecko Codes
+function intToHex(int, len){
+  return int.toString(16).toUpperCase().padStart(len, '0').slice(-len);
+}
+
+//output base address 04 Gecko Codes based on value
+function geckoCode04 (addr, values) {
+  if(values.length != 4){
+    console.warn('geckoCode04 called with ' + values);
+  }
+  out = '04' + intToHex(addr, 6) + ' ';
+  out += intToHex(
+    values[3] +
+    (values[2] << 8) +
+    (values[1] << 16) +
+    (values[0] << 24), 8);
+  return out;
+}
+
+//output base address 06 Gecko Codes based on value
+function geckoCode06 (addr, values) {
+  if(values.length % 4){
+    console.warn('geckoCode06 called with ' + values);
+  }
+  out = '06' + intToHex(addr, 6) + ' ';
+  out += intToHex(values.length, 8);
+  for (var ind in values) {
+    out += ind % 8 == 0 ? '\n' : '';
+    out += intToHex(values[ind], 2);
+    out += ind % 8 == 3 ? ' ' : '';
+  }
+  out += ind % 8 == 3 ? '00000000' : '';
+  return out;
+}
+
+var output = document.getElementById('output');
+
+function trajectoryCode (player, value) {
+  return player.name == 'All' ? 
+    ("0862a15c " + intToHex(value, 8) + "\n00640002 00000000") :
+    ("00" + intToHex(0x62a15c + player.id * 2, 6) + " 000000" + intToHex(value, 2));
+}
+
+// DETAIL — ORIGINAL GENERATOR
+function generateCode () {
+  var out = '';
+
+  out += inputGlobal.uncapPower ? "040b96d4 60000000\n040b9708 60000000\n" : '';
+  out += inputGlobal.uncapContact ? "040b967c 60000000\n040b968c 60000000\n040b9648 60000000\n040b9658 60000000\n" : '';
+
+  // 08 codes for the 'All' values
+  for (let stat of stats) {
+    var newVal = all.new[stat.offset];
+    if (isNaN(newVal)){
+      continue;
+    }
+    if (stat.offset == -0x1) {
+      out += trajectoryCode(all, newVal) + '\n';
+      continue;
+    }
+    out += "08" + intToHex(baseAddr + stat.offset, 6) + ' ';
+    out += intToHex(newVal, 8) + '\n';
+    out += '' + (stat.size - 1) + '064008E 00000000\n';
+  }
+
+  var words = {};
+
+  function setWord (stat, addr, value) {
+    var offset = addr & 0b11;
+    addr = (addr >> 2) << 2;
+    if(stat.size == 1){
+      (words[addr] ??= [])[offset] ??= value;
+    } else {
+      if(offset % 2){
+        console.warn("two byte stat not at even address");
+        console.warn(stat);
+      }
+      (words[addr] ??= [])[offset] ??= newVal >> 8;
+      words[addr][offset + 1] ??= newVal % 256;
+    }
+  }
+
+  // per-player diffs
+  for (let player of players) {
+    for (let stat of stats) {
+      var newVal = player.new[stat.offset];
+      if(isNaN(newVal)) {
+        continue;
+      }
+      if (stat.offset == -0x1) {
+        out += trajectoryCode(player, newVal) + '\n';
+        continue;
+      }
+      if(newVal == player.old[stat.offset]) {
+        continue;
+      }
+      setWord(stat, player.offset + stat.offset, newVal)
+    }
+  }
+
+  // chemistry diffs
+  for (let p1 in newChem) {
+    for (let p2 in newChem[p1]) {
+      var chemVal = newChem[p1][p2];
+      if (isNaN(chemVal)) {
+        continue;
+      }
+      if (defaultChem[p1][p2] == chemVal) {
+        continue;
+      }
+      setWord({size: 1}, playersById[p1].offset + chemistryOffsets[p2], chemVal);
+    }
+  }
+
+  // Get the list of addresses to cover
+  var addrs = Object.keys(words).sort((a, b) => a - b);
+
+  // Update the edited words - we already set the values covered by 'All' but don't want any of these codes to reset them
+  for (let stat of stats) {
+    var newVal = all.new[stat.offset];
+    if (isNaN(newVal)){
+      continue;
+    }
+    for (var player of players) {
+      setWord(stat, player.offset + stat.offset, newVal);
+    }
+  }
+
+  // Find a good mix of 04 and 06 codes
+  var group = [];
+  function flushGroup () {
+    if (group.length == 0) {
+      return;
+    }
+    var values = [];
+    for (var i = group[0] - 0; i < group[group.length - 1] - 0 + 4; i ++) {
+      values.push( (words[i >> 2 << 2] ?? [])[i % 4] ?? data[i] );
+    }
+    if(group.length == 1){
+      out += geckoCode04(group[0] - 0 + baseAddr, values) + '\n';
+    } else {
+      out += geckoCode06(group[0] - 0 + baseAddr, values) + '\n';
+    }
+    group = [];
+  }
+  while(addrs.length){
+    if(group.length == 0){
+      group.push(addrs.shift());
+    } else {
+      var lastAddr = group[group.length - 1];
+      var costToAdd = 0;
+      costToAdd += group.length == 1 ? 1 : 0;
+      costToAdd += (((addrs[0] - lastAddr) >> 2) - group.length % 2) >> 1;
+      // If the cost to add this to an 06 code isn't greater than making an 04 code, do it
+      if (costToAdd <= 1){
+        group.push(addrs.shift());
+      } else {
+        // Generate a code, reset the group
+        flushGroup();
+      }
+    }
+  }
+  flushGroup();
+
+  if (out.length > 0) {
+    out = out;
+  }
+  output.innerText = out;
+
+  // 👇 added: mirror to the right-hand textarea + keep a copy for hooks
+  const mirror = document.getElementById('gecko-output');
+  if (mirror) mirror.value = out;
+  window.__latestGecko = out;
+
+  return out;
+}
+// copy button UX
+    document.getElementById('copy-gecko')?.addEventListener('click', () => {
+      const gecko = document.getElementById('gecko-output');
+      gecko.select();
+      document.execCommand('copy');
+      const btn = document.getElementById('copy-gecko');
+      const old = btn.textContent;
+      btn.textContent = 'Copied!';
+      setTimeout(() => (btn.textContent = old), 900);
+    });
+</script>
+
+</body>
+</html>

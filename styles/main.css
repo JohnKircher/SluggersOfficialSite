@@ -1390,3 +1390,102 @@ html, body {
 }
 .season-tabs-wrap::before { left: 0;  background: linear-gradient(to right, rgba(0,0,0,.45), rgba(0,0,0,0)); }
 .season-tabs-wrap::after  { right: 0; background: linear-gradient(to left,  rgba(0,0,0,.45), rgba(0,0,0,0)); }
+
+/* --- Stat Adjuster page --- */
+.page-header {
+  padding: 3rem 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.page-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  letter-spacing: .08em;
+  color: var(--secondary-accent);
+  text-shadow: 0 0 14px rgba(62,166,255,.35);
+}
+.page-subtitle {
+  color: #cfd8dc;
+  margin-top: .5rem;
+}
+
+.container-xl {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem 3rem;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 2rem;
+}
+@media (max-width: 950px) {
+  .stat-grid { grid-template-columns: 1fr; }
+}
+
+.stat-card {
+  background: var(--card-bg);
+  border: 1px solid #3b3b3b;
+  border-radius: 18px;
+  padding: 1.25rem;
+  box-shadow: 0 12px 32px rgba(0,0,0,.35);
+}
+.card-title {
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: .75rem;
+  color: gold;
+  letter-spacing: .06em;
+}
+
+.muted {
+  color: #b0bec5;
+  margin-bottom: .5rem;
+}
+
+.code-block {
+  width: 100%;
+  min-height: 300px;
+  background: #0f0f12;
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  color: #e0e0e0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New", monospace;
+  font-size: .95rem;
+  line-height: 1.35;
+  padding: 1rem;
+  resize: vertical;
+}
+
+.btn-primary {
+  margin-top: .75rem;
+  display: inline-block;
+  background: linear-gradient(135deg, var(--secondary-accent), #6ec3ff);
+  color: #0b1220;
+  border: none;
+  padding: .7rem 1rem;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .08s ease, box-shadow .2s ease;
+  box-shadow: 0 6px 16px rgba(62,166,255,.35);
+}
+.btn-primary:hover { transform: translateY(-1px); }
+.btn-primary:active { transform: translateY(0); }
+
+/* --- Stat change indicators --- */
+.stat-delta {
+  display: inline-block;
+  margin-left: 6px;
+  font-weight: 700;
+  transition: opacity 0.3s ease;
+}
+.stat-delta.up { color: #66ff99; }     /* green for increase */
+.stat-delta.down { color: #ff6666; }   /* red for decrease */
+.stat-delta.fade {
+  opacity: 0;
+}
+
+.different { background-color: rgba(10,100,10,0.2); }
+
+

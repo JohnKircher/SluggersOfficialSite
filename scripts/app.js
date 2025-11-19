@@ -920,6 +920,49 @@ window.mvpS3Counts = {
 
 };
 
+const championCounts = {
+  "Baby DK": 2,
+  "Brown Kritter": 1,
+  "Diddy Kong": 2,
+  "Dixie Kong": 2,
+  "Donkey Kong": 2,
+  "Funky Kong": 3,
+  "Ice Cube": 1,
+  "Lil Wayne": 1,
+  "Tiny Kong": 2,
+  "Dark Bones": 2,
+  "Bowser": 2,
+  "Fire Bro": 1,
+  "Yellow Toad": 1,
+  "Borat": 1,
+  "Mrs.Claus": 1,
+  "Yellow Shy Guy": 1, 
+  "Paragoomba": 1,
+  "Yoshi": 2,
+  "Petey Piranha": 1,
+  "Yellow Pianta": 1,
+  "Tsitsipas": 1,
+  "Frozone": 1,
+  "Purple Toad": 1,
+  "Pianta": 1,
+  "Shy Guy": 1,
+  "Birdo": 1,
+  "Dwayne Wade": 1,
+  "Red Pianta": 1,
+  "Winnie The Pooh": 1,
+  "Wario": 1,
+  "Boomerang Bro": 1,
+  "Yellow Magikoopa": 1,
+  "Carby": 1,
+  "Doc Brown": 1,
+  "Rizzler": 1
+
+
+
+
+
+};
+
 const characters = [
   { name: "Baby DK", image: "assets/images/baby dk.png", class: "Speed", avg: 0.476, gp: 54, hr: 6, pa: 210, hits: 100, slg: 0.612, obp: 0.481, doubles: 7, triples: 1 },
   { name: "Baby Daisy", image: "assets/images/baby daisy.png", class: "Power", avg: 0.388, gp: 33, hr: 2, pa: 116, hits: 45, slg: 0.548, obp: 0.385, doubles: 8, triples: 2 },
@@ -1190,6 +1233,7 @@ if (characterGrid) {
       card.setAttribute('data-triples', char.triples);
       card.setAttribute('data-hits', char.hits);
       card.setAttribute('data-mvps', mvpCounts[char.name] || 0);
+      card.setAttribute('data-champs', championCounts[char.name] || 0);
       card.dataset.name = char.name;
       
 
@@ -1206,6 +1250,12 @@ if (characterGrid) {
       const mvpBadge = (window.displayMode === "miis")
         ? ''  // ❌ No MVP badge for Miis
         : (mvpCount ? `<div class="mvp-badge">${mvpCount}⭐</div>` : '');
+
+      const champCount = championCounts[char.name];
+      const championBadge = (window.displayMode === "miis")
+        ? ''  // ❌ No champion badge for Miis
+        : (champCount ? `<div class="champion-badge">${champCount}👑</div>` : '');
+
 
         
   
@@ -1250,6 +1300,7 @@ if (characterGrid) {
       card.innerHTML = `
         ${genderBadge}
         ${mvpBadge}
+        ${championBadge}
         ${(window.displayMode !== "miis" && playoffMvpCounts[char.name]) ? 
           `<div class="playoff-mvp-badge">${playoffMvpCounts[char.name]}💎</div>` : ''}
         <img src="${char.image}" alt="${char.name}">
@@ -1370,6 +1421,10 @@ if (characterGrid) {
         // For MVPs, we'll use the mvpCounts object directly
         aVal = mvpCounts[a.dataset.name] || 0;
         bVal = mvpCounts[b.dataset.name] || 0;
+      } 
+      else if (sortBy === 'champs') {
+      aVal = championCounts[a.dataset.name] || 0;
+      bVal = championCounts[b.dataset.name] || 0;
       } else {
         // Existing sorting logic for other stats
         aVal = parseFloat(a.dataset[sortBy]);
@@ -1475,6 +1530,7 @@ if (characterGrid) {
         <option value="gp">Games Played</option>
         <option value="mvps">MVPs</option>
         <option value="playoffmvps">Playoff MVPs</option>
+        <option value="champs">Championships</option>
       `;
     
     document.getElementById('battingFilters').style.display = showingPitching ? 'none' : 'block';

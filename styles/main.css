@@ -1132,6 +1132,23 @@ body {
     position: relative;
   }
 
+  .champion-badge {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, gold, #ffeb7a);
+  color: #1a1a1a;
+  font-weight: bold;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  box-shadow: 0 0 6px rgba(255, 215, 0, 0.7);
+  z-index: 2;
+  white-space: nowrap;
+}
+
+
   .mvp-star {
     position: absolute;
     top: 8px;

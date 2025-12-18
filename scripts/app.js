@@ -477,6 +477,16 @@ const standings = {
         { team: "(HarryKirch) Big League Chew: Daisy Flavor", wins: 4, losses: 6, diff: -21 },
         { team: "(Tom) Tom", wins: 3, losses: 7, diff: -19 },
         { team: "(BenT) Is It Pink?", wins: 3, losses: 7, diff: -31 }
+    ],
+    "Season6": [
+        { team: "Tom", wins: 7, losses: 3, diff: 26 },
+        { team: "Julian", wins: 7, losses: 3, diff: 23 },
+        { team: "Kircher", wins: 7, losses: 3, diff: 11 },
+        { team: "Jmo", wins: 7, losses: 3, diff: 10 },
+        { team: "Carby", wins: 6, losses: 4, diff: 18 },
+        { team: "HarryKirch", wins: 4, losses: 6, diff: -11 },
+        { team: "BenT", wins: 2, losses: 8, diff: -50 },
+        { team: "BenR", wins: 1, losses: 9, diff: -27 }
     ]
 };
 
@@ -602,6 +612,31 @@ const playoffs = {
             name: "Finals",
             matches: [
                 { team1: "(Carby) Bone Bros", score1: 3, team2: "(Jmo) The Squid", score2: 2}
+            ]
+        }
+    ]
+  },
+  "Season6": {
+    rounds: [
+        {
+            name: "Round 1",
+            matches: [
+                { team1: "HarryKirch", score1: 2, team2: "Kircher", score2: 1 },
+                { team1: "Carby", score1: 1, team2: "Jmo", score2: 2 }
+                
+            ]
+        },
+        {
+            name: "Semifinals",
+            matches: [
+                { team1: "Jmo", score1: 1, team2: "Julian", score2: 2 },
+                { team1: "Tom", score1: 2, team2: "HarryKirch", score2: 0 },
+            ]
+        },
+        {
+            name: "Finals",
+            matches: [
+                { team1: "Tom", score1: 0, team2: "Julian", score2: 0}
             ]
         }
     ]

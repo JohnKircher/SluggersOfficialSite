@@ -636,7 +636,7 @@ const playoffs = {
         {
             name: "Finals",
             matches: [
-                { team1: "Tom", score1: 0, team2: "Julian", score2: 0}
+                { team1: "Tom", score1: 3, team2: "Julian", score2: 1}
             ]
         }
     ]
@@ -926,7 +926,7 @@ const playoffMvpCounts = {
   "Toadette": 1,
   "Pianta": 7,
   "Funky Kong": 1,
-  "Unc": 6,
+  "Unc": 7,
   "MJ HeeHee": 1,
   "Wiggler": 2,
   "Boomerang Bro": 3,
@@ -944,7 +944,8 @@ const playoffMvpCounts = {
   "Baby Luigi": 1,
   "Doc Brown": 1,
   "Wario": 1,
-  "John K": 1
+  "John K": 1,
+  "Tung Tung Tung Sahur": 3
 };
 
 window.mvpS3Counts = {
@@ -982,13 +983,13 @@ const championCounts = {
   "Diddy Kong": 2,
   "Dixie Kong": 2,
   "Donkey Kong": 2,
-  "Funky Kong": 3,
+  "Funky Kong": 4,
   "Ice Cube": 1,
   "Lil Wayne": 1,
   "Tiny Kong": 2,
   "Dark Bones": 2,
   "Bowser": 2,
-  "Fire Bro": 1,
+  "Fire Bro": 2,
   "Yellow Toad": 1,
   "Borat": 1,
   "Mrs.Claus": 1,
@@ -1011,7 +1012,15 @@ const championCounts = {
   "Yellow Magikoopa": 1,
   "Carby": 1,
   "Doc Brown": 1,
-  "Rizzler": 1
+  "Rizzler": 1,
+  "Dry Bones": 1,
+  "Luigi": 1,
+  "Daisy": 1,
+  "Tung Tung Tung Sahur": 1,
+  "Saka": 1,
+  "Red Magikoopa": 1,
+  "Red Yoshi": 1
+
 };
 
 const characters = [

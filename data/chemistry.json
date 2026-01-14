@@ -5,7 +5,7 @@
       "Baby DK",
       "Baby Mario",
       "Pink Yoshi",
-      "Orange Mii Female",
+      
       "Yoshi",
       "Light Blue Yoshi",
       "Baby Luigi",
@@ -29,7 +29,7 @@
     "likes": [
       "Tiny Kong",
       "Brown Mii Male",
-      "Brown Mii Male 2",
+      
       "Dixie Kong",
       "Baby Daisy",
       "Baby Mario",
@@ -41,7 +41,7 @@
       "Yellow Yoshi",
       "Red Yoshi",
       "Brown Mii Female",
-      "Brown Mii Female 2",
+      
       "Blue Yoshi",
       "Baby Peach"
     ],
@@ -64,9 +64,9 @@
     "likes": [
       "Baby DK",
       "Green Mii Female",
-      "Green Mii Female 2",
+      
       "Green Mii Male",
-      "Green Mii Male 2",
+      
       "Baby Daisy",
       "Baby Mario",
       "Pink Yoshi",
@@ -98,9 +98,9 @@
       "Baby DK",
       "Baby Daisy",
       "Red Mii Female",
-      "Red Mii Female 2",
+      
       "Pink Yoshi",
-      "Red Mii Male 2",
+      
       "Red Mii Male",
       "Yoshi",
       "Light Blue Yoshi",
@@ -131,7 +131,7 @@
       "Baby DK",
       "Green Toad",
       "Pink Mii Male",
-      "Pink Mii Male 2",
+      
       "Purple Toad",
       "Baby Daisy",
       "Baby Mario",
@@ -143,7 +143,7 @@
       "Baby Luigi",
       "Yellow Yoshi",
       "Pink Mii Female",
-      "Pink Mii Female 2",
+      
       "Red Yoshi",
       "Toad",
       "Blue Yoshi",
@@ -169,7 +169,7 @@
     "likes": [
       "Blue Shy Guy",
       "Pink Mii Male",
-      "Pink Mii Male 2",
+      
       "Yellow Shy Guy",
       "Daisy",
       "Pink Yoshi",
@@ -181,7 +181,7 @@
       "Yellow Yoshi",
       "Black Shy Guy",
       "Pink Mii Female",
-      "Pink Mii Female 2",
+      
       "Red Yoshi",
       "Petey Piranha",
       "Blue Yoshi"
@@ -194,18 +194,9 @@
       "Peach"
     ]
   },
-  "Black Mii Female": {
-    "likes": [
-      "Bowser Jr",
-      "Bowser",
-      "Black Shy Guy",
-      "Black Mii Male"
-    ],
-    "hates": []
-  },
   "Black Mii Male": {
     "likes": [
-      "Black Mii Female",
+      
       "Bowser Jr",
       "Bowser",
       "Black Shy Guy"
@@ -214,7 +205,7 @@
   },
   "Black Shy Guy": {
     "likes": [
-      "Black Mii Female",
+      
       "Boo",
       "Black Mii Male",
       "Monty Mole",
@@ -238,8 +229,8 @@
       "White Mii Male",
       "Boo",
       "Wiggler",
-      "Petey Piranha",
-      "White Mii Female"
+      "Petey Piranha"
+      
     ],
     "hates": [
       "Birdo"
@@ -249,9 +240,9 @@
     "likes": [
       "Red Koopa Troopa",
       "Blue Mii Male",
-      "Blue Mii Male 2",
+      
       "Bowser",
-      "Blue Mii Female 2",
+      
       "Blue Mii Female",
       "Koopa Troopa"
     ],
@@ -265,9 +256,9 @@
   "Blue Kritter": {
     "likes": [
       "Blue Mii Male",
-      "Blue Mii Male 2",
+      
       "King K Rool",
-      "Blue Mii Female 2",
+      
       "Blue Mii Female"
     ],
     "hates": [
@@ -285,23 +276,7 @@
       "Noki",
       "Boomerang Bro",
       "Blue Mii Male",
-      "Blue Mii Male 2",
-      "Blue Kritter",
-      "Blue Toad",
-      "Magikoopa",
-      "Pianta",
-      "Blue Shy Guy",
-      "Blue Yoshi"
-    ],
-    "hates": []
-  },
-  "Blue Mii Female 2": {
-    "likes": [
-      "Blue Dry Bones",
-      "Noki",
-      "Boomerang Bro",
-      "Blue Mii Male",
-      "Blue Mii Male 2",
+      
       "Blue Kritter",
       "Blue Toad",
       "Magikoopa",
@@ -319,23 +294,7 @@
       "Blue Kritter",
       "Blue Toad",
       "Magikoopa",
-      "Blue Mii Female 2",
-      "Blue Mii Female",
-      "Pianta",
-      "Blue Shy Guy",
-      "Blue Yoshi"
-    ],
-    "hates": []
-  },
-  "Blue Mii Male 2": {
-    "likes": [
-      "Blue Dry Bones",
-      "Noki",
-      "Boomerang Bro",
-      "Blue Kritter",
-      "Blue Toad",
-      "Magikoopa",
-      "Blue Mii Female 2",
+      
       "Blue Mii Female",
       "Pianta",
       "Blue Shy Guy",
@@ -347,9 +306,9 @@
     "likes": [
       "Boo",
       "Blue Mii Male",
-      "Blue Mii Male 2",
+      
       "Monty Mole",
-      "Blue Mii Female 2",
+      
       "Blue Mii Female",
       "Birdo"
     ],
@@ -371,10 +330,10 @@
       "Red Pianta",
       "Yellow Pianta",
       "Blue Mii Male",
-      "Blue Mii Male 2",
+      
       "Toadette",
       "Peach",
-      "Blue Mii Female 2",
+      
       "Blue Mii Female",
       "Pianta",
       "Toadsworth",
@@ -391,11 +350,11 @@
       "Baby DK",
       "Baby Daisy",
       "Blue Mii Male",
-      "Blue Mii Male 2",
+      
       "Baby Mario",
       "Mario",
       "Baby Luigi",
-      "Blue Mii Female 2",
+      
       "Blue Mii Female",
       "Birdo",
       "Baby Peach"
@@ -427,7 +386,7 @@
       "Black Shy Guy",
       "Red Magikoopa",
       "Blue Shy Guy",
-      "White Mii Female",
+      
       "Yellow Magikoopa"
     ],
     "hates": [
@@ -448,12 +407,12 @@
     "likes": [
       "Bowser Jr",
       "Blue Mii Male",
-      "Blue Mii Male 2",
+      
       "Green Magikoopa",
       "Bowser",
       "Magikoopa",
       "Red Magikoopa",
-      "Blue Mii Female 2",
+      
       "Blue Mii Female",
       "Yellow Magikoopa"
     ],
@@ -469,7 +428,7 @@
       "Red Koopa Troopa",
       "Fire Bro",
       "Hammer Bro",
-      "Black Mii Female",
+      
       "Blue Dry Bones",
       "Boomerang Bro",
       "Bowser Jr",
@@ -509,7 +468,7 @@
       "Red Koopa Troopa",
       "Fire Bro",
       "Hammer Bro",
-      "Black Mii Female",
+      
       "Boomerang Bro",
       "Black Mii Male",
       "Green Magikoopa",
@@ -532,10 +491,10 @@
   "Brown Kritter": {
     "likes": [
       "Brown Mii Female",
-      "Brown Mii Female 2",
+      
       "King K Rool",
-      "Brown Mii Male",
-      "Brown Mii Male 2"
+      "Brown Mii Male"
+      
     ],
     "hates": [
       "Baby DK",
@@ -551,21 +510,7 @@
       "Baby DK",
       "Brown Kritter",
       "Brown Mii Male",
-      "Brown Mii Male 2",
-      "Donkey Kong",
-      "Monty Mole",
-      "Paragoomba",
-      "Goomba",
-      "Toadsworth"
-    ],
-    "hates": []
-  },
-  "Brown Mii Female 2": {
-    "likes": [
-      "Baby DK",
-      "Brown Kritter",
-      "Brown Mii Male",
-      "Brown Mii Male 2",
+      
       "Donkey Kong",
       "Monty Mole",
       "Paragoomba",
@@ -579,21 +524,7 @@
       "Baby DK",
       "Brown Kritter",
       "Brown Mii Female",
-      "Brown Mii Female 2",
-      "Donkey Kong",
-      "Monty Mole",
-      "Paragoomba",
-      "Goomba",
-      "Toadsworth"
-    ],
-    "hates": []
-  },
-  "Brown Mii Male 2": {
-    "likes": [
-      "Baby DK",
-      "Brown Kritter",
-      "Brown Mii Female",
-      "Brown Mii Female 2",
+      
       "Donkey Kong",
       "Monty Mole",
       "Paragoomba",
@@ -605,7 +536,7 @@
   "Daisy": {
     "likes": [
       "Orange Mii Male",
-      "Orange Mii Female",
+      
       "Luigi",
       "Peach",
       "Birdo"
@@ -620,8 +551,8 @@
     "likes": [
       "Red Koopa Troopa",
       "Red Mii Female",
-      "Red Mii Female 2",
-      "Red Mii Male 2",
+      
+      
       "Red Mii Male",
       "Bowser",
       "Koopa Troopa"
@@ -653,11 +584,11 @@
       "Diddy Kong",
       "Tiny Kong",
       "Pink Mii Male",
-      "Pink Mii Male 2",
+      
       "Funky Kong",
       "Donkey Kong",
-      "Pink Mii Female",
-      "Pink Mii Female 2"
+      "Pink Mii Female"
+      
     ],
     "hates": [
       "Red Kritter",
@@ -676,11 +607,11 @@
       "Diddy Kong",
       "Tiny Kong",
       "Brown Mii Male",
-      "Brown Mii Male 2",
+      
       "Dixie Kong",
       "Funky Kong",
-      "Brown Mii Female",
-      "Brown Mii Female 2"
+      "Brown Mii Female"
+      
     ],
     "hates": [
       "Red Kritter",
@@ -695,7 +626,7 @@
       "Red Koopa Troopa",
       "White Mii Male",
       "Bowser",
-      "White Mii Female",
+      
       "Koopa Troopa"
     ],
     "hates": [
@@ -708,9 +639,9 @@
   "Fire Bro": {
     "likes": [
       "Red Mii Female",
-      "Red Mii Female 2",
+      
       "Bowser Jr",
-      "Red Mii Male 2",
+      
       "Red Mii Male",
       "Green Magikoopa",
       "Bowser",
@@ -731,7 +662,7 @@
       "Light Blue Mii Male",
       "Diddy Kong",
       "Tiny Kong",
-      "Light Blue Mii Female",
+      
       "Dixie Kong",
       "Donkey Kong"
     ],
@@ -747,9 +678,9 @@
     "likes": [
       "Red Koopa Troopa",
       "Brown Mii Male",
-      "Brown Mii Male 2",
+      
       "Brown Mii Female",
-      "Brown Mii Female 2",
+      
       "Monty Mole",
       "Paragoomba",
       "Koopa Troopa"
@@ -771,9 +702,9 @@
     "likes": [
       "Red Koopa Troopa",
       "Green Mii Female",
-      "Green Mii Female 2",
+      
       "Green Mii Male",
-      "Green Mii Male 2",
+      
       "Bowser",
       "Koopa Troopa"
     ],
@@ -790,10 +721,10 @@
       "Hammer Bro",
       "Boo",
       "Green Mii Female",
-      "Green Mii Female 2",
+      
       "Boomerang Bro",
       "Green Mii Male",
-      "Green Mii Male 2",
+      
       "Bowser"
     ],
     "hates": [
@@ -813,26 +744,7 @@
       "Green Toad",
       "Hammer Bro",
       "Green Mii Male",
-      "Green Mii Male 2",
-      "Green Shy Guy",
-      "Luigi",
-      "Green Magikoopa",
-      "Koopa Paratroopa",
-      "Baby Luigi",
-      "Green Dry Bones",
-      "King K Rool",
-      "Kritter",
-      "Koopa Troopa"
-    ],
-    "hates": []
-  },
-  "Green Mii Female 2": {
-    "likes": [
-      "Green Noki",
-      "Green Toad",
-      "Hammer Bro",
-      "Green Mii Male",
-      "Green Mii Male 2",
+      
       "Green Shy Guy",
       "Luigi",
       "Green Magikoopa",
@@ -851,26 +763,7 @@
       "Green Toad",
       "Hammer Bro",
       "Green Mii Female",
-      "Green Mii Female 2",
-      "Green Shy Guy",
-      "Luigi",
-      "Green Magikoopa",
-      "Koopa Paratroopa",
-      "Baby Luigi",
-      "Green Dry Bones",
-      "King K Rool",
-      "Kritter",
-      "Koopa Troopa"
-    ],
-    "hates": []
-  },
-  "Green Mii Male 2": {
-    "likes": [
-      "Green Noki",
-      "Green Toad",
-      "Hammer Bro",
-      "Green Mii Female",
-      "Green Mii Female 2",
+      
       "Green Shy Guy",
       "Luigi",
       "Green Magikoopa",
@@ -887,10 +780,10 @@
     "likes": [
       "Red Pianta",
       "Green Mii Female",
-      "Green Mii Female 2",
+      
       "Yellow Pianta",
       "Green Mii Male",
-      "Green Mii Male 2",
+      
       "Toadette",
       "Mario",
       "Pianta"
@@ -905,10 +798,10 @@
   "Green Shy Guy": {
     "likes": [
       "Green Mii Female",
-      "Green Mii Female 2",
+      
       "Boo",
       "Green Mii Male",
-      "Green Mii Male 2",
+      
       "Monty Mole",
       "Birdo"
     ],
@@ -929,10 +822,10 @@
     "likes": [
       "Red Pianta",
       "Green Mii Female",
-      "Green Mii Female 2",
+      
       "Yellow Pianta",
       "Green Mii Male",
-      "Green Mii Male 2",
+      
       "Toadette",
       "Peach",
       "Pianta",
@@ -948,9 +841,9 @@
   "Hammer Bro": {
     "likes": [
       "Green Mii Female",
-      "Green Mii Female 2",
+      
       "Green Mii Male",
-      "Green Mii Male 2",
+      
       "Bowser Jr",
       "Green Magikoopa",
       "Bowser",
@@ -971,8 +864,8 @@
       "Boo",
       "Wiggler",
       "King K Rool",
-      "Petey Piranha",
-      "White Mii Female"
+      "Petey Piranha"
+      
     ],
     "hates": [
       "Baby Daisy",
@@ -992,10 +885,10 @@
   "King K Rool": {
     "likes": [
       "Green Mii Female",
-      "Green Mii Female 2",
+      
       "Red Kritter",
       "Green Mii Male",
-      "Green Mii Male 2",
+      
       "King Boo",
       "Blue Kritter",
       "Kritter",
@@ -1015,9 +908,9 @@
     "likes": [
       "Red Koopa Troopa",
       "Green Mii Female",
-      "Green Mii Female 2",
+      
       "Green Mii Male",
-      "Green Mii Male 2",
+      
       "Bowser",
       "Paragoomba",
       "Koopa Troopa"
@@ -1029,10 +922,10 @@
   "Koopa Troopa": {
     "likes": [
       "Green Mii Female",
-      "Green Mii Female 2",
+      
       "Blue Dry Bones",
       "Green Mii Male",
-      "Green Mii Male 2",
+      
       "Bowser Jr",
       "Koopa Paratroopa",
       "Dark Bones",
@@ -1048,9 +941,9 @@
     "likes": [
       "King K Rool",
       "Green Mii Female",
-      "Green Mii Female 2",
-      "Green Mii Male",
-      "Green Mii Male 2"
+      
+      "Green Mii Male"
+      
     ],
     "hates": [
       "Baby DK",
@@ -1061,21 +954,12 @@
       "Donkey Kong"
     ]
   },
-  "Light Blue Mii Female": {
-    "likes": [
-      "Light Blue Yoshi",
-      "Light Blue Mii Male",
-      "Funky Kong",
-      "Tiny Kong"
-    ],
-    "hates": []
-  },
   "Light Blue Mii Male": {
     "likes": [
       "Light Blue Yoshi",
       "Funky Kong",
-      "Tiny Kong",
-      "Light Blue Mii Female"
+      "Tiny Kong"
+      
     ],
     "hates": []
   },
@@ -1083,7 +967,7 @@
     "likes": [
       "Baby DK",
       "Light Blue Mii Male",
-      "Light Blue Mii Female",
+      
       "Baby Daisy",
       "Baby Mario",
       "Mario",
@@ -1105,17 +989,9 @@
       "Yellow Magikoopa"
     ]
   },
-  "Light Green Mii Female": {
-    "likes": [
-      "Light Green Mii Male",
-      "Petey Piranha",
-      "Yoshi"
-    ],
-    "hates": []
-  },
   "Light Green Mii Male": {
     "likes": [
-      "Light Green Mii Female",
+      
       "Petey Piranha",
       "Yoshi"
     ],
@@ -1124,9 +1000,9 @@
   "Luigi": {
     "likes": [
       "Green Mii Male",
-      "Green Mii Male 2",
+      
       "Green Mii Female",
-      "Green Mii Female 2",
+      
       "Mario",
       "Daisy"
     ],
@@ -1148,9 +1024,9 @@
       "Boo",
       "Boomerang Bro",
       "Blue Mii Male",
-      "Blue Mii Male 2",
+      
       "Bowser",
-      "Blue Mii Female 2",
+      
       "Blue Mii Female"
     ],
     "hates": [
@@ -1172,9 +1048,9 @@
       "Yellow Pianta",
       "Noki",
       "Red Mii Female",
-      "Red Mii Female 2",
+      
       "Pink Yoshi",
-      "Red Mii Male 2",
+      
       "Red Mii Male",
       "Yoshi",
       "Luigi",
@@ -1194,10 +1070,10 @@
   "Monty Mole": {
     "likes": [
       "Brown Mii Male",
-      "Brown Mii Male 2",
+      
       "Yellow Shy Guy",
       "Brown Mii Female",
-      "Brown Mii Female 2",
+      
       "Green Shy Guy",
       "Shy Guy",
       "Black Shy Guy",
@@ -1212,10 +1088,10 @@
       "Red Pianta",
       "Yellow Pianta",
       "Blue Mii Male",
-      "Blue Mii Male 2",
+      
       "Toadette",
       "Mario",
-      "Blue Mii Female 2",
+      
       "Blue Mii Female",
       "Pianta"
     ],
@@ -1226,18 +1102,10 @@
       "Petey Piranha"
     ]
   },
-  "Orange Mii Female": {
-    "likes": [
-      "Orange Mii Male",
-      "Baby Daisy",
-      "Daisy"
-    ],
-    "hates": []
-  },
   "Orange Mii Male": {
     "likes": [
       "Baby Daisy",
-      "Orange Mii Female",
+      
       "Daisy"
     ],
     "hates": []
@@ -1245,9 +1113,9 @@
   "Paragoomba": {
     "likes": [
       "Brown Mii Male",
-      "Brown Mii Male 2",
+      
       "Brown Mii Female",
-      "Brown Mii Female 2",
+      
       "Monty Mole",
       "Koopa Paratroopa",
       "Red Koopa Paratroopa",
@@ -1267,7 +1135,7 @@
     "likes": [
       "Green Toad",
       "Pink Mii Male",
-      "Pink Mii Male 2",
+      
       "Daisy",
       "Purple Toad",
       "Toadette",
@@ -1275,7 +1143,7 @@
       "Blue Toad",
       "Yellow Toad",
       "Pink Mii Female",
-      "Pink Mii Female 2",
+      
       "Toad",
       "Toadsworth"
     ],
@@ -1290,7 +1158,7 @@
       "Wiggler",
       "King Boo",
       "Light Green Mii Male",
-      "Light Green Mii Female",
+      
       "Birdo"
     ],
     "hates": [
@@ -1315,11 +1183,11 @@
       "Noki",
       "Purple Toad",
       "Blue Mii Male",
-      "Blue Mii Male 2",
+      
       "Mario",
       "Blue Toad",
       "Yellow Toad",
-      "Blue Mii Female 2",
+      
       "Blue Mii Female",
       "Toad",
       "Toadsworth"
@@ -1332,20 +1200,7 @@
   "Pink Mii Female": {
     "likes": [
       "Pink Mii Male",
-      "Pink Mii Male 2",
-      "Dixie Kong",
-      "Pink Yoshi",
-      "Toadette",
-      "Peach",
-      "Birdo",
-      "Baby Peach"
-    ],
-    "hates": []
-  },
-  "Pink Mii Female 2": {
-    "likes": [
-      "Pink Mii Male",
-      "Pink Mii Male 2",
+      
       "Dixie Kong",
       "Pink Yoshi",
       "Toadette",
@@ -1362,20 +1217,7 @@
       "Toadette",
       "Peach",
       "Pink Mii Female",
-      "Pink Mii Female 2",
-      "Birdo",
-      "Baby Peach"
-    ],
-    "hates": []
-  },
-  "Pink Mii Male 2": {
-    "likes": [
-      "Dixie Kong",
-      "Pink Yoshi",
-      "Toadette",
-      "Peach",
-      "Pink Mii Female",
-      "Pink Mii Female 2",
+      
       "Birdo",
       "Baby Peach"
     ],
@@ -1385,13 +1227,13 @@
     "likes": [
       "Baby DK",
       "Pink Mii Male",
-      "Pink Mii Male 2",
+      
       "Baby Daisy",
       "Baby Mario",
       "Mario",
       "Baby Luigi",
       "Pink Mii Female",
-      "Pink Mii Female 2",
+      
       "Birdo",
       "Baby Peach"
     ],
@@ -1447,8 +1289,8 @@
     "likes": [
       "Red Koopa Troopa",
       "Red Mii Female",
-      "Red Mii Female 2",
-      "Red Mii Male 2",
+      
+      
       "Red Mii Male",
       "Bowser",
       "Paragoomba",
@@ -1462,9 +1304,9 @@
     "likes": [
       "Blue Dry Bones",
       "Red Mii Female",
-      "Red Mii Female 2",
+      
       "Bowser Jr",
-      "Red Mii Male 2",
+      
       "Red Mii Male",
       "Koopa Paratroopa",
       "Dark Bones",
@@ -1479,9 +1321,9 @@
   "Red Kritter": {
     "likes": [
       "Red Mii Female",
-      "Red Mii Female 2",
+      
       "King K Rool",
-      "Red Mii Male 2",
+      
       "Red Mii Male"
     ],
     "hates": [
@@ -1500,8 +1342,8 @@
       "Boo",
       "Boomerang Bro",
       "Red Mii Female",
-      "Red Mii Female 2",
-      "Red Mii Male 2",
+      
+      
       "Red Mii Male",
       "Bowser"
     ],
@@ -1524,27 +1366,7 @@
       "Red Noki",
       "Red Kritter",
       "Baby Mario",
-      "Red Mii Male 2",
-      "Red Mii Male",
-      "Shy Guy",
-      "Mario",
-      "Dark Bones",
-      "Red Magikoopa",
-      "Red Yoshi",
-      "Toad",
-      "Red Koopa Paratroopa"
-    ],
-    "hates": []
-  },
-  "Red Mii Female 2": {
-    "likes": [
-      "Red Pianta",
-      "Red Koopa Troopa",
-      "Fire Bro",
-      "Red Noki",
-      "Red Kritter",
-      "Baby Mario",
-      "Red Mii Male 2",
+      
       "Red Mii Male",
       "Shy Guy",
       "Mario",
@@ -1564,27 +1386,7 @@
       "Red Noki",
       "Red Kritter",
       "Red Mii Female",
-      "Red Mii Female 2",
-      "Baby Mario",
-      "Shy Guy",
-      "Mario",
-      "Dark Bones",
-      "Red Magikoopa",
-      "Red Yoshi",
-      "Toad",
-      "Red Koopa Paratroopa"
-    ],
-    "hates": []
-  },
-  "Red Mii Male 2": {
-    "likes": [
-      "Red Pianta",
-      "Red Koopa Troopa",
-      "Fire Bro",
-      "Red Noki",
-      "Red Kritter",
-      "Red Mii Female",
-      "Red Mii Female 2",
+      
       "Baby Mario",
       "Shy Guy",
       "Mario",
@@ -1601,8 +1403,8 @@
       "Red Pianta",
       "Yellow Pianta",
       "Red Mii Female",
-      "Red Mii Female 2",
-      "Red Mii Male 2",
+      
+      
       "Red Mii Male",
       "Toadette",
       "Mario",
@@ -1623,8 +1425,8 @@
       "Noki",
       "Purple Toad",
       "Red Mii Female",
-      "Red Mii Female 2",
-      "Red Mii Male 2",
+      
+      
       "Red Mii Male",
       "Mario",
       "Blue Toad",
@@ -1642,9 +1444,9 @@
       "Baby DK",
       "Baby Daisy",
       "Red Mii Female",
-      "Red Mii Female 2",
+      
       "Baby Mario",
-      "Red Mii Male 2",
+      
       "Red Mii Male",
       "Mario",
       "Baby Luigi",
@@ -1669,8 +1471,8 @@
     "likes": [
       "Boo",
       "Red Mii Female",
-      "Red Mii Female 2",
-      "Red Mii Male 2",
+      
+      
       "Red Mii Male",
       "Monty Mole",
       "Birdo"
@@ -1693,7 +1495,7 @@
       "Baby DK",
       "Light Blue Mii Male",
       "Diddy Kong",
-      "Light Blue Mii Female",
+      
       "Dixie Kong",
       "Funky Kong",
       "Donkey Kong"
@@ -1712,8 +1514,8 @@
       "Red Pianta",
       "Yellow Pianta",
       "Red Mii Female",
-      "Red Mii Female 2",
-      "Red Mii Male 2",
+      
+      
       "Red Mii Male",
       "Toadette",
       "Peach",
@@ -1732,7 +1534,7 @@
       "Green Toad",
       "Green Noki",
       "Pink Mii Male",
-      "Pink Mii Male 2",
+      
       "Red Noki",
       "Noki",
       "Purple Toad",
@@ -1740,7 +1542,7 @@
       "Yellow Toad",
       "Peach",
       "Pink Mii Female",
-      "Pink Mii Female 2",
+      
       "Birdo",
       "Toad",
       "Toadsworth"
@@ -1756,7 +1558,7 @@
       "Red Pianta",
       "Green Toad",
       "Brown Mii Male",
-      "Brown Mii Male 2",
+      
       "Yellow Pianta",
       "Purple Toad",
       "Toadette",
@@ -1765,7 +1567,7 @@
       "Peach",
       "Pianta",
       "Brown Mii Female",
-      "Brown Mii Female 2",
+      
       "Toad",
       "Baby Peach"
     ],
@@ -1792,32 +1594,22 @@
     "likes": [
       "Waluigi",
       "Yellow Mii Female",
-      "Yellow Mii Female 2",
-      "Yellow Mii Male",
-      "Yellow Mii Male 2"
+      
+      "Yellow Mii Male"
+      
     ],
     "hates": [
       "Mario",
       "Birdo"
     ]
   },
-  "White Mii Female": {
-    "likes": [
-      "White Mii Male",
-      "Boo",
-      "Blooper",
-      "King Boo",
-      "Dry Bones"
-    ],
-    "hates": []
-  },
   "White Mii Male": {
     "likes": [
       "Boo",
       "Blooper",
       "King Boo",
-      "Dry Bones",
-      "White Mii Female"
+      "Dry Bones"
+      
     ],
     "hates": []
   },
@@ -1825,9 +1617,9 @@
     "likes": [
       "Blooper",
       "Yellow Mii Female",
-      "Yellow Mii Female 2",
+      
       "Yellow Mii Male",
-      "Yellow Mii Male 2",
+      
       "King Boo",
       "Petey Piranha"
     ],
@@ -1839,10 +1631,10 @@
       "Hammer Bro",
       "Boo",
       "Yellow Mii Female",
-      "Yellow Mii Female 2",
+      
       "Boomerang Bro",
       "Yellow Mii Male",
-      "Yellow Mii Male 2",
+      
       "Bowser"
     ],
     "hates": [
@@ -1863,21 +1655,7 @@
       "Yellow Pianta",
       "Wiggler",
       "Yellow Mii Male",
-      "Yellow Mii Male 2",
-      "Yellow Toad",
-      "Yellow Yoshi",
-      "Yellow Magikoopa"
-    ],
-    "hates": []
-  },
-  "Yellow Mii Female 2": {
-    "likes": [
-      "Wario",
-      "Yellow Shy Guy",
-      "Yellow Pianta",
-      "Wiggler",
-      "Yellow Mii Male",
-      "Yellow Mii Male 2",
+      
       "Yellow Toad",
       "Yellow Yoshi",
       "Yellow Magikoopa"
@@ -1888,21 +1666,7 @@
     "likes": [
       "Wario",
       "Yellow Mii Female",
-      "Yellow Mii Female 2",
-      "Yellow Shy Guy",
-      "Yellow Pianta",
-      "Wiggler",
-      "Yellow Toad",
-      "Yellow Yoshi",
-      "Yellow Magikoopa"
-    ],
-    "hates": []
-  },
-  "Yellow Mii Male 2": {
-    "likes": [
-      "Wario",
-      "Yellow Mii Female",
-      "Yellow Mii Female 2",
+      
       "Yellow Shy Guy",
       "Yellow Pianta",
       "Wiggler",
@@ -1918,11 +1682,11 @@
       "Green Noki",
       "Red Noki",
       "Yellow Mii Female",
-      "Yellow Mii Female 2",
+      
       "Noki",
       "Purple Toad",
       "Yellow Mii Male",
-      "Yellow Mii Male 2",
+      
       "Mario",
       "Blue Toad",
       "Yellow Toad",
@@ -1938,9 +1702,9 @@
     "likes": [
       "Boo",
       "Yellow Mii Female",
-      "Yellow Mii Female 2",
+      
       "Yellow Mii Male",
-      "Yellow Mii Male 2",
+      
       "Monty Mole",
       "Birdo"
     ],
@@ -1961,10 +1725,10 @@
     "likes": [
       "Red Pianta",
       "Yellow Mii Female",
-      "Yellow Mii Female 2",
+      
       "Yellow Pianta",
       "Yellow Mii Male",
-      "Yellow Mii Male 2",
+      
       "Toadette",
       "Peach",
       "Pianta",
@@ -1981,9 +1745,9 @@
     "likes": [
       "Baby DK",
       "Yellow Mii Female",
-      "Yellow Mii Female 2",
+      
       "Yellow Mii Male",
-      "Yellow Mii Male 2",
+      
       "Baby Daisy",
       "Baby Mario",
       "Mario",
@@ -2012,7 +1776,7 @@
       "Baby Mario",
       "Light Green Mii Male",
       "Mario",
-      "Light Green Mii Female",
+      
       "Baby Luigi",
       "Birdo",
       "Baby Peach"

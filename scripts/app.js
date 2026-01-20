@@ -949,31 +949,6 @@ const playoffMvpCounts = {
 };
 
 window.mvpS3Counts = {
-  "Petey Piranha": 5,
-  "Fire Bro": 4,
-  "Bowser": 6,
-  "Blue Kritter": 2,
-  "Donkey Kong": 3,
-  "Wiggler": 2,
-  "Kritter": 2,
-  "King Boo": 1,
-  "Pink Yoshi": 1,
-  "John K": 1,
-  "Toad": 1,
-  "King K Rool": 2,
-  "Birdo": 1,
-  "Yellow Pianta": 2,
-  "Dry Bones": 1,
-  "Red Kritter": 1,
-  "Funky Kong": 1,
-  "Pianta": 1,
-  "Chicken": 1,
-  "Unc": 1,
-  "Hammer Bro": 1,
-  "Tung Tung Tung Sahur": 1
-
-
-
 
 };
 
@@ -1617,14 +1592,14 @@ function renderSeason3Stats() {
   grid.innerHTML = '';
   
   const teamRosters = {
-        "Kircher": ["Bowser", "Dark Bones", "Blue Dry Bones", "Magikoopa", "Blue Toad", "John 2.0", "KevinG", "Blue Yoshi", "Tiny Kong", "Vicar", "Black Shy Guy", "Chicken", "Noki"],
-        "Julian": ["King K Rool", "Blue Kritter", "Red Kritter", "Toad", "Purple Toad", "Peach", "Baby Peach", "Toadsworth", "Saddam Hussein", "Ghandi", "Unc", "Kim Jong Un", "MLK Jr"],
-        "Jmo": ["Donkey Kong", "Yellow Pianta", "King Boo", "Yellow Toad", "Baby DK", "Yellow Yoshi", "Carby", "Yellow Shy Guy", "John K", "Baby Daisy", "Dixie Kong", "Lil Wayne", "Green Noki"],
-        "Carby": ["Petey Piranha", "Red Pianta", "Wiggler", "Wario", "Waluigi", "Yellow Magikoopa", "Blooper", "Caillou", "Livvy Dunne", "Doc Brown", "Monty Mole", "Lara Croft", "Diminutive"],
-        "Tom": ["Fire Bro", "Funky Kong", "Dry Bones", "Luigi", "Daisy", "Tung Tung Tung Sahur", "Saka", "Red Magikoopa", "Mikasa", "Semenlad", "Red Yoshi", "Red Koopa Paratroopa", "Yghur"],
-        "BenR": ["Hammer Bro", "Boomerang Bro", "Bowser Jr", "Blue Shy Guy", "Green Magikoopa", "Matt", "Gus Fring", "Lebron James", "Paragoomba", "Shy Guy", "Goomba", "Red Koopa Troopa", "Ice Cube"],
-        "HarryKirch": ["Birdo", "Pianta", "Mario", "Yoshi", "Toadette", "Baby Luigi", "Miss Hot", "Dwayne Wade", "Pink Yoshi", "Dora", "Baby Mario", "Light Blue Yoshi", "Red Noki"],
-        "BenT": ["Brown Kritter", "Kritter", "Green Dry Bones", "Green Toad", "Diddy Kong", "Rizzler", "Green Shy Guy", "Boo", "Koopa Troopa", "Pops", "Koopa Paratroopa", "Handsome Squidward", "Big AJ"]
+        "Tom": ["Bowser", "Birdo", "Kritter", "Daisy", "Magikoopa", "Goomba", "Monty Mole", "Pink Yoshi"],
+        "HarryKirch": ["Donkey Kong", "Funky Kong", "Brown Kritter", "Wario", "Waluigi", "Yellow Magikoopa", "Diddy Kong", "Bowser Jr", "Koopa Troopa", "Dixie Kong"],
+        "Julian": ["Unc", "Toad", "Red Kritter", "Shy Guy", "Red Koopa Paratroopa", "Red Koopa Troopa", "Red Magikoopa", "Red Noki", "Red Yoshi", "Black Shy Guy"],
+        "Jmo": ["Petey Piranha", "Boomerang Bro", "Dark Bones", "Blue Dry Bones", "Green Dry Bones", "Boo", "Blooper", "Light Blue Yoshi", "Tiny Kong"],
+        "Kircher": ["Fire Bro", "Red Pianta", "Dry Bones", "Blue Kritter", "Blue Yoshi", "Toadsworth", "Blue Shy Guy", "Noki"],
+        "Carby": ["King K Rool", "Hammer Bro", "Luigi", "King Boo", "Green Toad", "Green Magikoopa", "Green Shy Guy", "Green Noki", "Koopa Paratroopa"],
+        "BenT": ["Wiggler", "Yellow Pianta", "Yellow Toad", "Blue Toad", "Baby DK", "Paragoomba", "Yellow Shy Guy", "Baby Peach", "Yellow Yoshi"],
+        "BenR": ["Mario", "Pianta", "Purple Toad", "Peach", "Toadette", "Yoshi", "Baby Mario", "Baby Luigi", "Baby Daisy"]
       };
 
   const allCharacters = window.characters.map(char => {

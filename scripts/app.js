@@ -137,38 +137,38 @@ window.captains = captains;
 
 const miiMeta = {
     "Black Widow": { gender: "F", color: "black" },
-    "Borat": { gender: "M", color: "green" },
+    "Borat": { gender: "M", color: "yellow" },
     "Captain Jack Sparrow": { gender: "M", color: "white" },
     "Chicken": { gender: "F", color: "blue" },
     "Dwayne Wade": { gender: "M", color: "pink" },
     "Ice Cube": { gender: "M", color: "lightgreen" },
-    "Mr. Incredible": { gender: "M", color: "red" },
+    "Mr. Incredible": { gender: "M", color: "blue" },
     "John": { gender: "M", color: "lightgreen" },
     "KevinG": { gender: "M", color: "orange" },
     "Lara Croft": { gender: "F", color: "purple" },
     "Lilo": { gender: "F", color: "green" },
     "MJ HeeHee": { gender: "M", color: "lightblue" },
-    "Matt": { gender: "M", color: "blue" },
+    "Matt": { gender: "F", color: "pink" },
     "Mikasa": { gender: "F", color: "green" },
     "Minion": { gender: "F", color: "red" },
-    "Miss Hot": { gender: "F", color: "pink" },
-    "Semenlad": { gender: "M", color: "green" },
-    "Snape": { gender: "M", color: "black" },
+    "Miss Hot": { gender: "F", color: "yellow" },
+    "Semenlad": { gender: "M", color: "black" },
+    "Snape": { gender: "M", color: "lightblue" },
     "Trinity": { gender: "F", color: "purple" },
     "Unc": { gender: "M", color: "red" },
     "Lil Wayne": { gender: "M", color: "brown" },
     "Kim Jong Un": { gender: "F", color: "red" },
-    "Frozone": { gender: "F", color: "purple" },
+    "Frozone": { gender: "F", color: "blue" },
     "The Penguin": { gender: "M", color: "purple" },
     "Handsome Squidward": { gender: "F", color: "brown" },
     "Harry Potter": { gender: "M", color: "lightgreen" },
-    "Rizzler": { gender: "M", color: "green" },
+    "Rizzler": { gender: "M", color: "pink" },
     "Tsitsipas": { gender: "F", color: "pink" },
     "Dora": { gender: "F", color: "pink" },
     "KSI": { gender: "F", color: "brown" },
     "Big AJ": { gender: "M", color: "white" },
     "Carby": { gender: "M", color: "yellow" },
-    "Lebron James": { gender: "F", color: "blue" },
+    "Lebron James": { gender: "M", color: "orange" },
     "Lizzy": { gender: "F", color: "lightgreen" },
     "Saddam Hussein": { gender: "M", color: "pink" },
     "Livvy Dunne": { gender: "F", color: "yellow" },
@@ -178,7 +178,7 @@ const miiMeta = {
     "Helly R": { gender: "F", color: "blue" },
     "John 2.0": { gender: "M", color: "black" },
     "John K": { gender: "F", color: "yellow" },
-    "KevinG": { gender: "M", color: "blue" },
+    "KevinG": { gender: "M", color: "green" },
     "Miss Casey": { gender: "F", color: "white" },
     "Mrs.Claus": { gender: "F", color: "green" },
     "Queen Elizabeth": { gender: "M", color: "brown" },
@@ -186,26 +186,28 @@ const miiMeta = {
     "Zorro": { gender: "M", color: "black" },
     "Chickenrice": { gender: "M", color: "blue" },
     "Winnie The Pooh": { gender: "M", color: "purple" },
-    "Tobey Maguire": { gender: "F", color: "lightgreen" },
+    "Tobey Maguire": { gender: "M", color: "white" },
     "Gus Fring": { gender: "F", color: "green" },
-    "Tung Tung Tung Sahur": { gender: "F", color: "red" },
+    "Tung Tung Tung Sahur": { gender: "F", color: "brown" },
     "Taylor Swift": { gender: "M", color: "pink" },
     "Angelina Joeli": { gender: "M", color: "blue" },
     "Pops": { gender: "M", color: "brown" },
     "Ghandi": { gender: "F", color: "brown" },
     "Count Dooku": { gender: "M", color: "blue" },
     "MLK Jr": { gender: "F", color: "lightblue" },
-    "Syndrome": { gender: "M", color: "lightgreen" },
+    "Syndrome": { gender: "M", color: "purple" },
     "Beyonce": { gender: "F", color: "orange" },
     "Whoopie Goldberg": { gender: "M", color: "blue" },
     "Evie": { gender: "F", color: "yellow" },
     "Diminutive": { gender: "F", color: "orange" },
     "Bowler": { gender: "F", color: "green" },
-    "Doc Brown": { gender: "M", color: "yellow" },
+    "Doc Brown": { gender: "F", color: "green" },
     "Saka": { gender: "M", color: "red" },
     "Cole Palmer": { gender: "F", color: "lightgreen" },
     "Vicar": { gender: "F", color: "black" },
-    "Idi Amin": { gender: "M", color: "red"}
+    "Idi Amin": { gender: "M", color: "red"},
+    "Genghis Khan": { gender: "F", color: "red"},
+    "Charlie Kirk": { gender: "M", color: "brown"}
   };
 
 window.miiMeta = miiMeta;
@@ -1139,6 +1141,8 @@ const characters = [
   { name: "Evie", image: "assets/images/evie.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
   { name: "Noki", image: "assets/images/Noki.PNG", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
   { name: "Cole Palmer", image: "assets/images/cole plamer.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Genghis Khan", image: "assets/images/genghis khan.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
+  { name: "Charlie Kirk", image: "assets/images/charlie kirk.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 }
 ];
 
 window.characters = characters;
@@ -1592,14 +1596,14 @@ function renderSeason3Stats() {
   grid.innerHTML = '';
   
   const teamRosters = {
-        "Tom": ["Bowser", "Birdo", "Kritter", "Daisy", "Magikoopa", "Goomba", "Monty Mole", "Pink Yoshi"],
-        "HarryKirch": ["Donkey Kong", "Funky Kong", "Brown Kritter", "Wario", "Waluigi", "Yellow Magikoopa", "Diddy Kong", "Bowser Jr", "Koopa Troopa", "Dixie Kong"],
-        "Julian": ["Unc", "Toad", "Red Kritter", "Shy Guy", "Red Koopa Paratroopa", "Red Koopa Troopa", "Red Magikoopa", "Red Noki", "Red Yoshi", "Black Shy Guy"],
-        "Jmo": ["Petey Piranha", "Boomerang Bro", "Dark Bones", "Blue Dry Bones", "Green Dry Bones", "Boo", "Blooper", "Light Blue Yoshi", "Tiny Kong"],
-        "Kircher": ["Fire Bro", "Red Pianta", "Dry Bones", "Blue Kritter", "Blue Yoshi", "Toadsworth", "Blue Shy Guy", "Noki"],
-        "Carby": ["King K Rool", "Hammer Bro", "Luigi", "King Boo", "Green Toad", "Green Magikoopa", "Green Shy Guy", "Green Noki", "Koopa Paratroopa"],
-        "BenT": ["Wiggler", "Yellow Pianta", "Yellow Toad", "Blue Toad", "Baby DK", "Paragoomba", "Yellow Shy Guy", "Baby Peach", "Yellow Yoshi"],
-        "BenR": ["Mario", "Pianta", "Purple Toad", "Peach", "Toadette", "Yoshi", "Baby Mario", "Baby Luigi", "Baby Daisy"]
+        "Tom": ["Bowser", "Birdo", "Kritter", "Daisy", "Magikoopa", "Goomba", "Monty Mole", "Pink Yoshi", "Tung Tung Tung Sahur", "Charlie Kirk", "Semenlad" ],
+        "HarryKirch": ["Donkey Kong", "Funky Kong", "Brown Kritter", "Wario", "Waluigi", "Yellow Magikoopa", "Diddy Kong", "Bowser Jr", "Koopa Troopa", "Dixie Kong", "Miss Hot"],
+        "Julian": ["Toad", "Red Kritter", "Shy Guy", "Red Koopa Paratroopa", "Red Koopa Troopa", "Red Magikoopa", "Red Noki", "Red Yoshi", "Black Shy Guy", "Unc", "Genghis Khan"],
+        "Jmo": ["Petey Piranha", "Boomerang Bro", "Dark Bones", "Dry Bones", "Green Dry Bones", "Boo", "Blooper", "Light Blue Yoshi", "Tiny Kong", "Tobey Maguire", "Snape"],
+        "Kircher": ["Fire Bro", "Red Pianta", "Blue Dry Bones", "Blue Kritter", "Blue Yoshi", "Toadsworth", "Blue Shy Guy", "Noki", "Mr. Incredible", "Frozone", "Syndrome"],
+        "Carby": ["King K Rool", "Hammer Bro", "Luigi", "King Boo", "Green Toad", "Green Magikoopa", "Green Shy Guy", "Green Noki", "Koopa Paratroopa", "KevinG", "Doc Brown"],
+        "BenT": ["Wiggler", "Yellow Pianta", "Yellow Toad", "Blue Toad", "Baby DK", "Paragoomba", "Yellow Shy Guy", "Baby Peach", "Yellow Yoshi", "Borat", "Lebron James"],
+        "BenR": ["Mario", "Pianta", "Purple Toad", "Peach", "Toadette", "Yoshi", "Baby Mario", "Baby Luigi", "Baby Daisy", "Rizzler", "Matt"]
       };
 
   const allCharacters = window.characters.map(char => {

@@ -851,7 +851,7 @@ if (scrollDownBtn) {
 const mvpCounts = {
   "King K Rool": 13,
   "Red Kritter": 10,
-  "Donkey Kong": 12,
+  "Donkey Kong": 13,
   "Brown Kritter": 12,
   "Bowser": 24,
   "Unc": 7,
@@ -865,7 +865,7 @@ const mvpCounts = {
   "Bowser Jr": 2,
   "Daisy": 2,
   "Lil Wayne": 2,
-  "Red Pianta": 6,
+  "Red Pianta": 7,
   "King Boo": 4,
   "Green Toad": 3,
   "Mario": 2,
@@ -886,14 +886,14 @@ const mvpCounts = {
   "Blue Kritter": 4,
   "Petey Piranha": 18,
   "Trinity": 1,
-  "Yellow Pianta": 6,
+  "Yellow Pianta": 7,
   "MJ HeeHee": 1,
   "Magikoopa": 1,
   "Green Dry Bones": 1,
   "Red Magikoopa": 2,
   "Saddam Hussein": 2,
   "Pianta": 6,
-  "Yellow Shy Guy": 1,
+  "Yellow Shy Guy": 2,
   "Toadette": 3,
   "Red Yoshi": 1,
   "Yellow Toad": 2,
@@ -917,7 +917,8 @@ const mvpCounts = {
   "Mr. Incredible": 1,
   "Noki": 1,
   "Dwayne Wade": 1,
-  "Tobey Maguire": 1
+  "Tobey Maguire": 1,
+  "Genghis Khan": 1
 };
 
 const playoffMvpCounts = {
@@ -968,10 +969,13 @@ window.mvpS3Counts = {
   "Kritter": 2,
   "Unc": 1,
   "Funky Kong": 1,
-  "Red Pianta": 2,
+  "Red Pianta": 3,
   "Bowser": 1,
-  "Yellow Pianta": 1,
-  "Tobey Maguire": 1
+  "Yellow Pianta": 2,
+  "Tobey Maguire": 1,
+  "Genghis Khan": 1,
+  "Donkey Kong": 1,
+  "Yellow Shy Guy": 1
 };
 
 const championCounts = {

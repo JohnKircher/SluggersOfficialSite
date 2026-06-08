@@ -229,8 +229,8 @@ const STORAGE_KEY = 'sluggers_mock_draft_v2'; // v2: captains are just normal pl
 // ====== Minimal fallback data so page is usable without JSON ======
 const FALLBACK = {
   teams: [
-    'Tom','HarryKirch','Julian','Jmo',
-    'Kircher','Carby','BenT','BenR'
+    'BenR','BenT','Carby','Tom',
+    'HarryKirch','Jmo','Kircher','Julian'
   ],
   players: ['Mario','Luigi','Peach','Daisy','Yoshi','Wario','Waluigi','Bowser','Toad','Toadette'],
   chemistry: {
@@ -498,24 +498,6 @@ function renderPlayers(){
           ${it.hatedBy ? `<span class="badge hate">Hate ×${it.hatedBy}</span>` : ''}
         </div>
         ${affinityStripHTML(it.likedByList, it.hatedByList)}
-
-        ${(it.likedBy || it.hatedBy) ? `
-          <div class="affinity">
-            ${it.likedBy ? `
-              <div class="affinity-group" title="Positive chemistry with current roster">
-                <span class="affinity-label">Chem:</span>
-                ${it.likedByList.map(n=>`<img class="mini-face green" src="${imgFor(n)}" alt="${n}" title="${n}">`).join('')}
-              </div>
-            ` : ''}
-
-            ${it.hatedBy ? `
-              <div class="affinity-group" title="Negative chemistry with current roster">
-                <span class="affinity-label">Hate:</span>
-                ${it.hatedByList.map(n=>`<img class="mini-face red" src="${imgFor(n)}" alt="${n}" title="${n}">`).join('')}
-              </div>
-            ` : ''}
-          </div>
-        ` : '' }
       </div>
     </button>
   `).join('');

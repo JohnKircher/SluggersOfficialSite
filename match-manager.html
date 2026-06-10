@@ -46,6 +46,12 @@
   Clear Lineup
 </button>
 
+<button
+  id="reuseLastWeekBtn"
+  class="manager-btn secondary">
+  Reuse Last Week Selections
+</button>
+
 <h2>Lineup Builder</h2>
 <div class="lineup-field">
   <div class="position-slot pitcher" data-position="P"><strong class="slot-label">(P)</strong></div>
@@ -212,6 +218,7 @@ loadMatch().finally(hideLoader);
 async function loadMatch() {
   const res = await fetch(`${API_URL}?mode=getTeamMatches&team=${encodeURIComponent(team)}`);
   const matches = await res.json();
+  window.allTeamMatches = matches;
 
   currentMatch = matches.find(m => String(m.id) === String(activeMatchId));
 
@@ -317,6 +324,19 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
     hideLoader();
   }
 });
+
+function clearDiamondOnly() {
+  document.querySelectorAll(".position-slot").forEach(slot => {
+    const card = slot.querySelector(".draggable-player-card");
+    if (card) document.getElementById("rosterGrid").appendChild(card);
+
+    slot.dataset.player = "";
+    slot.innerHTML = `<strong class="slot-label">(${slot.dataset.position})</strong>`;
+  });
+
+  battingOrder = [];
+  renderBattingOrderList();
+}
 
 function renderRosterCards() {
   const roster = window.teamRosters[team] || [];
@@ -607,6 +627,37 @@ document.getElementById("clearLineupBtn").addEventListener("click", () => {
   battingOrder = [];
   document.getElementById("lineup").value = "";
   renderBattingOrderList();
+});
+
+document.getElementById("reuseLastWeekBtn").addEventListener("click", () => {
+  const teamMatches = window.allTeamMatches || [];
+  const currentDate = new Date(currentMatch.date);
+
+  const previousMatches = teamMatches
+    .filter(m => String(m.id) !== String(currentMatch.id))
+    .filter(m => new Date(m.date) < currentDate)
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  if (!previousMatches.length) {
+    alert("No previous match found.");
+    return;
+  }
+
+  const lastMatch = previousMatches[0];
+  const wasHome = lastMatch.home === team;
+
+  const lastLineup = wasHome ? lastMatch["Home Lineup"] : lastMatch["Away Lineup"];
+
+  document.getElementById("lineup").value = lastLineup || "";
+  document.getElementById("starPlayer").value = wasHome ? lastMatch.homeStar || "" : lastMatch.awayStar || "";
+  document.getElementById("statAdjust").value = wasHome ? lastMatch.homeStatAdjust || "" : lastMatch.awayStatAdjust || "";
+  document.getElementById("statClass").value = wasHome ? lastMatch.homeClass || "" : lastMatch.awayClass || "";
+  document.getElementById("trajectory").value = wasHome ? lastMatch.homeTrajectory || "" : lastMatch.awayTrajectory || "";
+
+  clearDiamondOnly();
+  restoreExistingLineup();
+
+  alert("Last week selections reused. Please choose stadium options before submitting.");
 });
 
 </script>

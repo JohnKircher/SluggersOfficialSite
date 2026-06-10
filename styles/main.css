@@ -1916,3 +1916,30 @@ html, body {
   outline: 4px solid #ffd166;
   box-shadow: 0 0 18px rgba(255, 209, 102, 0.8);
 }
+
+/* Mobile navbar scrolling */
+@media (max-width: 768px) {
+
+  .nav-content {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .nav-content::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-links {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    min-width: max-content;
+    gap: 1rem;
+    padding-right: 1rem;
+  }
+
+  .nav-links li {
+    flex-shrink: 0;
+  }
+
+}

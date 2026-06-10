@@ -848,9 +848,9 @@ function updatePlayoffs(season) {
 
 // Initialize default season
 if (document.querySelector('.standings-table')) {
-    updateStandings('Season1');
-    updateStandings('Season2');
-    updateStandings('Season3');
+    Object.keys(standings).forEach(season => {
+      updateStandings(season);
+    });
 
     // ✅ Set default visible tab and season
     document.querySelector('.tab[data-season="Season1"]').classList.add("active");
@@ -865,6 +865,7 @@ if (document.querySelector('.standings-table')) {
             document.getElementById(this.dataset.season).classList.add("active");
 
             // 👇 Add playoff rendering on tab click
+            updateStandings(this.dataset.season);
             updatePlayoffs(this.dataset.season);
         });
     });

@@ -1943,3 +1943,21 @@ html, body {
   }
 
 }
+
+.rivalry-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rivalry-history-row {
+  display: grid;
+  grid-template-columns: 120px 1fr 180px;
+  gap: 12px;
+  align-items: center;
+  background: rgba(10,20,35,.92);
+  border: 1px solid #ffd166;
+  border-radius: 12px;
+  padding: 12px;
+  color: white;
+}

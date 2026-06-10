@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rivalry Central | Super Sluggers League</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-content">
+    <ul class="nav-links">
+      <li><a href="index.html">📅 Home</a></li>
+      <li><a href="characters.html">🧢 Character Cast & Stats</a></li>
+      <li><a href="season.html">📅 Current Season</a></li>
+      <li><a href="h2h.html" class="active">⚔️ Rivalry Central</a></li>
+      <a href="simulator.html" class="nav-link">🏆 Playoff Simulator</a>
+      <li><a href="mock-draft.html">🧪 Mock Draft</a></li>
+      <li><a href="stat-adjuster.html">🛠️ Stat Adjuster</a></li>
+      <li id="managerNavItem" style="display:none;">
+        <a href="team-manager.html">🧢 Match Management</a>
+      </li>
+      <li id="loginNavItem">
+        <a href="team-login.html">🔐 Login</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div id="loadingOverlay" class="loading-overlay">
+  <div class="loading-spinner"></div>
+  <div class="loading-text">⚔️ Loading Rivalries...</div>
+</div>
+
+<main class="manager-container">
+  <h1 class="manager-title">⚔️ Rivalry Central</h1>
+  <p class="manager-subtitle">Head-to-head records, matchup history, and league facts.</p>
+
+  <div class="manager-card">
+    <h3>Rivalry Selector</h3>
+
+    <select id="gm1"></select>
+    <select id="gm2"></select>
+
+    <button id="viewRivalryBtn" class="manager-btn">View Rivalry</button>
+  </div>
+
+  <div id="rivalryResult" class="manager-card"></div>
+
+  <h2 class="manager-title">📈 GM Wins Over Time</h2>
+
+<div class="manager-card">
+  <canvas id="gmWinsChart"></canvas>
+</div>
+
+<h2 class="manager-title">📋 All-Time GM Records</h2>
+<div id="gmRecordsGrid" class="team-match-grid"></div>
+</main>
+
+<script>
+const H2H_API_URL = "https://script.google.com/macros/s/AKfycbzNu8Pat_xmwDBGy1kBDZklsd1xtOV0ycgng9DOelgzCPSJnnbSJRn0GZq1md8uCN4TfA/exec";
+
+const GMS = ["Tom", "Kircher", "Jmo", "HarryKirch", "Carby", "BenT", "BenR", "Julian"];
+let allMatches = [];
+
+function showLoader() {
+  document.getElementById("loadingOverlay")?.classList.remove("hidden");
+}
+
+function hideLoader() {
+  document.getElementById("loadingOverlay")?.classList.add("hidden");
+}
+
+init();
+
+async function init() {
+  showLoader();
+
+  try {
+    setupDropdowns();
+
+    const res = await fetch(`${H2H_API_URL}?mode=h2h&t=${Date.now()}`);
+    allMatches = await res.json();
+
+    renderGMWinsChart();
+    renderGMRecords();
+
+    renderRivalry("Tom", "Kircher");
+  } finally {
+    hideLoader();
+  }
+}
+
+function setupDropdowns() {
+  const gm1 = document.getElementById("gm1");
+  const gm2 = document.getElementById("gm2");
+
+  GMS.forEach(gm => {
+    gm1.innerHTML += `<option value="${gm}">${gm}</option>`;
+    gm2.innerHTML += `<option value="${gm}">${gm}</option>`;
+  });
+
+  gm1.value = "Tom";
+  gm2.value = "Kircher";
+
+  document.getElementById("viewRivalryBtn").addEventListener("click", () => {
+    renderRivalry(gm1.value, gm2.value);
+  });
+}
+
+function renderRivalry(a, b) {
+  const games = allMatches.filter(m =>
+    (m.homeGM === a && m.awayGM === b) ||
+    (m.homeGM === b && m.awayGM === a)
+  );
+
+  const box = document.getElementById("rivalryResult");
+
+  if (!games.length) {
+    box.innerHTML = `<h3>${a} vs ${b}</h3><p>No games found.</p>`;
+    return;
+  }
+
+  let aWins = 0, bWins = 0, aRuns = 0, bRuns = 0;
+  let oneRunGames = 0;
+  let biggestWin = null;
+  let highestScoring = null;
+
+  games.forEach(g => {
+    const aScore = g.homeGM === a ? g.homeScore : g.awayScore;
+    const bScore = g.homeGM === b ? g.homeScore : g.awayScore;
+
+    aRuns += aScore;
+    bRuns += bScore;
+
+    if (aScore > bScore) aWins++;
+    else bWins++;
+
+    if (Math.abs(aScore - bScore) === 1) oneRunGames++;
+
+    if (!biggestWin || g.runDiff > biggestWin.runDiff) biggestWin = g;
+    if (!highestScoring || g.totalRuns > highestScoring.totalRuns) highestScoring = g;
+  });
+
+  const leader =
+    aWins > bWins ? `${a} leads ${aWins}-${bWins}` :
+    bWins > aWins ? `${b} leads ${bWins}-${aWins}` :
+    `Series tied ${aWins}-${bWins}`;
+
+  const recent = [...games].reverse();
+  const last5 = recent.slice(0, 5);
+
+  const streak = getRivalryStreak(recent);
+
+  box.innerHTML = `
+    <h3>${a} vs ${b}</h3>
+
+    <div class="team-match-grid">
+      <div class="team-match-card">
+        <h3>📊 Series Record</h3>
+        <p>${leader}</p>
+        <p>Total Games: ${games.length}</p>
+      </div>
+
+      <div class="team-match-card">
+        <h3>🏃 Total Runs</h3>
+        <p>${a}: ${aRuns}</p>
+        <p>${b}: ${bRuns}</p>
+      </div>
+
+      <div class="team-match-card">
+        <h3>🔥 Current Streak</h3>
+        <p>${streak}</p>
+      </div>
+
+      <div class="team-match-card">
+        <h3>😱 Nailbiters</h3>
+        <p>${oneRunGames} one-run games</p>
+      </div>
+
+      <div class="team-match-card">
+        <h3>💥 Biggest Win</h3>
+        <p>${biggestWin.winner} by ${biggestWin.runDiff}</p>
+        <p>${biggestWin.homeGM} ${biggestWin.homeScore} - ${biggestWin.awayScore} ${biggestWin.awayGM}</p>
+      </div>
+
+      <div class="team-match-card">
+        <h3>💣 Highest Scoring</h3>
+        <p>${highestScoring.totalRuns} total runs</p>
+        <p>${highestScoring.homeGM} ${highestScoring.homeScore} - ${highestScoring.awayScore} ${highestScoring.awayGM}</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:2rem;">Last 5 Meetings</h3>
+    <div class="team-match-grid">
+      ${last5.map(g => renderRivalryGameCard(g)).join("")}
+    </div>
+
+    <h3 style="margin-top:2rem;">Full Rivalry History</h3>
+    <div class="rivalry-history-list">
+      ${recent.map(g => renderRivalryHistoryRow(g)).join("")}
+    </div>
+  `;
+}
+
+function getRivalryStreak(recentGames) {
+  if (!recentGames.length) return "None";
+
+  const latestWinner = recentGames[0].winner;
+  let count = 0;
+
+  for (const game of recentGames) {
+    if (game.winner === latestWinner) count++;
+    else break;
+  }
+
+  return `${latestWinner} W${count}`;
+}
+
+function renderRivalryGameCard(g) {
+  return `
+    <div class="team-match-card">
+      <h3>${g.season}</h3>
+      <p>
+        <strong>${g.homeGM}</strong> ${g.homeScore}
+        -
+        ${g.awayScore} <strong>${g.awayGM}</strong>
+      </p>
+      <p>Winner: ${g.winner}</p>
+      <p>Total Runs: ${g.totalRuns}</p>
+    </div>
+  `;
+}
+
+function renderRivalryHistoryRow(g) {
+  return `
+    <div class="rivalry-history-row">
+      <span>${g.season}</span>
+      <strong>${g.homeGM} ${g.homeScore} - ${g.awayScore} ${g.awayGM}</strong>
+      <span>${g.winner} won by ${g.runDiff}</span>
+    </div>
+  `;
+}
+
+function renderGMWinsChart() {
+  const seasonNames = [...new Set(allMatches.map(m => m.season))]
+    .sort((a, b) => Number(a.replace("Season", "")) - Number(b.replace("Season", "")));
+
+  const cumulativeWins = {};
+  GMS.forEach(gm => cumulativeWins[gm] = []);
+
+  const runningWins = {};
+  GMS.forEach(gm => runningWins[gm] = 0);
+
+  seasonNames.forEach(season => {
+    const seasonMatches = allMatches.filter(m => m.season === season);
+
+    seasonMatches.forEach(match => {
+      if (GMS.includes(match.winner)) {
+        runningWins[match.winner]++;
+      }
+    });
+
+    GMS.forEach(gm => {
+      cumulativeWins[gm].push(runningWins[gm]);
+    });
+  });
+
+  const datasets = GMS.map(gm => ({
+    label: gm,
+    data: cumulativeWins[gm],
+    tension: 0.3,
+    borderWidth: 3,
+    pointRadius: 4
+  }));
+
+  new Chart(document.getElementById("gmWinsChart"), {
+    type: "line",
+    data: {
+      labels: seasonNames,
+      datasets
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          labels: {
+            color: "white"
+          }
+        }
+      },
+      scales: {
+        x: {
+          ticks: { color: "white" },
+          grid: { color: "rgba(255,255,255,.15)" }
+        },
+        y: {
+          title: {
+            display: true,
+            text: "Cumulative Wins",
+            color: "white"
+          },
+          ticks: { color: "white" },
+          grid: { color: "rgba(255,255,255,.15)" }
+        }
+      }
+    }
+  });
+}
+
+function renderGMRecords() {
+  const records = {};
+
+  GMS.forEach(gm => {
+    records[gm] = {
+      wins: 0,
+      losses: 0,
+      runsFor: 0,
+      runsAgainst: 0
+    };
+  });
+
+  allMatches.forEach(match => {
+    const home = match.homeGM;
+    const away = match.awayGM;
+
+    records[home].runsFor += match.homeScore;
+    records[home].runsAgainst += match.awayScore;
+
+    records[away].runsFor += match.awayScore;
+    records[away].runsAgainst += match.homeScore;
+
+    records[match.winner].wins++;
+    records[match.loser].losses++;
+  });
+
+  const sorted = Object.entries(records)
+    .sort((a, b) => b[1].wins - a[1].wins);
+
+  document.getElementById("gmRecordsGrid").innerHTML = sorted.map(([gm, r]) => {
+    const games = r.wins + r.losses;
+    const pct = games ? (r.wins / games).toFixed(3) : ".000";
+    const diff = r.runsFor - r.runsAgainst;
+
+    return `
+      <div class="team-match-card">
+        <h3>${gm}</h3>
+        <p><strong>Record:</strong> ${r.wins}-${r.losses}</p>
+        <p><strong>PCT:</strong> ${pct}</p>
+        <p><strong>Runs:</strong> ${r.runsFor}-${r.runsAgainst}</p>
+        <p><strong>Diff:</strong> ${diff > 0 ? "+" : ""}${diff}</p>
+      </div>
+    `;
+  }).join("");
+}
+</script>
+
+<script src="scripts/auth-nav.js"></script>
+</body>
+</html>

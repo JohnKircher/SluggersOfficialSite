@@ -2,7 +2,23 @@
 let currentSortKey = null;
 let currentSortDirection = 'desc';
 
+const ALL_TIME_STATS_API = "https://script.google.com/macros/s/AKfycbw7FuRb4HUku3yAFZa67zUsMw9uOu_XJXW8Eo9xbTZsTiHSBGx7uUozM4mrx89sO6ra/exec";
 
+async function loadAllTimeCharacterStats() {
+  try {
+    const res = await fetch(`${ALL_TIME_STATS_API}?mode=allTimeStats&t=${Date.now()}`);
+    const data = await res.json();
+
+    window.characters = data.characters || [];
+    window.pitchingStats = data.pitchingStats || {};
+
+    console.log("✅ Loaded all-time character stats:", window.characters.length);
+  } catch (err) {
+    console.error("❌ Failed to load all-time character stats:", err);
+    window.characters = [];
+    window.pitchingStats = {};
+  }
+}
 
 //ADD MATCHES HERE
 //images: 
@@ -681,21 +697,6 @@ const playoffs = {
 };
 
 
-// Season Tabs
-document.querySelectorAll('.tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-        document.querySelector('.tab.active').classList.remove('active');
-        tab.classList.add('active');
-
-        const season = tab.dataset.season;
-        document.querySelector('.season-content.active').classList.remove('active');
-        document.getElementById(season).classList.add('active');
-
-        updateStandings(season);
-        updatePlayoffs(season);
-    });
-});
-
 function calculateStandingsFromMatches(matches) {
   const standingsMap = {};
 
@@ -1079,264 +1080,11 @@ const championCounts = {
 
 };
 
-const characters = [
-  { name: "Baby DK", image: "assets/images/baby dk.png", class: "Speed", avg: 0.512, gp: 70, hr: 10, pa: 281, hits: 144, slg: 0.672, obp: 0.517, doubles: 9, triples: 2 },
-  { name: "Baby Daisy", image: "assets/images/baby daisy.png", class: "Power", avg: 0.395, gp: 34, hr: 2, pa: 119, hits: 47, slg: 0.56, obp: 0.392, doubles: 9, triples: 2 },
-  { name: "Baby Luigi", image: "assets/images/baby luigi.png", class: "Speed", avg: 0.478, gp: 26, hr: 0, pa: 90, hits: 43, slg: 0.556, obp: 0.478, doubles: 1, triples: 3 },
-  { name: "Baby Mario", image: "assets/images/baby mario.png", class: "Speed", avg: 0.472, gp: 13, hr: 0, pa: 53, hits: 25, slg: 0.472, obp: 0.472, doubles: 0, triples: 0 },
-  { name: "Baby Peach", image: "assets/images/baby peach.png", class: "Balanced", avg: 0.308, gp: 37, hr: 0, pa: 133, hits: 41, slg: 0.369, obp: 0.308, doubles: 6, triples: 1 },
-  { name: "Birdo", image: "assets/images/birdo.png", class: "Power", avg: 0.558, gp: 70, hr: 36, pa: 278, hits: 155, slg: 0.996, obp: 0.561, doubles: 9, triples: 1 },
-  { name: "Black Shy Guy", image: "assets/images/black shy guy.png", class: "Technique", avg: 0.381, gp: 38, hr: 0, pa: 126, hits: 48, slg: 0.395, obp: 0.379, doubles: 2, triples: 0 },
-  { name: "Black Widow", image: "assets/images/black widow.jpg", class: "Balanced", avg: 0.467, gp: 9, hr: 2, pa: 30, hits: 14, slg: 0.767, obp: 0.467, doubles: 3, triples: 0 },
-  { name: "Blooper", image: "assets/images/blooper.png", class: "Balanced", avg: 0.588, gp: 58, hr: 5, pa: 233, hits: 137, slg: 0.722, obp: 0.592, doubles: 11, triples: 1 },
-  { name: "Blue Dry Bones", image: "assets/images/blue dry bones.png", class: "Balanced", avg: 0.62, gp: 70, hr: 14, pa: 284, hits: 176, slg: 0.837, obp: 0.621, doubles: 12, triples: 2 },
-  { name: "Blue Kritter", image: "assets/images/blue kritter.png", class: "Power", avg: 0.521, gp: 70, hr: 26, pa: 282, hits: 147, slg: 0.862, obp: 0.513, doubles: 13, triples: 3 },
-  { name: "Blue Shy Guy", image: "assets/images/blue shy guy.png", class: "Technique", avg: 0.376, gp: 35, hr: 0, pa: 117, hits: 44, slg: 0.421, obp: 0.376, doubles: 5, triples: 0 },
-  { name: "Blue Toad", image: "assets/images/blue toad.png", class: "Speed", avg: 0.63, gp: 64, hr: 6, pa: 262, hits: 165, slg: 0.756, obp: 0.63, doubles: 13, triples: 1 },
-  { name: "Blue Yoshi", image: "assets/images/blue yoshi.png", class: "Speed", avg: 0.702, gp: 20, hr: 1, pa: 84, hits: 59, slg: 0.864, obp: 0.71, doubles: 4, triples: 2 },
-  { name: "Boo", image: "assets/images/boo.png", class: "Speed", avg: 0.482, gp: 58, hr: 2, pa: 197, hits: 95, slg: 0.543, obp: 0.482, doubles: 6, triples: 0 },
-  { name: "Boomerang Bro", image: "assets/images/boomerang bro.png", class: "Power", avg: 0.491, gp: 70, hr: 39, pa: 267, hits: 131, slg: 0.969, obp: 0.494, doubles: 4, triples: 1 },
-  { name: "Borat", image: "assets/images/borat.jpg", class: "Balanced", avg: 0.389, gp: 41, hr: 2, pa: 167, hits: 65, slg: 0.457, obp: 0.389, doubles: 5, triples: 0 },
-  { name: "Bowler", image: "assets/images/bowler.jpg", class: "Balanced", avg: 0.312, gp: 10, hr: 1, pa: 32, hits: 10, slg: 0.438, obp: 0.313, doubles: 1, triples: 0 },
-  { name: "Bowser Jr", image: "assets/images/bowser jr.png", class: "Technique", avg: 0.475, gp: 69, hr: 6, pa: 257, hits: 122, slg: 0.616, obp: 0.475, doubles: 16, triples: 0 },
-  { name: "Bowser", image: "assets/images/bowser.png", class: "Power", avg: 0.639, gp: 70, hr: 89, pa: 296, hits: 189, slg: 1.651, obp: 0.639, doubles: 21, triples: 5 },
-  { name: "Brown Kritter", image: "assets/images/brown kritter.png", class: "Power", avg: 0.484, gp: 69, hr: 49, pa: 275, hits: 133, slg: 1.093, obp: 0.491, doubles: 10, triples: 1 },
-  { name: "Caillou", image: "assets/images/caillou.jpg", class: "Balanced", avg: 0.333, gp: 10, hr: 1, pa: 39, hits: 13, slg: 0.436, obp: 0.333, doubles: 1, triples: 0 },
-  { name: "Captain Jack Sparrow", image: "assets/images/captain jack sparrow.jpg", class: "Balanced", avg: 0.407, gp: 8, hr: 1, pa: 27, hits: 11, slg: 0.538, obp: 0.407, doubles: 0, triples: 0 },
-  { name: "Carby", image: "assets/images/carby.jpg", class: "Balanced", avg: 0.449, gp: 40, hr: 4, pa: 158, hits: 71, slg: 0.613, obp: 0.451, doubles: 8, triples: 2 },
-  { name: "Charlie Kirk", image: "assets/images/charlie kirk.jpg", class: "Balanced", avg: 0.395, gp: 10, hr: 0, pa: 38, hits: 15, slg: 0.432, obp: 0.395, doubles: 1, triples: 0 },
-  { name: "Chicken", image: "assets/images/chicken.jpg", class: "Balanced", avg: 0.463, gp: 36, hr: 3, pa: 136, hits: 63, slg: 0.559, obp: 0.463, doubles: 4, triples: 0 },
-  { name: "Chickenrice", image: "assets/images/chickenrice.jpg", class: "Balanced", avg: 0.308, gp: 4, hr: 0, pa: 13, hits: 4, slg: 0.385, obp: 0.308, doubles: 1, triples: 0 },
-  { name: "Count Dooku", image: "assets/images/count dooku.jpg", class: "Balanced", avg: 0.432, gp: 10, hr: 0, pa: 44, hits: 19, slg: 0.545, obp: 0.432, doubles: 3, triples: 1 },
-  { name: "Daisy", image: "assets/images/daisy.png", class: "Power", avg: 0.481, gp: 68, hr: 8, pa: 264, hits: 127, slg: 0.667, obp: 0.481, doubles: 19, triples: 2 },
-  { name: "Dark Bones", image: "assets/images/dark bones.png", class: "Balanced", avg: 0.635, gp: 70, hr: 21, pa: 296, hits: 188, slg: 0.939, obp: 0.638, doubles: 21, triples: 2 },
-  { name: "Diddy Kong", image: "assets/images/diddy kong.png", class: "Technique", avg: 0.511, gp: 61, hr: 2, pa: 233, hits: 119, slg: 0.59, obp: 0.511, doubles: 12, triples: 0 },
-  { name: "Diminutive", image: "assets/images/diminutive.jpg", class: "Balanced", avg: 0.41, gp: 20, hr: 2, pa: 78, hits: 32, slg: 0.551, obp: 0.41, doubles: 3, triples: 1 },
-  { name: "Dixie Kong", image: "assets/images/dixie kong.png", class: "Balanced", avg: 0.495, gp: 28, hr: 2, pa: 101, hits: 50, slg: 0.587, obp: 0.495, doubles: 3, triples: 0 },
-  { name: "Doc Brown", image: "assets/images/doc brown.jpg", class: "Balanced", avg: 0.441, gp: 28, hr: 3, pa: 111, hits: 49, slg: 0.621, obp: 0.441, doubles: 9, triples: 0 },
-  { name: "Donkey Kong", image: "assets/images/donkey kong.png", class: "Power", avg: 0.573, gp: 70, hr: 73, pa: 279, hits: 160, slg: 1.392, obp: 0.573, doubles: 7, triples: 0 },
-  { name: "Dora", image: "assets/images/dora.jpg", class: "Balanced", avg: 0.514, gp: 10, hr: 0, pa: 35, hits: 18, slg: 0.543, obp: 0.514, doubles: 1, triples: 0 },
-  { name: "Dry Bones", image: "assets/images/dry bones.png", class: "Balanced", avg: 0.593, gp: 70, hr: 15, pa: 275, hits: 163, slg: 0.858, obp: 0.595, doubles: 17, triples: 4 },
-  { name: "Dwayne Wade", image: "assets/images/dwayne wade.jpg", class: "Balanced", avg: 0.482, gp: 69, hr: 4, pa: 245, hits: 118, slg: 0.551, obp: 0.481, doubles: 3, triples: 1 },
-  { name: "Epiccooper", image: "assets/images/epiccooper.jpg", class: "Balanced", avg: 0.5, gp: 4, hr: 0, pa: 16, hits: 8, slg: 0.563, obp: 0.5, doubles: 1, triples: 0 },
-  { name: "Fire Bro", image: "assets/images/fire bro.png", class: "Power", avg: 0.592, gp: 70, hr: 70, pa: 287, hits: 170, slg: 1.369, obp: 0.592, doubles: 7, triples: 1 },
-  { name: "Frozone", image: "assets/images/frozone.jpg", class: "Balanced", avg: 0.42, gp: 26, hr: 7, pa: 112, hits: 47, slg: 0.614, obp: 0.42, doubles: 0, triples: 0 },
-  { name: "Funky Kong", image: "assets/images/funky kong.png", class: "Power", avg: 0.467, gp: 70, hr: 43, pa: 272, hits: 127, slg: 1.019, obp: 0.474, doubles: 6, triples: 3 },
-  { name: "Gandalf", image: "assets/images/gandalf.jpg", class: "Balanced", avg: 0.371, gp: 20, hr: 3, pa: 70, hits: 26, slg: 0.553, obp: 0.372, doubles: 1, triples: 1 },
-  { name: "Genghis Khan", image: "assets/images/genghis khan.jpg", class: "Balanced", avg: 0.486, gp: 10, hr: 0, pa: 35, hits: 17, slg: 0.514, obp: 0.486, doubles: 1, triples: 0 },
-  { name: "Ghandi", image: "assets/images/ghandi.jpg", class: "Balanced", avg: 0.378, gp: 20, hr: 2, pa: 74, hits: 28, slg: 0.496, obp: 0.378, doubles: 2, triples: 0 },
-  { name: "Goomba", image: "assets/images/goomba.png", class: "Speed", avg: 0.44, gp: 11, hr: 2, pa: 50, hits: 22, slg: 0.56, obp: 0.44, doubles: 0, triples: 0 },
-  { name: "Green Dry Bones", image: "assets/images/green dry bones.png", class: "Balanced", avg: 0.57, gp: 70, hr: 16, pa: 286, hits: 163, slg: 0.792, obp: 0.572, doubles: 12, triples: 1 },
-  { name: "Green Magikoopa", image: "assets/images/green magikoopa.png", class: "Balanced", avg: 0.482, gp: 70, hr: 5, pa: 257, hits: 124, slg: 0.578, obp: 0.485, doubles: 9, triples: 0 },
-  { name: "Green Noki", image: "assets/images/green noki.png", class: "Balanced", avg: 0.174, gp: 6, hr: 0, pa: 23, hits: 4, slg: 0.217, obp: 0.174, doubles: 1, triples: 0 },
-  { name: "Green Shy Guy", image: "assets/images/green shy guy.png", class: "Technique", avg: 0.46, gp: 57, hr: 4, pa: 200, hits: 92, slg: 0.596, obp: 0.454, doubles: 12, triples: 2 },
-  { name: "Green Toad", image: "assets/images/green toad.png", class: "Speed", avg: 0.582, gp: 70, hr: 3, pa: 285, hits: 166, slg: 0.703, obp: 0.587, doubles: 13, triples: 4 },
-  { name: "Gus Fring", image: "assets/images/gus fring.jpg", class: "Balanced", avg: 0.27, gp: 20, hr: 0, pa: 74, hits: 20, slg: 0.342, obp: 0.274, doubles: 5, triples: 0 },
-  { name: "Hammer Bro", image: "assets/images/hammer bro.png", class: "Power", avg: 0.562, gp: 70, hr: 63, pa: 265, hits: 149, slg: 1.308, obp: 0.557, doubles: 10, triples: 0 },
-  { name: "Helly R", image: "assets/images/helly r.jpg", class: "Balanced", avg: 0.4, gp: 10, hr: 0, pa: 35, hits: 14, slg: 0.4, obp: 0.4, doubles: 0, triples: 0 },
-  { name: "Ice Cube", image: "assets/images/ice cube.jpg", class: "Balanced", avg: 0.367, gp: 8, hr: 0, pa: 30, hits: 11, slg: 0.4, obp: 0.367, doubles: 1, triples: 0 },
-  { name: "Idi Amin", image: "assets/images/idi amin.jpg", class: "Balanced", avg: 0.314, gp: 10, hr: 0, pa: 35, hits: 11, slg: 0.343, obp: 0.314, doubles: 1, triples: 0 },
-  { name: "John 2.0", image: "assets/images/john 20.jpg", class: "Balanced", avg: 0.562, gp: 4, hr: 0, pa: 16, hits: 9, slg: 0.6, obp: 0.6, doubles: 0, triples: 0 },
-  { name: "John K", image: "assets/images/john k.jpg", class: "Balanced", avg: 0.405, gp: 25, hr: 1, pa: 84, hits: 34, slg: 0.472, obp: 0.411, doubles: 2, triples: 0 },
-  { name: "John", image: "assets/images/john.jpg", class: "Balanced", avg: 0.391, gp: 7, hr: 0, pa: 23, hits: 9, slg: 0.421, obp: 0.358, doubles: 1, triples: 0 },
-  { name: "KevinG", image: "assets/images/keving.jpg", class: "Balanced", avg: 0.368, gp: 50, hr: 4, pa: 190, hits: 70, slg: 0.476, obp: 0.368, doubles: 8, triples: 0 },
-  { name: "Kim Jong Un", image: "assets/images/kim jong un.jpg", class: "Balanced", avg: 0.471, gp: 30, hr: 4, pa: 119, hits: 56, slg: 0.63, obp: 0.471, doubles: 7, triples: 0 },
-  { name: "King Boo", image: "assets/images/king boo.png", class: "Power", avg: 0.558, gp: 70, hr: 41, pa: 283, hits: 158, slg: 1.026, obp: 0.553, doubles: 8, triples: 0 },
-  { name: "King K Rool", image: "assets/images/king k rool.png", class: "Power", avg: 0.594, gp: 70, hr: 82, pa: 288, hits: 171, slg: 1.511, obp: 0.594, doubles: 13, triples: 0 },
-  { name: "Koopa Paratroopa", image: "assets/images/koopa paratroopa.png", class: "Balanced", avg: 0.341, gp: 37, hr: 2, pa: 138, hits: 47, slg: 0.409, obp: 0.343, doubles: 3, triples: 0 },
-  { name: "Koopa Troopa", image: "assets/images/koopa troopa.png", class: "Speed", avg: 0.318, gp: 26, hr: 1, pa: 88, hits: 28, slg: 0.413, obp: 0.322, doubles: 3, triples: 1 },
-  { name: "Kritter", image: "assets/images/kritter.png", class: "Power", avg: 0.561, gp: 70, hr: 48, pa: 285, hits: 160, slg: 1.175, obp: 0.561, doubles: 19, triples: 3 },
-  { name: "Lara Croft", image: "assets/images/lara croft.jpg", class: "Balanced", avg: 0.397, gp: 20, hr: 1, pa: 68, hits: 27, slg: 0.471, obp: 0.397, doubles: 2, triples: 0 },
-  { name: "Lebron James", image: "assets/images/lebron james.jpg", class: "Balanced", avg: 0.432, gp: 41, hr: 6, pa: 155, hits: 67, slg: 0.598, obp: 0.434, doubles: 5, triples: 1 },
-  { name: "Light Blue Yoshi", image: "assets/images/light blue yoshi.png", class: "Speed", avg: 0.463, gp: 13, hr: 0, pa: 54, hits: 25, slg: 0.527, obp: 0.47, doubles: 3, triples: 0 },
-  { name: "Lil Wayne", image: "assets/images/lil wayne.jpg", class: "Balanced", avg: 0.513, gp: 10, hr: 0, pa: 39, hits: 20, slg: 0.615, obp: 0.513, doubles: 4, triples: 0 },
-  { name: "Lilo", image: "assets/images/lilo.jpg", class: "Balanced", avg: 0.409, gp: 20, hr: 1, pa: 66, hits: 27, slg: 0.53, obp: 0.409, doubles: 3, triples: 1 },
-  { name: "Livvy Dunne", image: "assets/images/livvy dunne.jpg", class: "Balanced", avg: 0.411, gp: 18, hr: 0, pa: 73, hits: 30, slg: 0.411, obp: 0.411, doubles: 0, triples: 0 },
-  { name: "Lizzy", image: "assets/images/lizzy.jpg", class: "Balanced", avg: 0.667, gp: 1, hr: 0, pa: 3, hits: 2, slg: 0.667, obp: 0.667, doubles: 0, triples: 0 },
-  { name: "Luigi", image: "assets/images/luigi.png", class: "Speed", avg: 0.531, gp: 70, hr: 4, pa: 273, hits: 145, slg: 0.61, obp: 0.533, doubles: 6, triples: 1 },
-  { name: "MJ HeeHee", image: "assets/images/mj heehee.jpg", class: "Balanced", avg: 0.426, gp: 17, hr: 1, pa: 61, hits: 26, slg: 0.516, obp: 0.434, doubles: 2, triples: 0 },
-  { name: "MLK Jr", image: "assets/images/mlk jr.jpg", class: "Balanced", avg: 0.39, gp: 20, hr: 1, pa: 82, hits: 32, slg: 0.464, obp: 0.39, doubles: 3, triples: 0 },
-  { name: "Magikoopa", image: "assets/images/magikoopa.png", class: "Balanced", avg: 0.508, gp: 69, hr: 6, pa: 248, hits: 126, slg: 0.616, obp: 0.508, doubles: 6, triples: 1 },
-  { name: "Mario", image: "assets/images/mario.png", class: "Balanced", avg: 0.522, gp: 70, hr: 6, pa: 270, hits: 141, slg: 0.636, obp: 0.523, doubles: 10, triples: 1 },
-  { name: "Matt", image: "assets/images/matt.jpg", class: "Balanced", avg: 0.405, gp: 22, hr: 1, pa: 79, hits: 32, slg: 0.456, obp: 0.405, doubles: 1, triples: 0 },
-  { name: "Mikasa", image: "assets/images/mikasa.jpg", class: "Balanced", avg: 0.346, gp: 20, hr: 1, pa: 78, hits: 27, slg: 0.422, obp: 0.35, doubles: 3, triples: 0 },
-  { name: "Minion", image: "assets/images/minion.jpg", class: "Balanced", avg: 0.4, gp: 38, hr: 0, pa: 135, hits: 54, slg: 0.46, obp: 0.4, doubles: 6, triples: 1 },
-  { name: "Miss Casey", image: "assets/images/miss casey.jpg", class: "Balanced", avg: 0.235, gp: 10, hr: 0, pa: 34, hits: 8, slg: 0.294, obp: 0.235, doubles: 2, triples: 0 },
-  { name: "Miss Hot", image: "assets/images/miss hot.jpg", class: "Balanced", avg: 0.418, gp: 70, hr: 5, pa: 256, hits: 107, slg: 0.542, obp: 0.419, doubles: 13, triples: 1 },
-  { name: "Monty Mole", image: "assets/images/monty mole.png", class: "Speed", avg: 0.4, gp: 14, hr: 4, pa: 50, hits: 20, slg: 0.7, obp: 0.408, doubles: 1, triples: 0 },
-  { name: "Mr. Incredible", image: "assets/images/mr incredible.jpg", class: "Balanced", avg: 0.449, gp: 39, hr: 1, pa: 147, hits: 66, slg: 0.497, obp: 0.456, doubles: 3, triples: 0 },
-  { name: "Mrs.Claus", image: "assets/images/mrsclaus.jpg", class: "Balanced", avg: 0.413, gp: 20, hr: 2, pa: 75, hits: 31, slg: 0.533, obp: 0.413, doubles: 3, triples: 0 },
-  { name: "Noki", image: "assets/images/noki.png", class: "Balanced", avg: 0.643, gp: 10, hr: 0, pa: 42, hits: 27, slg: 0.762, obp: 0.643, doubles: 3, triples: 1 },
-  { name: "Paragoomba", image: "assets/images/paragoomba.png", class: "Balanced", avg: 0.34, gp: 43, hr: 1, pa: 156, hits: 53, slg: 0.373, obp: 0.341, doubles: 2, triples: 0 },
-  { name: "Peach", image: "assets/images/peach.png", class: "Balanced", avg: 0.424, gp: 70, hr: 3, pa: 264, hits: 112, slg: 0.508, obp: 0.417, doubles: 11, triples: 2 },
-  { name: "Petey Piranha", image: "assets/images/petey piranha.png", class: "Power", avg: 0.594, gp: 70, hr: 96, pa: 288, hits: 171, slg: 1.639, obp: 0.597, doubles: 6, triples: 0 },
-  { name: "Pianta", image: "assets/images/pianta.png", class: "Speed", avg: 0.582, gp: 70, hr: 52, pa: 268, hits: 156, slg: 1.186, obp: 0.574, doubles: 6, triples: 1 },
-  { name: "Pink Yoshi", image: "assets/images/pink yoshi.png", class: "Speed", avg: 0.497, gp: 40, hr: 0, pa: 145, hits: 72, slg: 0.57, obp: 0.52, doubles: 7, triples: 0 },
-  { name: "Pops", image: "assets/images/pops.jpg", class: "Balanced", avg: 0.524, gp: 10, hr: 8, pa: 42, hits: 22, slg: 1.122, obp: 0.537, doubles: 0, triples: 0 },
-  { name: "Purple Toad", image: "assets/images/purple toad.png", class: "Speed", avg: 0.649, gp: 52, hr: 0, pa: 191, hits: 124, slg: 0.72, obp: 0.649, doubles: 9, triples: 2 },
-  { name: "Queen Elizabeth", image: "assets/images/queen elizabeth.jpg", class: "Balanced", avg: 0.368, gp: 20, hr: 1, pa: 76, hits: 28, slg: 0.421, obp: 0.368, doubles: 1, triples: 0 },
-  { name: "Red Koopa Paratroopa", image: "assets/images/red koopa paratroopa.jpg", class: "Balanced", avg: 0.373, gp: 20, hr: 0, pa: 67, hits: 25, slg: 0.415, obp: 0.379, doubles: 2, triples: 0 },
-  { name: "Red Koopa Troopa", image: "assets/images/red koopa troopa.png", class: "Speed", avg: 0.421, gp: 26, hr: 1, pa: 95, hits: 40, slg: 0.505, obp: 0.421, doubles: 5, triples: 0 },
-  { name: "Red Kritter", image: "assets/images/red kritter.png", class: "Power", avg: 0.487, gp: 70, hr: 39, pa: 271, hits: 132, slg: 0.988, obp: 0.487, doubles: 12, triples: 1 },
-  { name: "Red Magikoopa", image: "assets/images/red magikoopa.png", class: "Balanced", avg: 0.458, gp: 69, hr: 2, pa: 262, hits: 120, slg: 0.522, obp: 0.461, doubles: 8, triples: 0 },
-  { name: "Red Noki", image: "assets/images/red noki.png", class: "Balanced", avg: 0.356, gp: 13, hr: 0, pa: 45, hits: 16, slg: 0.417, obp: 0.356, doubles: 3, triples: 0 },
-  { name: "Red Pianta", image: "assets/images/red pianta.png", class: "Speed", avg: 0.562, gp: 70, hr: 29, pa: 272, hits: 153, slg: 0.933, obp: 0.567, doubles: 9, triples: 1 },
-  { name: "Red Yoshi", image: "assets/images/red yoshi.png", class: "Speed", avg: 0.433, gp: 50, hr: 2, pa: 178, hits: 77, slg: 0.494, obp: 0.439, doubles: 3, triples: 0 },
-  { name: "Rizzler", image: "assets/images/rizzler.jpg", class: "Balanced", avg: 0.432, gp: 49, hr: 5, pa: 185, hits: 80, slg: 0.551, obp: 0.436, doubles: 6, triples: 0 },
-  { name: "Saddam Hussein", image: "assets/images/saddam hussein.jpg", class: "Balanced", avg: 0.388, gp: 40, hr: 10, pa: 147, hits: 57, slg: 0.653, obp: 0.388, doubles: 7, triples: 1 },
-  { name: "Saka", image: "assets/images/saka.jpg", class: "Balanced", avg: 0.426, gp: 20, hr: 0, pa: 68, hits: 29, slg: 0.456, obp: 0.427, doubles: 2, triples: 0 },
-  { name: "Semenlad", image: "assets/images/semenlad.jpg", class: "Balanced", avg: 0.321, gp: 14, hr: 0, pa: 56, hits: 18, slg: 0.331, obp: 0.325, doubles: 0, triples: 0 },
-  { name: "Shy Guy", image: "assets/images/shy guy.png", class: "Technique", avg: 0.44, gp: 45, hr: 0, pa: 166, hits: 73, slg: 0.483, obp: 0.446, doubles: 6, triples: 0 },
-  { name: "Snape", image: "assets/images/snape.jpg", class: "Balanced", avg: 0.34, gp: 14, hr: 0, pa: 53, hits: 18, slg: 0.336, obp: 0.336, doubles: 0, triples: 0 },
-  { name: "Syndrome", image: "assets/images/syndrome.jpg", class: "Balanced", avg: 0.25, gp: 1, hr: 0, pa: 4, hits: 1, slg: 0.25, obp: 0.25, doubles: 0, triples: 0 },
-  { name: "Tiny Kong", image: "assets/images/tiny kong.png", class: "Balanced", avg: 0.455, gp: 61, hr: 2, pa: 233, hits: 106, slg: 0.538, obp: 0.459, doubles: 10, triples: 1 },
-  { name: "Toad", image: "assets/images/toad.jpg", class: "Balanced", avg: 0.664, gp: 62, hr: 2, pa: 241, hits: 160, slg: 0.759, obp: 0.667, doubles: 7, triples: 4 },
-  { name: "Toadette", image: "assets/images/toadette.png", class: "Balanced", avg: 0.514, gp: 68, hr: 2, pa: 257, hits: 132, slg: 0.581, obp: 0.518, doubles: 6, triples: 2 },
-  { name: "Toadsworth", image: "assets/images/toadsworth.png", class: "Balanced", avg: 0.411, gp: 23, hr: 0, pa: 90, hits: 37, slg: 0.456, obp: 0.422, doubles: 3, triples: 0 },
-  { name: "Tobey Maguire", image: "assets/images/tobey maguire.jpg", class: "Balanced", avg: 0.5, gp: 9, hr: 1, pa: 34, hits: 17, slg: 0.618, obp: 0.5, doubles: 1, triples: 0 },
-  { name: "Trinity", image: "assets/images/trinity.jpg", class: "Balanced", avg: 0.408, gp: 20, hr: 1, pa: 71, hits: 29, slg: 0.493, obp: 0.408, doubles: 3, triples: 0 },
-  { name: "Tsitsipas", image: "assets/images/tsitsipas.jpg", class: "Balanced", avg: 0.333, gp: 6, hr: 0, pa: 21, hits: 7, slg: 0.381, obp: 0.333, doubles: 1, triples: 0 },
-  { name: "Tung Tung Tung Sahur", image: "assets/images/tung tung tung sahur.jpg", class: "Balanced", avg: 0.439, gp: 30, hr: 3, pa: 114, hits: 50, slg: 0.57, obp: 0.439, doubles: 6, triples: 0 },
-  { name: "Unc", image: "assets/images/unc.jpg", class: "Balanced", avg: 0.489, gp: 70, hr: 20, pa: 262, hits: 128, slg: 0.738, obp: 0.493, doubles: 4, triples: 0 },
-  { name: "Vicar", image: "assets/images/vicar.jpg", class: "Balanced", avg: 0.349, gp: 10, hr: 0, pa: 43, hits: 15, slg: 0.372, obp: 0.349, doubles: 1, triples: 0 },
-  { name: "Waluigi", image: "assets/images/waluigi.png", class: "Technique", avg: 0.566, gp: 70, hr: 3, pa: 265, hits: 150, slg: 0.729, obp: 0.572, doubles: 32, triples: 0 },
-  { name: "Wario", image: "assets/images/wario.png", class: "Technique", avg: 0.562, gp: 70, hr: 22, pa: 274, hits: 154, slg: 0.879, obp: 0.578, doubles: 8, triples: 0 },
-  { name: "Wiggler", image: "assets/images/wiggler.png", class: "Speed", avg: 0.618, gp: 70, hr: 11, pa: 293, hits: 181, slg: 0.797, obp: 0.618, doubles: 14, triples: 2 },
-  { name: "Winnie The Pooh", image: "assets/images/winnie the pooh.jpg", class: "Balanced", avg: 0.297, gp: 10, hr: 1, pa: 37, hits: 11, slg: 0.432, obp: 0.297, doubles: 2, triples: 0 },
-  { name: "Yellow Magikoopa", image: "assets/images/yellow magikoopa.png", class: "Balanced", avg: 0.5, gp: 52, hr: 4, pa: 204, hits: 102, slg: 0.614, obp: 0.5, doubles: 6, triples: 2 },
-  { name: "Yellow Pianta", image: "assets/images/yellow pianta.png", class: "Speed", avg: 0.592, gp: 70, hr: 30, pa: 289, hits: 171, slg: 0.952, obp: 0.594, doubles: 8, triples: 0 },
-  { name: "Yellow Shy Guy", image: "assets/images/yellow shy guy.png", class: "Technique", avg: 0.449, gp: 55, hr: 4, pa: 196, hits: 88, slg: 0.545, obp: 0.449, doubles: 5, triples: 0 },
-  { name: "Yellow Toad", image: "assets/images/yellow toad.png", class: "Speed", avg: 0.622, gp: 68, hr: 7, pa: 278, hits: 173, slg: 0.768, obp: 0.622, doubles: 11, triples: 3 },
-  { name: "Yellow Yoshi", image: "assets/images/yellow yoshi.png", class: "Speed", avg: 0.535, gp: 30, hr: 0, pa: 114, hits: 61, slg: 0.64, obp: 0.535, doubles: 10, triples: 1 },
-  { name: "Yghur", image: "assets/images/yghur.jpg", class: "Balanced", avg: 0.381, gp: 6, hr: 1, pa: 21, hits: 8, slg: 0.571, obp: 0.381, doubles: 1, triples: 0 },
-  { name: "Yoshi", image: "assets/images/yoshi.png", class: "Speed", avg: 0.455, gp: 70, hr: 3, pa: 277, hits: 126, slg: 0.528, obp: 0.457, doubles: 8, triples: 1 },
-  { name: "Zorro", image: "assets/images/zorro.jpg", class: "Balanced", avg: 0.286, gp: 2, hr: 0, pa: 7, hits: 2, slg: 0.286, obp: 0.286, doubles: 0, triples: 0 },
-  { name: "KSI", image: "assets/images/ksi.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
-  { name: "Harry Potter", image: "assets/images/Harry Potter.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
-  { name: "The Penguin", image: "assets/images/The Penguin.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
-  { name: "Handsome Squidward", image: "assets/images/Handsome Squidward.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
-  { name: "Big AJ", image: "assets/images/Big AJ.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
-  { name: "Taylor Swift", image: "assets/images/taylor.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
-  { name: "Angelina Joeli", image: "assets/images/angelina.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
-  { name: "Syndrome", image: "assets/images/syndrome.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
-  { name: "Beyonce", image: "assets/images/beyonce.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
-  { name: "Whoopie Goldberg", image: "assets/images/whoopie.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
-  { name: "Evie", image: "assets/images/evie.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 },
-  { name: "Cole Palmer", image: "assets/images/cole plamer.jpg", class: "Balanced", avg: 0.0, gp: 0, hr: 0, pa: 0, hits: 0, slg: 0.0, obp: 0.0, doubles: 0, triples: 0 }
-];
-
-window.characters = characters;
-
 const characterGrid = document.getElementById("characterGrid");
 
 if (characterGrid) {
-    
-  const pitchingStats = {
-  "Baby DK": { ip: 2, era: 0.0, baa: 0.375, so: 0 },
-  "Baby Daisy": { ip: 4, era: 1.75, baa: 0.293, so: 0 },
-  "Baby Luigi": { ip: 10, era: 5.87, baa: 0.49, so: 1 },
-  "Baby Mario": { ip: 2, era: 14.0, baa: 0.5, so: 0 },
-  "Baby Peach": { ip: 31, era: 8.52, baa: 0.513, so: 1 },
-  "Birdo": { ip: 130, era: 7.0, baa: 0.466, so: 27 },
-  "Black Shy Guy": { ip: 2, era: 7.88, baa: 0.657, so: 0 },
-  "Black Widow": { ip: 2, era: 10.5, baa: 0.6, so: 0 },
-  "Blooper": { ip: 53, era: 9.18, baa: 0.539, so: 3 },
-  "Blue Dry Bones": { ip: 61, era: 8.37, baa: 0.515, so: 1 },
-  "Blue Kritter": { ip: 8, era: 6.86, baa: 0.419, so: 0 },
-  "Blue Shy Guy": { ip: 7, era: 13.69, baa: 0.592, so: 0 },
-  "Blue Toad": { ip: 4, era: 5.62, baa: 0.433, so: 1 },
-  "Blue Yoshi": { ip: 3, era: 3.82, baa: 0.444, so: 2 },
-  "Boo": { ip: 164, era: 8.34, baa: 0.515, so: 5 },
-  "Boomerang Bro": { ip: 8, era: 8.02, baa: 0.457, so: 0 },
-  "Borat": { ip: 9, era: 21.0, baa: 0.643, so: 0 },
-  "Bowser": { ip: 177, era: 6.98, baa: 0.48, so: 39 },
-  "Bowser Jr": { ip: 142, era: 8.58, baa: 0.52, so: 10 },
-  "Brown Kritter": { ip: 16, era: 13.22, baa: 0.566, so: 0 },
-  "Caillou": { ip: 2, era: 5.25, baa: 0.385, so: 0 },
-  "Carby": { ip: 33, era: 12.32, baa: 0.537, so: 1 },
-  "Chicken": { ip: 2, era: 9.0, baa: 0.462, so: 0 },
-  "Chickenrice": { ip: 1, era: 5.25, baa: 0.625, so: 0 },
-  "Count Dooku": { ip: 44, era: 6.36, baa: 0.498, so: 1 },
-  "Daisy": { ip: 191, era: 6.21, baa: 0.441, so: 3 },
-  "Dark Bones": { ip: 66, era: 6.64, baa: 0.412, so: 1 },
-  "Diddy Kong": { ip: 84, era: 10.18, baa: 0.529, so: 10 },
-  "Diminutive": { ip: 4, era: 6.0, baa: 0.353, so: 0 },
-  "Dixie Kong": { ip: 6, era: 7.0, baa: 0.424, so: 1 },
-  "Doc Brown": { ip: 11, era: 15.91, baa: 0.588, so: 0 },
-  "Donkey Kong": { ip: 236, era: 7.19, baa: 0.475, so: 5 },
-  "Dry Bones": { ip: 2, era: 6.0, baa: 0.545, so: 0 },
-  "Dwayne Wade": { ip: 10, era: 2.1, baa: 0.406, so: 0 },
-  "Fire Bro": { ip: 3, era: 13.42, baa: 0.612, so: 0 },
-  "Frozone": { ip: 17, era: 7.53, baa: 0.553, so: 1 },
-  "Funky Kong": { ip: 15, era: 4.67, baa: 0.46, so: 0 },
-  "Gandalf": { ip: 2, era: 5.25, baa: 0.588, so: 0 },
-  "Genghis Khan": { ip: 45, era: 5.13, baa: 0.43, so: 1 },
-  "Ghandi": { ip: 10, era: 5.32, baa: 0.51, so: 0 },
-  "Goomba": { ip: 1, era: 28.0, baa: 0.625, so: 0 },
-  "Green Dry Bones": { ip: 11, era: 11.46, baa: 0.586, so: 0 },
-  "Green Magikoopa": { ip: 46, era: 11.43, baa: 0.551, so: 0 },
-  "Green Shy Guy": { ip: 3, era: 30.75, baa: 0.641, so: 1 },
-  "Green Toad": { ip: 2, era: 7.88, baa: 0.482, so: 0 },
-  "Hammer Bro": { ip: 4, era: 16.62, baa: 0.635, so: 0 },
-  "Idi Amin": { ip: 9, era: 11.25, baa: 0.533, so: 0 },
-  "John K": { ip: 5, era: 9.8, baa: 0.542, so: 0 },
-  "KevinG": { ip: 73, era: 7.19, baa: 0.475, so: 3 },
-  "Kim Jong Un": { ip: 4, era: 12.25, baa: 0.565, so: 1 },
-  "King Boo": { ip: 80, era: 12.15, baa: 0.556, so: 0 },
-  "King K Rool": { ip: 38, era: 8.3, baa: 0.462, so: 0 },
-  "Koopa Paratroopa": { ip: 6, era: 6.88, baa: 0.472, so: 1 },
-  "Koopa Troopa": { ip: 1, era: 21.0, baa: 0.667, so: 0 },
-  "Kritter": { ip: 13, era: 13.83, baa: 0.549, so: 1 },
-  "Lebron James": { ip: 8, era: 7.22, baa: 0.401, so: 0 },
-  "Light Blue Yoshi": { ip: 3, era: 9.55, baa: 0.429, so: 0 },
-  "Lilo": { ip: 2, era: 3.5, baa: 0.429, so: 0 },
-  "Livvy Dunne": { ip: 1, era: 0.0, baa: 0.333, so: 0 },
-  "Luigi": { ip: 214, era: 8.09, baa: 0.496, so: 17 },
-  "MLK Jr": { ip: 5, era: 2.47, baa: 0.435, so: 0 },
-  "Magikoopa": { ip: 55, era: 9.36, baa: 0.525, so: 1 },
-  "Mario": { ip: 202, era: 8.48, baa: 0.499, so: 14 },
-  "Matt": { ip: 4, era: 21.0, baa: 0.643, so: 0 },
-  "Mikasa": { ip: 1, era: 21.0, baa: 0.727, so: 0 },
-  "Minion": { ip: 11, era: 12.25, baa: 0.544, so: 1 },
-  "Miss Casey": { ip: 5, era: 13.59, baa: 0.529, so: 0 },
-  "Miss Hot": { ip: 4, era: 8.75, baa: 0.3, so: 0 },
-  "Monty Mole": { ip: 36, era: 6.16, baa: 0.452, so: 0 },
-  "Mr. Incredible": { ip: 55, era: 5.62, baa: 0.461, so: 1 },
-  "Mrs.Claus": { ip: 5, era: 2.58, baa: 0.37, so: 0 },
-  "Paragoomba": { ip: 90, era: 9.78, baa: 0.514, so: 1 },
-  "Peach": { ip: 193, era: 7.81, baa: 0.5, so: 7 },
-  "Petey Piranha": { ip: 1, era: 14.0, baa: 0.5, so: 0 },
-  "Pianta": { ip: 71, era: 9.71, baa: 0.515, so: 4 },
-  "Pink Yoshi": { ip: 1, era: 21.0, baa: 0.778, so: 0 },
-  "Purple Toad": { ip: 1, era: 5.25, baa: 0.625, so: 1 },
-  "Queen Elizabeth": { ip: 4, era: 16.15, baa: 0.607, so: 0 },
-  "Red Koopa Troopa": { ip: 6, era: 11.05, baa: 0.595, so: 0 },
-  "Red Kritter": { ip: 8, era: 13.34, baa: 0.568, so: 0 },
-  "Red Magikoopa": { ip: 48, era: 8.51, baa: 0.502, so: 0 },
-  "Red Pianta": { ip: 66, era: 6.66, baa: 0.488, so: 3 },
-  "Red Yoshi": { ip: 1, era: 21.0, baa: 0.6, so: 0 },
-  "Rizzler": { ip: 16, era: 13.2, baa: 0.579, so: 0 },
-  "Saddam Hussein": { ip: 21, era: 5.56, baa: 0.435, so: 0 },
-  "Shy Guy": { ip: 4, era: 6.78, baa: 0.542, so: 0 },
-  "Syndrome": { ip: 3, era: 11.67, baa: 0.471, so: 0 },
-  "Tiny Kong": { ip: 29, era: 9.7, baa: 0.51, so: 2 },
-  "Toad": { ip: 6, era: 11.9, baa: 0.426, so: 0 },
-  "Toadette": { ip: 2, era: 13.12, baa: 0.578, so: 0 },
-  "Toadsworth": { ip: 20, era: 10.7, baa: 0.538, so: 1 },
-  "Trinity": { ip: 90, era: 4.99, baa: 0.462, so: 2 },
-  "Tung Tung Tung Sahur": { ip: 2, era: 9.0, baa: 0.3, so: 0 },
-  "Unc": { ip: 22, era: 8.92, baa: 0.535, so: 0 },
-  "Waluigi": { ip: 124, era: 8.06, baa: 0.465, so: 5 },
-  "Wario": { ip: 137, era: 9.49, baa: 0.501, so: 6 },
-  "Wiggler": { ip: 17, era: 5.66, baa: 0.471, so: 1 },
-  "Yellow Magikoopa": { ip: 38, era: 9.42, baa: 0.433, so: 1 },
-  "Yellow Pianta": { ip: 52, era: 9.99, baa: 0.531, so: 3 },
-  "Yellow Shy Guy": { ip: 1, era: 28.0, baa: 0.778, so: 0 },
-  "Yellow Toad": { ip: 5, era: 7.15, baa: 0.464, so: 0 },
-  "Yellow Yoshi": { ip: 4, era: 21.0, baa: 0.656, so: 0 },
-  "Yoshi": { ip: 115, era: 7.58, baa: 0.479, so: 3 },
-};
-      
+
+  document.getElementById('resetFiltersBtn').addEventListener('click', resetFilters);
 
   function renderCharacters(data, usePitching = false) {
     characterGrid.innerHTML = '';
@@ -1392,8 +1140,8 @@ if (characterGrid) {
       if (window.displayMode === "miis") {
         statSection = ''; // 🔇 No stats on Miis page
       } else if (usePitching) {
-        if (pitchingStats[char.name]) {
-          const p = pitchingStats[char.name];
+        if (window.pitchingStats[char.name]) {
+          const p = window.pitchingStats[char.name];
           statSection = `
             <p>IP: ${p.ip}</p>
             <p>ERA: ${p.era.toFixed(2)}</p>
@@ -1487,7 +1235,7 @@ if (characterGrid) {
 
         const soVal = parseInt(document.getElementById('soFilter').value);
         const soOp = document.getElementById('soOperator').value;
-        const so = parseInt(pitchingStats[card.dataset.name]?.so ?? 0);
+        const so = parseInt(window.pitchingStats[card.dataset.name]?.so ?? 0);
 
         if (!isNaN(soVal)) {
           if (soOp === '>' && so <= soVal) show = false;
@@ -1588,7 +1336,7 @@ if (characterGrid) {
     });
   
     // Re-render with correct mode
-    renderCharacters(characters, showingPitching);
+    renderCharacters(window.characters, showingPitching);
   }
   
   
@@ -1624,14 +1372,22 @@ if (characterGrid) {
 
   let showingPitching = false;
 
-  renderCharacters(characters);
+  showLoader?.("🧢 Loading Characters...");
+
+  loadAllTimeCharacterStats()
+    .then(() => {
+      renderCharacters(window.characters, showingPitching);
+    })
+    .finally(() => {
+      hideLoader?.();
+    });
 
   
 
   document.getElementById('toggleStatsBtn').addEventListener('click', () => {
     showingPitching = !showingPitching;
   
-    renderCharacters(characters, showingPitching);
+    renderCharacters(window.characters, showingPitching);
     resetFilters();
   
     document.getElementById('toggleStatsBtn').textContent =
@@ -1685,16 +1441,7 @@ function renderSeason3Stats() {
   const grid = document.getElementById('season3StatsGrid');
   grid.innerHTML = '';
   
-  const teamRosters = {
-        "Tom": ["Bowser", "Birdo", "Kritter", "Daisy", "Magikoopa", "Goomba", "Monty Mole", "Pink Yoshi", "Tung Tung Tung Sahur", "Charlie Kirk", "Semenlad" ],
-        "HarryKirch": ["Donkey Kong", "Funky Kong", "Wario", "Waluigi", "Yellow Magikoopa", "Diddy Kong", "Bowser Jr", "Koopa Troopa", "Dixie Kong", "Miss Hot", "Yellow Yoshi", "Dwayne Wade"],
-        "Julian": ["Toad", "Red Kritter", "Shy Guy", "Red Koopa Paratroopa", "Red Koopa Troopa", "Red Magikoopa", "Red Noki", "Red Yoshi", "Black Shy Guy", "Unc", "Genghis Khan"],
-        "Jmo": ["Petey Piranha", "Boomerang Bro", "Dark Bones", "Dry Bones", "Green Dry Bones", "Boo", "Blooper", "Light Blue Yoshi", "Tiny Kong", "Tobey Maguire", "Snape"],
-        "Kircher": ["Fire Bro", "Red Pianta", "Blue Dry Bones", "Blue Kritter", "Blue Yoshi", "Toadsworth", "Blue Shy Guy", "Noki", "Mr. Incredible", "Frozone", "Syndrome"],
-        "Carby": ["Purple Toad", "Hammer Bro", "Toadette", "Pianta", "Green Toad", "Green Magikoopa", "Green Shy Guy", "Green Noki", "Koopa Paratroopa", "KevinG", "Doc Brown"],
-        "BenT": ["Wiggler", "Yellow Pianta", "Yellow Toad", "Blue Toad", "Baby DK", "Paragoomba", "Yellow Shy Guy", "Baby Peach", "Brown Kritter", "Lebron James"],
-        "BenR": ["Mario", "King K Rool", "King Boo", "Peach", "Luigi", "Yoshi", "Baby Mario", "Baby Luigi", "Baby Daisy", "Rizzler", "Matt"]
-      };
+  const teamRosters = window.teamRosters;
 
   const allCharacters = window.characters.map(char => {
     let team = '';

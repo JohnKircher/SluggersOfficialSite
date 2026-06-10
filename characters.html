@@ -9,18 +9,26 @@
 </head>
 <body>
 
+  <div id="loadingOverlay" class="loading-overlay">
+  <div class="loading-spinner"></div>
+  <div class="loading-text">🧢 Loading Characters...</div>
+</div>
+
   <nav class="navbar">
     <div class="nav-content">
       <ul class="nav-links">
         <li><a href="index.html">📅 Home</a></li>
         <li><a href="characters.html" class="active">🧢 Character Cast & Stats</a></li>
         <li><a href="season.html">📅 Current Season</a></li>
-        <li><a href="miis.html">👤 Miis</a></li>
         <a href="simulator.html" class="nav-link">🏆 Playoff Simulator</a>
         <li><a href="mock-draft.html">🧪 Mock Draft</a></li>
         <li><a href="stat-adjuster.html">🛠️ Stat Adjuster</a></li>
-
-
+        <li id="managerNavItem" style="display:none;">
+          <a href="team-manager.html">🧢 Match Management</a>
+        </li>
+        <li id="loginNavItem">
+          <a href="team-login.html">🔐 Login</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -138,7 +146,7 @@
 
       </div>
       
-      <button onclick="resetFilters()">Reset Filters</button>
+      <button id="resetFiltersBtn">Reset Filters</button>
 
       <div class="sort-container" style="margin-top: 1rem;">
         <label for="sortOption">Sort By:</label>
@@ -173,7 +181,21 @@
       <!-- JS will inject cards here -->
     </div>
   </section>
+  <script>
+  function showLoader(text = "🧢 Loading Characters...") {
+    document.querySelector(".loading-text").textContent = text;
+    document.getElementById("loadingOverlay")?.classList.remove("hidden");
+  }
 
+  function hideLoader() {
+    document.getElementById("loadingOverlay")?.classList.add("hidden");
+  }
+
+  showLoader();
+
+  
+</script>
   <script src="scripts/app.js"></script>
+  <script src="scripts/auth-nav.js"></script>
 </body>
 </html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Team Login</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div id="loadingOverlay" class="loading-overlay">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Logging In...</div>
+</div>
+
+    <nav class="navbar">
+  <div class="nav-content">
+    <ul class="nav-links">
+      <li><a href="index.html">📅 Home</a></li>
+      <li><a href="characters.html">🧢 Character Cast & Stats</a></li>
+      <li><a href="season.html">📅 Current Season</a></li>
+      <a href="simulator.html" class="nav-link">🏆 Playoff Simulator</a>
+      <li><a href="mock-draft.html">🧪 Mock Draft</a></li>
+      <li><a href="stat-adjuster.html">🛠️ Stat Adjuster</a></li>
+
+      <li id="managerNavItem" style="display:none;">
+        <a href="team-manager.html">🧢 Match Management</a>
+      </li>
+
+      <li id="loginNavItem">
+        <a href="team-login.html" class="active">🔐 Login</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="login-panel">
+
+  <h1 class="manager-title">🔐 Team Login</h1>
+
+  <input id="team" placeholder="Team Name">
+
+  <input
+    id="password"
+    type="password"
+    placeholder="Password">
+
+  <button
+    id="loginBtn"
+    class="manager-btn">
+    Login
+  </button>
+
+  <p id="status"></p>
+
+</div>
+
+<script>
+
+    function showLoader() {
+  document.getElementById("loadingOverlay")
+    ?.classList.remove("hidden");
+}
+
+function hideLoader() {
+  document.getElementById("loadingOverlay")
+    ?.classList.add("hidden");
+}
+const API_URL = "https://script.google.com/macros/s/AKfycbwxxW_eftpf-06flTZfkR8qaHh9f1Y5EI2DKl81mO6pch_k2655-i6OXNiyfga_4jyM/exec";
+
+window.addEventListener("load", hideLoader);
+
+document.getElementById("loginBtn").addEventListener("click", async () => {
+  showLoader();
+
+  try {
+    const team = document.getElementById("team").value;
+    const password = document.getElementById("password").value;
+
+    const res = await fetch(
+      `${API_URL}?mode=login&team=${encodeURIComponent(team)}&password=${encodeURIComponent(password)}`
+    );
+
+    const data = await res.json();
+
+    if (data.success) {
+      localStorage.setItem("sluggersTeam", data.team);
+      const returnUrl = localStorage.getItem("returnAfterLogin") || "team-manager.html";
+      localStorage.removeItem("returnAfterLogin");
+      window.location.href = returnUrl;
+    } else {
+      document.getElementById("status").textContent = "Invalid login";
+      hideLoader();
+    }
+  } catch (err) {
+    document.getElementById("status").textContent = "Login failed.";
+    hideLoader();
+  }
+});
+</script>
+<script src="scripts/auth-nav.js"></script>
+</body>
+</html>

@@ -28,20 +28,28 @@
   
 </head>
 <body>
-  <div class="diagonal-banner" aria-label="Season notice">
+  <div id="loadingOverlay" class="loading-overlay">
+  <div class="loading-spinner"></div>
+  <div class="loading-text">📅 Loading Season...</div>
+</div>
+  <!-- <div class="diagonal-banner" aria-label="Season notice">
     Season 8 Coming Soon... you are viewing season 7 data!
-  </div>>
+  </div>> -->
   <nav class="navbar">
     <div class="nav-content">
       <ul class="nav-links">
         <li><a href="index.html">📅 Home</a></li>
         <li><a href="characters.html">🧢 Character Cast & Stats</a></li>
         <li><a href="season.html" class="active">📅 Current Season</a></li>
-        <li><a href="miis.html">👤 Miis</a></li>
         <a href="simulator.html" class="nav-link">🏆 Playoff Simulator</a>
         <li><a href="mock-draft.html">🧪 Mock Draft</a></li>
         <li><a href="stat-adjuster.html">🛠️ Stat Adjuster</a></li>
-
+        <li id="managerNavItem" style="display:none;">
+          <a href="team-manager.html">🧢 Match Management</a>
+        </li>
+        <li id="loginNavItem">
+          <a href="team-login.html">🔐 Login</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -56,7 +64,7 @@
         <button class="tab active" data-team="Standings">Standings</button>
         <button class="tab" data-team="Matches">Matches</button>
         <!-- In season.html, add this tab button with the others -->
-        <button class="tab" data-team="Season3Stats">Season 7 Stats</button>
+        <button class="tab" data-team="Season3Stats">Season 8 Stats</button>
         <button class="tab" data-team="Tom">Tom</button>
         <button class="tab" data-team="HarryKirch">HarryKirch</button>
         <button class="tab" data-team="Julian">Julian</button>
@@ -97,13 +105,25 @@
     
   </section>
 
+  <script src="scripts/rosters.js"></script>
   <script src="scripts/app.js"></script>
   <script>
-    
+    function showLoader(text = "📅 Loading Season...") {
+      document.querySelector(".loading-text").textContent = text;
+      document.getElementById("loadingOverlay")?.classList.remove("hidden");
+    }
+
+    function hideLoader() {
+      document.getElementById("loadingOverlay")?.classList.add("hidden");
+    }
 
     window.onload = async () => {
-      await loadMatchesFromAPI();
-      await loadPlayerStats(); // ⬅️ load player stats early
+      showLoader("📅 Loading Season...");
+
+      try {
+        await loadMatchesFromAPI();
+        await loadAllTimeCharacterStats();
+        await loadPlayerStats();
 
       
 
@@ -117,16 +137,7 @@
 
       document.getElementById("Standings").classList.add("active");
 
-      const teamRosters = {
-        "Tom": ["Bowser", "Birdo", "Kritter", "Daisy", "Magikoopa", "Goomba", "Monty Mole", "Pink Yoshi", "Tung Tung Tung Sahur", "Charlie Kirk", "Semenlad" ],
-        "HarryKirch": ["Donkey Kong", "Funky Kong", "Wario", "Waluigi", "Yellow Magikoopa", "Diddy Kong", "Bowser Jr", "Koopa Troopa", "Dixie Kong", "Miss Hot", "Yellow Yoshi", "Dwayne Wade"],
-        "Julian": ["Toad", "Red Kritter", "Shy Guy", "Red Koopa Paratroopa", "Red Koopa Troopa", "Red Magikoopa", "Red Noki", "Red Yoshi", "Black Shy Guy", "Unc", "Genghis Khan"],
-        "Jmo": ["Petey Piranha", "Boomerang Bro", "Dark Bones", "Dry Bones", "Green Dry Bones", "Boo", "Blooper", "Light Blue Yoshi", "Tiny Kong", "Tobey Maguire", "Snape"],
-        "Kircher": ["Fire Bro", "Red Pianta", "Blue Dry Bones", "Blue Kritter", "Blue Yoshi", "Toadsworth", "Blue Shy Guy", "Noki", "Mr. Incredible", "Frozone", "Syndrome"],
-        "Carby": ["Purple Toad", "Hammer Bro", "Toadette", "Pianta", "Green Toad", "Green Magikoopa", "Green Shy Guy", "Green Noki", "Koopa Paratroopa", "KevinG", "Doc Brown"],
-        "BenT": ["Wiggler", "Yellow Pianta", "Yellow Toad", "Blue Toad", "Baby DK", "Paragoomba", "Yellow Shy Guy", "Baby Peach", "Brown Kritter", "Lebron James"],
-        "BenR": ["Mario", "King K Rool", "King Boo", "Peach", "Luigi", "Yoshi", "Baby Mario", "Baby Luigi", "Baby Daisy", "Rizzler", "Matt"]
-      };
+      const teamRosters = window.teamRosters;
 
       const teamGrid = document.getElementById('teamCharacterGrid');
       const allCharacters = window.characters || [];
@@ -328,7 +339,9 @@
         const selectedWeek = e.target.value;
         renderMatches(selectedWeek);
       });
-
+        } finally {
+    hideLoader();
+  }
     };
 
 
@@ -431,9 +444,6 @@
       const cardWrapper = document.createElement('div');
       cardWrapper.className = 'card';
       cardWrapper.style.perspective = '1000px';
-      cardWrapper.addEventListener('click', () => {
-        cardWrapper.classList.toggle('flipped');
-      });
 
       // ➕ Inner rotating container
       const cardInner = document.createElement('div');
@@ -488,26 +498,10 @@
         </div>
       `;
 
-      // 🔴 Back of card with preview
-      const back = document.createElement('div');
-      back.className = 'match-card match-card-back';
-      back.style.position = 'absolute';
-      back.style.top = '0';
-      back.style.left = '0';
-      back.style.width = '100%';
-      back.style.height = '100%';
-      back.style.transform = 'rotateY(180deg)';
-      back.style.backfaceVisibility = 'hidden';
-      back.style.background = '#111';
-      back.style.color = '#fff';
-      back.style.borderRadius = '10px';
-      back.style.padding = '1rem';
-      back.style.overflowY = 'auto';
-      back.innerHTML = `<p class="preview-text">${match.preview || "No preview available."}</p>`;
+      
 
       // ➕ Assemble the card
       cardInner.appendChild(front);
-      cardInner.appendChild(back);
       cardWrapper.appendChild(cardInner);
       matchList.appendChild(cardWrapper);
 
@@ -533,12 +527,12 @@
     });
   }
 
-
   </script>
+  <script src="scripts/auth-nav.js"></script>
 
   <!-- Standings Content -->
   <div class="season-content" id="Standings">
-    <h3>Season 5 Standings</h3>
+    <h3>Season 8 Standings</h3>
     <table class="standings-table">
       <thead>
         <tr>

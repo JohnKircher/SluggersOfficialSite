@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Match Manager</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div id="loadingOverlay" class="loading-overlay">
+    <div class="loading-spinner"></div>
+    <div id="loadingText" class="loading-text">⚾ Loading Sluggers...</div>
+</div>
+    <nav class="navbar">
+  <div class="nav-content">
+    <ul class="nav-links">
+      <li><a href="index.html">📅 Home</a></li>
+      <li><a href="characters.html">🧢 Character Cast & Stats</a></li>
+      <li><a href="season.html">📅 Current Season</a></li>
+      <a href="simulator.html" class="nav-link">🏆 Playoff Simulator</a>
+      <li><a href="mock-draft.html">🧪 Mock Draft</a></li>
+      <li><a href="stat-adjuster.html">🛠️ Stat Adjuster</a></li>
+
+      <li id="managerNavItem" style="display:none;">
+        <a href="team-manager.html" class="active">🧢 Match Management</a>
+      </li>
+
+      <li id="loginNavItem">
+        <a href="team-login.html">🔐 Login</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<main class="manager-page">
+
+<script src="scripts/rosters.js"></script>
+<script src="scripts/app.js"></script>
+
+<h1 id="matchTitle">Match Manager</h1>
+<p id="matchInfo"></p>
+
+<h2>Your Roster</h2>
+<div id="rosterGrid" class="character-grid"></div>
+
+<button
+  id="clearLineupBtn"
+  class="manager-btn danger">
+  Clear Lineup
+</button>
+
+<h2>Lineup Builder</h2>
+<div class="lineup-field">
+  <div class="position-slot pitcher" data-position="P"><strong class="slot-label">(P)</strong></div>
+  <div class="position-slot catcher" data-position="C"><strong class="slot-label">(C)</strong></div>
+  <div class="position-slot first-base" data-position="1B"><strong class="slot-label">(1B)</strong></div>
+  <div class="position-slot second-base" data-position="2B"><strong class="slot-label">(2B)</strong></div>
+  <div class="position-slot third-base" data-position="3B"><strong class="slot-label">(3B)</strong></div>
+  <div class="position-slot shortstop" data-position="SS"><strong class="slot-label">(SS)</strong></div>
+  <div class="position-slot left-field" data-position="LF"><strong class="slot-label">(LF)</strong></div>
+  <div class="position-slot center-field" data-position="CF"><strong class="slot-label">(CF)</strong></div>
+  <div class="position-slot right-field" data-position="RF"><strong class="slot-label">(RF)</strong></div>
+</div>
+
+<h2>Batting Order</h2>
+<div id="battingOrderList" class="manager-panel batting-order-list"></div>
+
+<div class="manager-panel">
+<textarea
+  id="lineup"
+  style="display:none;"
+  readonly>
+</textarea>
+
+<br><br>
+
+<label>Star Player</label><br>
+<input id="starPlayer" placeholder="Player name">
+
+<br><br>
+
+<label>Stat Adjust</label><br>
+<input id="statAdjust" placeholder="e.g. Contact +1">
+
+<br><br>
+
+<label>Class Change</label>
+<input
+  id="statClass"
+  placeholder="e.g. Baby Mario -> Power">
+
+<br><br>
+
+<label>Trajectory Change</label>
+<input
+  id="trajectory"
+  placeholder="e.g. Mario -> Fly Ball">
+
+<div id="homeFields" style="display:none;">
+<label>Home Stadium Ban</label><br>
+<select id="homeBan">
+  <option value="">-- Select Ban --</option>
+  <option value="Bowser Castle / Bowser Jr. Playroom">Bowser Castle / Bowser Jr. Playroom</option>
+  <option value="Wario City">Wario City</option>
+  <option value="Luigi's Mansion">Luigi's Mansion</option>
+  <option value="Yoshi Park">Yoshi Park</option>
+  <option value="Mario Stadium">Mario Stadium</option>
+  <option value="DK Jungle">DK Jungle</option>
+  <option value="Daisy Cruiser">Daisy Cruiser</option>
+</select>
+</div>
+
+<br><br>
+
+<div id="awayFields" style="display:none;">
+<label>Away Pick 1</label><br>
+<select id="awayPick1">
+  <option value="">-- Select Pick 1 --</option>
+  <option value="Bowser Castle (Night)">Bowser Castle (Night)</option>
+  <option value="Bowser Jr. Playroom (Day)">Bowser Jr. Playroom (Day)</option>
+  <option value="Wario City (Day)">Wario City (Day)</option>
+  <option value="Wario City (Night)">Wario City (Night)</option>
+  <option value="Luigi's Mansion (Day)">Luigi's Mansion (Day)</option>
+  <option value="Luigi's Mansion (Night)">Luigi's Mansion (Night)</option>
+  <option value="Yoshi Park (Day)">Yoshi Park (Day)</option>
+  <option value="Yoshi Park (Night)">Yoshi Park (Night)</option>
+  <option value="Mario Stadium (Day)">Mario Stadium (Day)</option>
+  <option value="Mario Stadium (Night)">Mario Stadium (Night)</option>
+  <option value="DK Jungle (Day)">DK Jungle (Day)</option>
+  <option value="DK Jungle (Night)">DK Jungle (Night)</option>
+  <option value="Daisy Cruiser (Day)">Daisy Cruiser (Day)</option>
+  <option value="Daisy Cruiser (Night)">Daisy Cruiser (Night)</option>
+</select>
+
+<br><br>
+
+<label>Away Pick 2</label><br>
+<select id="awayPick2">
+  <option value="">-- Select Pick 2 --</option>
+  <option value="Bowser Castle (Night)">Bowser Castle (Night)</option>
+  <option value="Bowser Jr. Playroom (Day)">Bowser Jr. Playroom (Day)</option>
+  <option value="Wario City (Day)">Wario City (Day)</option>
+  <option value="Wario City (Night)">Wario City (Night)</option>
+  <option value="Luigi's Mansion (Day)">Luigi's Mansion (Day)</option>
+  <option value="Luigi's Mansion (Night)">Luigi's Mansion (Night)</option>
+  <option value="Yoshi Park (Day)">Yoshi Park (Day)</option>
+  <option value="Yoshi Park (Night)">Yoshi Park (Night)</option>
+  <option value="Mario Stadium (Day)">Mario Stadium (Day)</option>
+  <option value="Mario Stadium (Night)">Mario Stadium (Night)</option>
+  <option value="DK Jungle (Day)">DK Jungle (Day)</option>
+  <option value="DK Jungle (Night)">DK Jungle (Night)</option>
+  <option value="Daisy Cruiser (Day)">Daisy Cruiser (Day)</option>
+  <option value="Daisy Cruiser (Night)">Daisy Cruiser (Night)</option>
+</select>
+
+<br><br>
+
+<label>Away Preferred Pick</label><br>
+<select id="awayPreferred">
+  <option value="">-- Select Preferred --</option>
+  <option value="Bowser Castle (Night)">Bowser Castle (Night)</option>
+  <option value="Bowser Jr. Playroom (Day)">Bowser Jr. Playroom (Day)</option>
+  <option value="Wario City (Day)">Wario City (Day)</option>
+  <option value="Wario City (Night)">Wario City (Night)</option>
+  <option value="Luigi's Mansion (Day)">Luigi's Mansion (Day)</option>
+  <option value="Luigi's Mansion (Night)">Luigi's Mansion (Night)</option>
+  <option value="Yoshi Park (Day)">Yoshi Park (Day)</option>
+  <option value="Yoshi Park (Night)">Yoshi Park (Night)</option>
+  <option value="Mario Stadium (Day)">Mario Stadium (Day)</option>
+  <option value="Mario Stadium (Night)">Mario Stadium (Night)</option>
+  <option value="DK Jungle (Day)">DK Jungle (Day)</option>
+  <option value="DK Jungle (Night)">DK Jungle (Night)</option>
+  <option value="Daisy Cruiser (Day)">Daisy Cruiser (Day)</option>
+  <option value="Daisy Cruiser (Night)">Daisy Cruiser (Night)</option>
+</select>
+</div>
+
+<br><br>
+
+<button
+  id="submitBtn"
+  class="manager-btn">
+  Submit Match
+</button>
+<p id="status" class="submission-status"></p>
+</div>
+</main>
+<script>
+
+function showLoader(text = "⚾ Loading Sluggers...") {
+  document.getElementById("loadingText").textContent = text;
+  document.getElementById("loadingOverlay")?.classList.remove("hidden");
+}
+
+function hideLoader() {
+  document.getElementById("loadingOverlay")?.classList.add("hidden");
+}
+
+let battingOrder = [];
+
+const API_URL = "https://script.google.com/macros/s/AKfycbwxxW_eftpf-06flTZfkR8qaHh9f1Y5EI2DKl81mO6pch_k2655-i6OXNiyfga_4jyM/exec";
+
+const team = localStorage.getItem("sluggersTeam");
+const activeMatchId = localStorage.getItem("activeMatchId");
+
+if (!team || !activeMatchId) {
+  window.location.href = "team-login.html";
+}
+
+let currentMatch = null;
+
+showLoader();
+loadMatch().finally(hideLoader);
+
+async function loadMatch() {
+  const res = await fetch(`${API_URL}?mode=getTeamMatches&team=${encodeURIComponent(team)}`);
+  const matches = await res.json();
+
+  currentMatch = matches.find(m => String(m.id) === String(activeMatchId));
+
+  if (!currentMatch) {
+    document.getElementById("status").textContent = "Match not found.";
+    return;
+  }
+
+  document.getElementById("matchTitle").textContent =
+    `${currentMatch.home} vs ${currentMatch.away}`;
+
+  document.getElementById("matchInfo").textContent =
+    `${currentMatch.date} | ${team}`;
+
+  const isHome = currentMatch.home === team;
+  const isAway = currentMatch.away === team;
+
+  document.getElementById("homeFields").style.display = isHome ? "block" : "none";
+  document.getElementById("awayFields").style.display = isAway ? "block" : "none";
+
+  if (isHome) {
+    document.getElementById("lineup").value = currentMatch["Home Lineup"] || "";
+    document.getElementById("starPlayer").value = currentMatch.homeStar || "";
+    document.getElementById("statAdjust").value = currentMatch.homeStatAdjust || "";
+    document.getElementById("statClass").value = currentMatch.homeClass || "";
+    document.getElementById("trajectory").value = currentMatch.homeTrajectory || "";
+    document.getElementById("homeBan").value = currentMatch.homeBan || "";
+  }
+
+  if (isAway) {
+    document.getElementById("lineup").value = currentMatch["Away Lineup"] || "";
+    document.getElementById("starPlayer").value = currentMatch.awayStar || "";
+    document.getElementById("statAdjust").value = currentMatch.awayStatAdjust || "";
+    document.getElementById("statClass").value = currentMatch.awayClass || "";
+    document.getElementById("trajectory").value = currentMatch.awayTrajectory || "";
+    const existingPicks = (currentMatch.awayPicks || "")
+        .split(",")
+        .map(s => s.trim());
+
+        document.getElementById("awayPick1").value = existingPicks[0] || "";
+        document.getElementById("awayPick2").value = existingPicks[1] || "";
+    document.getElementById("awayPreferred").value = currentMatch.awayPreferred || "";
+  }
+
+  await loadAllTimeCharacterStats();
+  await loadPlayerStats();
+  renderRosterCards();
+  setupDiamondSlots();
+  restoreExistingLineup();
+  checkSubmissionStatus(isHome, isAway);
+}
+
+document.getElementById("submitBtn").addEventListener("click", async () => {
+  showLoader("Submitting...");
+
+  try {
+    const body = {
+      mode: "submitTeamMatch",
+      team,
+      id: activeMatchId,
+      lineup: document.getElementById("lineup").value,
+      starPlayer: document.getElementById("starPlayer").value,
+      statAdjust: document.getElementById("statAdjust").value,
+      statClass: document.getElementById("statClass").value,
+      trajectory: document.getElementById("trajectory").value,
+      homeBan: document.getElementById("homeBan")?.value || "",
+      awayPicks: [
+        document.getElementById("awayPick1")?.value || "",
+        document.getElementById("awayPick2")?.value || ""
+      ].filter(Boolean).join(", "),
+      awayPreferred: document.getElementById("awayPreferred")?.value || ""
+    };
+
+    const res = await fetch(API_URL, {
+      method: "POST",
+      body: JSON.stringify(body)
+    });
+
+    const data = await res.json();
+
+    const status = document.getElementById("status");
+
+    status.textContent = data.success
+      ? "✅ Match submitted successfully!"
+      : `❌ ${data.message}`;
+
+    status.className = data.success
+      ? "submission-status success"
+      : "submission-status error";
+
+    if (data.success) {
+      const submitBtn = document.getElementById("submitBtn");
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Already Submitted";
+      submitBtn.classList.add("disabled");
+    }
+
+  } catch (err) {
+    const status = document.getElementById("status");
+    status.textContent = "❌ Submission failed. Try again or contact John.";
+    status.className = "submission-status error";
+  } finally {
+    hideLoader();
+  }
+});
+
+function renderRosterCards() {
+  const roster = window.teamRosters[team] || [];
+  const grid = document.getElementById("rosterGrid");
+  grid.innerHTML = "";
+
+  roster.forEach(name => {
+    const char = window.characters.find(c => c.name === name);
+    if (!char) return;
+
+    const stats = window.playerStats?.[char.name.toLowerCase()];
+    const isCaptain = window.captains?.includes(char.name);
+    const miiInfo = window.miiMeta?.[char.name];
+
+    const card = document.createElement("div");
+    card.className = "character-card card-hover-pop draggable-player-card" + (isCaptain ? " captain-card" : "");
+    card.draggable = true;
+    card.dataset.player = char.name;
+
+    const badge = miiInfo
+      ? `<div class="mii-badge" style="background-color:${miiInfo.color};">${miiInfo.gender}</div>`
+      : "";
+
+    card.innerHTML = `
+      ${badge}
+      <img src="${char.image}" alt="${char.name}">
+      <h3>${char.name}</h3>
+      <p>Class: ${char.class}</p>
+      ${stats ? `
+        <div class="char-stat">AVG: ${stats.AVG || "0"}</div>
+        <div class="char-stat">HR: ${stats.HR || "0"}</div>
+        <div class="char-stat">GP: ${stats.GP || "0"}</div>
+        <div class="char-stat">IP: ${stats.IP || "0"}</div>
+        <div class="char-stat">ERA: ${stats.ER || "0"}</div>
+        <div class="char-stat">BAA: ${stats.BAA || "0"}</div>
+      ` : `<div class="placeholder-stats">No Games Played</div>`}
+    `;
+
+    card.addEventListener("dragstart", e => {
+      e.dataTransfer.setData("player", char.name);
+      card.classList.add("dragging");
+    });
+
+    card.addEventListener("dragend", () => {
+      card.classList.remove("dragging");
+    });
+
+    card.addEventListener("click", () => {
+    document.querySelectorAll(".draggable-player-card")
+        .forEach(c => c.classList.remove("selected-player-card"));
+
+    card.classList.add("selected-player-card");
+    window.selectedMobilePlayer = char.name;
+    });
+
+    grid.appendChild(card);
+  });
+}
+
+function setupDiamondSlots() {
+  document.querySelectorAll(".position-slot").forEach(slot => {
+    slot.addEventListener("dragover", e => e.preventDefault());
+
+    slot.addEventListener("drop", e => {
+      e.preventDefault();
+
+      const player = e.dataTransfer.getData("player");
+      movePlayerToSlot(player, slot);
+    });
+
+    // Mobile fallback: tap selected player, then tap position
+    slot.addEventListener("click", () => {
+      const player = window.selectedMobilePlayer;
+      if (!player) return;
+
+      movePlayerToSlot(player, slot);
+      window.selectedMobilePlayer = null;
+    });
+  });
+
+  const rosterGrid = document.getElementById("rosterGrid");
+
+  rosterGrid.addEventListener("dragover", e => e.preventDefault());
+
+  rosterGrid.addEventListener("drop", e => {
+    e.preventDefault();
+
+    const player = e.dataTransfer.getData("player");
+    movePlayerBackToRoster(player);
+  });
+}
+
+function movePlayerToSlot(player, slot) {
+  const draggedCard = document.querySelector(
+    `.draggable-player-card[data-player="${CSS.escape(player)}"]`
+  );
+
+  if (!draggedCard) return;
+
+  const oldSlot = draggedCard.closest(".position-slot");
+
+  const existingCard = slot.querySelector(".draggable-player-card");
+  if (existingCard) {
+    document.getElementById("rosterGrid").appendChild(existingCard);
+  }
+
+  slot.innerHTML = `<strong class="slot-label">(${slot.dataset.position})</strong>`;
+  slot.appendChild(draggedCard);
+  slot.dataset.player = player;
+
+  if (oldSlot && oldSlot !== slot) {
+    oldSlot.dataset.player = "";
+    oldSlot.innerHTML = `<strong class="slot-label">(${oldSlot.dataset.position})</strong>`;
+  }
+
+  draggedCard.classList.remove("selected-player-card");
+
+  updateLineupTextarea();
+}
+
+function movePlayerBackToRoster(player) {
+  const draggedCard = document.querySelector(
+    `.draggable-player-card[data-player="${CSS.escape(player)}"]`
+  );
+
+  if (!draggedCard) return;
+
+  const oldSlot = draggedCard.closest(".position-slot");
+
+  document.getElementById("rosterGrid").appendChild(draggedCard);
+
+  if (oldSlot) {
+    oldSlot.dataset.player = "";
+    oldSlot.innerHTML = `<strong class="slot-label">(${oldSlot.dataset.position})</strong>`;
+  }
+
+  draggedCard.classList.remove("selected-player-card");
+  updateLineupTextarea();
+}
+
+function restoreExistingLineup() {
+  const rawLineup = document.getElementById("lineup").value;
+  if (!rawLineup.trim()) return;
+
+  const lines = rawLineup
+    .split(/\r?\n/)
+    .map(line => line.trim())
+    .filter(Boolean);
+
+  battingOrder = [];
+
+  lines.forEach(line => {
+    const match = line.match(/^\((.*?)\)\s*(.+)$/);
+    if (!match) return;
+
+    const position = match[1].trim();
+    const player = match[2].trim();
+
+    const slot = document.querySelector(`.position-slot[data-position="${position}"]`);
+    const card = document.querySelector(`.draggable-player-card[data-player="${CSS.escape(player)}"]`);
+
+    if (!slot || !card) return;
+
+    slot.innerHTML = `<strong class="slot-label">(${position})</strong>`;
+    slot.appendChild(card);
+    slot.dataset.player = player;
+
+    battingOrder.push(player);
+  });
+
+  renderBattingOrderList();
+  updateLineupTextarea();
+}
+
+function checkSubmissionStatus(isHome, isAway) {
+  const alreadySubmitted =
+    (isHome && String(currentMatch.homeSubmitted || "").toLowerCase() === "yes") ||
+    (isAway && String(currentMatch.awaySubmitted || "").toLowerCase() === "yes");
+
+  if (!alreadySubmitted) return;
+
+  const submitBtn = document.getElementById("submitBtn");
+  const status = document.getElementById("status");
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Already Submitted";
+  submitBtn.classList.add("disabled");
+
+  status.textContent = "Already submitted. Please contact John to change.";
+  status.className = "submission-status error";
+}
+
+function updateLineupTextarea() {
+  const placed = Array.from(document.querySelectorAll(".position-slot"))
+    .filter(slot => slot.dataset.player)
+    .map(slot => ({
+      player: slot.dataset.player,
+      position: slot.dataset.position
+    }));
+
+  placed.forEach(item => {
+    if (!battingOrder.includes(item.player)) {
+      battingOrder.push(item.player);
+    }
+  });
+
+  battingOrder = battingOrder.filter(player =>
+    placed.some(item => item.player === player)
+  );
+
+  renderBattingOrderList();
+
+  const lines = battingOrder.map(player => {
+    const item = placed.find(p => p.player === player);
+    return `(${item.position}) ${player}`;
+  });
+
+  document.getElementById("lineup").value = lines.join("\n");
+}
+
+function renderBattingOrderList() {
+  const list = document.getElementById("battingOrderList");
+  list.innerHTML = "";
+
+  battingOrder.forEach((player, index) => {
+    const row = document.createElement("div");
+    row.className = "batting-order-row";
+
+    row.innerHTML = `
+      <div class="batting-order-number">${index + 1}</div>
+      <div>${player}</div>
+      <button class="order-btn" ${index === 0 ? "disabled" : ""}>↑</button>
+      <button class="order-btn" ${index === battingOrder.length - 1 ? "disabled" : ""}>↓</button>
+    `;
+
+    const buttons = row.querySelectorAll("button");
+
+    buttons[0].addEventListener("click", () => {
+      moveBattingOrder(index, -1);
+    });
+
+    buttons[1].addEventListener("click", () => {
+      moveBattingOrder(index, 1);
+    });
+
+    list.appendChild(row);
+  });
+
+  updateCardOrderBadges();
+}
+
+function moveBattingOrder(index, direction) {
+  const newIndex = index + direction;
+  if (newIndex < 0 || newIndex >= battingOrder.length) return;
+
+  const temp = battingOrder[index];
+  battingOrder[index] = battingOrder[newIndex];
+  battingOrder[newIndex] = temp;
+
+  updateLineupTextarea();
+}
+
+function updateCardOrderBadges() {
+  document.querySelectorAll(".draggable-player-card").forEach(card => {
+    card.querySelector(".batting-order-badge")?.remove();
+
+    const index = battingOrder.indexOf(card.dataset.player);
+    if (index === -1) return;
+
+    const badge = document.createElement("div");
+    badge.className = "batting-order-badge";
+    badge.textContent = index + 1;
+
+    card.style.position = "relative";
+    card.appendChild(badge);
+  });
+}
+
+document.getElementById("clearLineupBtn").addEventListener("click", () => {
+  document.querySelectorAll(".position-slot").forEach(slot => {
+    const card = slot.querySelector(".draggable-player-card");
+    if (card) document.getElementById("rosterGrid").appendChild(card);
+
+    slot.dataset.player = "";
+    slot.innerHTML = `<strong class="slot-label">(${slot.dataset.position})</strong>`;
+  });
+
+  battingOrder = [];
+  document.getElementById("lineup").value = "";
+  renderBattingOrderList();
+});
+
+</script>
+<script src="scripts/auth-nav.js"></script>
+
+</body>
+</html>

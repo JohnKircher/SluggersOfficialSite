@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Team Manager</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div id="loadingOverlay" class="loading-overlay">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">🧢 Loading Team Data...</div>
+</div>
+
+    <nav class="navbar">
+  <div class="nav-content">
+    <ul class="nav-links">
+      <li><a href="index.html">📅 Home</a></li>
+      <li><a href="characters.html">🧢 Character Cast & Stats</a></li>
+      <li><a href="season.html">📅 Current Season</a></li>
+      <a href="simulator.html" class="nav-link">🏆 Playoff Simulator</a>
+      <li><a href="mock-draft.html">🧪 Mock Draft</a></li>
+      <li><a href="stat-adjuster.html">🛠️ Stat Adjuster</a></li>
+
+      <li id="managerNavItem" style="display:none;">
+        <a href="team-manager.html">🧢 Match Management</a>
+      </li>
+
+      <li id="loginNavItem">
+        <a href="team-login.html" class="active">🔐 Login</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="manager-container">
+
+  <h1 id="teamTitle"
+      class="manager-title">
+  </h1>
+
+  <p class="manager-subtitle">
+    Manage your upcoming matches
+  </p>
+
+  <div id="matchContainer"
+       class="team-match-grid">
+  </div>
+
+</div>
+
+<script src="scripts/rosters.js"></script>
+<script src="scripts/app.js"></script>
+
+<script>
+
+    function showLoader() {
+  document.getElementById("loadingOverlay")
+    ?.classList.remove("hidden");
+}
+
+function hideLoader() {
+  document.getElementById("loadingOverlay")
+    ?.classList.add("hidden");
+}
+
+const API_URL = "https://script.google.com/macros/s/AKfycbwxxW_eftpf-06flTZfkR8qaHh9f1Y5EI2DKl81mO6pch_k2655-i6OXNiyfga_4jyM/exec";
+
+const team = localStorage.getItem("sluggersTeam");
+
+if (!team) {
+  window.location.href = "team-login.html";
+}
+
+document.getElementById("teamTitle").textContent =
+  team + " Management";
+
+showLoader();
+loadMatches().finally(hideLoader);
+
+async function loadMatches() {
+
+  const res = await fetch(
+    `${API_URL}?mode=getTeamMatches&team=${encodeURIComponent(team)}`
+  );
+
+  const matches = await res.json();
+
+  const container =
+    document.getElementById("matchContainer");
+
+  container.innerHTML = "";
+
+  matches.forEach(match => {
+
+    const card = document.createElement("div");
+    card.className = "team-match-card";
+
+    card.innerHTML = `
+      <h3>${match.home} vs ${match.away}</h3>
+      <p>${match.date}</p>
+      <button
+        class="manager-btn"
+        onclick="openMatch('${match.id}')">
+        Manage Match
+      </button>
+    `;
+
+    container.appendChild(card);
+  });
+}
+
+function openMatch(id) {
+  localStorage.setItem("activeMatchId", id);
+  window.location.href = "match-manager.html";
+}
+
+</script>
+<script src="scripts/auth-nav.js"></script>
+</body>
+</html>

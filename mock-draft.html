@@ -128,6 +128,21 @@
   margin-right:6px;
 }
 
+.wrap{
+  width:98%;
+  max-width:2000px;
+  margin:0 auto;
+  padding:16px;
+}
+
+.grid.cols-2{
+  grid-template-columns:450px 1fr;
+}
+
+.players{
+  grid-template-columns:repeat(auto-fill,minmax(75px,1fr));
+  gap:4px;
+}
 
 </style>
 
@@ -172,6 +187,15 @@
           <h3>Current Roster</h3>
 </div>
         <div id="roster" class="players"></div>
+        <div class="divider"></div>
+
+        <div class="sec-title">
+          <h3>Mii Pick Order</h3>
+        </div>
+
+        <div id="miiPickOrder" class="list mini muted">
+          No Miis picked yet.
+        </div>
         <div class="divider"></div>
         <details>
           <summary>Draft Settings</summary>
@@ -264,7 +288,8 @@ let state = {
   chemistry: {},
   selectedTeam: null,
   keepSnake: true,
-  turnIndex: 0,        // which team index is currently on the clock
+  turnIndex: 0,   
+  miiPickOrder: []     // which team index is currently on the clock
 };
 
 const els = sel => document.querySelector(sel);
@@ -545,6 +570,7 @@ function resetAll(){
     selectedTeam: null,
     keepSnake: true,
     turnIndex: 0,
+    miiPickOrder: []
   };
 
   ensureDefaults();
@@ -567,6 +593,19 @@ function pick(player){
   state.teamRosters[team].push(player);
   state.remaining = state.remaining.filter(p=>p!==player);
 
+  const totalPicks = Object.values(state.teamRosters)
+    .reduce((a,b)=>a + (b?.length || 0), 0);
+
+  if (isMii(player)) {
+    if (!Array.isArray(state.miiPickOrder)) state.miiPickOrder = [];
+
+    state.miiPickOrder.push({
+      player,
+      team,
+      pickNumber: totalPicks + 1
+    });
+  }
+
   advanceTurnAfterPick();
   save();
   renderAll();
@@ -577,6 +616,7 @@ function renderAll(){
   renderRoster();
   renderPlayers();
   renderToolbar();
+  renderMiiPickOrder();
 }
 
 function affinityStripHTML(likedList, hatedList){
@@ -637,6 +677,27 @@ async function init(){
 
   renderAll();
   save();
+}
+
+function isMii(name){
+  return name.toLowerCase().includes('mii');
+}
+
+function renderMiiPickOrder(){
+  const el = document.querySelector('#miiPickOrder');
+  if (!el) return;
+
+  if (!state.miiPickOrder || state.miiPickOrder.length === 0) {
+    el.innerHTML = 'No Miis picked yet.';
+    return;
+  }
+
+  el.innerHTML = state.miiPickOrder.map((pick, i) => `
+    <div>
+      <strong>${i + 1}.</strong> ${pick.player}
+      <span class="muted">— ${pick.team}, Pick #${pick.pickNumber}</span>
+    </div>
+  `).join('');
 }
 
 init();

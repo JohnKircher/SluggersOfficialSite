@@ -125,6 +125,7 @@
         await loadMatchesFromAPI();
         await loadAllTimeCharacterStats();
         await loadPlayerStats();
+        showSubmissionPopup(window.matches);
 
       
 
@@ -463,10 +464,27 @@
       front.className = 'match-card match-card-front';
       front.style.backfaceVisibility = 'hidden';
 
+      const bothSubmitted =
+        String(match.homeSubmitted || "").toLowerCase() === "yes" &&
+        String(match.awaySubmitted || "").toLowerCase() === "yes";
+
+      const stadiumImg = bothSubmitted && match.stadiumImg
+        ? match.stadiumImg
+        : "assets/stadiums/tbd.jpg";
+
+      const bannedText = bothSubmitted && match.banned
+        ? `<div class="banned">${match.banned} Banned</div>`
+        : `<div class="banned">Stadium hidden until both forms are submitted</div>`;
+
+      const banResult = bothSubmitted && match.stadiumBanSuccessful
+        ? `<div class="ban-result">Ban successful: ${match.stadiumBanSuccessful}</div>`
+        : "";
+
       front.innerHTML = `
-        <img src="${match.stadiumImg}" alt="Stadium">
-        ${match.day ? `<div class="stadium-time-label ${match.day.toLowerCase()}">${match.day}</div>` : ''}
-        <div class="banned">${match.banned} Banned</div>
+        <img src="${stadiumImg}" alt="Stadium">
+        ${bothSubmitted && match.day ? `<div class="stadium-time-label ${match.day.toLowerCase()}">${match.day}</div>` : ''}
+        ${bannedText}
+        ${banResult}
         <div class="teams vertical">
           <span>${match.home}</span>
           <div class="vs-text">vs</div>
@@ -525,6 +543,83 @@
         statsBox.style.display = isVisible ? 'none' : 'block';
         btn.textContent = isVisible ? '📊 View Stats' : '📉 Hide Stats';
       });
+    });
+  }
+
+  function showSubmissionPopup(matches) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const weeks = [
+      { start: new Date("June 17, 2026"), end: new Date("June 18, 2026"), label: "Week 1" },
+      { start: new Date("June 23, 2026"), end: new Date("June 25, 2026"), label: "Week 2" },
+      { start: new Date("July 7, 2026"), end: new Date("July 9, 2026"), label: "Week 3" },
+      { start: new Date("July 14, 2026"), end: new Date("July 16, 2026"), label: "Week 4" },
+      { start: new Date("July 21, 2026"), end: new Date("July 23, 2026"), label: "Week 5" },
+    ];
+
+    weeks.forEach(w => {
+      w.start.setHours(0, 0, 0, 0);
+      w.end.setHours(23, 59, 59, 999);
+    });
+
+    const activeWeek = weeks.find(w => today <= w.end);
+    if (!activeWeek) return;
+
+    const weekMatches = matches.filter(m => {
+      const matchDate = new Date(m.date);
+      return matchDate >= activeWeek.start && matchDate <= activeWeek.end;
+    });
+
+    if (!weekMatches.length) return;
+
+    const teams = {};
+
+    weekMatches.forEach(m => {
+      if (!teams[m.home]) teams[m.home] = { submitted: 0, total: 0 };
+      if (!teams[m.away]) teams[m.away] = { submitted: 0, total: 0 };
+
+      teams[m.home].total++;
+      teams[m.away].total++;
+
+      if (String(m.homeSubmitted || "").toLowerCase() === "yes") {
+        teams[m.home].submitted++;
+      }
+
+      if (String(m.awaySubmitted || "").toLowerCase() === "yes") {
+        teams[m.away].submitted++;
+      }
+    });
+
+    const rows = Object.entries(teams)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([team, data]) => {
+        let icon = "🔴";
+        if (data.submitted === data.total) icon = "🟢";
+        else if (data.submitted > 0) icon = "🟡";
+
+        return `
+          <div class="submission-row">
+            <span>${icon} ${team}</span>
+            <strong>(${data.submitted}/${data.total})</strong>
+          </div>
+        `;
+      })
+      .join("");
+
+    const popup = document.createElement("div");
+    popup.className = "submission-popup";
+    popup.innerHTML = `
+      <button class="submission-popup-close">×</button>
+      <h3>Upcoming Form Status</h3>
+      <p class="submission-popup-subtitle">${activeWeek.label}</p>
+      ${rows}
+    `;
+
+    document.body.appendChild(popup);
+
+    popup.querySelector(".submission-popup-close").addEventListener("click", () => {
+      popup.remove();
     });
   }
 

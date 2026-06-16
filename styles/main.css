@@ -1961,3 +1961,73 @@ html, body {
   padding: 12px;
   color: white;
 }
+
+.submission-popup {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+  background: #111827;
+  color: white;
+  border: 2px solid #facc15;
+  border-radius: 14px;
+  padding: 16px;
+  width: 280px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.45);
+}
+
+.submission-popup-close {
+  float: right;
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.submission-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 8px 0;
+}
+
+.submission-popup {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+  background: #111827;
+  color: white;
+  border: 2px solid #facc15;
+  border-radius: 14px;
+  padding: 16px;
+  width: 300px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.45);
+}
+
+.submission-popup h3 {
+  margin: 0 0 4px;
+}
+
+.submission-popup-subtitle {
+  margin: 0 0 12px;
+  color: #cbd5e1;
+  font-size: 13px;
+}
+
+.submission-popup-close {
+  float: right;
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.submission-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 8px 0;
+}

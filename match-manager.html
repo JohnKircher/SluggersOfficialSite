@@ -69,6 +69,11 @@
 <h2>Batting Order</h2>
 <div id="battingOrderList" class="manager-panel batting-order-list"></div>
 
+<h2>Pitching Order</h2>
+<div id="pitchingOrderList" class="manager-panel batting-order-list"></div>
+
+<textarea id="pitchingOrder" style="display:none;" readonly></textarea>
+
 <div class="manager-panel">
 <textarea
   id="lineup"
@@ -101,24 +106,9 @@
   placeholder="e.g. Mario -> Fly Ball">
 
 <div id="homeFields" style="display:none;">
-<label>Home Stadium Ban</label><br>
-<select id="homeBan">
-  <option value="">-- Select Ban --</option>
-  <option value="Bowser Castle / Bowser Jr. Playroom">Bowser Castle / Bowser Jr. Playroom</option>
-  <option value="Wario City">Wario City</option>
-  <option value="Luigi's Mansion">Luigi's Mansion</option>
-  <option value="Yoshi Park">Yoshi Park</option>
-  <option value="Mario Stadium">Mario Stadium</option>
-  <option value="DK Jungle">DK Jungle</option>
-  <option value="Daisy Cruiser">Daisy Cruiser</option>
-</select>
-</div>
 
-<br><br>
-
-<div id="awayFields" style="display:none;">
-<label>Away Pick 1</label><br>
-<select id="awayPick1">
+<label>Home Pick 1</label><br>
+<select id="homePick1">
   <option value="">-- Select Pick 1 --</option>
   <option value="Bowser Castle (Night)">Bowser Castle (Night)</option>
   <option value="Bowser Jr. Playroom (Day)">Bowser Jr. Playroom (Day)</option>
@@ -138,9 +128,9 @@
 
 <br><br>
 
-<label>Away Pick 2</label><br>
-<select id="awayPick2">
-  <option value="">-- Select Pick 2 --</option>
+<label>Home Pick 2</label><br>
+<select id="homePick2">
+  <option value="">-- Select Pick 1 --</option>
   <option value="Bowser Castle (Night)">Bowser Castle (Night)</option>
   <option value="Bowser Jr. Playroom (Day)">Bowser Jr. Playroom (Day)</option>
   <option value="Wario City (Day)">Wario City (Day)</option>
@@ -159,9 +149,9 @@
 
 <br><br>
 
-<label>Away Preferred Pick</label><br>
-<select id="awayPreferred">
-  <option value="">-- Select Preferred --</option>
+<label>Home Preferred Pick</label><br>
+<select id="homePreferred">
+  <option value="">-- Select Pick 1 --</option>
   <option value="Bowser Castle (Night)">Bowser Castle (Night)</option>
   <option value="Bowser Jr. Playroom (Day)">Bowser Jr. Playroom (Day)</option>
   <option value="Wario City (Day)">Wario City (Day)</option>
@@ -177,6 +167,25 @@
   <option value="Daisy Cruiser (Day)">Daisy Cruiser (Day)</option>
   <option value="Daisy Cruiser (Night)">Daisy Cruiser (Night)</option>
 </select>
+
+</div>
+
+<br><br>
+
+<div id="awayFields" style="display:none;">
+
+<label>Away Stadium Ban</label><br>
+<select id="awayBan">
+  <option value="">-- Select Ban --</option>
+  <option value="Bowser Castle / Bowser Jr. Playroom">Bowser Castle / Bowser Jr. Playroom</option>
+  <option value="Wario City">Wario City</option>
+  <option value="Luigi's Mansion">Luigi's Mansion</option>
+  <option value="Yoshi Park">Yoshi Park</option>
+  <option value="Mario Stadium">Mario Stadium</option>
+  <option value="DK Jungle">DK Jungle</option>
+  <option value="Daisy Cruiser">Daisy Cruiser</option>
+</select>
+
 </div>
 
 <br><br>
@@ -190,6 +199,7 @@
 </div>
 </main>
 <script>
+let pitchingOrder = [];
 
 function showLoader(text = "⚾ Loading Sluggers...") {
   document.getElementById("loadingText").textContent = text;
@@ -202,7 +212,7 @@ function hideLoader() {
 
 let battingOrder = [];
 
-const API_URL = "https://script.google.com/macros/s/AKfycbwxxW_eftpf-06flTZfkR8qaHh9f1Y5EI2DKl81mO6pch_k2655-i6OXNiyfga_4jyM/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbzBAmEbJLzxvHt2yql3ghF-j0Vj6ewkhq2IcI7tcsG72evtBbtLaoosatfIJvM1BAWE/exec";
 
 const team = localStorage.getItem("sluggersTeam");
 const activeMatchId = localStorage.getItem("activeMatchId");
@@ -246,7 +256,13 @@ async function loadMatch() {
     document.getElementById("statAdjust").value = currentMatch.homeStatAdjust || "";
     document.getElementById("statClass").value = currentMatch.homeClass || "";
     document.getElementById("trajectory").value = currentMatch.homeTrajectory || "";
-    document.getElementById("homeBan").value = currentMatch.homeBan || "";
+    const existingPicks = (currentMatch.homePicks || "")
+      .split(",")
+      .map(s => s.trim());
+
+    document.getElementById("homePick1").value = existingPicks[0] || "";
+    document.getElementById("homePick2").value = existingPicks[1] || "";
+    document.getElementById("homePreferred").value = currentMatch.homePreferred || "";
   }
 
   if (isAway) {
@@ -255,13 +271,8 @@ async function loadMatch() {
     document.getElementById("statAdjust").value = currentMatch.awayStatAdjust || "";
     document.getElementById("statClass").value = currentMatch.awayClass || "";
     document.getElementById("trajectory").value = currentMatch.awayTrajectory || "";
-    const existingPicks = (currentMatch.awayPicks || "")
-        .split(",")
-        .map(s => s.trim());
-
-        document.getElementById("awayPick1").value = existingPicks[0] || "";
-        document.getElementById("awayPick2").value = existingPicks[1] || "";
-    document.getElementById("awayPreferred").value = currentMatch.awayPreferred || "";
+    document.getElementById("awayBan").value =
+      currentMatch.awayBan || "";
   }
 
   await loadAllTimeCharacterStats();
@@ -281,16 +292,17 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
       team,
       id: activeMatchId,
       lineup: document.getElementById("lineup").value,
+      pitchingOrder: document.getElementById("pitchingOrder").value,
       starPlayer: document.getElementById("starPlayer").value,
       statAdjust: document.getElementById("statAdjust").value,
       statClass: document.getElementById("statClass").value,
       trajectory: document.getElementById("trajectory").value,
-      homeBan: document.getElementById("homeBan")?.value || "",
-      awayPicks: [
-        document.getElementById("awayPick1")?.value || "",
-        document.getElementById("awayPick2")?.value || ""
+      homePicks: [
+        document.getElementById("homePick1")?.value || "",
+        document.getElementById("homePick2")?.value || ""
       ].filter(Boolean).join(", "),
-      awayPreferred: document.getElementById("awayPreferred")?.value || ""
+      homePreferred: document.getElementById("homePreferred")?.value || "",
+      awayBan: document.getElementById("awayBan")?.value || ""
     };
 
     const res = await fetch(API_URL, {
@@ -510,6 +522,7 @@ function restoreExistingLineup() {
 
   renderBattingOrderList();
   updateLineupTextarea();
+  restoreExistingPitchingOrder();
 }
 
 function checkSubmissionStatus(isHome, isAway) {
@@ -547,6 +560,19 @@ function updateLineupTextarea() {
   battingOrder = battingOrder.filter(player =>
     placed.some(item => item.player === player)
   );
+
+  placed.forEach(item => {
+    if (!pitchingOrder.includes(item.player)) {
+      pitchingOrder.push(item.player);
+    }
+  });
+
+  pitchingOrder = pitchingOrder.filter(player =>
+    placed.some(item => item.player === player)
+  );
+
+  renderPitchingOrderList();
+  document.getElementById("pitchingOrder").value = pitchingOrder.join("\n");
 
   renderBattingOrderList();
 
@@ -589,6 +615,47 @@ function renderBattingOrderList() {
   updateCardOrderBadges();
 }
 
+function renderPitchingOrderList() {
+  const list = document.getElementById("pitchingOrderList");
+  list.innerHTML = "";
+
+  pitchingOrder.forEach((player, index) => {
+    const row = document.createElement("div");
+    row.className = "batting-order-row";
+
+    row.innerHTML = `
+      <div class="batting-order-number">${index + 1}</div>
+      <div>${player}</div>
+      <button class="order-btn" ${index === 0 ? "disabled" : ""}>↑</button>
+      <button class="order-btn" ${index === pitchingOrder.length - 1 ? "disabled" : ""}>↓</button>
+    `;
+
+    const buttons = row.querySelectorAll("button");
+
+    buttons[0].addEventListener("click", () => {
+      movePitchingOrder(index, -1);
+    });
+
+    buttons[1].addEventListener("click", () => {
+      movePitchingOrder(index, 1);
+    });
+
+    list.appendChild(row);
+  });
+}
+
+function movePitchingOrder(index, direction) {
+  const newIndex = index + direction;
+  if (newIndex < 0 || newIndex >= pitchingOrder.length) return;
+
+  const temp = pitchingOrder[index];
+  pitchingOrder[index] = pitchingOrder[newIndex];
+  pitchingOrder[newIndex] = temp;
+
+  renderPitchingOrderList();
+  document.getElementById("pitchingOrder").value = pitchingOrder.join("\n");
+}
+
 function moveBattingOrder(index, direction) {
   const newIndex = index + direction;
   if (newIndex < 0 || newIndex >= battingOrder.length) return;
@@ -616,6 +683,21 @@ function updateCardOrderBadges() {
   });
 }
 
+function restoreExistingPitchingOrder() {
+  const raw = document.getElementById("pitchingOrder").value;
+  if (!raw.trim()) {
+    pitchingOrder = [...battingOrder];
+  } else {
+    pitchingOrder = raw
+      .split(/\r?\n/)
+      .map(line => line.trim())
+      .filter(Boolean);
+  }
+
+  renderPitchingOrderList();
+  document.getElementById("pitchingOrder").value = pitchingOrder.join("\n");
+}
+
 document.getElementById("clearLineupBtn").addEventListener("click", () => {
   document.querySelectorAll(".position-slot").forEach(slot => {
     const card = slot.querySelector(".draggable-player-card");
@@ -628,6 +710,9 @@ document.getElementById("clearLineupBtn").addEventListener("click", () => {
   battingOrder = [];
   document.getElementById("lineup").value = "";
   renderBattingOrderList();
+  pitchingOrder = [];
+  document.getElementById("pitchingOrder").value = "";
+  renderPitchingOrderList();
 });
 
 document.getElementById("reuseLastWeekBtn").addEventListener("click", () => {
@@ -657,6 +742,7 @@ document.getElementById("reuseLastWeekBtn").addEventListener("click", () => {
 
   clearDiamondOnly();
   restoreExistingLineup();
+  restoreExistingPitchingOrder();
 
   alert("Last week selections reused. Please choose stadium options before submitting.");
 });

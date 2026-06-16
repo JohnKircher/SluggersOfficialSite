@@ -350,16 +350,16 @@
     function renderStandings() {
       // Division maps for standings badges
       const EAST_TEAMS = new Set([
-        "Jmo",
-        "BenT",
         "HarryKirch",
-        "BenR"
+        "Julian",
+        "BenR",
+        "Carby"
       ]);
       const WEST_TEAMS = new Set([
-        "Tom",
+        "BenT",
+        "Jmo",
         "Kircher",
-        "Julian",
-        "Carby"
+        "Tom"
       ]);
       
       const body = document.getElementById('season3-standings-body');
@@ -418,11 +418,11 @@
     const date = new Date(cleanDateStr);
 
     const weeks = [
-      { start: new Date("January 22, 2026"), end: new Date("January 23, 2026"), week: 1 },
-      { start: new Date("January 27, 2026"), end: new Date("January 29, 2026"), week: 2 },
-      { start: new Date("February 3, 2026"), end: new Date("February 5, 2026"), week: 3 },
-      { start: new Date("February 10, 2026"), end: new Date("February 12, 2026"), week: 4 },
-      { start: new Date("February 17, 2026"), end: new Date("February 19, 2026"), week: 5 },
+      { start: new Date("June 17, 2026"), end: new Date("June 18, 2026"), week: 1 },
+      { start: new Date("June 23, 2026"), end: new Date("June 25, 2026"), week: 2 },
+      { start: new Date("July 7, 2026"), end: new Date("July 9, 2026"), week: 3 },
+      { start: new Date("July 14, 2026"), end: new Date("July 16, 2026"), week: 4 },
+      { start: new Date("July 21, 2026"), end: new Date("July 23, 2026"), week: 5 },
     ];
 
     for (const { start, end, week } of weeks) {

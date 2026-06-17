@@ -523,8 +523,8 @@ function restoreExistingLineup() {
   });
 
   renderBattingOrderList();
-  updateLineupTextarea();
   restoreExistingPitchingOrder();
+  updateLineupTextarea(false);
 }
 
 function checkSubmissionStatus(isHome, isAway) {
@@ -545,7 +545,7 @@ function checkSubmissionStatus(isHome, isAway) {
   status.className = "submission-status error";
 }
 
-function updateLineupTextarea() {
+function updateLineupTextarea(syncPitching = true) {
   const placed = Array.from(document.querySelectorAll(".position-slot"))
     .filter(slot => slot.dataset.player)
     .map(slot => ({
@@ -563,18 +563,20 @@ function updateLineupTextarea() {
     placed.some(item => item.player === player)
   );
 
-  placed.forEach(item => {
-    if (!pitchingOrder.includes(item.player)) {
-      pitchingOrder.push(item.player);
-    }
-  });
+  if (syncPitching) {
+    placed.forEach(item => {
+      if (!pitchingOrder.includes(item.player)) {
+        pitchingOrder.push(item.player);
+      }
+    });
 
-  pitchingOrder = pitchingOrder.filter(player =>
-    placed.some(item => item.player === player)
-  );
+    pitchingOrder = pitchingOrder.filter(player =>
+      placed.some(item => item.player === player)
+    );
 
-  renderPitchingOrderList();
-  document.getElementById("pitchingOrder").value = pitchingOrder.join("\n");
+    renderPitchingOrderList();
+    document.getElementById("pitchingOrder").value = pitchingOrder.join("\n");
+  }
 
   renderBattingOrderList();
 

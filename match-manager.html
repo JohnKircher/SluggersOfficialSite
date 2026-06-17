@@ -251,6 +251,7 @@ async function loadMatch() {
   document.getElementById("awayFields").style.display = isAway ? "block" : "none";
 
   if (isHome) {
+    document.getElementById("pitchingOrder").value = currentMatch["Home Pitching Order"] || "";
     document.getElementById("lineup").value = currentMatch["Home Lineup"] || "";
     document.getElementById("starPlayer").value = currentMatch.homeStar || "";
     document.getElementById("statAdjust").value = currentMatch.homeStatAdjust || "";
@@ -266,6 +267,7 @@ async function loadMatch() {
   }
 
   if (isAway) {
+    document.getElementById("pitchingOrder").value = currentMatch["Away Pitching Order"] || "";
     document.getElementById("lineup").value = currentMatch["Away Lineup"] || "";
     document.getElementById("starPlayer").value = currentMatch.awayStar || "";
     document.getElementById("statAdjust").value = currentMatch.awayStatAdjust || "";

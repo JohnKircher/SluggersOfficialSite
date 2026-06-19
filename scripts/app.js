@@ -833,18 +833,18 @@ if (scrollDownBtn) {
 }
 
 const mvpCounts = {
-  "King K Rool": 13,
+  "King K Rool": 14,
   "Red Kritter": 10,
   "Donkey Kong": 13,
   "Brown Kritter": 13,
   "Bowser": 26,
   "Unc": 8,
   "Hammer Bro": 11,
-  "Fire Bro": 16,
+  "Fire Bro": 17,
   "Dry Bones": 6,
-  "Birdo": 8,
-  "Boomerang Bro": 6,
-  "Kritter": 10,
+  "Birdo": 9,
+  "Boomerang Bro": 7,
+  "Kritter": 11,
   "Funky Kong": 7,
   "Bowser Jr": 2,
   "Daisy": 2,
@@ -866,7 +866,7 @@ const mvpCounts = {
   "Miss Hot": 4,
   "Blue Dry Bones": 2,
   "Dark Bones": 1,
-  "Green Magikoopa": 1,
+  "Green Magikoopa": 2,
   "Blue Kritter": 4,
   "Petey Piranha": 20,
   "Trinity": 1,
@@ -945,6 +945,12 @@ const playoffMvpCounts = {
 };
 
 window.mvpS3Counts = {
+  "Brido": 1,
+  "Fire Bro": 1,
+  "Green Magikoopa": 1,
+  "Kritter": 1,
+  "King K Rool": 1,
+  "Boomerang Bro": 1,
 };
 
 const championCounts = {

@@ -840,7 +840,7 @@ const mvpCounts = {
   "Bowser": 26,
   "Unc": 9,
   "Hammer Bro": 11,
-  "Fire Bro": 17,
+  "Fire Bro": 18,
   "Dry Bones": 6,
   "Birdo": 9,
   "Boomerang Bro": 7,
@@ -876,11 +876,11 @@ const mvpCounts = {
   "Green Dry Bones": 1,
   "Red Magikoopa": 2,
   "Saddam Hussein": 2,
-  "Pianta": 6,
+  "Pianta": 7,
   "Yellow Shy Guy": 2,
   "Toadette": 3,
-  "Red Yoshi": 1,
-  "Yellow Toad": 2,
+  "Red Yoshi": 2,
+  "Yellow Toad": 3,
   "Winnie The Pooh": 1,
   "Red Magikoopa": 1,
   "Lebron James": 1,
@@ -947,7 +947,7 @@ const playoffMvpCounts = {
 
 window.mvpS3Counts = {
   "Brido": 1,
-  "Fire Bro": 1,
+  "Fire Bro": 2,
   "Green Magikoopa": 1,
   "Kritter": 1,
   "King K Rool": 1,
@@ -959,6 +959,10 @@ window.mvpS3Counts = {
   "Blue Kritter": 1,
   "Brown Kritter": 1,
   "Green Shy Guy": 1,
+  "Pianta": 1,
+  "Red Yoshi": 1,
+  "Yellow Toad": 1
+
 };
 
 const championCounts = {

@@ -736,19 +736,45 @@ document.getElementById("reuseLastWeekBtn").addEventListener("click", () => {
   const lastMatch = previousMatches[0];
   const wasHome = lastMatch.home === team;
 
-  const lastLineup = wasHome ? lastMatch["Home Lineup"] : lastMatch["Away Lineup"];
+  const lastLineup = wasHome
+    ? lastMatch["Home Lineup"]
+    : lastMatch["Away Lineup"];
 
+  const lastPitchingOrder = wasHome
+    ? lastMatch["Home Pitching Order"]
+    : lastMatch["Away Pitching Order"];
+
+  // Load previous match values into the hidden fields
   document.getElementById("lineup").value = lastLineup || "";
-  document.getElementById("starPlayer").value = wasHome ? lastMatch.homeStar || "" : lastMatch.awayStar || "";
-  document.getElementById("statAdjust").value = wasHome ? lastMatch.homeStatAdjust || "" : lastMatch.awayStatAdjust || "";
-  document.getElementById("statClass").value = wasHome ? lastMatch.homeClass || "" : lastMatch.awayClass || "";
-  document.getElementById("trajectory").value = wasHome ? lastMatch.homeTrajectory || "" : lastMatch.awayTrajectory || "";
+  document.getElementById("pitchingOrder").value =
+    lastPitchingOrder || "";
 
+  document.getElementById("starPlayer").value = wasHome
+    ? lastMatch.homeStar || ""
+    : lastMatch.awayStar || "";
+
+  document.getElementById("statAdjust").value = wasHome
+    ? lastMatch.homeStatAdjust || ""
+    : lastMatch.awayStatAdjust || "";
+
+  document.getElementById("statClass").value = wasHome
+    ? lastMatch.homeClass || ""
+    : lastMatch.awayClass || "";
+
+  document.getElementById("trajectory").value = wasHome
+    ? lastMatch.homeTrajectory || ""
+    : lastMatch.awayTrajectory || "";
+
+  // Clear the current visual lineup/order arrays
   clearDiamondOnly();
-  restoreExistingLineup();
-  restoreExistingPitchingOrder();
+  pitchingOrder = [];
 
-  alert("Last week selections reused. Please choose stadium options before submitting.");
+  // Rebuild both orders from the previous match
+  restoreExistingLineup();
+
+  alert(
+    "Last week lineup and pitching order reused. Please choose stadium options before submitting."
+  );
 });
 
 </script>

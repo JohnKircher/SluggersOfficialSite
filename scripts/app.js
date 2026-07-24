@@ -833,9 +833,9 @@ if (scrollDownBtn) {
 }
 
 const mvpCounts = {
-  "King K Rool": 14,
+  "King K Rool": 15,
   "Red Kritter": 10,
-  "Donkey Kong": 15,
+  "Donkey Kong": 16,
   "Brown Kritter": 15,
   "Bowser": 26,
   "Unc": 10,
@@ -843,7 +843,7 @@ const mvpCounts = {
   "Fire Bro": 20,
   "Dry Bones": 6,
   "Birdo": 9,
-  "Boomerang Bro": 8,
+  "Boomerang Bro": 9,
   "Kritter": 11,
   "Funky Kong": 9,
   "Bowser Jr": 2,
@@ -855,7 +855,7 @@ const mvpCounts = {
   "Mario": 3,
   "Wario": 3,
   "Blue Toad": 4,
-  "Wiggler": 7,
+  "Wiggler": 8,
   "Toad": 8,
   "John 2.0": 1,
   "Boo": 2,
@@ -896,7 +896,7 @@ const mvpCounts = {
   "John K": 1,
   "Chicken": 1,
   "Tung Tung Tung Sahur": 1,
-  "Blooper": 2,
+  "Blooper": 3,
   "Yellow Toad": 2,
   "Mr. Incredible": 1,
   "Noki": 1,
@@ -950,9 +950,9 @@ window.mvpS3Counts = {
   "Fire Bro": 4,
   "Green Magikoopa": 1,
   "Kritter": 1,
-  "King K Rool": 1,
-  "Boomerang Bro": 2,
-  "Donkey Kong": 2,
+  "King K Rool": 2,
+  "Boomerang Bro": 3,
+  "Donkey Kong": 3,
   "Red Pianta": 2,
   "Unc": 2,
   "Peach": 1,
@@ -965,7 +965,9 @@ window.mvpS3Counts = {
   "Yellow Pianta": 2,
   "Petey Piranha": 3,
   "Funky Kong": 2,
-  "Lebron James": 1
+  "Lebron James": 1,
+  "Wiggler": 1,
+  "Blooper": 1
 
 
 };
